@@ -15,7 +15,6 @@ const MyApp = ({ Component, pageProps }) => {
   // if (router.pathname !== '/layout') {
   //   return null
   // }
-
   return (
     <>
       <GlobalStyle />
