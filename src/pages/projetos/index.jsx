@@ -62,7 +62,7 @@ const Projetos = () => {
           <GridContainer>
             <div className="container-item">
               <Link href="/projetos/portfolio">
-                <Image src={portfolioImg} loading="lazy" />
+                <Image src={portfolioImg} placeholder="blur" blurDataURL="data:image/svg+xml;base64,..." />
                 <div className="item">
                   <div className="sub-item">
                     <div>
@@ -71,6 +71,7 @@ const Projetos = () => {
                       <span style={{ margin: "0 8px 0 8px", padding: "0 5px 0 5px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Styled-components</span>
                     </div>
                     <h2 className="item-h2">Portfolio</h2>
+                    property
                     <p className="item-p">estudos e aprendizado</p>
                     <p>⭐⭐⭐⭐⭐ 🚀</p>
                   </div>
