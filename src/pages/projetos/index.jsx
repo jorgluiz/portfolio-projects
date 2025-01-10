@@ -17,7 +17,7 @@ import Link from "next/link";
 
 import { GridContainer, Container } from "@/components/projetos/";
 
-
+// 1. Efeito de redimensionamento da tela
 const Projetos = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
@@ -43,9 +43,13 @@ const Projetos = () => {
     };
   }, [setIsHamburguerOpen]);
 
-  if (!isLoaded) {
-    return <div>Carregando...</div>;
-  }
+  // 2. Efeito de carregamento (define isLoaded como true)
+  useEffect(() => {
+    setIsLoaded(true); // Define isLoaded como true quando o componente é montado
+  }, []); // Executa apenas uma vez, após a montagem do componente
+
+  // Se não estiver carregado, não renderiza o conteúdo
+  if (!isLoaded) return null; // Aguarda o carregamento
 
   return (
     <div style={{ display: "flex" }}>
