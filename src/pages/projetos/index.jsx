@@ -15,12 +15,15 @@ import ytmp3 from "../../assets/images/ytmp3.png";
 import ytmp4 from "../../assets/images/ytmp4.png";
 import Link from "next/link";
 
+import { portfolioImgBlur } from "@/utils/blurData";
+
 import { GridContainer, Container } from "@/components/projetos/";
 
 // 1. Efeito de redimensionamento da tela
 const Projetos = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,6 +51,16 @@ const Projetos = () => {
     setIsLoaded(true); // Define isLoaded como true quando o componente é montado
   }, []); // Executa apenas uma vez, após a montagem do componente
 
+  // Definir um atraso para carregar a imagem original
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setImageLoaded(true);  // Alterar o estado para exibir a imagem original
+    }, 2000);  // Atraso de 2 segundos (você pode ajustar este valor)
+
+    return () => clearTimeout(timer);  // Limpar o timeout ao desmontar o componente
+  }, []);
+
+
   // Se não estiver carregado, não renderiza o conteúdo
   if (!isLoaded) return null; // Aguarda o carregamento
 
@@ -62,7 +75,7 @@ const Projetos = () => {
           <GridContainer>
             <div className="container-item">
               <Link href="/projetos/portfolio">
-                <Image src={portfolioImg} loading="lazy" />
+                <Image src={portfolioImg} placeholder="blur" blurDataURL={portfolioImgBlur} />
                 <div className="item">
                   <div className="sub-item">
                     <div>
