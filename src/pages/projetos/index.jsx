@@ -15,7 +15,8 @@ import ytmp3 from "../../assets/images/ytmp3.png";
 import ytmp4 from "../../assets/images/ytmp4.png";
 import Link from "next/link";
 
-import { portfolioImgBlur } from "@/utils/blurData";
+import { portfolioImgBlur } from "@/utils/portfolio";
+import { stripeImgBlur } from "@/utils/stripe";
 
 import { GridContainer, Container } from "@/components/projetos/";
 
@@ -51,16 +52,6 @@ const Projetos = () => {
     setIsLoaded(true); // Define isLoaded como true quando o componente é montado
   }, []); // Executa apenas uma vez, após a montagem do componente
 
-  // Definir um atraso para carregar a imagem original
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setImageLoaded(true);  // Alterar o estado para exibir a imagem original
-    }, 2000);  // Atraso de 2 segundos (você pode ajustar este valor)
-
-    return () => clearTimeout(timer);  // Limpar o timeout ao desmontar o componente
-  }, []);
-
-
   // Se não estiver carregado, não renderiza o conteúdo
   if (!isLoaded) return null; // Aguarda o carregamento
 
@@ -92,7 +83,7 @@ const Projetos = () => {
             </div>
             <div className="container-item">
               <Link href="/projetos/stripe">
-                <Image src={stripelogo} />
+                <Image src={stripelogo} placeholder="blur" blurDataURL={stripeImgBlur} />
                 <div className="item">
                   <div className="sub-item">
                     <div style={{ display: "flex", flexWrap: "wrap" }}>
