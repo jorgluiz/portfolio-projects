@@ -62,7 +62,7 @@ const Projetos = () => {
           <GridContainer>
             <div className="container-item">
               <Link href="/projetos/portfolio">
-                <Image src={portfolioImg} />
+                <Image src={portfolioImg} loading="lazy" />
                 <div className="item">
                   <div className="sub-item">
                     <div>
