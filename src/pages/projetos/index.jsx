@@ -17,6 +17,14 @@ import Link from "next/link";
 
 import { portfolioImgBlur } from "@/utils/portfolio";
 import { stripeImgBlur } from "@/utils/stripe";
+import { carouseImgBlur } from "@/utils/carousel";
+import { analyzeImgBlur } from "@/utils/analyze";
+import { streamImgBlur } from "@/utils/stream";
+import { imageGenerationImgBlur } from "@/utils/imageGeneration";
+import { youtubeImgBlur } from "@/utils/youtube";
+import { catalogoImgBlur } from "@/utils/catalogo";
+import { ytmp3ImgBlur } from "@/utils/ytmp3";
+import { ytmp4ImgBlur } from "@/utils/ytmp4";
 
 import { GridContainer, Container } from "@/components/projetos/";
 
@@ -24,7 +32,6 @@ import { GridContainer, Container } from "@/components/projetos/";
 const Projetos = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -121,7 +128,7 @@ const Projetos = () => {
             </div>
             <div className="container-item">
               <Link href="/projetos/carousel">
-                <Image src={carousel} />
+                <Image src={carousel} placeholder="blur" blurDataURL={carouseImgBlur} />
                 <div className="item">
                   <div className="sub-item">
                     <div>
@@ -139,7 +146,7 @@ const Projetos = () => {
             </div>
             <div className="container-item">
               <Link href="/projetos/dataAnalysis">
-                <Image src={analyzeFeelings} />
+                <Image src={analyzeFeelings} placeholder="blur" blurDataURL={analyzeImgBlur} />
                 <div className="item">
                   <div className="sub-item">
                     <div className="tech">
@@ -165,7 +172,7 @@ const Projetos = () => {
             </div>
             <div className="container-item">
               <Link href="/projetos/streamDolby">
-                <Image src={stream} />
+                <Image src={stream} placeholder="blur" blurDataURL={streamImgBlur} />
                 <div className="item">
                   <div className="sub-item">
                     <div className="tech">
@@ -188,7 +195,7 @@ const Projetos = () => {
             </div>
             <div className="container-item">
               <Link href="/projetos/imageGenerator">
-                <Image src={imageGeneration} />
+                <Image src={imageGeneration} placeholder="blur" blurDataURL={imageGenerationImgBlur} />
                 <div className="item">
                   <div className="sub-item">
                     <div className="tech">
@@ -207,7 +214,7 @@ const Projetos = () => {
             </div>
             <div className="container-item">
               <Link href="/projetos/youtube">
-                <Image src={youtube} />
+                <Image src={youtube} placeholder="blur" blurDataURL={youtubeImgBlur} />
                 <div className="item">
                   <div className="sub-item">
                     <div className="tech">
@@ -223,7 +230,7 @@ const Projetos = () => {
             </div>
             <div className="container-item">
               <Link href="/projetos/catalogo">
-                <Image src={catalogo} />
+                <Image src={catalogo} placeholder="blur" blurDataURL={catalogoImgBlur} />
                 <div className="item">
                   <div className="sub-item">
                     <div className="tech">
@@ -240,7 +247,7 @@ const Projetos = () => {
             </div>
             <div className="container-item">
               <Link href="/projetos/ytformp3">
-                <Image src={ytmp3} />
+                <Image src={ytmp3} placeholder="blur" blurDataURL={ytmp3ImgBlur} />
                 <div className="item">
                   <div className="sub-item">
                     <div className="tech">
@@ -259,7 +266,7 @@ const Projetos = () => {
             </div>
             <div className="container-item">
               <Link href="/projetos/ytformp4">
-                <Image src={ytmp4} />
+                <Image src={ytmp4} placeholder="blur" blurDataURL={ytmp4ImgBlur} />
                 <div className="item">
                   <div className="sub-item">
                     <div className="tech">
