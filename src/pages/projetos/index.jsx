@@ -19,6 +19,7 @@ import { GridContainer, Container } from "@/components/projetos/";
 
 
 const Projetos = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
   const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
 
   useEffect(() => {
@@ -41,6 +42,10 @@ const Projetos = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [setIsHamburguerOpen]);
+
+  if (!isLoaded) {
+    return <div>Carregando...</div>;
+  }
 
   return (
     <div style={{ display: "flex" }}>
