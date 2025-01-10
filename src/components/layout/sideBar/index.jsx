@@ -10,11 +10,11 @@ const SideBar = ({ isHamburguerOpen, setIsHamburguerOpen }) => {
   const [activeLink, setActiveLink] = useState('/'); // Estado para armazenar o link ativo
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 500); // Simula o carregamento
-    return () => clearTimeout(timer);
+    // Certifica-se de que o código só é executado no cliente
+    setIsLoaded(true);
   }, []);
 
-  if (!isLoaded) return;
+  if (!isLoaded) return null; // Aguarda o carregamento
 
   return (
     <Containerfixed isHamburguerOpen={isHamburguerOpen}>
