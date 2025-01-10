@@ -3,7 +3,7 @@ import Main from "@/components/layout/main";
 import SideBar from "@/components/layout/sideBar";
 import Header from "@/components/layout/header";
 
-import { Container, P, H3, Li, Ul, H4 } from "./styles";
+import { Container, P, H3, Li, Ul, H4 } from "@/components/projetos/dataAnalysis/styles";
 
 const Carousel = () => {
   const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);

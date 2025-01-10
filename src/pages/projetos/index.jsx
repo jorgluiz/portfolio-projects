@@ -15,7 +15,7 @@ import ytmp3 from "../../assets/images/ytmp3.png";
 import ytmp4 from "../../assets/images/ytmp4.png";
 import Link from "next/link";
 
-import { GridContainer, Container } from "./styles";
+import { GridContainer, Container } from "@/components/projetos/";
 
 
 const Projetos = () => {
