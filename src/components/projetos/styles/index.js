@@ -17,6 +17,22 @@ export const Container = styled.div`
   & .margin10 {
   margin-top: -15px;
 }
+<<<<<<< HEAD
+=======
+
+& .list-style-type {
+  list-style-type: none;
+}
+
+& .remove-padding {
+  padding: 0 0 8px 0;
+  line-height: 0
+}
+
+& span {
+  background-color: #bcccdc;
+}
+>>>>>>> ef0a6a5e7905f44ae92c00c646f381ffddb5070f
 `;
 
 export const P = styled.p`
@@ -46,6 +62,10 @@ margin-bottom: 20px;
 export const Li = styled.li`
 
 padding: 8px 0 8px 0;
+<<<<<<< HEAD
+=======
+line-height: 28px;
+>>>>>>> ef0a6a5e7905f44ae92c00c646f381ffddb5070f
 `;
 
 export const Ul = styled.ul`

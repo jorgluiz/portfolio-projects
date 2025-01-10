@@ -3,7 +3,11 @@ import Main from "@/components/layout/main";
 import SideBar from "@/components/layout/sideBar";
 import Header from "@/components/layout/header";
 
+<<<<<<< HEAD
 import { Container, P, H3, Li, Ul, H4 } from "@/components/projetos/carousel/styles";
+=======
+import { Container, P, H3, Li, Ul, H4 } from "@/components/projetos/styles";
+>>>>>>> ef0a6a5e7905f44ae92c00c646f381ffddb5070f
 
 const Carousel = () => {
   const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
