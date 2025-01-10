@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import perfil from '../../../assets/images/perfil.jpeg';
 import Link from 'next/link';
@@ -6,7 +6,15 @@ import Link from 'next/link';
 import { Containerfixed, Container, Menu, XContainer, Bar, DiagonalOne, DiagonalTwo } from './styles';
 
 const SideBar = ({ isHamburguerOpen, setIsHamburguerOpen }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
   const [activeLink, setActiveLink] = useState('/'); // Estado para armazenar o link ativo
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 500); // Simula o carregamento
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isLoaded) return;
 
   return (
     <Containerfixed isHamburguerOpen={isHamburguerOpen}>
