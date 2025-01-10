@@ -6,7 +6,12 @@ import Link from 'next/link';
 import { Containerfixed, Container, Menu, XContainer, Bar, DiagonalOne, DiagonalTwo } from './styles';
 
 const SideBar = ({ isHamburguerOpen, setIsHamburguerOpen }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
   const [activeLink, setActiveLink] = useState('/'); // Estado para armazenar o link ativo
+
+  if (!isLoaded) {
+    return <div>Carregando...</div>;
+  }
 
   return (
     <Containerfixed isHamburguerOpen={isHamburguerOpen}>
