@@ -4,7 +4,7 @@ import Main from "@/components/layout/main";
 import SideBar from "@/components/layout/sideBar";
 import Header from "@/components/layout/header";
 import Image from 'next/image';
-import portfolioImg from "../../../public/photos/1-04bfd950.jpg";
+import portfolioImg from "../../assets/images/portfolio.png";
 import stripelogo from "../../assets/images/stripeLogo.png";
 import carousel from "../../assets/images/carousel.png";
 import analyzeFeelings from "../../assets/images/analyze-feelings.png";
@@ -74,13 +74,13 @@ const Projetos = () => {
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Portfólio de Desenvolvimento Web | [Seu Nome]" />
         <meta property="og:description" content="Veja meus projetos de desenvolvimento web, com foco em tecnologias modernas como React.js e Node.js." />
-        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/photos/1-04bfd950.jpg" />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/photos/compartilhar.jpg" />
         <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
         <meta name="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos"></meta>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Portfólio de Desenvolvimento Web | [Seu Nome]" />
         <meta name="twitter:description" content="Portfólio com projetos de desenvolvimento web usando React, Node.js e mais." />
-        <meta name="twitter:image" content="https://portfolio-projects-production.up.railway.app/photos/1-04bfd950.jpg" />
+        <meta name="twitter:image" content="https://portfolio-projects-production.up.railway.app/photos/compartilhar.jpg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={{ display: "flex" }}>
