@@ -27,7 +27,7 @@ const SideBar = ({ isHamburguerOpen, setIsHamburguerOpen }) => {
       <Container>
         <Link href="/">
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", border: "solid 2px #243b53", borderRadius: '50%', width: "160px", height: "160px", marginTop: "40px" }}>
-            <Image src={perfil} width={150} height={150} style={{ borderRadius: '50%' }} />
+            <Image src={perfil} width={150} height={150} style={{ borderRadius: '50%' }} alt="img" />
           </div>
         </Link>
         <h3 style={{ color: "#d1dfed" }}>Jorge Luiz de Medeiros e Silva Jr</h3>

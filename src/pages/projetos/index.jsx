@@ -86,7 +86,7 @@ const Projetos = () => {
             <GridContainer>
               <div className="container-item">
                 <Link href="/projetos/portfolio">
-                  <Image src={portfolioImg} placeholder="blur" blurDataURL={portfolioImgBlur} />
+                  <Image src={portfolioImg} placeholder="blur" blurDataURL={portfolioImgBlur} alt="img" />
                   <div className="item">
                     <div className="sub-item">
                       <div>
@@ -103,7 +103,7 @@ const Projetos = () => {
               </div>
               <div className="container-item">
                 <Link href="/projetos/stripe">
-                  <Image src={stripelogo} placeholder="blur" blurDataURL={stripeImgBlur} />
+                  <Image src={stripelogo} placeholder="blur" blurDataURL={stripeImgBlur} alt="img" />
                   <div className="item">
                     <div className="sub-item">
                       <div style={{ display: "flex", flexWrap: "wrap" }}>
@@ -141,7 +141,7 @@ const Projetos = () => {
               </div>
               <div className="container-item">
                 <Link href="/projetos/carousel">
-                  <Image src={carousel} placeholder="blur" blurDataURL={carouseImgBlur} />
+                  <Image src={carousel} placeholder="blur" blurDataURL={carouseImgBlur} alt="img" />
                   <div className="item">
                     <div className="sub-item">
                       <div>
@@ -159,7 +159,7 @@ const Projetos = () => {
               </div>
               <div className="container-item">
                 <Link href="/projetos/dataAnalysis">
-                  <Image src={analyzeFeelings} placeholder="blur" blurDataURL={analyzeImgBlur} />
+                  <Image src={analyzeFeelings} placeholder="blur" blurDataURL={analyzeImgBlur} alt="img" />
                   <div className="item">
                     <div className="sub-item">
                       <div className="tech">
@@ -185,7 +185,7 @@ const Projetos = () => {
               </div>
               <div className="container-item">
                 <Link href="/projetos/streamDolby">
-                  <Image src={stream} placeholder="blur" blurDataURL={streamImgBlur} />
+                  <Image src={stream} placeholder="blur" blurDataURL={streamImgBlur} alt="img" />
                   <div className="item">
                     <div className="sub-item">
                       <div className="tech">
@@ -208,7 +208,7 @@ const Projetos = () => {
               </div>
               <div className="container-item">
                 <Link href="/projetos/imageGenerator">
-                  <Image src={imageGeneration} placeholder="blur" blurDataURL={imageGenerationImgBlur} />
+                  <Image src={imageGeneration} placeholder="blur" blurDataURL={imageGenerationImgBlur} alt="img" />
                   <div className="item">
                     <div className="sub-item">
                       <div className="tech">
@@ -227,7 +227,7 @@ const Projetos = () => {
               </div>
               <div className="container-item">
                 <Link href="/projetos/youtube">
-                  <Image src={youtube} placeholder="blur" blurDataURL={youtubeImgBlur} />
+                  <Image src={youtube} placeholder="blur" blurDataURL={youtubeImgBlur} alt="img" />
                   <div className="item">
                     <div className="sub-item">
                       <div className="tech">
@@ -243,7 +243,7 @@ const Projetos = () => {
               </div>
               <div className="container-item">
                 <Link href="/projetos/catalogo">
-                  <Image src={catalogo} placeholder="blur" blurDataURL={catalogoImgBlur} />
+                  <Image src={catalogo} placeholder="blur" blurDataURL={catalogoImgBlur} alt="img" />
                   <div className="item">
                     <div className="sub-item">
                       <div className="tech">
@@ -260,7 +260,7 @@ const Projetos = () => {
               </div>
               <div className="container-item">
                 <Link href="/projetos/ytformp3">
-                  <Image src={ytmp3} placeholder="blur" blurDataURL={ytmp3ImgBlur} />
+                  <Image src={ytmp3} placeholder="blur" blurDataURL={ytmp3ImgBlur} alt="img" />
                   <div className="item">
                     <div className="sub-item">
                       <div className="tech">
@@ -279,7 +279,7 @@ const Projetos = () => {
               </div>
               <div className="container-item">
                 <Link href="/projetos/ytformp4">
-                  <Image src={ytmp4} placeholder="blur" blurDataURL={ytmp4ImgBlur} />
+                  <Image src={ytmp4} placeholder="blur" blurDataURL={ytmp4ImgBlur} alt="img" />
                   <div className="item">
                     <div className="sub-item">
                       <div className="tech">
