@@ -74,12 +74,12 @@ const Projetos = () => {
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Portfólio de Desenvolvimento Web | [Seu Nome]" />
         <meta property="og:description" content="Veja meus projetos de desenvolvimento web, com foco em tecnologias modernas como React.js e Node.js." />
-        <meta property="og:image" content="https://media.datacenterdynamics.com/media/images/GettyImages-1454581645_1.width-880.jpg" />
+        <meta property="og:image" content="https://images.kabum.com.br/produtos/fotos/235984/placa-de-video-asrock-amd-radeon-rx-6600-cld-8g-8gb-90-ga2rzz-00uanf_1634738812_m.jpg" />
         <meta property="og:url" content="https://www.seusite.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Portfólio de Desenvolvimento Web | [Seu Nome]" />
         <meta name="twitter:description" content="Portfólio com projetos de desenvolvimento web usando React, Node.js e mais." />
-        <meta name="twitter:image" content="URL_da_imagem_aqui" />
+        <meta name="twitter:image" content="https://images.kabum.com.br/produtos/fotos/235984/placa-de-video-asrock-amd-radeon-rx-6600-cld-8g-8gb-90-ga2rzz-00uanf_1634738812_m.jpg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={{ display: "flex" }}>
