@@ -15,7 +15,7 @@ const Portfolio = () => {
       <Main>
         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Container>
-          <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Player de Vídeo Personalizado</H3>
+          <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Descubra o Projeto: Player de Vídeo Personalizado - Clique para ver mais!</H3>
           <P>
             <a href="https://portfolio-work-developed-d98bf30e877e.herokuapp.com/video" target="_blank">direcionar para página</a>
           </P>

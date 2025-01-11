@@ -15,7 +15,7 @@ const Carousel = () => {
       <Main>
         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Container>
-          <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Carousel de Imagens com Controles Personalizados</H3>
+          <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Descubra o Projeto: Carousel de Imagens com Controles Personalizados - Clique para ver mais!</H3>
           <P>
             <a href="https://carousel-kabum-c0fa13dbd64e.herokuapp.com/" target="_blank">direcionar para página</a>
           </P>

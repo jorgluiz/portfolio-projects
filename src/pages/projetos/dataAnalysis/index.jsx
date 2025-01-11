@@ -15,7 +15,7 @@ const Carousel = () => {
       <Main>
         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Container>
-          <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Análise Completa do Projeto de Coleta e Análise de Dados no Twitter usando Puppeteer e OpenAI</H3>
+          <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Descubra o Projeto: Análise Completa do Projeto de Coleta e Análise de Dados no Twitter usando Puppeteer e OpenAI - Clique para ver mais!</H3>
           <P>
             <a href="https://analyze-feelings-806c3f1d471a.herokuapp.com/home" target="_blank">direcionar para página</a>
           </P>

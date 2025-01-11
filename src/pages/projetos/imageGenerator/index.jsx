@@ -15,7 +15,7 @@ const Portfolio = () => {
       <Main>
         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Container>
-          <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Gerador de Imagens com Visualização Ampliada</H3>
+          <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Descubra o Projeto: Gerador de Imagens com Visualização Ampliada - Clique para ver mais!</H3>
           <P>
             <a href="https://image-generation-0208a7513db8.herokuapp.com/home" target="_blank">direcionar para página</a>
           </P>

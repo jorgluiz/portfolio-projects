@@ -15,7 +15,7 @@ const Carousel = () => {
       <Main>
         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Container>
-          <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Catálogo de Carros (Catalogo)</H3>
+          <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Descubra o Projeto: Catálogo de Carros - Clique para ver mais!</H3>
           <P>
             <a href="https://portfolio-work-developed-d98bf30e877e.herokuapp.com/front-end/catalogo" target="_blank">direcionar para página</a>
           </P>

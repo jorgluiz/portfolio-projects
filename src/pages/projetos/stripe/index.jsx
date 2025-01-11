@@ -15,7 +15,7 @@ const Stripe = () => {
       <Main>
         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Container>
-          <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Plataforma de Autenticação e Pagamentos com STRIPE</H3>
+          <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Descubra o Projeto: Plataforma de Autenticação e Pagamentos com STRIPE - Clique para ver mais!</H3>
           <P>
             <a href="https://payment-stripe-9d0c2c183f31.herokuapp.com/login/" target="_blank">direcionar para página</a>
           </P>
