@@ -66,15 +66,22 @@ const Projetos = () => {
   return (
     <>
       <Head>
-        <meta property="og:title" content="Portfólio de Desenvolvimento Web | [Seu Nome]" />
-        <meta property="og:description" content="Veja meus projetos de desenvolvimento web, com foco em tecnologias modernas como React.js e Node.js." />
-        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/photos/maxresdefault.jpg" />
-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
+        <meta name="title" content="" />
+        <meta name="description" content="" />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Portfólio de Desenvolvimento Web | [Seu Nome]" />
-        <meta name="twitter:description" content="Portfólio com projetos de desenvolvimento web usando React, Node.js e mais." />
-        <meta name="twitter:image" content="https://portfolio-projects-production.up.railway.app/photos/maxresdefault.jpg" />
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
+        <meta property="og:title" content="Portfólio de Desenvolvimento Web" />
+        <meta property="og:description" content="Prepare-se para conquistar a vitória! Domine a arena com o Gabinete Gamer Rise Mode Z4 e leve suas experiências de jogo a um novo patamar. Compre já!" />
+        <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
+        <meta property="twitter:title" content="Portfólio de Desenvolvimento Web" />
+        <meta property="twitter:description" content="Portfólio de Desenvolvimento Web" />
+        <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
       </Head>
       <div style={{ display: "flex" }}>
         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
