@@ -74,13 +74,13 @@ const Projetos = () => {
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Portfólio de Desenvolvimento Web | [Seu Nome]" />
         <meta property="og:description" content="Veja meus projetos de desenvolvimento web, com foco em tecnologias modernas como React.js e Node.js." />
-        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/photos/compartilhar.jpg" />
+        <meta property="og:image" content="/photos/compartilhar.jpg" />
         <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
         <meta name="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos"></meta>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Portfólio de Desenvolvimento Web | [Seu Nome]" />
         <meta name="twitter:description" content="Portfólio com projetos de desenvolvimento web usando React, Node.js e mais." />
-        <meta name="twitter:image" content="https://portfolio-projects-production.up.railway.app/photos/compartilhar.jpg" />
+        <meta name="twitter:image" content="/photos/compartilhar.jpg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={{ display: "flex" }}>
