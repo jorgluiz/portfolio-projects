@@ -66,8 +66,10 @@ const Projetos = () => {
   return (
     <>
       <Head>
-        <meta name="title" content="" />
-        <meta name="description" content="" />
+        {/* <!-- Primary Meta Tags --> */}
+        <title>Portfólio de Desenvolvimento Web</title>
+        <meta name="title" content="Portfólio de Desenvolvimento Web" />
+        <meta name="description" content="Prepare-se para conquistar a vitória! Domine a arena com o Gabinete Gamer Rise Mode Z4 e leve suas experiências de jogo a um novo patamar. Compre já!" />
 
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:type" content="website" />
@@ -80,8 +82,10 @@ const Projetos = () => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
         <meta property="twitter:title" content="Portfólio de Desenvolvimento Web" />
-        <meta property="twitter:description" content="Portfólio de Desenvolvimento Web" />
+        <meta property="twitter:description" content="Prepare-se para conquistar a vitória! Domine a arena com o Gabinete Gamer Rise Mode Z4 e leve suas experiências de jogo a um novo patamar. Compre já!" />
         <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
+        {/* <!-- Meta Tags Generated with https://metatags.io --> */}
       </Head>
       <div style={{ display: "flex" }}>
         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
