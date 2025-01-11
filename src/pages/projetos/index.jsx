@@ -74,7 +74,7 @@ const Projetos = () => {
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Portfólio de Desenvolvimento Web | [Seu Nome]" />
         <meta property="og:description" content="Veja meus projetos de desenvolvimento web, com foco em tecnologias modernas como React.js e Node.js." />
-        <meta property="og:image" content="URL_da_imagem_aqui" />
+        <meta property="og:image" content="https://cdn.pixabay.com/photo/2024/06/01/14/00/ai-8802304_1280.jpg" />
         <meta property="og:url" content="https://www.seusite.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Portfólio de Desenvolvimento Web | [Seu Nome]" />
