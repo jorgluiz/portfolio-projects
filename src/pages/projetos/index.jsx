@@ -76,6 +76,7 @@ const Projetos = () => {
         <meta property="og:description" content="Veja meus projetos de desenvolvimento web, com foco em tecnologias modernas como React.js e Node.js." />
         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/photos/1-04bfd950.jpg" />
         <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
+        <meta name="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos"></meta>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Portfólio de Desenvolvimento Web | [Seu Nome]" />
         <meta name="twitter:description" content="Portfólio com projetos de desenvolvimento web usando React, Node.js e mais." />
