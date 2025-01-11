@@ -4,7 +4,7 @@ import Main from "@/components/layout/main";
 import SideBar from "@/components/layout/sideBar";
 import Header from "@/components/layout/header";
 import Image from 'next/image';
-import portfolioImg from "../../assets/images/portfolio.png";
+import portfolioImg from "../../../public/photos/1-04bfd950.jpg";
 import stripelogo from "../../assets/images/stripeLogo.png";
 import carousel from "../../assets/images/carousel.png";
 import analyzeFeelings from "../../assets/images/analyze-feelings.png";
