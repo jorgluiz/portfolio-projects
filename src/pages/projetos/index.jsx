@@ -69,7 +69,12 @@ const Projetos = () => {
         <meta property="og:title" content="Portfólio de Desenvolvimento Web | [Seu Nome]" />
         <meta property="og:description" content="Veja meus projetos de desenvolvimento web, com foco em tecnologias modernas como React.js e Node.js." />
         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/photos/maxresdefault.jpg" />
-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/photos/maxresdefault.jpg" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Portfólio de Desenvolvimento Web | [Seu Nome]" />
+        <meta name="twitter:description" content="Portfólio com projetos de desenvolvimento web usando React, Node.js e mais." />
+        <meta name="twitter:image" content="https://portfolio-projects-production.up.railway.app/photos/maxresdefault.jpg" />
       </Head>
       <div style={{ display: "flex" }}>
         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
