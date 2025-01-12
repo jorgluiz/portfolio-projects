@@ -78,7 +78,7 @@ const Projetos = () => {
         <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
         <meta property="og:title" content="Portfólio de Desenvolvimento Web" />
         <meta property="og:description" content="Prepare-se para conquistar a vitória! Domine a arena com o Gabinete Gamer Rise Mode Z4 e leve suas experiências de jogo a um novo patamar. Compre já!" />
-        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/photos/maxresdefault.jpg" />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/maxresdefault.jpg" />
         <meta property="fb:app_id" content="1234567890" />
 
         {/* <!-- Twitter --> */}
@@ -86,7 +86,7 @@ const Projetos = () => {
         <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
         <meta property="twitter:title" content="Portfólio de Desenvolvimento Web" />
         <meta property="twitter:description" content="Prepare-se para conquistar a vitória! Domine a arena com o Gabinete Gamer Rise Mode Z4 e leve suas experiências de jogo a um novo patamar. Compre já!" />
-        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/photos/maxresdefault.jpg" />
+        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/maxresdefault.jpg" />
 
         {/* <!-- Meta Tags Generated with https://metatags.io --> */}
       </Head>
