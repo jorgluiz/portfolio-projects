@@ -1,3 +1,36 @@
+export const metadata = {
+  title: 'Meu Portfólio | Desenvolvedor Web',
+  description: 'Confira meus projetos incríveis desenvolvidos com tecnologias modernas como React e Next.js.',
+  openGraph: {
+    title: 'Meu Portfólio | Desenvolvedor Web',
+    description: 'Projetos incríveis desenvolvidos com React, Next.js e Node.js.',
+    url: 'https://portfolio-projects-production.up.railway.app/projetos',
+    siteName: 'Meu Portfólio',
+    images: [
+      {
+        url: 'https://portfolio-projects-production.up.railway.app/maxresdefault.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Imagem de Portfólio',
+      },
+    ],
+    locale: 'pt_BR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Meu Portfólio | Desenvolvedor Web',
+    description: 'Explore os melhores projetos de desenvolvimento web.',
+    images: ['https://portfolio-projects-production.up.railway.app/maxresdefault.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+  },
+};
+
+
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Main from "@/components/layout/main";
@@ -65,32 +98,6 @@ const Projetos = () => {
 
   return (
     <>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        {/* <!-- Primary Meta Tags --> */}
-        <title>Portfólio de Desenvolvimento Web</title>
-        <meta name="title" content="Portfólio de Desenvolvimento Web" />
-        <meta name="description" content="Prepare-se para conquistar a vitória! Domine a arena com o Gabinete Gamer Rise Mode Z4 e leve suas experiências de jogo a um novo patamar. Compre já!" />
-
-        {/* <!-- Open Graph / Facebook --> */}
-        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
-        <meta property="og:image:type" content="image/jpg"></meta>
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
-        <meta property="og:title" content="Portfólio de Desenvolvimento Web" />
-        <meta property="og:description" content="Prepare-se para conquistar a vitória! Domine a arena com o Gabinete Gamer Rise Mode Z4 e leve suas experiências de jogo a um novo patamar. Compre já!" />
-        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/maxresdefault.jpg" />
-        <meta property="fb:app_id" content="1234567890" />
-
-        {/* <!-- Twitter --> */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
-        <meta property="twitter:title" content="Portfólio de Desenvolvimento Web" />
-        <meta property="twitter:description" content="Prepare-se para conquistar a vitória! Domine a arena com o Gabinete Gamer Rise Mode Z4 e leve suas experiências de jogo a um novo patamar. Compre já!" />
-        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/maxresdefault.jpg" />
-
-        {/* <!-- Meta Tags Generated with https://metatags.io --> */}
-      </Head>
       <div style={{ display: "flex" }}>
         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
         <Main>
