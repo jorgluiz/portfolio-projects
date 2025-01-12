@@ -66,13 +66,14 @@ const Projetos = () => {
   return (
     <>
       <Head>
+        <link rel="icon" href="/favicon.ico" />
         {/* <!-- Primary Meta Tags --> */}
         <title>Portfólio de Desenvolvimento Web</title>
         <meta name="title" content="Portfólio de Desenvolvimento Web" />
         <meta name="description" content="Prepare-se para conquistar a vitória! Domine a arena com o Gabinete Gamer Rise Mode Z4 e leve suas experiências de jogo a um novo patamar. Compre já!" />
 
         {/* <!-- Open Graph / Facebook --> */}
-        <meta property="og:site_name" content="StackOverflow" />
+        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:image:type" content="image/jpg"></meta>
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
