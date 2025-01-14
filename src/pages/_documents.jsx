@@ -33,6 +33,8 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt">
         <Head>
+          {/* Meta tag para verificação do Google */}
+          <meta name="google-site-verification" content="google7dbb4c0aaf7d5e18.html" />
           <link rel="icon" href="/favicon.ico" />
           <meta charSet="utf-8" />
           <link
