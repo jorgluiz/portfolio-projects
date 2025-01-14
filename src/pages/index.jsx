@@ -10,6 +10,7 @@ const Home = () => {
   return (
     <>
       <Head>
+        <meta name="google-site-verification" content="bGIRzQlb-OMsI71wbLCdnYOTKBokeOLQ_PQK7vvJKck" />
         {/* <!-- Primary Meta Tags --> */}
         <title>Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend</title>
         <meta name="title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
