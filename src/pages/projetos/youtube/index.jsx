@@ -13,7 +13,6 @@ const Portfolio = () => {
   return (
     <>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
         {/* <!-- Primary Meta Tags --> */}
         <title>Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend</title>
         <meta name="title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />

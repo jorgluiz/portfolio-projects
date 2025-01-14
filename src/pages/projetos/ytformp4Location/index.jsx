@@ -13,7 +13,6 @@ const Ytformp4 = () => {
   return (
     <>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
         {/* <!-- Primary Meta Tags --> */}
         <title>Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend</title>
         <meta name="title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
@@ -56,8 +55,8 @@ const Ytformp4 = () => {
                   </Ul>
                   <P><strong>Tecnologias utilizadas:</strong></P>
                   <Ul>
-                    <Li><strong>Backend:</strong> Node.js, Express, ytdl-core, fluent-ffmpeg, Socket.IO.</Li>
-                    <Li><strong>Frontend:</strong> HTML, CSS.</Li>
+                    <Li><strong>Backend:</strong> Node.js, Express, ytdl-core, fluent-ffmpeg, Socket.IO</Li>
+                    <Li><strong>Frontend:</strong> HTML, CSS e Socket.IO</Li>
                     <Li><strong>Outras ferramentas:</strong> uuid, cors, fs.</Li>
                   </Ul>
                   <P><strong>Diferenciais técnicos:</strong></P>

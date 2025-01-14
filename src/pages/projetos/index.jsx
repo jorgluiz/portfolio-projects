@@ -266,19 +266,37 @@ const Projetos = () => {
                 </Link>
               </div>
               <div className="container-item">
-                <Link href="/projetos/ytformp4">
+                <Link href="/projetos/ytformp4Location">
                   <Image src={ytmp4} placeholder="blur" blurDataURL={ytmp4ImgBlur} alt="img" />
                   <div className="item">
                     <div className="sub-item">
                       <div className="tech">
                         <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
                         <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> HTML e CSS</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Socket.IO</span>
                         <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Node.js</span>
                         <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Express</span>
                         <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>@distube/ytdl-core</span>
                       </div>
                       <h2 className="item-h2">Download de Vídeo do YouTube</h2>
-                      <p className="item-p">estudos e aprendizado</p>
+                      <p className="item-p"><span style={{ color: "red" }}>Backend local</span></p>
+                      <p>⭐⭐⭐⭐⭐ 🚀</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="container-item">
+                <Link href="/projetos/ytformp4Cloud">
+                  <Image src={ytmp4} placeholder="blur" blurDataURL={ytmp4ImgBlur} alt="img" />
+                  <div className="item">
+                    <div className="sub-item">
+                      <div className="tech">
+                        <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> HTML e CSS</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Socket.IO</span>
+                      </div>
+                      <h2 className="item-h2">Download de Vídeo do YouTube</h2>
+                      <p className="item-p"><span style={{ color: "red" }}>Backend na nuvem ( funcionando )</span></p>
                       <p>⭐⭐⭐⭐⭐ 🚀</p>
                     </div>
                   </div>
