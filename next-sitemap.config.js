@@ -1,7 +1,5 @@
-/** @type {import('next-sitemap').IConfig} */
-const config = {
-  siteUrl: 'https://portfolio-projects-production.up.railway.app', // Substitua pelo domínio do seu site
-  generateRobotsTxt: true, // Gera automaticamente o robots.txt
+module.exports = {
+  siteUrl: 'https://portfolio-projects-production.up.railway.app', // Seu domínio
+  generateRobotsTxt: true, // Se você quiser gerar o arquivo robots.txt
+  sitemapSize: 5000, // Número máximo de URLs por sitemap
 };
-
-export default config;

@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://portfolio-projects-production.up.railway.app/projetos</loc><lastmod>2025-01-14T11:52:49.893Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp4Cloud</loc><lastmod>2025-01-14T11:52:49.894Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://portfolio-projects-production.up.railway.app</loc><lastmod>2025-01-14T18:17:07.008Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://portfolio-projects-production.up.railway.app/projetos</loc><lastmod>2025-01-14T18:17:07.009Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/carousel</loc><lastmod>2025-01-14T18:17:07.009Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/catalogo</loc><lastmod>2025-01-14T18:17:07.009Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/dataAnalysis</loc><lastmod>2025-01-14T18:17:07.009Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/imageGenerator</loc><lastmod>2025-01-14T18:17:07.009Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/portfolio</loc><lastmod>2025-01-14T18:17:07.009Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/streamDolby</loc><lastmod>2025-01-14T18:17:07.009Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/stripe</loc><lastmod>2025-01-14T18:17:07.009Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/youtube</loc><lastmod>2025-01-14T18:17:07.009Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp3</loc><lastmod>2025-01-14T18:17:07.009Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp4Cloud</loc><lastmod>2025-01-14T18:17:07.009Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp4Location</loc><lastmod>2025-01-14T18:17:07.009Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
