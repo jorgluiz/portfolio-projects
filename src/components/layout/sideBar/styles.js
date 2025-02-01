@@ -6,11 +6,13 @@ export const Containerfixed = styled.div`
   top: 0;
   z-index: 10;
   height: 100vh;
+  width: 330px;
   min-width: 330px; /* Impede que a largura seja comprimida */
   background-color: #191970; /* For browsers that do not support gradients */
   background-image: linear-gradient(to top, #000080, #7B68EE);
   transition: transform 500ms ease-in-out; /* Transição suave para mover o sidebar */
   transform: translateX(0); /* Posição inicial */
+  border-top-right-radius: 50px;
 
   @media (max-width: 1250px) {
     /* Alterna para 'fixed' em telas menores para remover o espaço quando o sidebar é oculto */

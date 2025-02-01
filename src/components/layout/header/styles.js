@@ -18,6 +18,8 @@ box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 @media (max-width: 1250px) {
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Melhor alinhamento */
+  padding: 0 20px; /* Para evitar que os itens fiquem colados na borda */
 
   & .container-hamburguer {
     margin-left: 23px;

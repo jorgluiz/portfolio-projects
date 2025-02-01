@@ -3,6 +3,7 @@ import Main from "@/components/layout/main";
 import SideBar from "@/components/layout/sideBar";
 import Header from "@/components/layout/header";
 import Head from "next/head";
+import { ContainerLayout } from "@/components/projetos/layout";
 
 import { Container, P, H3, Li, Ul, H4, A } from "@/components/projetos/ytformp4/styles";
 
@@ -33,89 +34,66 @@ const Ytformp4 = () => {
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/ytmp4.jpg" />
       </Head>
-      <div style={{ display: "flex" }}>
+      <ContainerLayout>
         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
+        <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Main>
-          <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
           <Container>
             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>🎥 Descubra o Projeto: Download de Vídeo do YouTube - Clique para ver mais!</H3>
             <P>
-              <a href="https://yt-download-mp3-frontend-d80c3323b80c.herokuapp.com" target="_blank">direcionar para página</a>
+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
             </P>
             {isToggleOpen01 && (
               <>
                 <div>
-                  <H4>1. Resumo do Projeto</H4>
-                  <P>Este projeto é uma aplicação backend que oferece funcionalidade de download e combinação de vídeos e áudios do YouTube. Ele utiliza tecnologias como Express.js, Socket.io, FFmpeg e bibliotecas específicas para interação com vídeos do YouTube, permitindo que os usuários escolham a qualidade desejada, façam o download e combinem áudio e vídeo em um arquivo MP4 final.</P>
+                  <H4><strong>Título do Projeto:</strong> YouTube Video Downloader e Combiner (Node.js)</H4>
+                  <P><strong>Descrição:</strong> Desenvolvi uma aplicação backend utilizando Node.js e Express.js que permite a recuperação de informações de vídeos do YouTube e o download de áudio e vídeo em diferentes formatos e qualidades. O sistema integra o poder de bibliotecas como <strong>youtube-dl-exec</strong>, <strong>@distube/ytdl-core</strong>, e <strong>fluent-ffmpeg</strong> para baixar, combinar e entregar um arquivo MP4 final para o usuário.</P>
+                  <P>Com uma interface baseada em Socket.io, o projeto oferece feedback em tempo real sobre o progresso do download e do processo de combinação de arquivos. A aplicação também gerencia o armazenamento temporário dos arquivos e garante o desempenho com configurações de FFmpeg otimizadas para velocidade.</P>
+                  <H4>Tecnologias Usadas:</H4>
                   <Ul>
-                    <Li><strong>2. Funcionalidades Principais</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Uso do <strong>youtube-dl-exec</strong> para baixar áudio e vídeo com base no formato escolhido.</Li>
-                    <Li style={{ marginLeft: "10px" }}>Gerenciamento de erros e validação de URLs do YouTube.</Li>
+                    <Li><strong>Node.js</strong> com <strong>Express.js</strong></Li>
+                    <Li><strong>youtube-dl-exec</strong> e <strong>@distube/ytdl-core</strong> para interação com o YouTube</Li>
+                    <Li><strong>fluent-ffmpeg</strong> para processamento de vídeos</Li>
+                    <Li><strong>Socket.io</strong> para feedback em tempo real</Li>
+                    <Li><strong>CORS</strong> e <strong>dotenv</strong> para segurança e configuração</Li>
                   </Ul>
+                  <H4>Destaques:</H4>
                   <Ul>
-                    <Li><strong>Combinação de Áudio e Vídeo:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Integração com FFmpeg para combinar os arquivos baixados em um único arquivo MP4.</Li>
-                    <Li style={{ marginLeft: "10px" }}>Configuração de presets rápidos para otimizar o processamento.</Li>
+                    <Li>Gerenciamento eficiente de concorrência, evitando requisições paralelas.</Li>
+                    <Li>Processamento rápido de vídeos com FFmpeg.</Li>
+                    <Li>Arquitetura modular e escalável, com otimizações para desempenho e experiência do usuário.</Li>
                   </Ul>
+                  <H4>2. Descrição para Entrevistas ou Apresentações (Detalhada e Técnica)</H4>
+                  <P><strong>Contexto:</strong> Durante o desenvolvimento desse projeto, meu objetivo foi criar uma aplicação robusta capaz de baixar e combinar vídeos e áudios do YouTube em um único arquivo MP4, com a flexibilidade de escolher o formato e a qualidade do arquivo. A aplicação foi construída utilizando o Node.js com Express.js, além de bibliotecas específicas para interação com o YouTube e processamento de vídeos.</P>
+                  <H4>Funcionalidades:</H4>
                   <Ul>
-                    <Li><strong>Feedback em Tempo Real:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Utilização de Socket.io para fornecer atualizações de progresso do processo ao cliente em tempo real.</Li>
+                    <Li><strong>1. Recuperação de Informações de Vídeos:</strong> Utilizando @distube/ytdl-core, a aplicação recupera detalhes como título, miniatura e formatos de áudio e vídeo disponíveis do YouTube.</Li>
+                    <Li><strong>2. Download de Áudio e Vídeo:</strong> Com youtube-dl-exec, o sistema realiza o download do áudio e vídeo separadamente, considerando o formato escolhido pelo usuário.</Li>
+                    <Li><strong>3. Combinação de Vídeo e Áudio:</strong> Após o download, os arquivos de áudio e vídeo são combinados em um único arquivo MP4 utilizando <strong>FFmpeg</strong>, com a qualidade de codificação otimizada para a velocidade de processamento.</Li>
+                    <Li><strong>4. Feedback em Tempo Real:</strong> O progresso do processo é transmitido em tempo real ao usuário via <strong>Socket.io</strong>, permitindo uma experiência mais interativa.</Li>
+                    <Li><strong>5. Gerenciamento de Arquivos Temporários:</strong> Os arquivos baixados são armazenados temporariamente em diretórios locais, sendo deletados automaticamente após o download do arquivo final.</Li>
                   </Ul>
+                  <H4>Desafios Enfrentados e Soluções:</H4>
                   <Ul>
-                    <Li><strong>Gerenciamento de Arquivos Temporários:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Armazenamento de arquivos em diretórios temporários e exclusão após o download.</Li>
+                    <Li><strong>Concorrência de Requisições:</strong> Para garantir que múltiplos usuários possam fazer requisições simultâneas sem afetar o desempenho, implementei uma variável de controle isProcessing, evitando que múltiplos downloads e combinações aconteçam ao mesmo tempo.</Li>
+                    <Li><strong>Otimização de Desempenho:</strong> Ajustei as configurações do FFmpeg para utilizar o preset {'"ultrafast"'}, proporcionando um processamento mais rápido de vídeos, sem perder a qualidade final.</Li>
+                    <Li><strong>Segurança e Configuração:</strong> A aplicação foi configurada com dotenv para gerenciar variáveis de ambiente e CORS para controlar as origens permitidas nas requisições.</Li>
                   </Ul>
+                  <H4>Tecnologias e Ferramentas:</H4>
                   <Ul>
-                    <Li><strong>Controle de Concorrência:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Uso de um controle de estado <strong>(isProcessing)</strong> para evitar múltiplas requisições simultâneas e garantir que apenas uma operação seja processada por vez.</Li>
+                    <Li><strong>Node.js, Express.js</strong></Li>
+                    <Li><strong>youtube-dl-exec, @distube/ytdl-core</strong></Li>
+                    <Li><strong>fluent-ffmpeg</strong> para processamento de vídeo</Li>
+                    <Li><strong>Socket.io</strong> para comunicação em tempo real</Li>
+                    <Li><strong>CORS</strong> e <strong>dotenv</strong> para configurações de segurança</Li>
                   </Ul>
-                  <H4>3. Tecnologias e Ferramentas Utilizadas</H4>
-                  <Ul>
-                    <Li><strong>Backend:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Node.js com Express.js.</Li>
-                    <Li style={{ marginLeft: "10px" }}>Bibliotecas específicas: <strong>youtube-dl-exec</strong>, <strong>@distube/ytdl-core</strong>, <strong>fluent-ffmpeg.</strong></Li>
-                    <Li><strong>Processamento de Vídeo:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>FFmpeg para manipulação de arquivos multimídia.</Li>
-                    <Li><strong>Comunicação em Tempo Real:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Socket.io para fornecer atualizações do progresso ao cliente.</Li>
-                    <Li><strong>Gerenciamento de Arquivos:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}><strong>fs</strong> para manipulação de arquivos e diretórios temporários.</Li>
-                    <Li><strong>Configurações e Segurança:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}><strong>dotenv</strong> para gerenciamento de variáveis de ambiente.</Li>
-                    <Li style={{ marginLeft: "10px" }}>Configuração de CORS para controlar o acesso ao servidor.</Li>
-                  </Ul>
-                  <H4>4. Destaques do Código</H4>
-                  <Ul>
-                    <Li><strong>Uso de Bibliotecas Avançadas:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Integração de bibliotecas como <strong>youtube-dl-exec</strong> e <strong>@distube/ytdl-core</strong>  para lidar com a lógica de download diretamente da API do YouTube.</Li>
-                    <Li><strong>Desempenho e Otimização:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Configuração de -preset ultrafast no FFmpeg para acelerar o processamento.</Li>
-                    <Li style={{ marginLeft: "10px" }}>Implementação de lógica para evitar processamento redundante ao filtrar formatos de vídeo.</Li>
-                    <Li><strong>Feedback ao Usuário:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Uso de eventos do FFmpeg para rastrear progresso e transmitir essas informações via Socket.io.</Li>
-                  </Ul>
-                  <H4>5. Possíveis Melhorias</H4>
-                  <Ul>
-                    <Li>1. <strong>Segurança:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Validar melhor as entradas do cliente para evitar possíveis vulnerabilidades de injeção.</Li>
-                    <Li style={{ marginLeft: "10px" }}>Implementar autenticação ou controle de acesso para proteger as rotas.</Li>
-                    <Li>2. <strong>Escalabilidade:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Gerenciar melhor o estado isProcessing para suportar múltiplas requisições de diferentes usuários simultaneamente, possivelmente usando filas de trabalho.</Li>
-                    <Li>3. <strong>Manutenção:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Modularizar o código para melhorar a legibilidade e facilitar a manutenção futura.</Li>
-                    <Li style={{ marginLeft: "10px" }}>Separar lógica de rotas, middlewares e processamento de arquivos em pastas distintas.</Li>
-                    <Li>4. <strong>Monitoramento e Logging:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Adicionar uma camada de logging com ferramentas como <strong>winston</strong> ou <strong>pino</strong> para monitorar erros e processos.</Li>
-                    <Li>5. <strong>Experiência do Usuário:</strong></Li>
-                    <Li style={{ marginLeft: "10px" }}>Oferecer mais opções de formatos e resoluções.</Li>
-                    <Li style={{ marginLeft: "10px" }}>Melhorar a interface de feedback ao cliente, talvez adicionando notificações mais detalhadas ou históricos.</Li>
-                  </Ul>
+                  <P><strong>Impacto:</strong> Esse projeto me permitiu explorar tanto a parte de manipulação de mídia quanto de controle de estado e feedback em tempo real, além de me proporcionar um bom entendimento sobre a integração de várias bibliotecas para a construção de um sistema coeso e eficiente.</P>
                 </div>
               </>
             )}
           </Container>
         </Main>
-      </div>
+      </ContainerLayout>
     </>
   );
 };

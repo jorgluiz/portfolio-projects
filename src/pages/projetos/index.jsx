@@ -13,6 +13,8 @@ import imageGeneration from "../../assets/images/imageGeneration.png";
 import catalogo from "../../assets/images/catalogo.png";
 import ytmp3 from "../../assets/images/ytmp3.png";
 import ytmp4 from "../../assets/images/ytmp4.png";
+import cursoOline from "../../assets/images/bem-vindo.png";
+
 import Link from "next/link";
 
 import { portfolioImgBlur } from "@/utils/portfolio";
@@ -25,8 +27,11 @@ import { youtubeImgBlur } from "@/utils/youtube";
 import { catalogoImgBlur } from "@/utils/catalogo";
 import { ytmp3ImgBlur } from "@/utils/ytmp3";
 import { ytmp4ImgBlur } from "@/utils/ytmp4";
+import { cursoOnlineImgBlur } from "@/utils/ytmp4";
 
 import { GridContainer, Container } from "@/components/projetos/";
+
+import { ContainerLayout } from "@/components/projetos/layout";
 
 // 1. Efeito de redimensionamento da tela
 const Projetos = () => {
@@ -64,13 +69,13 @@ const Projetos = () => {
 
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <ContainerLayout>
         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
+        <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Main>
-          <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
           <Container>
             <h1 style={{ color: "323f4b" }}>Oi! 👋</h1>
-            <p style={{ fontSize: "20px", color: "323f4b", lineHeight: "32px" }}>Este portfólio é a culminação da minha jornada de aprendizado em desenvolvimento web e servidor, onde explorei as capacidades do ReactJS tanto no frontend e Express backend</p>
+            <p style={{ fontSize: "20px", color: "323f4b", lineHeight: "32px" }}>Este portfólio representa a síntese da minha jornada em desenvolvimento web e backend, demonstrando minha experiência com ReactJS no frontend e Express no backend para a construção de aplicações modernas e eficientes.</p>
             <GridContainer>
               <div className="container-item">
                 <Link href="/projetos/portfolio">
@@ -302,10 +307,36 @@ const Projetos = () => {
                   </div>
                 </Link>
               </div>
+              <div className="container-item">
+                <Link href="/projetos/cursoOnline">
+                  <Image src={cursoOline} placeholder="blur" blurDataURL={cursoOnlineImgBlur} alt="img" />
+                  <div className="item">
+                    <div className="sub-item">
+                      <div className="tech">
+                        <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React.js</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React Router DOM</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Context API</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Axios </span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> JWT-Decode</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Styled Components</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> LocalStorage </span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Node.js + Express</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> PostgreSQL</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> JWT (JSON Web Token) </span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Pagar.me API</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Socket.io</span>
+                      </div>
+                      <h2 className="item-h2">Plataforma vendas cursos online</h2>
+                      <p>⭐⭐⭐⭐⭐ 🚀</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
             </GridContainer>
           </Container>
         </Main>
-      </div>
+      </ContainerLayout>
     </>
   );
 };

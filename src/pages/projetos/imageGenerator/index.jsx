@@ -3,6 +3,7 @@ import Main from "@/components/layout/main";
 import SideBar from "@/components/layout/sideBar";
 import Header from "@/components/layout/header";
 import Head from "next/head";
+import { ContainerLayout } from "@/components/projetos/layout";
 
 import { Container, P, H3, Li, Ul, H4, A } from "@/components/projetos/imageGenerator/styles";
 
@@ -33,75 +34,47 @@ const Portfolio = () => {
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/imageGeneration.jpg" />
       </Head>
-      <div style={{ display: "flex" }}>
+      <ContainerLayout>
         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
+        <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Main>
-          <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
           <Container>
             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Descubra o Projeto: Gerador de Imagens com Visualização Ampliada - Clique para ver mais!</H3>
             <P>
-              <a href="https://image-generation-0208a7513db8.herokuapp.com/home" target="_blank">direcionar para página</a>
+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
             </P>
             {isToggleOpen01 && (
               <>
                 <div>
                   <P><strong>Descrição Geral</strong></P>
-                  <P>Este projeto permite que o usuário gere imagens com base em um texto fornecido e escolha entre dois estilos de visualização: {'"vivid"'} e {'"natural"'}. As imagens geradas podem ser ampliadas com um recurso de zoom que melhora a experiência do usuário. Além disso, o sistema inclui validação de entrada e feedback visual, como a exibição de um spinner enquanto a imagem está sendo processada.</P>
-                  <H3>Principais Funcionalidades</H3>
+                  <P>Este projeto é uma aplicação web que permite a geração de imagens utilizando a API da OpenAI (DALL·E 3). A aplicação oferece uma interface interativa onde os usuários podem inserir descrições textuais e escolher um estilo para a imagem gerada. O sistema retorna a URL da imagem criada, permitindo que os usuários visualizem e utilizem o conteúdo conforme desejado.</P>
+                  <H3>Funcionalidades</H3>
                   <H4>1. Gerador de Imagens</H4>
                   <Ul>
-                    <Li>O usuário pode inserir um texto e selecionar um estilo para gerar imagens personalizadas.</Li>
-                    <Li>As imagens são processadas via uma requisição para o backend.</Li>
+                    <Ul>
+                      <Li><strong>Geração de imagens via OpenAI (DALL·E 3) –</strong> O usuário pode fornecer uma descrição detalhada e um estilo para obter uma imagem personalizada.</Li>
+                      <Li><strong>Renderização dinâmica com EJS –</strong> O servidor usa a engine de templates EJS para renderizar páginas dinâmicas.</Li>
+                      <Li><strong>Serviço de arquivos estáticos – </strong>O Express serve arquivos da pasta /public, incluindo scripts e estilos.</Li>
+                      <Li><strong>API REST com Express.js –</strong> Comunicação eficiente entre frontend e backend.</Li>
+                      <Li><strong>Redirecionamento de rotas –</strong> A página principal é automaticamente redirecionada para /home.</Li>
+                      <Li><strong>Tratamento de erros –</strong> Respostas em JSON detalhadas quando há falhas na geração de imagens.</Li>
+                      <Li><strong>CORS habilitado –</strong> Permite requisições de diferentes origens, essencial para integração com um frontend separado.</Li>
+                      <Li><strong>Abertura automática do navegador – </strong> O servidor abre a aplicação automaticamente no navegador ao iniciar.</Li>
+                    </Ul>
                   </Ul>
-                  <H4>2. Zoom nas Imagens</H4>
-                  <Ul>
-                    <Li>As imagens geradas podem ser ampliadas para melhor visualização com um overlay escuro.</Li>
-                    <Li>O zoom é ativado ao clicar na imagem e pode ser desativado clicando fora dela.</Li>
-                  </Ul>
-                  <H4>3. Validação e Feedback</H4>
-                  <Ul>
-                    <Li>Campos obrigatórios têm bordas vermelhas para destacar entradas inválidas.</Li>
-                    <Li>Um spinner é exibido enquanto a imagem está sendo gerada, melhorando a usabilidade.</Li>
-                  </Ul>
-                  <H4>4. Responsividade</H4>
-                  <Ul>
-                    <Li>Layout adaptável para dispositivos móveis com redimensionamento de imagens e reorganização de componentes.</Li>
-                  </Ul>
+
                   <H3>Tecnologias Utilizadas</H3>
                   <Ul>
-                    <Li><strong>HTML5:</strong> Estrutura do projeto, incluindo áreas para texto, botões e imagens.</Li>
-                    <Li><strong>CSS3:</strong></Li>
-                    <Ul style={{ margin: "0 0 0 20px" }}>
-                      <Li>Design responsivo com media queries.</Li>
-                      <Li>Efeitos de transição para zoom e feedback visual (overlay e spinner).
-                      </Li>
-                    </Ul>
-                    <Li><strong>JavaScript:</strong></Li>
-                    <Ul style={{ margin: "0 0 0 20px" }}>
-                      <Li>Manipulação de DOM para interatividade.</Li>
-                      <Li>Validação de entradas do usuário.</Li>
-                      <Li>Fetch API para comunicação com o backend.</Li>
-                    </Ul>
-                    <Li style={{ lineHeight: "28px" }}><strong>Backend:</strong> Endpoint /image-generation para processamento e retorno da imagem (detalhes do backend não fornecidos, mas pode ser detalhado).</Li>
+                    <Li><strong>Node.js –</strong> Plataforma de execução para JavaScript no backend.</Li>
+                    <Li><strong>Express.js –</strong> Framework leve para criação da API e gerenciamento de rotas.</Li>
+                    <Li><strong>OpenAI API (DALL·E 3) –</strong> Para geração de imagens baseadas em descrições textuais.</Li>
+                    <Li><strong>EJS (Embedded JavaScript) –</strong> Engine de templates para renderização de páginas dinâmicas.</Li>
+                    <Li><strong>dotenv –</strong> Para gerenciamento seguro de variáveis de ambiente.</Li>
+                    <Li><strong>CORS – </strong> Para permitir comunicação entre domínios diferentes.</Li>
+                    <Li><strong>body-parser –</strong> Para interpretar requisições HTTP no formato JSON e URL-encoded.</Li>
+                    <Li><strong>path & fileURLToPath –</strong> Para manipulação de diretórios e caminhos de arquivos.</Li>
                   </Ul>
-                  <H3>Destaques Técnicos</H3>
-                  <H4>1. Feedback Visual</H4>
-                  <Ul>
-                    <Li>O uso de um spinner durante a geração de imagens evita que o usuário pense que o sistema está inativo.</Li>
-                    <Li>O overlay no zoom oferece uma experiência imersiva e intuitiva.</Li>
-                  </Ul>
-                  <H4>2. Validação de Entradas</H4>
-                  <Ul>
-                    <Li>Simples e eficaz, evita erros no envio de requisições ao backend.</Li>
-                  </Ul>
-                  <H4>3. Manutenção e Escalabilidade</H4>
-                  <Ul>
-                    <Li>Código modular e fácil de ajustar para incluir novos estilos de imagem ou funcionalidades.</Li>
-                  </Ul>
-                  <H4>4. Responsividade</H4>
-                  <Ul>
-                    <Li>Design que funciona bem em diferentes dispositivos, de desktops a smartphones.</Li>
-                  </Ul>
+
                   <H4>Como Utilizar</H4>
                   <Ul>
                     <Li>1. Insira um texto no campo designado.</Li>
@@ -114,7 +87,7 @@ const Portfolio = () => {
             )}
           </Container>
         </Main>
-      </div>
+      </ContainerLayout>
     </>
   );
 };

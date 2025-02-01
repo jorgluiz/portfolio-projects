@@ -3,6 +3,7 @@ import Main from "@/components/layout/main";
 import SideBar from "@/components/layout/sideBar";
 import Header from "@/components/layout/header";
 import Head from "next/head";
+import { ContainerLayout } from "@/components/projetos/layout";
 
 import { Container, P, H3, Li, Ul, H4, A } from "@/components/projetos/youtube/styles";
 
@@ -33,14 +34,14 @@ const Portfolio = () => {
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/youtube.jpg" />
       </Head>
-      <div style={{ display: "flex" }}>
+      <ContainerLayout>
         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
+        <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Main>
-          <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
           <Container>
             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Descubra o Projeto: Player de Vídeo Personalizado - Clique para ver mais!</H3>
             <P>
-              <a href="https://portfolio-work-developed-d98bf30e877e.herokuapp.com/video" target="_blank">direcionar para página</a>
+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
             </P>
             {isToggleOpen01 && (
               <>
@@ -103,7 +104,7 @@ const Portfolio = () => {
             )}
           </Container>
         </Main>
-      </div>
+      </ContainerLayout>
     </>
   );
 };

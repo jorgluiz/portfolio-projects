@@ -3,6 +3,7 @@ import Main from "@/components/layout/main";
 import SideBar from "@/components/layout/sideBar";
 import Header from "@/components/layout/header";
 import Head from "next/head";
+import { ContainerLayout } from "@/components/projetos/layout";
 
 import { Container, P, H3, Li, Ul, H4, A } from "@/components/projetos/ytformp3/styles";
 
@@ -33,14 +34,14 @@ const Ytformp3 = () => {
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/ytmp3.jpg" />
       </Head>
-      <div style={{ display: "flex" }}>
+      <ContainerLayout>
         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
+        <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Main>
-          <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
           <Container>
             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>🎥 Descubra o Projeto: Download de Áudio do YouTube - Clique para ver mais!</H3>
             <P>
-              <a href="https://yt-download-mp3-frontend-d80c3323b80c.herokuapp.com" target="_blank">direcionar para página</a>
+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
             </P>
             <H3>Observação importante: para ter acesso backend, precisa ativar ngrok localmente!</H3>
             {isToggleOpen01 && (
@@ -90,7 +91,7 @@ const Ytformp3 = () => {
             )}
           </Container>
         </Main>
-      </div>
+      </ContainerLayout>
     </>
   );
 };
