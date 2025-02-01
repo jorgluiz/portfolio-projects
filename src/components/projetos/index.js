@@ -24,7 +24,7 @@ export const GridContainer = styled.div`
 
   & img {
     display: block;
-    width: 100%;
+    max-width: 100%;
     height: 244px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
@@ -32,7 +32,7 @@ export const GridContainer = styled.div`
 
   & .item {
     height: 244px;
-    width: 100%;
+    max-width: 100%;
     border: 1px solid #ccc;
     background-color: #ffffff;
     display: flex;
@@ -61,6 +61,8 @@ export const GridContainer = styled.div`
   };
 
   & .container-item {
+    position: relative; /* Garante que os filhos respeitem o fluxo do layout */
+    overflow: hidden; /* Evita que imagens transbordem */
     transition: transform 500ms ease-in-out; /* Transição suave para mover o sidebar */
     transform: translateY(0); /* Posição inicial */
 
