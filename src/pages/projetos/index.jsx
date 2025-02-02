@@ -75,7 +75,7 @@ const Projetos = () => {
         <Main>
           <Container>
             <h1 style={{ color: "323f4b" }}>Oi! 👋</h1>
-            {/* <p style={{ fontSize: "20px", color: "323f4b", lineHeight: "32px" }}>Este portfólio representa a síntese da minha jornada em desenvolvimento web e backend, demonstrando minha experiência com ReactJS no frontend e Express no backend para a construção de aplicações modernas e eficientes.</p> */}
+            <p style={{ fontSize: "20px", color: "323f4b", lineHeight: "32px" }}>Este portfólio representa a síntese da minha jornada em desenvolvimento web e backend, demonstrando minha experiência com ReactJS no frontend e Express no backend para a construção de aplicações modernas e eficientes.</p>
             <GridContainer>
               <div className="container-item">
                 <Link href="/projetos/portfolio">

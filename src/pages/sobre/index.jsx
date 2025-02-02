@@ -117,10 +117,11 @@ const Projetos = () => {
               <li><strong>Foco na Experiência do Usuário</strong>: Prezo por interfaces intuitivas e fluidas, garantindo usabilidade e acessibilidade.</li>
               <li><strong>Mentalidade Full Stack</strong>: Tenho a capacidade de atuar tanto no frontend quanto no backend, garantindo integração eficiente entre ambas as partes.</li>
             </ul><br /><br />
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}>
               <h3 style={{ paddingRight: "20px" }}>Se deseja saber mais sobre meu trabalho, entre em contato comigo</h3>
               <Image src="/whatsapp2.png" width={25} height={25} alt="img" />
-              <p style={{ paddingLeft: "20px" }}>(81) 9 8760-4690</p>
+              <a style={{ paddingLeft: "20px" }} href="https://wa.me/5581987604690?text=Olá,%20gostaria%20de%20mais%20informações!">Fale comigo no WhatsApp</a>
+              {/* <p style={{ paddingLeft: "20px" }}>(81) 9 8760-4690</p> */}
             </div>
           </div>
         </Main>
