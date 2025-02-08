@@ -22,17 +22,17 @@ const CursoOline = () => {
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/catalogo" />
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/cursoOnline" />
         <meta property="og:title" content="Criação de Plataforma EAD com Pagamentos Integrados e Acesso Protegido" />
         <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
-        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/catalogo.jpg" />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/cursoOnline.jpg" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/catalogo" />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/cursoOnline" />
         <meta property="twitter:title" content="Criação de Plataforma EAD com Pagamentos Integrados e Acesso Protegido" />
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
-        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/catalogo.jpg" />
+        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/cursoOnline.jpg" />
       </Head>
       <ContainerLayout>
         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>

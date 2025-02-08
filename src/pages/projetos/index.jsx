@@ -13,7 +13,7 @@ import imageGeneration from "../../assets/images/imageGeneration.png";
 import catalogo from "../../assets/images/catalogo.png";
 import ytmp3 from "../../assets/images/ytmp3.png";
 import ytmp4 from "../../assets/images/ytmp4.png";
-import cursoOline from "../../assets/images/bem-vindo.png";
+import cursoOline from "../../assets/images/curso-online.png";
 import ytAnalyzeVideo from "../../assets/images/yt-analyze-video.png";
 
 import Link from "next/link";

@@ -15,7 +15,6 @@ import imageGeneration from "../../assets/images/imageGeneration.png";
 import catalogo from "../../assets/images/catalogo.png";
 import ytmp3 from "../../assets/images/ytmp3.png";
 import ytmp4 from "../../assets/images/ytmp4.png";
-import cursoOline from "../../assets/images/bem-vindo.png";
 
 import Link from "next/link";
 
@@ -80,17 +79,17 @@ const Projetos = () => {
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/carousel" />
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
         <meta property="og:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
         <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
-        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/carousel.jpg" />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/carousel" />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
         <meta property="twitter:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
-        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/carousel.jpg" />
+        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
       </Head>
       <ContainerLayout>
         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
@@ -141,7 +140,7 @@ const Projetos = () => {
             </ul><br /><br />
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}>
               <h3 style={{ paddingRight: "20px" }}>Se deseja saber mais sobre meu trabalho, entre em contato comigo</h3>
-              <Image src="/whatsapp2.png" width={25} height={25} alt="img" />
+              <Image src="/whatsapp.png" width={25} height={25} alt="img" />
               <a style={{ paddingLeft: "20px" }} href="https://wa.me/5581987604690?text=Olá,%20acabei%20de%20ver%20seu%20portfólio%20e%20gostaria%20de%20saber%20mais%20sobre%20seu%20trabalho!">Fale comigo no WhatsApp</a>
               {/* <p style={{ paddingLeft: "20px" }}>(81) 9 8760-4690</p> */}
             </div>
