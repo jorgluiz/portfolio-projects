@@ -61,7 +61,6 @@ export const GridContainer = styled.div`
   };
 
   & .container-item {
-    position: relative; /* Garante que os filhos respeitem o fluxo do layout */
     overflow: hidden; /* Evita que imagens transbordem */
     transition: transform 500ms ease-in-out; /* Transição suave para mover o sidebar */
     transform: translateY(0); /* Posição inicial */

@@ -15,22 +15,22 @@ const Stripe = () => {
     <>
       <Head>
         {/* <!-- Primary Meta Tags --> */}
-        <title>Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend</title>
-        <meta name="title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <title>Integração Stripe com Autenticação JWT e Firebase – Plataforma de Pagamentos e Gestão de Cursos</title>
+        <meta name="title" content="Integração Stripe com Autenticação JWT e Firebase – Plataforma de Pagamentos e Gestão de Cursos" />
         <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
 
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/stripe" />
-        <meta property="og:title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <meta property="og:title" content="Integração Stripe com Autenticação JWT e Firebase – Plataforma de Pagamentos e Gestão de Cursos" />
         <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/stripeLogo.jpg" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/stripe" />
-        <meta property="twitter:title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <meta property="twitter:title" content="Integração Stripe com Autenticação JWT e Firebase – Plataforma de Pagamentos e Gestão de Cursos" />
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/stripeLogo.jpg" />
       </Head>
@@ -39,7 +39,7 @@ const Stripe = () => {
         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Main>
           <Container>
-            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Descubra o Projeto: Plataforma de Autenticação e Pagamentos com STRIPE - Clique para ver mais!</H3>
+            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Plataforma de Autenticação e Pagamentos com STRIPE - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
               <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
             </P>
@@ -47,7 +47,7 @@ const Stripe = () => {
               <>
 
                 <P><strong>Visão Geral</strong></P>
-                <P>Este projeto consiste em uma plataforma completa e escalável para cursos online, oferecendo autenticação segura, processamento de pagamentos via Stripe, armazenamento e consulta de dados no Firebase Realtime Database, e gestão de tokens JWT. O sistema integra serviços de backend com uma interface de front-end HTML servida diretamente pelo servidor, permitindo que usuários autenticados com pagamento confirmado acessem conteúdo exclusivo dos cursos.</P>
+                <P>Este projeto consiste em uma plataforma completa e escalável para cursos online, oferecendo autenticação segura, processamento de pagamentos via Stripe, armazenamento e consulta de dados no Firebase Realtime Database, e gestão de tokens JWT. O sistema integra serviços de <strong>backend com uma interface de front-end HTML servida diretamente pelo servidor</strong>, permitindo que usuários autenticados com pagamento confirmado acessem conteúdo exclusivo dos cursos.</P>
                 <P><strong>Funcionalidades Principais</strong></P>
                 <H3>1. Autenticação de Usuários:</H3>
                 <Ul>
@@ -78,11 +78,13 @@ const Stripe = () => {
                   <Li><strong>Banco de Dados:</strong>  Firebase Realtime Database para armazenamento e recuperação de informações de usuário e transações.</Li>
                   <Li><strong>Middleware e Cookies:</strong>  cookie e cookie-parser para gerenciamento de sessões.</Li>
                   <Li><strong>Gestão de Variáveis de Ambiente:</strong>  dotenv para proteger variáveis sensíveis.</Li>
+                  <Li><strong>HBS:</strong> (Handlebars) é um motor de templates utilizado para gerar HTML dinâmico no servidor.</Li>
                   <Li><strong>Ferramentas de Desenvolvimento:</strong>  nodemon para reinicialização automática do servidor em desenvolvimento.</Li>
                 </Ul>
                 <H3>Principais Bibliotecas e Dependências</H3>
                 <Ul>
                   <Li><strong>jsonwebtoken:</strong> para criação e verificação de tokens JWT.</Li>
+                  <Li><strong>Renderização de Páginas</strong>: Express.js servindo arquivos HTML diretamente</Li>
                   <Li><strong>cookie e cookie-parser:</strong> para manipulação de cookies.</Li>
                   <Li><strong>dotenv:</strong> para variáveis de ambiente.</Li>
                   <Li><strong>firebase-admin:</strong> para integração com Firebase.</Li>

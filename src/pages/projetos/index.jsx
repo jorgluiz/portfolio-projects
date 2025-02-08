@@ -14,6 +14,7 @@ import catalogo from "../../assets/images/catalogo.png";
 import ytmp3 from "../../assets/images/ytmp3.png";
 import ytmp4 from "../../assets/images/ytmp4.png";
 import cursoOline from "../../assets/images/bem-vindo.png";
+import ytAnalyzeVideo from "../../assets/images/yt-analyze-video.png";
 
 import Link from "next/link";
 
@@ -252,19 +253,21 @@ const Projetos = () => {
                 </Link>
               </div>
               <div className="container-item">
-                <Link href="/projetos/ytformp3">
-                  <Image src={ytmp3} placeholder="blur" blurDataURL={ytmp3ImgBlur} alt="img" />
+                <Link href="/projetos/ytformp4Cloud">
+                  <Image src={ytmp4} placeholder="blur" blurDataURL={ytmp4ImgBlur} alt="img" />
                   <div className="item">
                     <div className="sub-item">
                       <div className="tech">
                         <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
                         <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> HTML e CSS</span>
-                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Node.js</span>
-                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Express</span>
-                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>@distube/ytdl-core</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Node.js com Express.js</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> youtube-dl-exec e @distube/ytdl-core</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> fluent-ffmpeg</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Socket.io</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> CORS</span>
                       </div>
-                      <h2 className="item-h2">Download de Áudio do YouTube</h2>
-                      <p className="item-p">estudos e aprendizado</p>
+                      <h2 className="item-h2">Download de Vídeo do YouTube</h2>
+                      <p className="item-p"><span style={{ color: "red" }}>Backend na nuvem</span></p>
                       <p>⭐⭐⭐⭐⭐ 🚀</p>
                     </div>
                   </div>
@@ -291,23 +294,6 @@ const Projetos = () => {
                 </Link>
               </div>
               <div className="container-item">
-                <Link href="/projetos/ytformp4Cloud">
-                  <Image src={ytmp4} placeholder="blur" blurDataURL={ytmp4ImgBlur} alt="img" />
-                  <div className="item">
-                    <div className="sub-item">
-                      <div className="tech">
-                        <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> HTML e CSS</span>
-                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Socket.IO</span>
-                      </div>
-                      <h2 className="item-h2">Download de Vídeo do YouTube</h2>
-                      <p className="item-p"><span style={{ color: "red" }}>Backend na nuvem ( funcionando )</span></p>
-                      <p>⭐⭐⭐⭐⭐ 🚀</p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className="container-item">
                 <Link href="/projetos/cursoOnline">
                   <Image src={cursoOline} placeholder="blur" blurDataURL={cursoOnlineImgBlur} alt="img" />
                   <div className="item">
@@ -328,6 +314,46 @@ const Projetos = () => {
                         <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Socket.io</span>
                       </div>
                       <h2 className="item-h2">Plataforma vendas cursos online</h2>
+                      <p>⭐⭐⭐⭐⭐ 🚀</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="container-item">
+                <Link href="/projetos/ytformp3">
+                  <Image src={ytmp3} placeholder="blur" blurDataURL={ytmp3ImgBlur} alt="img" />
+                  <div className="item">
+                    <div className="sub-item">
+                      <div className="tech">
+                        <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> HTML e CSS</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Node.js</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Express</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>@distube/ytdl-core</span>
+                      </div>
+                      <h2 className="item-h2">Download de Áudio do YouTube</h2>
+                      <p className="item-p">estudos e aprendizado</p>
+                      <p>⭐⭐⭐⭐⭐ 🚀</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="container-item">
+                <Link href="/projetos/ytAnalyseVideo">
+                  <Image src={ytAnalyzeVideo} placeholder="blur" blurDataURL={ytmp3ImgBlur} alt="img" />
+                  <div className="item">
+                    <div className="sub-item">
+                      <div className="tech">
+                        <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Node.js e Express.js</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>OpenAI API</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>File System (fs)</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>dotenv</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>youtubedl-exec</span>
+                        <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>hbs (Handlebars)</span>
+                      </div>
+                      <h2 className="item-h2">Download de Áudio do YouTube</h2>
+                      <p className="item-p">estudos e aprendizado</p>
                       <p>⭐⭐⭐⭐⭐ 🚀</p>
                     </div>
                   </div>

@@ -21,15 +21,6 @@ export const Container = styled.div`
 & .list-style-type {
   list-style-type: none;
 }
-
-& .remove-padding {
-  padding: 0 0 8px 0;
-  line-height: 0
-}
-
-& span {
-  background-color: #bcccdc;
-}
 `;
 
 export const P = styled.p`

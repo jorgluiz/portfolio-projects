@@ -30,6 +30,45 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  & .profile-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px #243b53;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+& .profile-image {
+  border-radius: 50%;
+}
+
+& .ripple {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: scale(1);
+  animation: ripple-effect 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-effect {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(10);
+    opacity: 0;
+  }
+}
 `;
 
 export const Menu = styled.div`

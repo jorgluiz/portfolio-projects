@@ -27,9 +27,6 @@ export const Container = styled.div`
   line-height: 0
 }
 
-& span {
-  background-color: #bcccdc;
-}
 `;
 
 export const P = styled.p`

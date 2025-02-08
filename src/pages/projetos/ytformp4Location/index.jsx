@@ -15,22 +15,22 @@ const Ytformp4 = () => {
     <>
       <Head>
         {/* <!-- Primary Meta Tags --> */}
-        <title>Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend</title>
-        <meta name="title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <title>Baixar Vídeos do YouTube em MP4 com Nosso Conversor</title>
+        <meta name="title" content="Baixar Vídeos do YouTube em MP4 com Nosso Conversor" />
         <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
 
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/ytformp4" />
-        <meta property="og:title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <meta property="og:title" content="Baixar Vídeos do YouTube em MP4 com Nosso Conversor" />
         <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/ytmp4.jpg" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/ytformp4" />
-        <meta property="twitter:title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <meta property="twitter:title" content="Baixar Vídeos do YouTube em MP4 com Nosso Conversor" />
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/ytmp4.jpg" />
       </Head>
@@ -39,7 +39,7 @@ const Ytformp4 = () => {
         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Main>
           <Container>
-            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>🎥 Descubra o Projeto: Download de Vídeo do YouTube - Clique para ver mais!</H3>
+            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>🎥 Projeto: Download de Vídeo do YouTube - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
               <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
             </P>
@@ -47,8 +47,7 @@ const Ytformp4 = () => {
             {isToggleOpen01 && (
               <>
                 <div>
-                  <H4>📄 Resumo para o Portfólio</H4>
-                  <P>Este projeto é uma aplicação <strong>full-stack</strong> que permite baixar e combinar vídeos e áudios do YouTube com as seguintes funcionalidades:</P>
+                  <P><strong>Descrição:</strong> Este projeto é uma aplicação <strong>full-stack</strong> que permite baixar e combinar vídeos e áudios do YouTube com as seguintes funcionalidades:</P>
                   <Ul>
                     <Li><strong>Recuperação de metadados:</strong> Título, formatos disponíveis e thumbnail de um vídeo do YouTube.</Li>
                     <Li><strong>Processamento de mídia:</strong> Combinação de vídeo e áudio com qualidade configurável usando ffmpeg.</Li>

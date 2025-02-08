@@ -15,22 +15,22 @@ const Carousel = () => {
     <>
       <Head>
         {/* <!-- Primary Meta Tags --> */}
-        <title>Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend</title>
-        <meta name="title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <title>Projeto de Coleta e Análise de Dados no Twitter com IA – Puppeteer e OpenAI</title>
+        <meta name="title" content="Projeto de Coleta e Análise de Dados no Twitter com IA – Puppeteer e OpenAI" />
         <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
 
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/dataAnalysis" />
-        <meta property="og:title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <meta property="og:title" content="Projeto de Coleta e Análise de Dados no Twitter com IA – Puppeteer e OpenAI" />
         <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/analyze-feelings.jpg" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/dataAnalysis" />
-        <meta property="twitter:title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <meta property="twitter:title" content="Projeto de Coleta e Análise de Dados no Twitter com IA – Puppeteer e OpenAI" />
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/analyze-feelings.jpg" />
       </Head>
@@ -39,7 +39,7 @@ const Carousel = () => {
         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Main>
           <Container>
-            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Descubra o Projeto: Análise Completa do Projeto de Coleta e Análise de Dados no Twitter usando Puppeteer e OpenAI - Clique para ver mais!</H3>
+            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Análise Completa do Projeto de Coleta e Análise de Dados no Twitter usando Puppeteer e OpenAI - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
               <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
             </P>
@@ -58,8 +58,7 @@ const Carousel = () => {
                   <Ul>
                     <Li className="list-style-type"><strong>1. Express</strong> Express é utilizado para configurar o servidor backend, que gerencia as requisições HTTP e responde com dados de análise ou resultados de scraping. Express facilita a criação de rotas e o gerenciamento das respostas do servidor de maneira eficiente.</Li>
                     <Li className="list-style-type"><strong>2. Puppeteer e Puppeteer-Extra:</strong></Li>
-                    <Li><strong>Puppeteer-Extra:</strong> permite customizar o comportamento do Puppeteer, enquanto o</Li>
-                    <Li className="list-style-type remove-padding"><strong>Puppeteer</strong> em si é uma biblioteca que automatiza o Chrome/Chromium, simulando ações de um usuário no navegador.</Li>
+                    <Li><strong>Puppeteer-Extra:</strong> permite customizar o comportamento do Puppeteer, enquanto o <strong>puppeteer</strong> em si é uma biblioteca que automatiza o Chrome/Chromium, simulando ações de um usuário no navegador.</Li>
                     <Li>O projeto inclui o <strong>StealthPlugin</strong> (plugin de stealth) de Puppeteer-Extra, que ajuda a contornar bloqueios de bot por disfarçar o comportamento automatizado, tornando o scraper mais robusto para operações em sites com mecanismos anti-bot.</Li>
                     <Li className="list-style-type"><strong>3. dotenv</strong>A biblioteca dotenv é usada para gerenciar variáveis de ambiente, como a chave de API da OpenAI e outras configurações sensíveis, evitando que credenciais apareçam no código-fonte e melhorando a segurança do projeto.</Li>
                     <Li className="list-style-type"><strong>4. fs (File System):</strong>A biblioteca nativa do Node.js fs permite a manipulação de arquivos diretamente do backend, facilitando a criação, leitura e gravação de arquivos no sistema. Neste projeto, fs é essencial para gerenciar arquivos de dados coletados, arquivamento e descompactação.</Li>
@@ -70,7 +69,8 @@ const Carousel = () => {
                     <Li className="list-style-type"></Li>
                     <Li className="list-style-type"><strong>8. open:</strong> A biblioteca open é usada para abrir URLs, arquivos ou aplicativos diretamente do backend. No contexto deste projeto, isso pode ser útil para facilitar a navegação ou abrir relatórios e visualizações de dados após a análise.</Li>
                     <Li className="list-style-type"><strong>9. OpenAI:</strong> O pacote openai integra a API de OpenAI ao projeto, permitindo a análise de sentimentos e processamento de linguagem natural (NLP). A integração com a API GPT possibilita que o sistema interprete os dados coletados, categorizando e oferecendo insights baseados no conteúdo textual.</Li>
-                    <Li className="list-style-type"><strong>10. Heroku:</strong> A aplicação é configurada para rodar no <strong>Heroku</strong>, utilizando variáveis de ambiente e configurações específicas para servidores sem interface gráfica, como o uso de <strong>Puppeteer</strong> em modo <strong>headless</strong> e com ajustes no sandbox para compatibilidade com Heroku.</Li>
+                    <Li className="list-style-type"><strong>10. HBS:</strong> (Handlebars) é um motor de templates utilizado para gerar HTML dinâmico no servidor.</Li>
+                    <Li className="list-style-type"><strong>11. Heroku:</strong> A aplicação é configurada para rodar no <strong>Heroku</strong>, utilizando variáveis de ambiente e configurações específicas para servidores sem interface gráfica, como o uso de <strong>Puppeteer</strong> em modo <strong>headless</strong> e com ajustes no sandbox para compatibilidade com Heroku.</Li>
                     <H3>Arquitetura e Organização do Projeto com as Novas Tecnologias</H3>
                     <P>Com essas tecnologias e bibliotecas, o projeto é organizado para oferecer um fluxo de coleta, processamento, análise e visualização dos dados com alto nível de automação e segurança:</P>
                     <Li className="list-style-type"><strong>Automação e Stealth com Puppeteer:</strong> A biblioteca <span>puppeteer-extra</span> com o StealthPlugin possibilita uma coleta de dados robusta, burlando alguns mecanismos anti-bot e permitindo uma coleta mais confiável.</Li>
@@ -81,7 +81,7 @@ const Carousel = () => {
                     <Li className="list-style-type"><strong></strong></Li>
                   </Ul>
                   <H3>Conclusão</H3>
-                  <P>Esse projeto é uma solução completa para a coleta e análise de sentimentos em mídias sociais. A combinação de tecnologias — desde o Puppeteer para scraping, OpenAI para NLP, e Express para o backend — resulta em uma ferramenta robusta para insights de mídia social em tempo real. </P>
+                  <P>Esse projeto é uma <strong>API</strong> e <strong>servidor que renderiza páginas estática</strong>, solução completa para a coleta e análise de sentimentos em mídias sociais. A combinação de tecnologias — desde o Puppeteer para scraping, OpenAI para NLP, e Express para o backend — resulta em uma ferramenta robusta para insights de mídia social em tempo real. </P>
                 </div>
               </>
             )}

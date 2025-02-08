@@ -15,22 +15,22 @@ const Stripe = () => {
     <>
       <Head>
         {/* <!-- Primary Meta Tags --> */}
-        <title>Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend</title>
-        <meta name="title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <title>Plataforma de Transmissão ao Vivo com Millicast, Firebase e GraphQL – Controle e Monitoramento de Streams</title>
+        <meta name="title" content="Plataforma de Transmissão ao Vivo com Millicast, Firebase e GraphQL – Controle e Monitoramento de Streams" />
         <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
 
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/streamDolby" />
-        <meta property="og:title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <meta property="og:title" content="Plataforma de Transmissão ao Vivo com Millicast, Firebase e GraphQL – Controle e Monitoramento de Streams" />
         <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/stream.jpg" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/streamDolby" />
-        <meta property="twitter:title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <meta property="twitter:title" content="Plataforma de Transmissão ao Vivo com Millicast, Firebase e GraphQL – Controle e Monitoramento de Streams" />
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/stream.jpg" />
       </Head>
@@ -39,16 +39,16 @@ const Stripe = () => {
         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Main>
           <Container>
-            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Descubra o Projeto: Sistema de Controle e Visualização de Transmissões ao Vivo - Clique para ver mais!</H3>
+            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Sistema de Controle e Visualização de Transmissões ao Vivo - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
               <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
             </P>
             {isToggleOpen01 && (
               <>
 
-                <P><strong>Visão Geral</strong></P>
+                <H3>Visão Geral</H3>
                 <P>Este projeto foi desenvolvido para gerenciar e visualizar transmissões ao vivo de maneira dinâmica. Ele permite ao usuário iniciar, parar, visualizar e monitorar múltiplas transmissões em tempo real através de uma interface web amigável. Utilizando tecnologias como Millicast para streaming e Firebase para persistência de dados, o sistema é escalável e configurável, atendendo a diferentes necessidades de transmissão ao vivo.</P>
-                <P><strong>Funcionalidades</strong></P>
+                <H3>Funcionalidades</H3>
                 <Ul>
                   <Li><strong>Controle de Transmissão: </strong> Criação e encerramento de transmissões ao vivo com gerenciamento completo de tokens para segurança.</Li>
                   <Li><strong>Visualização em Tempo Real: </strong> Integração de uma interface de visualização ao vivo, onde espectadores podem acessar transmissões específicas usando URLs configuráveis.</Li>
@@ -57,25 +57,25 @@ const Stripe = () => {
                   <Li><strong>Monitoramento de Status: </strong> Utilização de uma API GraphQL para monitorar e listar o status de transmissões, como {'"ativa"'} e {'"finalizada"'}.</Li>
                 </Ul>
                 <P><strong>Tecnologias Utilizadas</strong></P>
-                <P>Backend</P>
+                <H3>Backend</H3>
                 <Ul>
                   <Li><strong>Node.js e Express:</strong> Estrutura principal do servidor e gerenciamento de rotas.</Li>
                   <Li><strong>Firebase:</strong> Persistência de dados para salvar informações de streams e tokens.</Li>
                   <Li><strong>Millicast API:</strong> Gerenciamento de transmissão ao vivo com criação de tokens e controle de transmissões.</Li>
                 </Ul>
-                <P>Frontend</P>
+                <H3>Frontend</H3>
                 <Ul>
                   <Li><strong>EJS:</strong> Motor de templates para renderização de páginas dinâmicas no servidor.</Li>
                   <Li><strong>HTML/CSS:</strong> Estrutura e estilização das páginas de controle e visualização.</Li>
                 </Ul>
-                <P>Outras Tecnologias:</P>
+                <H3>Outras Tecnologias:</H3>
                 <Ul>
                   <Li><strong>GraphQL:</strong> API para obter e monitorar dados em tempo real de transmissões.</Li>
                   <Li><strong>dotenv:</strong> Gerenciamento de variáveis de ambiente para manter chaves seguras.</Li>
                   <Li><strong>axios e https:</strong> Clientes HTTP para realizar requisições às APIs externas.</Li>
                   <Li><strong>open:</strong> API para obter e monitorar dados em tempo real de transmissões.</Li>
                 </Ul>
-                <P><strong>Principais Bibliotecas e Dependências</strong></P>
+                <H3>Principais Bibliotecas e Dependências</H3>
                 <Ul>
                   <Li><strong>dotenv:</strong> Para configuração de variáveis de ambiente, mantendo chaves sensíveis fora do código-fonte.</Li>
                   <Li><strong>express:</strong> Framework web para facilitar o gerenciamento do servidor.</Li>

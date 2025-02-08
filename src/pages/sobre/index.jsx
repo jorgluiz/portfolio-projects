@@ -4,6 +4,7 @@ import SideBar from "@/components/layout/sideBar";
 import Header from "@/components/layout/header";
 // import whatsapp2 from "@/public/whatsapp2.png";
 import Image from 'next/image';
+import Head from "next/head";
 import portfolioImg from "../../assets/images/portfolio.png";
 import stripelogo from "../../assets/images/stripeLogo.png";
 import carousel from "../../assets/images/carousel.png";
@@ -70,6 +71,27 @@ const Projetos = () => {
 
   return (
     <>
+      <Head>
+        {/* <!-- Primary Meta Tags --> */}
+        <title>Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js</title>
+        <meta name="title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+        <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/carousel" />
+        <meta property="og:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+        <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/carousel.jpg" />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/carousel" />
+        <meta property="twitter:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+        <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/carousel.jpg" />
+      </Head>
       <ContainerLayout>
         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
@@ -120,7 +142,7 @@ const Projetos = () => {
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}>
               <h3 style={{ paddingRight: "20px" }}>Se deseja saber mais sobre meu trabalho, entre em contato comigo</h3>
               <Image src="/whatsapp2.png" width={25} height={25} alt="img" />
-              <a style={{ paddingLeft: "20px" }} href="https://wa.me/5581987604690?text=Olá,%20gostaria%20de%20mais%20informações!">Fale comigo no WhatsApp</a>
+              <a style={{ paddingLeft: "20px" }} href="https://wa.me/5581987604690?text=Olá,%20acabei%20de%20ver%20seu%20portfólio%20e%20gostaria%20de%20saber%20mais%20sobre%20seu%20trabalho!">Fale comigo no WhatsApp</a>
               {/* <p style={{ paddingLeft: "20px" }}>(81) 9 8760-4690</p> */}
             </div>
           </div>

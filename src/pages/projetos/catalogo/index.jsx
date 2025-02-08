@@ -15,22 +15,22 @@ const Carousel = () => {
     <>
       <Head>
         {/* <!-- Primary Meta Tags --> */}
-        <title>Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend</title>
-        <meta name="title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <title>Catálogo de Carros Online | Explore Modelos e Funcionalidades</title>
+        <meta name="title" content="Catálogo de Carros Online | Explore Modelos e Funcionalidades" />
         <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
 
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/catalogo" />
-        <meta property="og:title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <meta property="og:title" content="Catálogo de Carros Online | Explore Modelos e Funcionalidades" />
         <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/catalogo.jpg" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/catalogo" />
-        <meta property="twitter:title" content="Jorge Luiz | Portfólio de Desenvolvimento Web | Frontend e Backend" />
+        <meta property="twitter:title" content="Catálogo de Carros Online | Explore Modelos e Funcionalidades" />
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/catalogo.jpg" />
       </Head>
@@ -39,7 +39,7 @@ const Carousel = () => {
         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
         <Main>
           <Container>
-            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Descubra o Projeto: Catálogo de Carros - Clique para ver mais!</H3>
+            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Catálogo de Carros - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
               <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
             </P>
@@ -47,7 +47,7 @@ const Carousel = () => {
             {isToggleOpen01 && (
               <>
                 <div>
-                  <P><strong>Visão Geral</strong></P>
+                  <H3>Visão Geral</H3>
                   <P>Este projeto apresenta um catálogo interativo de carros, permitindo aos usuários explorar diferentes modelos, aprender sobre a empresa, e conhecer as características dos carros oferecidos. A interface foi projetada para ser moderna e intuitiva, com imagens e textos que destacam os produtos e a marca. O sistema de busca facilita a localização de modelos específicos, enquanto as seções informativas (sobre a empresa e suas funcionalidades) oferecem um panorama detalhado do serviço.</P>
                   <H3>Funcionalidades e Fluxo da Aplicação</H3>
                   <H4>1. Catálogo de Carros:</H4>
@@ -56,17 +56,17 @@ const Carousel = () => {
                     <Li>Funcionalidade de filtro e busca para facilitar a localização de modelos específicos.</Li>
                     <Li>Botões de ação {'("I want this!")'} para interação com os carros.</Li>
                   </Ul>
-                  <H4>{'Seção "Sobre":'}</H4>
+                  <H3>{'Seção "Sobre":'}</H3>
                   <Ul>
                     <Li>Descrição da empresa, destacando sua missão e visão.</Li>
                     <Li>Imagem da empresa e um parágrafo explicativo.</Li>
                   </Ul>
-                  <H4>Recursos:</H4>
+                  <H3>Recursos:</H3>
                   <Ul>
                     <Li>Apresentação de funcionalidades do serviço oferecido, como opções de aluguel e contato com a empresa.</Li>
                     <Li>Cada recurso é ilustrado com uma imagem e uma descrição breve.</Li>
                   </Ul>
-                  <H4>Interatividade e Estilo:</H4>
+                  <H3>Interatividade e Estilo:</H3>
                   <Ul>
                     <Li>Navegação fluida entre as seções do site.</Li>
                     <Li>Cabeçalho fixo com opções de navegação para facilitar o acesso às diferentes áreas do site.</Li>
