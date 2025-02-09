@@ -5,6 +5,7 @@ import Header from "@/components/layout/header";
 // import whatsapp2 from "@/public/whatsapp2.png";
 import Image from 'next/image';
 import Head from "next/head";
+import { useGlobalState } from "../../context/GlobalStateContext";
 import portfolioImg from "../../assets/images/portfolio.png";
 import stripelogo from "../../assets/images/stripeLogo.png";
 import carousel from "../../assets/images/carousel.png";
@@ -37,7 +38,7 @@ import { ContainerLayout } from "@/components/projetos/layout";
 
 // 1. Efeito de redimensionamento da tela
 const Projetos = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const { isLoaded } = useGlobalState();
 
   // useEffect(() => {
   //   const handleResize = () => {
@@ -59,12 +60,6 @@ const Projetos = () => {
   //     window.removeEventListener('resize', handleResize);
   //   };
   // }, [setIsHamburguerOpen]);
-
-  // 2. Efeito de carregamento (define isLoaded como true)
-  useEffect(() => {
-    setIsLoaded(true); // Define isLoaded como true quando o componente é montado
-  }, []); // Executa apenas uma vez, após a montagem do componente
-
 
   return (
     <>
