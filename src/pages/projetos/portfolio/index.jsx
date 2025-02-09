@@ -8,11 +8,8 @@ import { ContainerLayout } from "@/components/projetos/layout";
 import { Container, P, H3, Li, Ul, H4, A } from "@/components/projetos/portfolio/styles";
 
 const Portfolio = () => {
-  const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
   const [isToggleOpen01, setIsToggleOpen01] = useState(false);
   const [isToggleOpen02, setIsToggleOpen02] = useState(false);
-  const [isToggleOpen03, setIsToggleOpen03] = useState(false);
-  const [isToggleOpen04, setIsToggleOpen04] = useState(false);
 
   return (
     <>
@@ -38,8 +35,8 @@ const Portfolio = () => {
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/portfolio.jpg" />
       </Head>
       <ContainerLayout>
-        <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
-        <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
+        <SideBar></SideBar>
+        <Header></Header>
         <Main>
           <Container>
             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Player de Vídeo Personalizado - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>

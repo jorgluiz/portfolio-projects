@@ -1,6 +1,8 @@
+import { useGlobalState } from "../../../context/GlobalStateContext";
 import { Container } from './styles';
 
-const Header = ({ isHamburguerOpen, setIsHamburguerOpen }) => {
+const Header = () => {
+  const { isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
   const toggleHamburguer = () => setIsHamburguerOpen(!isHamburguerOpen);
 
   return (

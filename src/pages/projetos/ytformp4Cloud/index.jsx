@@ -8,8 +8,7 @@ import { ContainerLayout } from "@/components/projetos/layout";
 import { Container, P, H3, Li, Ul, H4, A } from "@/components/projetos/ytformp4/styles";
 
 const Ytformp4 = () => {
-  const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
-  const [isToggleOpen01, setIsToggleOpen01] = useState(false);
+  const [isToggleOpen, setIsToggleOpen] = useState(false);
 
   return (
     <>
@@ -35,15 +34,15 @@ const Ytformp4 = () => {
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/ytmp4.jpg" />
       </Head>
       <ContainerLayout>
-        <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
-        <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
+        <SideBar></SideBar>
+        <Header></Header>
         <Main>
           <Container>
-            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>🎥 Projeto: YouTube Video Downloader e combiner (fluent-ffmpeg) - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>🎥 Projeto: YouTube Video Downloader e combiner (fluent-ffmpeg) - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
               <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
             </P>
-            {isToggleOpen01 && (
+            {isToggleOpen && (
               <>
                 <div>
                   <P><strong>Descrição:</strong> Desenvolvi uma aplicação backend utilizando Node.js e Express.js que permite a recuperação de informações de vídeos do YouTube e o download de áudio e vídeo em diferentes formatos e qualidades. O sistema integra o poder de bibliotecas como <strong>youtube-dl-exec</strong>, <strong>@distube/ytdl-core</strong>, e <strong>fluent-ffmpeg</strong> para baixar, combinar e entregar um arquivo MP4 final para o usuário.</P>

@@ -8,8 +8,7 @@ import { ContainerLayout } from "@/components/projetos/layout";
 import { Container, P, H3, Li, Ul, H4, A } from "@/components/projetos/ytformp3/styles";
 
 const Ytformp3 = () => {
-  const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
-  const [isToggleOpen01, setIsToggleOpen01] = useState(false);
+  const [isToggleOpen, setIsToggleOpen] = useState(false);
 
   return (
     <>
@@ -35,16 +34,16 @@ const Ytformp3 = () => {
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/ytmp3.jpg" />
       </Head>
       <ContainerLayout>
-        <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
-        <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
+        <SideBar></SideBar>
+        <Header></Header>
         <Main>
           <Container>
-            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>🎥 Projeto: Transcrever o áudio de vídeos do YouTube e resumir - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>🎥 Projeto: Transcrever o áudio de vídeos do YouTube e resumir - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
               <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
             </P>
             <H3>Observação importante: para ter acesso backend, precisa ativar ngrok localmente!</H3>
-            {isToggleOpen01 && (
+            {isToggleOpen && (
               <>
                 <div>
                   <H4>📄 Descrição do Projeto</H4>

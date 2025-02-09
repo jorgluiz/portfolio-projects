@@ -2,6 +2,7 @@
 // import { type AppProps } from 'next/app'
 
 import { GlobalStyle } from '@/components/globalStyles';
+import { GlobalStateProvider } from "../context/GlobalStateContext";
 
 const MyApp = ({ Component, pageProps }) => {
   // const router = useRouter()
@@ -16,10 +17,10 @@ const MyApp = ({ Component, pageProps }) => {
   //   return null
   // }
   return (
-    <>
+    <GlobalStateProvider>
       <GlobalStyle />
       <Component {...pageProps} />
-    </>
+    </GlobalStateProvider>
   );
 };
 

@@ -8,8 +8,7 @@ import { ContainerLayout } from "@/components/projetos/layout";
 import { Container, P, H3, Li, Ul, H4, A } from "@/components/projetos/ytformp4/styles";
 
 const Ytformp4 = () => {
-  const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
-  const [isToggleOpen01, setIsToggleOpen01] = useState(false);
+  const [isToggleOpen, setIsToggleOpen] = useState(false);
 
   return (
     <>
@@ -35,16 +34,16 @@ const Ytformp4 = () => {
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/ytmp4.jpg" />
       </Head>
       <ContainerLayout>
-        <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
-        <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
+        <SideBar></SideBar>
+        <Header></Header>
         <Main>
           <Container>
-            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>🎥 Projeto: Download de Vídeo do YouTube - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>🎥 Projeto: Download de Vídeo do YouTube - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
               <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
             </P>
             <H3>Observação importante: para ter acesso backend, precisa ativar ngrok localmente!</H3>
-            {isToggleOpen01 && (
+            {isToggleOpen && (
               <>
                 <div>
                   <P><strong>Descrição:</strong> Este projeto é uma aplicação <strong>full-stack</strong> que permite baixar e combinar vídeos e áudios do YouTube com as seguintes funcionalidades:</P>

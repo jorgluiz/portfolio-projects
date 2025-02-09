@@ -1,8 +1,8 @@
 import { Container } from './styles';
 
-const Main = ({ children, isHamburguerOpen }) => {
+const Main = ({ children }) => {
   return (
-    <Container isHamburguerOpen={isHamburguerOpen}>
+    <Container>
       {children}
     </Container>
   );

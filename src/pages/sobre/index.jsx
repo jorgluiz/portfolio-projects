@@ -38,28 +38,27 @@ import { ContainerLayout } from "@/components/projetos/layout";
 // 1. Efeito de redimensionamento da tela
 const Projetos = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1250) {
-        setIsHamburguerOpen(true); // Aberto para telas grandes
-      } else {
-        setIsHamburguerOpen(false); // Fechado para telas menores
-      }
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth >= 1250) {
+  //       setIsHamburguerOpen(true); // Aberto para telas grandes
+  //     } else {
+  //       setIsHamburguerOpen(false); // Fechado para telas menores
+  //     }
+  //   };
 
-    // Inicializa o estado correto com base no tamanho da tela ao carregar o componente
-    handleResize();
+  //   // Inicializa o estado correto com base no tamanho da tela ao carregar o componente
+  //   handleResize();
 
-    // Adiciona o evento de redimensionamento
-    window.addEventListener('resize', handleResize);
+  //   // Adiciona o evento de redimensionamento
+  //   window.addEventListener('resize', handleResize);
 
-    // Limpa o evento ao desmontar o componente
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [setIsHamburguerOpen]);
+  //   // Limpa o evento ao desmontar o componente
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, [setIsHamburguerOpen]);
 
   // 2. Efeito de carregamento (define isLoaded como true)
   useEffect(() => {
@@ -93,8 +92,8 @@ const Projetos = () => {
 
       {!isLoaded ? null : (
         <ContainerLayout>
-          <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
-          <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
+          <SideBar></SideBar>
+          <Header></Header>
           <Main>
             <div style={{ padding: "43px 40px 40px 40px " }}>
               <p style={{ lineHeight: "28px", fontSize: "18px" }}> <strong> Sou um desenvolvedor Full Stack  </strong> apaixonado por tecnologia e inovação. Minha jornada na programação é moldada pelos projetos que desenvolvi, cada um deles representando um novo aprendizado e a aplicação de diferentes tecnologias para resolver problemas reais. Minha experiência é prática, baseada em desafios concretos que exigiram desde a construção de interfaces modernas e responsivas até a implementação de sistemas robustos no backend.</p><br />

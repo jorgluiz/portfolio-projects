@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import perfil from '../../../assets/images/perfil.jpeg';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useGlobalState } from "../../../context/GlobalStateContext";
 
+import perfil from '../../../assets/images/perfil.jpeg';
 import { Containerfixed, Container, Menu, XContainer, Bar, DiagonalOne, DiagonalTwo } from './styles';
 
-const SideBar = ({ isHamburguerOpen, setIsHamburguerOpen }) => {
+const SideBar = () => {
+  const { isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
+
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeLink, setActiveLink] = useState('/'); // Estado para armazenar o link ativo
   const router = useRouter(); // Hook para pegar a rota atual

@@ -8,8 +8,7 @@ import { ContainerLayout } from "@/components/projetos/layout";
 import { Container, P, H3, Li, Ul, H4, A } from "@/components/projetos/streamDolby/styles";
 
 const Stripe = () => {
-  const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
-  const [isToggleOpen01, setIsToggleOpen01] = useState(false);
+  const [isToggleOpen, setIsToggleOpen] = useState(false);
 
   return (
     <>
@@ -35,15 +34,15 @@ const Stripe = () => {
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/stream.jpg" />
       </Head>
       <ContainerLayout>
-        <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
-        <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
+        <SideBar></SideBar>
+        <Header></Header>
         <Main>
           <Container>
-            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Sistema de Controle e Visualização de Transmissões ao Vivo - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Sistema de Controle e Visualização de Transmissões ao Vivo - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
               <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
             </P>
-            {isToggleOpen01 && (
+            {isToggleOpen && (
               <>
 
                 <H3>Visão Geral</H3>
