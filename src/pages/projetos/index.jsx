@@ -18,7 +18,7 @@ import ytAnalyzeVideo from "../../assets/images/yt-analyze-video.png";
 
 import Head from "next/head";
 import Link from "next/link";
-import { useGlobalState } from "../context/GlobalStateContext";
+import { useGlobalState } from "../../context/GlobalStateContext";
 
 import { portfolioImgBlur } from "@/utils/portfolio";
 import { stripeImgBlur } from "@/utils/stripe";
