@@ -39,8 +39,35 @@ const Projetos = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
 
-  return (
-    <>
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1250) {
+        setIsHamburguerOpen(true); // Aberto para telas grandes
+      } else {
+        setIsHamburguerOpen(false); // Fechado para telas menores
+      }
+    };
+
+    // Inicializa o estado correto com base no tamanho da tela ao carregar o componente
+    handleResize();
+
+    // Adiciona o evento de redimensionamento
+    window.addEventListener('resize', handleResize);
+
+    // Limpa o evento ao desmontar o componente
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [setIsHamburguerOpen]);
+
+  // 2. Efeito de carregamento (define isLoaded como true)
+  useEffect(() => {
+    setIsLoaded(true); // Define isLoaded como true quando o componente é montado
+  }, []); // Executa apenas uma vez, após a montagem do componente
+
+  // Renderiza apenas a Head enquanto o restante da página carrega
+  if (!isLoaded) {
+    return (
       <Head>
         {/* <!-- Primary Meta Tags --> */}
         <title>Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js</title>
@@ -62,6 +89,11 @@ const Projetos = () => {
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
       </Head>
+    );
+  }
+
+  return (
+    <>
       <ContainerLayout>
         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
