@@ -16,6 +16,7 @@ import ytmp4 from "../../assets/images/ytmp4.png";
 import cursoOline from "../../assets/images/curso-online.png";
 import ytAnalyzeVideo from "../../assets/images/yt-analyze-video.png";
 
+import Head from "next/head";
 import Link from "next/link";
 
 import { portfolioImgBlur } from "@/utils/portfolio";
@@ -64,6 +65,28 @@ const Projetos = () => {
   useEffect(() => {
     setIsLoaded(true); // Define isLoaded como true quando o componente é montado
   }, []); // Executa apenas uma vez, após a montagem do componente
+
+  <Head>
+    {/* <!-- Primary Meta Tags --> */}
+    <title>Portfólio de Projetos Web | Tecnologias Modernas</title>
+    <meta name="title" content="Portfólio de Projetos Web | Tecnologias Modernas" />
+    <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+
+    {/* <!-- Open Graph / Facebook --> */}
+    <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
+    <meta property="og:title" content="Portfólio de Projetos Web | Tecnologias Modernas" />
+    <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+    <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+
+    {/* <!-- Twitter --> */}
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
+    <meta property="twitter:title" content="Portfólio de Projetos Web | Tecnologias Modernas" />
+    <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+    <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+  </Head>;
 
   // Se não estiver carregado, não renderiza o conteúdo
   if (!isLoaded) return null; // Aguarda o carregamento
