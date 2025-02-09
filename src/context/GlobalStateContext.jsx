@@ -6,7 +6,9 @@ const GlobalStateContext = createContext();
 // Criando o provider
 export function GlobalStateProvider({ children }) {
   const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false); // Estado global de carregamento
 
+  // O primeiro useEffect lida apenas com o redimensionamento.
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1250) {
@@ -28,8 +30,14 @@ export function GlobalStateProvider({ children }) {
     };
   }, [setIsHamburguerOpen]);
 
+
+  // O segundo useEffect cuida apenas do carregamento inicial (isLoaded).
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []); // Executa apenas uma vez quando o componente é montado
+
   return (
-    <GlobalStateContext.Provider value={{ isHamburguerOpen, setIsHamburguerOpen }}>
+    <GlobalStateContext.Provider value={{ isHamburguerOpen, setIsHamburguerOpen, isLoaded }}>
       {children}
     </GlobalStateContext.Provider>
   );
