@@ -39,56 +39,36 @@ const Projetos = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1250) {
-        setIsHamburguerOpen(true); // Aberto para telas grandes
-      } else {
-        setIsHamburguerOpen(false); // Fechado para telas menores
-      }
-    };
-
-    // Inicializa o estado correto com base no tamanho da tela ao carregar o componente
-    handleResize();
-
-    // Adiciona o evento de redimensionamento
-    window.addEventListener('resize', handleResize);
-
-    // Limpa o evento ao desmontar o componente
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [setIsHamburguerOpen]);
-
-  // 2. Efeito de carregamento (define isLoaded como true)
+  // 1. Efeito de carregamento (define isLoaded como true)
   useEffect(() => {
     setIsLoaded(true); // Define isLoaded como true quando o componente é montado
   }, []); // Executa apenas uma vez, após a montagem do componente
 
-  <Head>
-    {/* <!-- Primary Meta Tags --> */}
-    <title>Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js</title>
-    <meta name="title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
-    <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
-
-    {/* <!-- Open Graph / Facebook --> */}
-    <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
-    <meta property="og:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
-    <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
-    <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
-
-    {/* <!-- Twitter --> */}
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
-    <meta property="twitter:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
-    <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
-    <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
-  </Head>;
 
   // Se não estiver carregado, não renderiza o conteúdo
-  if (!isLoaded) return null; // Aguarda o carregamento
+  if (!isLoaded) {
+    <Head>
+      {/* <!-- Primary Meta Tags --> */}
+      <title>Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js</title>
+      <meta name="title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+      <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+
+      {/* <!-- Open Graph / Facebook --> */}
+      <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
+      <meta property="og:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+      <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+      <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+
+      {/* <!-- Twitter --> */}
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
+      <meta property="twitter:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+      <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+      <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+    </Head>;
+  }
 
   return (
     <>

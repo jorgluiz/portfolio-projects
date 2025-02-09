@@ -1,0 +1,346 @@
+diff --git a/alteracoes.patch b/alteracoes.patch
+deleted file mode 100644
+index c481103..0000000
+--- a/alteracoes.patch
++++ /dev/null
+@@ -1,255 +0,0 @@
+-diff --git a/alt.patch b/alt.patch
+-deleted file mode 100644
+-index 460ac72..0000000
+---- a/alt.patch
+-+++ /dev/null
+-@@ -1,167 +0,0 @@
+--diff --git a/alteracoes.patch b/alteracoes.patch
+--deleted file mode 100644
+--index f509858..0000000
+----- a/alteracoes.patch
+--+++ /dev/null
+--@@ -1,100 +0,0 @@
+---diff --git a/alterar.patch b/alterar.patch
+---deleted file mode 100644
+---index a130284..0000000
+------ a/alterar.patch
+---+++ /dev/null
+---@@ -1,40 +0,0 @@
+----diff --git a/src/pages/sobre/index.jsx b/src/pages/sobre/index.jsx
+----index ec8bf5e..947b19e 100644
+------- a/src/pages/sobre/index.jsx
+----+++ b/src/pages/sobre/index.jsx
+----@@ -39,35 +39,6 @@ const Projetos = () => {
+----   const [isLoaded, setIsLoaded] = useState(false);
+----   const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
+---- 
+-----  useEffect(() => {
+-----    const handleResize = () => {
+-----      if (window.innerWidth >= 1250) {
+-----        setIsHamburguerOpen(true); // Aberto para telas grandes
+-----      } else {
+-----        setIsHamburguerOpen(false); // Fechado para telas menores
+-----      }
+-----    };
+-----
+-----    // Inicializa o estado correto com base no tamanho da tela ao carregar o componente
+-----    handleResize();
+-----
+-----    // Adiciona o evento de redimensionamento
+-----    window.addEventListener('resize', handleResize);
+-----
+-----    // Limpa o evento ao desmontar o componente
+-----    return () => {
+-----      window.removeEventListener('resize', handleResize);
+-----    };
+-----  }, [setIsHamburguerOpen]);
+-----
+-----  // 2. Efeito de carregamento (define isLoaded como true)
+-----  useEffect(() => {
+-----    setIsLoaded(true); // Define isLoaded como true quando o componente é montado
+-----  }, []); // Executa apenas uma vez, após a montagem do componente
+-----
+-----  // Se não estiver carregado, não renderiza o conteúdo
+-----  if (!isLoaded) return null; // Aguarda o carregamento
+-----
+----   return (
+----     <>
+----       <Head>
+---diff --git a/src/pages/sobre/index.jsx b/src/pages/sobre/index.jsx
+---index 947b19e..45fcabe 100644
+------ a/src/pages/sobre/index.jsx
+---+++ b/src/pages/sobre/index.jsx
+---@@ -39,8 +39,35 @@ const Projetos = () => {
+---   const [isLoaded, setIsLoaded] = useState(false);
+---   const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
+--- 
+----  return (
+----    <>
+---+  useEffect(() => {
+---+    const handleResize = () => {
+---+      if (window.innerWidth >= 1250) {
+---+        setIsHamburguerOpen(true); // Aberto para telas grandes
+---+      } else {
+---+        setIsHamburguerOpen(false); // Fechado para telas menores
+---+      }
+---+    };
+---+
+---+    // Inicializa o estado correto com base no tamanho da tela ao carregar o componente
+---+    handleResize();
+---+
+---+    // Adiciona o evento de redimensionamento
+---+    window.addEventListener('resize', handleResize);
+---+
+---+    // Limpa o evento ao desmontar o componente
+---+    return () => {
+---+      window.removeEventListener('resize', handleResize);
+---+    };
+---+  }, [setIsHamburguerOpen]);
+---+
+---+  // 2. Efeito de carregamento (define isLoaded como true)
+---+  useEffect(() => {
+---+    setIsLoaded(true); // Define isLoaded como true quando o componente é montado
+---+  }, []); // Executa apenas uma vez, após a montagem do componente
+---+
+---+  // Renderiza apenas a Head enquanto o restante da página carrega
+---+  if (!isLoaded) {
+---+    return (
+---       <Head>
+---         {/* <!-- Primary Meta Tags --> */}
+---         <title>Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js</title>
+---@@ -62,6 +89,11 @@ const Projetos = () => {
+---         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+---         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+---       </Head>
+---+    );
+---+  }
+---+
+---+  return (
+---+    <>
+---       <ContainerLayout>
+---         <SideBar isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></SideBar>
+---         <Header isHamburguerOpen={isHamburguerOpen} setIsHamburguerOpen={setIsHamburguerOpen}></Header>
+--diff --git a/src/pages/sobre/index.jsx b/src/pages/sobre/index.jsx
+--index 45fcabe..6d21547 100644
+----- a/src/pages/sobre/index.jsx
+--+++ b/src/pages/sobre/index.jsx
+--@@ -65,32 +65,30 @@ const Projetos = () => {
+--     setIsLoaded(true); // Define isLoaded como true quando o componente é montado
+--   }, []); // Executa apenas uma vez, após a montagem do componente
+-- 
+---  // Renderiza apenas a Head enquanto o restante da página carrega
+---  if (!isLoaded) {
+---    return (
+---      <Head>
+---        {/* <!-- Primary Meta Tags --> */}
+---        <title>Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js</title>
+---        <meta name="title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+---        <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+---
+---        {/* <!-- Open Graph / Facebook --> */}
+---        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+---        <meta property="og:type" content="website" />
+---        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
+---        <meta property="og:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+---        <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+---        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+---
+---        {/* <!-- Twitter --> */}
+---        <meta property="twitter:card" content="summary_large_image" />
+---        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
+---        <meta property="twitter:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+---        <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+---        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+---      </Head>
+---    );
+---  }
+--+  <Head>
+--+    {/* <!-- Primary Meta Tags --> */}
+--+    <title>Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js</title>
+--+    <meta name="title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+--+    <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+--+
+--+    {/* <!-- Open Graph / Facebook --> */}
+--+    <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+--+    <meta property="og:type" content="website" />
+--+    <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
+--+    <meta property="og:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+--+    <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+--+    <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+--+
+--+    {/* <!-- Twitter --> */}
+--+    <meta property="twitter:card" content="summary_large_image" />
+--+    <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
+--+    <meta property="twitter:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+--+    <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+--+    <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+--+  </Head>;
+--+
+--+  // Se não estiver carregado, não renderiza o conteúdo
+--+  if (!isLoaded) return null; // Aguarda o carregamento
+-- 
+--   return (
+--     <>
+-diff --git a/public/sitemap-0.xml b/public/sitemap-0.xml
+-index 9fca161..13051ab 100644
+---- a/public/sitemap-0.xml
+-+++ b/public/sitemap-0.xml
+-@@ -1,19 +1,19 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+--<url><loc>https://portfolio-projects-production.up.railway.app</loc><lastmod>2025-02-08T15:14:56.180Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos/carousel</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos/catalogo</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos/cursoOnline</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos/dataAnalysis</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos/imageGenerator</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos/portfolio</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos/streamDolby</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos/stripe</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos/youtube</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytAnalyseVideo</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp3</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp4Cloud</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp4Location</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+--<url><loc>https://portfolio-projects-production.up.railway.app/sobre</loc><lastmod>2025-02-08T15:14:56.181Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/carousel</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/catalogo</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/cursoOnline</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/dataAnalysis</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/imageGenerator</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/portfolio</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/streamDolby</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/stripe</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/youtube</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytAnalyseVideo</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp3</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp4Cloud</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp4Location</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-+<url><loc>https://portfolio-projects-production.up.railway.app/sobre</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+- </urlset>
+-\ No newline at end of file
+-diff --git a/src/pages/projetos/index.jsx b/src/pages/projetos/index.jsx
+-index ec15695..6e8ea25 100644
+---- a/src/pages/projetos/index.jsx
+-+++ b/src/pages/projetos/index.jsx
+-@@ -16,6 +16,7 @@ import ytmp4 from "../../assets/images/ytmp4.png";
+- import cursoOline from "../../assets/images/curso-online.png";
+- import ytAnalyzeVideo from "../../assets/images/yt-analyze-video.png";
+- 
+-+import Head from "next/head";
+- import Link from "next/link";
+- 
+- import { portfolioImgBlur } from "@/utils/portfolio";
+-@@ -65,6 +66,28 @@ const Projetos = () => {
+-     setIsLoaded(true); // Define isLoaded como true quando o componente é montado
+-   }, []); // Executa apenas uma vez, após a montagem do componente
+- 
+-+  <Head>
+-+    {/* <!-- Primary Meta Tags --> */}
+-+    <title>Portfólio de Projetos Web | Tecnologias Modernas</title>
+-+    <meta name="title" content="Portfólio de Projetos Web | Tecnologias Modernas" />
+-+    <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+-+
+-+    {/* <!-- Open Graph / Facebook --> */}
+-+    <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+-+    <meta property="og:type" content="website" />
+-+    <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
+-+    <meta property="og:title" content="Portfólio de Projetos Web | Tecnologias Modernas" />
+-+    <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+-+    <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+-+
+-+    {/* <!-- Twitter --> */}
+-+    <meta property="twitter:card" content="summary_large_image" />
+-+    <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos" />
+-+    <meta property="twitter:title" content="Portfólio de Projetos Web | Tecnologias Modernas" />
+-+    <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+-+    <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+-+  </Head>;
+-+
+-   // Se não estiver carregado, não renderiza o conteúdo
+-   if (!isLoaded) return null; // Aguarda o carregamento
+- 
+diff --git a/src/pages/sobre/index.jsx b/src/pages/sobre/index.jsx
+index 6d21547..40feb7c 100644
+--- a/src/pages/sobre/index.jsx
++++ b/src/pages/sobre/index.jsx
+@@ -39,56 +39,36 @@ const Projetos = () => {
+   const [isLoaded, setIsLoaded] = useState(false);
+   const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
+ 
+-  useEffect(() => {
+-    const handleResize = () => {
+-      if (window.innerWidth >= 1250) {
+-        setIsHamburguerOpen(true); // Aberto para telas grandes
+-      } else {
+-        setIsHamburguerOpen(false); // Fechado para telas menores
+-      }
+-    };
+-
+-    // Inicializa o estado correto com base no tamanho da tela ao carregar o componente
+-    handleResize();
+-
+-    // Adiciona o evento de redimensionamento
+-    window.addEventListener('resize', handleResize);
+-
+-    // Limpa o evento ao desmontar o componente
+-    return () => {
+-      window.removeEventListener('resize', handleResize);
+-    };
+-  }, [setIsHamburguerOpen]);
+-
+-  // 2. Efeito de carregamento (define isLoaded como true)
++  // 1. Efeito de carregamento (define isLoaded como true)
+   useEffect(() => {
+     setIsLoaded(true); // Define isLoaded como true quando o componente é montado
+   }, []); // Executa apenas uma vez, após a montagem do componente
+ 
+-  <Head>
+-    {/* <!-- Primary Meta Tags --> */}
+-    <title>Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js</title>
+-    <meta name="title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+-    <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+-
+-    {/* <!-- Open Graph / Facebook --> */}
+-    <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+-    <meta property="og:type" content="website" />
+-    <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
+-    <meta property="og:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+-    <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+-    <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+-
+-    {/* <!-- Twitter --> */}
+-    <meta property="twitter:card" content="summary_large_image" />
+-    <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
+-    <meta property="twitter:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+-    <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+-    <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+-  </Head>;
+ 
+   // Se não estiver carregado, não renderiza o conteúdo
+-  if (!isLoaded) return null; // Aguarda o carregamento
++  if (!isLoaded) {
++    <Head>
++      {/* <!-- Primary Meta Tags --> */}
++      <title>Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js</title>
++      <meta name="title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
++      <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
++
++      {/* <!-- Open Graph / Facebook --> */}
++      <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
++      <meta property="og:type" content="website" />
++      <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
++      <meta property="og:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
++      <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
++      <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
++
++      {/* <!-- Twitter --> */}
++      <meta property="twitter:card" content="summary_large_image" />
++      <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/sobre" />
++      <meta property="twitter:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
++      <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
++      <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
++    </Head>;
++  }
+ 
+   return (
+     <>
