@@ -33,7 +33,7 @@ import { ytmp4ImgBlur } from "@/utils/ytmp4";
 import { cursoOnlineImgBlur } from "@/utils/ytmp4";
 
 import { GridContainer, Container } from "@/components/projetos/";
-import { ContainerLayout } from "@/components/projetos/layout";
+import { ContainerLayout } from "@/components/home";
 
 // 1. Efeito de redimensionamento da tela
 const Projetos = () => {

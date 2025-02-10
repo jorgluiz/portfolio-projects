@@ -20,8 +20,6 @@ const SideBar = () => {
     console.log(router.pathname);
   }, [router.pathname]); // Executa sempre que a rota mudar
 
-  if (!isLoaded) return null; // Aguarda o carregamento
-
 
   return (
     <Containerfixed isHamburguerOpen={isHamburguerOpen}>

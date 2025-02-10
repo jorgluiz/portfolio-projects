@@ -3,7 +3,7 @@ import Main from "@/components/layout/main";
 import SideBar from "@/components/layout/sideBar";
 import Header from "@/components/layout/header";
 import Head from "next/head";
-import { ContainerLayout } from "@/components/projetos/layout";
+import { ContainerLayout } from "@/components/home";
 
 import { Container, P, H3, Li, Ul, H4, A } from "@/components/projetos/stripe/styles";
 
