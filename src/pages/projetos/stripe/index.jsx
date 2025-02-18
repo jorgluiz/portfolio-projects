@@ -40,7 +40,7 @@ const Stripe = () => {
           <Container>
             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Plataforma de Autenticação e Pagamentos com STRIPE - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
-              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://stripe.up.railway.app/login" target="_blank">🌎 Link do Projeto</a>
             </P>
             {isToggleOpen && (
               <>

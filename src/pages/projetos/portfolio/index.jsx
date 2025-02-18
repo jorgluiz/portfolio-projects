@@ -39,9 +39,12 @@ const Portfolio = () => {
         <Header></Header>
         <Main>
           <Container>
-            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Player de Vídeo Personalizado - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Player de Vídeo Customizado - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
-              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://portfolio-study-production.up.railway.app/yt-mobile" target="_blank">🌎 Link do Projeto mobile</a>
+            </P>
+            <P>
+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://portfolio-study-production.up.railway.app/yt-desktop" target="_blank">🌎 Link do Projeto desktop</a>
             </P>
             {isToggleOpen01 && (
               <>
@@ -118,7 +121,7 @@ const Portfolio = () => {
             {/* ---------------------------------------------------------------------------- */}
             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen02 ? setIsToggleOpen02(false) : setIsToggleOpen02(true)}>Projeto: Catálogo de Carros  - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
-              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://portfolio-study-production.up.railway.app/front-end/catalogo" target="_blank">🌎 Link do Projeto</a>
             </P>
             {isToggleOpen02 && (
               <>

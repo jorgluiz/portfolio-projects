@@ -40,7 +40,7 @@ const CursoOline = () => {
           <Container>
             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Vendas de cursos - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
-              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://portfolio-work-developed-d98bf30e877e.herokuapp.com/front-end/catalogo" target="_blank">🌎 Link do Projeto</a>
+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://frontend-venda.up.railway.app" target="_blank">🌎 Link do Projeto</a>
             </P>
             {isToggleOpen && (
               <>

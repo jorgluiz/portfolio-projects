@@ -83,7 +83,7 @@ const Projetos = () => {
         <meta property="twitter:title" content="Portfólio de Projetos Web | Tecnologias Modernas" />
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
-      </Head>;
+      </Head>
 
       {!isLoaded ? null : (
         <ContainerLayout>
@@ -168,7 +168,7 @@ const Projetos = () => {
                   </Link>
                 </div>
                 <div className="container-item">
-                  <Link href="/projetos/dataAnalysis">
+                  <Link href="/projetos/dataAnalysisTwitter">
                     <Image src={analyzeFeelings} placeholder="blur" blurDataURL={analyzeImgBlur} alt="img" />
                     <div className="item">
                       <div className="sub-item">
@@ -236,7 +236,7 @@ const Projetos = () => {
                   </Link>
                 </div>
                 <div className="container-item">
-                  <Link href="/projetos/youtube">
+                  <Link href="/projetos/playerVideoCustomizado">
                     <Image src={youtube} placeholder="blur" blurDataURL={youtubeImgBlur} alt="img" />
                     <div className="item">
                       <div className="sub-item">
@@ -310,7 +310,7 @@ const Projetos = () => {
                   </Link>
                 </div>
                 <div className="container-item">
-                  <Link href="/projetos/cursoOnline">
+                  <Link href="/projetos/vendasCurso">
                     <Image src={cursoOline} placeholder="blur" blurDataURL={cursoOnlineImgBlur} alt="img" />
                     <div className="item">
                       <div className="sub-item">

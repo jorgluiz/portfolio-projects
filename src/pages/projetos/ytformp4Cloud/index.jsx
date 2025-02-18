@@ -40,8 +40,9 @@ const Ytformp4 = () => {
           <Container>
             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>🎥 Projeto: YouTube Video Downloader e combiner (fluent-ffmpeg) - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
             <P>
-              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://ytmp4-frontend.up.railway.app" target="_blank">🌎 Link do Projeto</a>
             </P>
+            <H3>Estou usando server ngrok localmente para expor</H3>
             {isToggleOpen && (
               <>
                 <div>

@@ -14,6 +14,12 @@ export const Containerfixed = styled.div`
   transform: translateX(0); /* Posição inicial */
   border-top-right-radius: 50px;
 
+  * {  /* Aplica a todos os elementos dentro de VideoContainer */
+      /* Remover realce azul no toque (Mobile e WebKit) */
+        -webkit-tap-highlight-color: transparent;
+        -webkit-focus-ring-color: transparent;
+    }
+
   @media (max-width: 1250px) {
     /* Alterna para 'fixed' em telas menores para remover o espaço quando o sidebar é oculto */
     position: fixed;

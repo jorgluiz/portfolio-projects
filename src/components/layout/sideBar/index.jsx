@@ -9,32 +9,34 @@ import { Containerfixed, Container, Menu, XContainer, Bar, DiagonalOne, Diagonal
 
 const SideBar = () => {
   const { isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
-
-  const [isLoaded, setIsLoaded] = useState(false);
+  console.log(isHamburguerOpen, "isHamburguerOpenisHamburguerOpenisHamburguerOpenisHamburguerOpen");
   const [activeLink, setActiveLink] = useState('/'); // Estado para armazenar o link ativo
+  console.log(activeLink, "activeLink activeLink activeLink");
   const router = useRouter(); // Hook para pegar a rota atual
 
   useEffect(() => {
-    setIsLoaded(true);
     setActiveLink(router.pathname); // Atualiza o estado com a rota atual
     console.log(router.pathname);
   }, [router.pathname]); // Executa sempre que a rota mudar
 
+  const goHome = () => {
+    router.push('/');
+    // setIsHamburguerOpen(prevState => !prevState);
+  };
 
   return (
     <Containerfixed isHamburguerOpen={isHamburguerOpen}>
       {isHamburguerOpen &&
-        <XContainer onClick={() => setIsHamburguerOpen(!isHamburguerOpen)}>
+        <XContainer onClick={() => setIsHamburguerOpen(prevState => !prevState)}>
           <DiagonalOne />
           <DiagonalTwo />
         </XContainer>
       }
       <Container>
-        <Link href="/">
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", border: "solid 2px #243b53", borderRadius: '50%', width: "160px", height: "160px", marginTop: "40px" }}>
-            <Image src={perfil} width={150} height={150} style={{ borderRadius: '50%' }} className="profile-image" alt="img" />
-          </div>
-        </Link>
+        <div onClick={() => goHome()} style={{ display: "flex", justifyContent: "center", alignItems: "center", border: "solid 2px #243b53", borderRadius: '50%', width: "160px", height: "160px", marginTop: "40px", cursor: "pointer" }}>
+          <Image src={perfil} width={150} height={150} style={{ borderRadius: '50%' }} className="profile-image" alt="img" />
+        </div>
+
         <h3 style={{ color: "#d1dfed" }}>Jorge Luiz de Medeiros e Silva Jr</h3>
         <p style={{ color: "#bcccdc", fontSize: "20px" }}>Web Developer</p>
         <div style={{ width: "260px", border: "solid 1px #243B53", marginTop: "20px" }}></div>
@@ -42,17 +44,17 @@ const SideBar = () => {
           <ul>
             <li>
               <Link href="/">
-                <span onClick={() => setActiveLink('/sobre')} className={activeLink === '/' ? 'active' : ''}>Home</span>
+                <span onClick={() => { setIsHamburguerOpen(prevState => !prevState); }} className={activeLink === '/' ? 'active' : ''}>Home</span>
               </Link>
             </li>
             <li>
               <Link href="/sobre">
-                <span onClick={() => setActiveLink('/sobre')} className={activeLink === '/sobre' ? 'active' : ''}>Sobre</span>
+                <span onClick={() => { setIsHamburguerOpen(prevState => !prevState); }} className={activeLink === '/sobre' ? 'active' : ''}>Sobre</span>
               </Link>
             </li>
             <li>
               <Link href="/projetos">
-                <span onClick={() => setActiveLink('/projetos')} className={activeLink === '/projetos' ? 'active' : ''}>Projetos</span>
+                <span onClick={() => { setIsHamburguerOpen(prevState => !prevState); }} className={activeLink === '/projetos' ? 'active' : ''}>Projetos</span>
               </Link>
             </li>
           </ul>
