@@ -21,14 +21,14 @@ const Carousel = () => {
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/dataAnalysis" />
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/dataAnalysisTwitter" />
         <meta property="og:title" content="Projeto de Coleta e Análise de Dados no Twitter com IA – Puppeteer e OpenAI" />
         <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/analyze-feelings.jpg" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/dataAnalysis" />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/dataAnalysisTwitter" />
         <meta property="twitter:title" content="Projeto de Coleta e Análise de Dados no Twitter com IA – Puppeteer e OpenAI" />
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/analyze-feelings.jpg" />

@@ -1,0 +1,764 @@
+diff --git a/changes.patch b/changes.patch
+deleted file mode 100644
+index cfe912e..0000000
+--- a/changes.patch
++++ /dev/null
+@@ -1,633 +0,0 @@
+-diff --git a/src/components/globalStyles.js b/src/components/globalStyles.js
+-index a35a938..ee72260 100644
+---- a/src/components/globalStyles.js
+-+++ b/src/components/globalStyles.js
+-@@ -16,4 +16,6 @@ export const GlobalStyle = createGlobalStyle`
+-     text-decoration: none;
+-     color: inherit;
+-   }
+-+  
+- `;
+-+
+-diff --git a/src/components/layout/sideBar/index.jsx b/src/components/layout/sideBar/index.jsx
+-index 96ec30e..0ca0d81 100644
+---- a/src/components/layout/sideBar/index.jsx
+-+++ b/src/components/layout/sideBar/index.jsx
+-@@ -9,32 +9,34 @@ import { Containerfixed, Container, Menu, XContainer, Bar, DiagonalOne, Diagonal
+- 
+- const SideBar = () => {
+-   const { isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
+--
+--  const [isLoaded, setIsLoaded] = useState(false);
+-+  console.log(isHamburguerOpen, "isHamburguerOpenisHamburguerOpenisHamburguerOpenisHamburguerOpen");
+-   const [activeLink, setActiveLink] = useState('/'); // Estado para armazenar o link ativo
+-+  console.log(activeLink, "activeLink activeLink activeLink");
+-   const router = useRouter(); // Hook para pegar a rota atual
+- 
+-   useEffect(() => {
+--    setIsLoaded(true);
+-     setActiveLink(router.pathname); // Atualiza o estado com a rota atual
+-     console.log(router.pathname);
+-   }, [router.pathname]); // Executa sempre que a rota mudar
+- 
+-+  const goHome = () => {
+-+    router.push('/');
+-+    // setIsHamburguerOpen(prevState => !prevState);
+-+  };
+- 
+-   return (
+-     <Containerfixed isHamburguerOpen={isHamburguerOpen}>
+-       {isHamburguerOpen &&
+--        <XContainer onClick={() => setIsHamburguerOpen(!isHamburguerOpen)}>
+-+        <XContainer onClick={() => setIsHamburguerOpen(prevState => !prevState)}>
+-           <DiagonalOne />
+-           <DiagonalTwo />
+-         </XContainer>
+-       }
+-       <Container>
+--        <Link href="/">
+--          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", border: "solid 2px #243b53", borderRadius: '50%', width: "160px", height: "160px", marginTop: "40px" }}>
+--            <Image src={perfil} width={150} height={150} style={{ borderRadius: '50%' }} className="profile-image" alt="img" />
+--          </div>
+--        </Link>
+-+        <div onClick={() => goHome()} style={{ display: "flex", justifyContent: "center", alignItems: "center", border: "solid 2px #243b53", borderRadius: '50%', width: "160px", height: "160px", marginTop: "40px", cursor: "pointer" }}>
+-+          <Image src={perfil} width={150} height={150} style={{ borderRadius: '50%' }} className="profile-image" alt="img" />
+-+        </div>
+-+
+-         <h3 style={{ color: "#d1dfed" }}>Jorge Luiz de Medeiros e Silva Jr</h3>
+-         <p style={{ color: "#bcccdc", fontSize: "20px" }}>Web Developer</p>
+-         <div style={{ width: "260px", border: "solid 1px #243B53", marginTop: "20px" }}></div>
+-@@ -42,17 +44,17 @@ const SideBar = () => {
+-           <ul>
+-             <li>
+-               <Link href="/">
+--                <span onClick={() => setActiveLink('/sobre')} className={activeLink === '/' ? 'active' : ''}>Home</span>
+-+                <span onClick={() => { setIsHamburguerOpen(prevState => !prevState); }} className={activeLink === '/' ? 'active' : ''}>Home</span>
+-               </Link>
+-             </li>
+-             <li>
+-               <Link href="/sobre">
+--                <span onClick={() => setActiveLink('/sobre')} className={activeLink === '/sobre' ? 'active' : ''}>Sobre</span>
+-+                <span onClick={() => { setIsHamburguerOpen(prevState => !prevState); }} className={activeLink === '/sobre' ? 'active' : ''}>Sobre</span>
+-               </Link>
+-             </li>
+-             <li>
+-               <Link href="/projetos">
+--                <span onClick={() => setActiveLink('/projetos')} className={activeLink === '/projetos' ? 'active' : ''}>Projetos</span>
+-+                <span onClick={() => { setIsHamburguerOpen(prevState => !prevState); }} className={activeLink === '/projetos' ? 'active' : ''}>Projetos</span>
+-               </Link>
+-             </li>
+-           </ul>
+-diff --git a/src/components/layout/sideBar/styles.js b/src/components/layout/sideBar/styles.js
+-index 96f8775..2231c16 100644
+---- a/src/components/layout/sideBar/styles.js
+-+++ b/src/components/layout/sideBar/styles.js
+-@@ -14,6 +14,12 @@ export const Containerfixed = styled.div`
+-   transform: translateX(0); /* Posição inicial */
+-   border-top-right-radius: 50px;
+- 
+-+  * {  /* Aplica a todos os elementos dentro de VideoContainer */
+-+      /* Remover realce azul no toque (Mobile e WebKit) */
+-+        -webkit-tap-highlight-color: transparent;
+-+        -webkit-focus-ring-color: transparent;
+-+    }
+-+
+-   @media (max-width: 1250px) {
+-     /* Alterna para 'fixed' em telas menores para remover o espaço quando o sidebar é oculto */
+-     position: fixed;
+-@@ -87,4 +93,4 @@ export const DiagonalOne = styled(Bar)`
+- 
+- export const DiagonalTwo = styled(Bar)`
+-   transform: rotate(-45deg);
+--`;
+-+`;
+-\ No newline at end of file
+-diff --git a/src/pages/projetos/carousel/index.jsx b/src/pages/projetos/carousel/index.jsx
+-index ca6ad9c..ca419d4 100644
+---- a/src/pages/projetos/carousel/index.jsx
+-+++ b/src/pages/projetos/carousel/index.jsx
+-@@ -40,7 +40,7 @@ const Carousel = () => {
+-           <Container>
+-             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Carousel de Imagens com Controles Personalizados - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+-             <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+-+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://carousel.up.railway.app/" target="_blank">🌎 Link do Projeto</a>
+-             </P>
+-             {isToggleOpen && (
+-               <>
+-diff --git a/src/pages/projetos/catalogo/index.jsx b/src/pages/projetos/catalogo/index.jsx
+-index 6b61b03..1e1620f 100644
+---- a/src/pages/projetos/catalogo/index.jsx
+-+++ b/src/pages/projetos/catalogo/index.jsx
+-@@ -40,7 +40,7 @@ const Carousel = () => {
+-           <Container>
+-             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Catálogo de Carros - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+-             <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+-+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://portfolio-study-production.up.railway.app/front-end/catalogo" target="_blank">🌎 Link do Projeto</a>
+-             </P>
+- 
+-             {isToggleOpen && (
+-diff --git a/src/pages/projetos/cursoOnline/index.jsx b/src/pages/projetos/cursoOnline/index.jsx
+-deleted file mode 100644
+-index 6ea9368..0000000
+---- a/src/pages/projetos/cursoOnline/index.jsx
+-+++ /dev/null
+-@@ -1,115 +0,0 @@
+--import { useState } from "react";
+--import Main from "@/components/layout/main";
+--import SideBar from "@/components/layout/sideBar";
+--import Header from "@/components/layout/header";
+--import Head from "next/head";
+--import { ContainerLayout } from "@/components/home";
+--
+--import { Container, P, H3, Li, Ul, H4 } from "@/components/projetos/catalogo/styles";
+--
+--const CursoOline = () => {
+--  const [isToggleOpen, setIsToggleOpen] = useState(false);
+--
+--  return (
+--    <>
+--      <Head>
+--        {/* <!-- Primary Meta Tags --> */}
+--        <title>Criação de Plataforma EAD com Pagamentos Integrados e Acesso Protegido</title>
+--        <meta name="title" content="Criação de Plataforma EAD com Pagamentos Integrados e Acesso Protegido" />
+--        <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+--
+--        {/* <!-- Open Graph / Facebook --> */}
+--        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+--        <meta property="og:type" content="website" />
+--        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/cursoOnline" />
+--        <meta property="og:title" content="Criação de Plataforma EAD com Pagamentos Integrados e Acesso Protegido" />
+--        <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+--        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/cursoOnline.jpg" />
+--
+--        {/* <!-- Twitter --> */}
+--        <meta property="twitter:card" content="summary_large_image" />
+--        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/cursoOnline" />
+--        <meta property="twitter:title" content="Criação de Plataforma EAD com Pagamentos Integrados e Acesso Protegido" />
+--        <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+--        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/cursoOnline.jpg" />
+--      </Head>
+--      <ContainerLayout>
+--        <SideBar></SideBar>
+--        <Header></Header>
+--        <Main>
+--          <Container>
+--            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Vendas de cursos - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+--            <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://portfolio-work-developed-d98bf30e877e.herokuapp.com/front-end/catalogo" target="_blank">🌎 Link do Projeto</a>
+--            </P>
+--            {isToggleOpen && (
+--              <>
+--                <div>
+--                  <P><strong>📌 Visão Geral</strong></P>
+--                  <P>Este projeto é uma plataforma de cursos online onde os usuários podem <strong>se cadastrar, efetuar pagamentos e acessar conteúdos exclusivos</strong>. O sistema garante que apenas usuários autenticados e com pagamento confirmado tenham acesso às aulas, proporcionando uma experiência fluida e segura.</P>
+--                  <h2>🛠 Tecnologias Utilizadas</h2><br />
+--                  <H4>🔹 Frontend (React.js + Vite)</H4>
+--                  <Ul>
+--                    <Li><strong>React.js →</strong> Biblioteca para construção da interface interativa e reativa.</Li>
+--                    <Li><strong>React Router DOM →</strong> Gerenciamento de rotas e navegação protegida.</Li>
+--                    <Li><strong>Context API →</strong> Gerenciamento de estado para autenticação e status de pagamento.</Li>
+--                    <Li><strong>Axios →</strong> Consumo da API para autenticação e pagamentos.</Li>
+--                    <Li><strong>JWT-Decode →</strong> Decodificação do token JWT para validação da sessão do usuário.</Li>
+--                    <Li><strong>Styled Components →</strong> Estilização dinâmica com CSS-in-JS.</Li>
+--                    <Li><strong>Socket.io Client →</strong> Comunicação em tempo real (possível uso para notificações ou atualizações instantâneas).</Li>
+--                    {/* <Li><strong>Jest →</strong> Testes unitários para garantir a qualidade do código.</Li> */}
+--                    <Li><strong>LocalStorage →</strong> Persistência de autenticação e pagamento sem necessidade de login repetido.</Li>
+--                  </Ul>
+--                  <H4>🔹 Backend (Node.js + Express)</H4>
+--                  <Ul>
+--                    <Li><strong>Node.js →</strong> Para construção do backend.</Li>
+--                    <Li><strong>Express → </strong> Framework para criar as rotas e a estrutura do servidor.</Li>
+--                    <Li><strong>PostgreSQL →</strong> Banco de dados para armazenar usuários, pagamentos e cursos.</Li>
+--                    <Li><strong>JWT (JSON Web Token) →</strong> Autenticação segura via token.</Li>
+--                    <Li><strong>Bcrypt →</strong> Hashing de senhas para segurança dos usuários.</Li>
+--                    <Li><strong>Pagar.me API →</strong> Processamento de pagamentos via PIX, cartão e boleto.</Li>
+--                    <Li><strong>Socket.io →</strong> Para comunicação em tempo real e envio de notificações aos usuários.</Li>
+--                    <Li><strong>Axios →</strong> Para realizar requisições HTTP dentro do sistema.</Li>
+--                    <Li><strong>CORS →</strong> Para permitir requisições de diferentes origens.</Li>
+--                    <Li><strong>Body-parser →</strong> Para lidar com os dados das requisições no formato JSON.</Li>
+--                    <Li><strong>Dotenv →</strong> Para gerenciamento de variáveis de ambiente.</Li>
+--                    <Li><strong>pg →</strong> Biblioteca para conectar e interagir com o PostgreSQL.</Li>
+--                  </Ul>
+--                  <h2>🚀 Funcionalidades Principai</h2><br />
+--                  <h3>🔑 Autenticação Segura</h3><br />
+--                  <Ul>
+--                    <Li>✅ Cadastro e login com <strong>senhas protegidas (Bcrypt).</strong></Li>
+--                    <Li>✅ Autenticação via <strong>JWT</strong>, garantindo sessões seguras.</Li>
+--                    <Li>✅ Persistência de login via <strong>LocalStorage</strong>.</Li>
+--                    <Li>✅ Decodificação do JWT com <strong>jwt-decode</strong> para validar sessão.</Li>
+--                  </Ul>
+--                  <h2>💳 Pagamento e Acesso a Cursos</h2><br />
+--                  <Ul>
+--                    <Li>✅ Integração com <strong>Pagar.me API</strong> para processar pagamentos via <strong>PIX, cartão e boleto</strong>.</Li>
+--                    <Li>✅ Controle de acesso a vídeos com base no <strong>status de pagamento</strong>.</Li>
+--                    <Li>✅ Redirecionamento automático para página de pagamento se necessário.</Li>
+--                  </Ul>
+--                  <h2>📡 Comunicação em Tempo Real</h2><br />
+--                  <Ul>
+--                    <Li>✅ <strong>Socket.io Client →</strong> Possível implementação de notificações em tempo real, chat entre usuários ou atualizações automáticas de status.</Li>
+--                  </Ul>
+--                  <h2>🔄 Experiência de Usuário Aprimorada</h2><br />
+--                  <Ul>
+--                    <Li>✅ UI responsiva e estilizada com <strong>Styled Components</strong>.</Li>
+--                    <Li>✅ <strong>Mensagens de erro amigáveis</strong> para login e pagamento.</Li>
+--                    <Li>✅ <strong>Feedback visual</strong> para status de pagamento.</Li>
+--                  </Ul>
+--                  <Ul>
+--                    <Li><strong>Responsividade:</strong> A interface foi projetada para funcionar bem em dispositivos móveis e desktops, garantindo uma boa experiência de usuário em todas as telas.</Li>
+--                  </Ul>
+--                </div>
+--              </>
+--            )}
+--          </Container>
+--        </Main>
+--      </ContainerLayout>
+--    </>
+--  );
+--};
+--
+--export default CursoOline;
+-\ No newline at end of file
+-diff --git a/src/pages/projetos/dataAnalysis/index.jsx b/src/pages/projetos/dataAnalysis/index.jsx
+-deleted file mode 100644
+-index 2453a4e..0000000
+---- a/src/pages/projetos/dataAnalysis/index.jsx
+-+++ /dev/null
+-@@ -1,94 +0,0 @@
+--import { useState } from "react";
+--import Main from "@/components/layout/main";
+--import SideBar from "@/components/layout/sideBar";
+--import Header from "@/components/layout/header";
+--import Head from "next/head";
+--import { ContainerLayout } from "@/components/home";
+--
+--import { Container, P, H3, Li, Ul, H4 } from "@/components/projetos/dataAnalysis/styles";
+--
+--const Carousel = () => {
+--  const [isToggleOpen, setIsToggleOpen] = useState(false);
+--
+--  return (
+--    <>
+--      <Head>
+--        {/* <!-- Primary Meta Tags --> */}
+--        <title>Projeto de Coleta e Análise de Dados no Twitter com IA – Puppeteer e OpenAI</title>
+--        <meta name="title" content="Projeto de Coleta e Análise de Dados no Twitter com IA – Puppeteer e OpenAI" />
+--        <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+--
+--        {/* <!-- Open Graph / Facebook --> */}
+--        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+--        <meta property="og:type" content="website" />
+--        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/dataAnalysis" />
+--        <meta property="og:title" content="Projeto de Coleta e Análise de Dados no Twitter com IA – Puppeteer e OpenAI" />
+--        <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+--        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/analyze-feelings.jpg" />
+--
+--        {/* <!-- Twitter --> */}
+--        <meta property="twitter:card" content="summary_large_image" />
+--        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/dataAnalysis" />
+--        <meta property="twitter:title" content="Projeto de Coleta e Análise de Dados no Twitter com IA – Puppeteer e OpenAI" />
+--        <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+--        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/analyze-feelings.jpg" />
+--      </Head>
+--      <ContainerLayout>
+--        <SideBar></SideBar>
+--        <Header></Header>
+--        <Main>
+--          <Container>
+--            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Análise Completa do Projeto de Coleta e Análise de Dados no Twitter usando Puppeteer e OpenAI - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+--            <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+--            </P>
+--            {isToggleOpen && (
+--              <>
+--                <div>
+--                  <P><strong>Visão Geral</strong></P>
+--                  <P>Esse projeto desenvolve uma aplicação de coleta e análise de dados de mídias sociais (Twitter, especificamente) com foco em detecção de sentimentos e tendências. A aplicação integra diversas tecnologias para realizar web scraping, processar dados de texto, e apresentar resultados com uma interface interativa. Esse sistema demonstra um fluxo completo desde a captura até a análise e exibição dos dados, incluindo controles para carregamento, rolagem e renderização dos dados em uma página web.</P>
+--                  <H3>Funcionalidades e Fluxo da Aplicação</H3>
+--                  <Ul>
+--                    <Li><strong>Web Scraping e Automação:</strong> A função de rolagem na página simula o comportamento de um usuário, carregando mais dados conforme necessário, e usa o Puppeteer para rolar a página em incrementos aleatórios, contribuindo para uma experiência mais autêntica de scraping e prevenindo bloqueios de bots.</Li>
+--                    <Li><strong>Análise de Sentimento:</strong> Com o OpenAI, o sistema faz a análise do sentimento dos dados coletados, categorizando-os em positivo, negativo ou neutro. Esse uso de IA facilita insights valiosos sobre o conteúdo e o humor predominante das postagens coletadas.</Li>
+--                    <Li><strong>Integração de API:</strong> A OpenAI API é utilizada para processamento de linguagem natural (NLP) e análise de texto, enquanto a aplicação usa a Fetch API para realizar requisições assíncronas e processar as respostas do servidor, manipulando a interface de acordo com os resultados.</Li>
+--                  </Ul>
+--                  <H3>Tecnologias e Bibliotecas Utilizadas no Projeto</H3>
+--                  <Ul>
+--                    <Li className="list-style-type"><strong>1. Express</strong> Express é utilizado para configurar o servidor backend, que gerencia as requisições HTTP e responde com dados de análise ou resultados de scraping. Express facilita a criação de rotas e o gerenciamento das respostas do servidor de maneira eficiente.</Li>
+--                    <Li className="list-style-type"><strong>2. Puppeteer e Puppeteer-Extra:</strong></Li>
+--                    <Li><strong>Puppeteer-Extra:</strong> permite customizar o comportamento do Puppeteer, enquanto o <strong>puppeteer</strong> em si é uma biblioteca que automatiza o Chrome/Chromium, simulando ações de um usuário no navegador.</Li>
+--                    <Li>O projeto inclui o <strong>StealthPlugin</strong> (plugin de stealth) de Puppeteer-Extra, que ajuda a contornar bloqueios de bot por disfarçar o comportamento automatizado, tornando o scraper mais robusto para operações em sites com mecanismos anti-bot.</Li>
+--                    <Li className="list-style-type"><strong>3. dotenv</strong>A biblioteca dotenv é usada para gerenciar variáveis de ambiente, como a chave de API da OpenAI e outras configurações sensíveis, evitando que credenciais apareçam no código-fonte e melhorando a segurança do projeto.</Li>
+--                    <Li className="list-style-type"><strong>4. fs (File System):</strong>A biblioteca nativa do Node.js fs permite a manipulação de arquivos diretamente do backend, facilitando a criação, leitura e gravação de arquivos no sistema. Neste projeto, fs é essencial para gerenciar arquivos de dados coletados, arquivamento e descompactação.</Li>
+--                    <Li className="list-style-type"><strong>5. archiver</strong>A biblioteca archiver facilita a criação de arquivos ZIP, útil para compactar grandes volumes de dados coletados e prepará-los para armazenamento ou download.</Li>
+--                    <Li className="list-style-type"></Li>
+--                    <Li className="list-style-type"><strong>6. unzipper:</strong> unzipper é utilizado para descompactar arquivos ZIP, permitindo que o sistema extraia e processe arquivos previamente compactados, o que é vantajoso para manipulação de dados e backup de resultados.</Li>
+--                    <Li className="list-style-type"><strong>7. path:</strong> A biblioteca nativa path do Node.js ajuda a trabalhar com diretórios e caminhos de arquivos, essencial para a organização de arquivos e para lidar com caminhos de forma segura e consistente entre diferentes sistemas operacionais.</Li>
+--                    <Li className="list-style-type"></Li>
+--                    <Li className="list-style-type"><strong>8. open:</strong> A biblioteca open é usada para abrir URLs, arquivos ou aplicativos diretamente do backend. No contexto deste projeto, isso pode ser útil para facilitar a navegação ou abrir relatórios e visualizações de dados após a análise.</Li>
+--                    <Li className="list-style-type"><strong>9. OpenAI:</strong> O pacote openai integra a API de OpenAI ao projeto, permitindo a análise de sentimentos e processamento de linguagem natural (NLP). A integração com a API GPT possibilita que o sistema interprete os dados coletados, categorizando e oferecendo insights baseados no conteúdo textual.</Li>
+--                    <Li className="list-style-type"><strong>10. HBS:</strong> (Handlebars) é um motor de templates utilizado para gerar HTML dinâmico no servidor.</Li>
+--                    <Li className="list-style-type"><strong>11. Heroku:</strong> A aplicação é configurada para rodar no <strong>Heroku</strong>, utilizando variáveis de ambiente e configurações específicas para servidores sem interface gráfica, como o uso de <strong>Puppeteer</strong> em modo <strong>headless</strong> e com ajustes no sandbox para compatibilidade com Heroku.</Li>
+--                    <H3>Arquitetura e Organização do Projeto com as Novas Tecnologias</H3>
+--                    <P>Com essas tecnologias e bibliotecas, o projeto é organizado para oferecer um fluxo de coleta, processamento, análise e visualização dos dados com alto nível de automação e segurança:</P>
+--                    <Li className="list-style-type"><strong>Automação e Stealth com Puppeteer:</strong> A biblioteca <span>puppeteer-extra</span> com o StealthPlugin possibilita uma coleta de dados robusta, burlando alguns mecanismos anti-bot e permitindo uma coleta mais confiável.</Li>
+--                    <Li className="list-style-type"><strong>Processamento e Gerenciamento de Arquivos:</strong> <span>fs</span>, <span>archiver</span> e <span>unzipper</span> oferecem um ecossistema completo para manipulação de arquivos, desde a compactação até a extração e leitura, o que é valioso para manter os dados organizados e facilitar o arquivamento.</Li>
+--                    <Li className="list-style-type"><strong>API de OpenAI para Análise Avançada:</strong> Integrar OpenAI para análise de sentimentos expande as capacidades analíticas do projeto, aproveitando o processamento de linguagem natural para categorizar sentimentos e detectar tendências.</Li>
+--                    <Li className="list-style-type"><strong>Gerenciamento de Variáveis de Ambiente com dotenv:</strong></Li>
+--                    <Li className="list-style-type"><strong></strong> Variáveis sensíveis, como chaves de API, são tratadas de maneira segura com <span>dotenv</span>, essencial para ambientes de produção.</Li>
+--                    <Li className="list-style-type"><strong></strong></Li>
+--                  </Ul>
+--                  <H3>Conclusão</H3>
+--                  <P>Esse projeto é uma <strong>API</strong> e <strong>servidor que renderiza páginas estática</strong>, solução completa para a coleta e análise de sentimentos em mídias sociais. A combinação de tecnologias — desde o Puppeteer para scraping, OpenAI para NLP, e Express para o backend — resulta em uma ferramenta robusta para insights de mídia social em tempo real. </P>
+--                </div>
+--              </>
+--            )}
+--          </Container>
+--        </Main>
+--      </ContainerLayout>
+--    </>
+--  );
+--};
+--
+--export default Carousel;
+-\ No newline at end of file
+-diff --git a/src/pages/projetos/imageGenerator/index.jsx b/src/pages/projetos/imageGenerator/index.jsx
+-index a5d3698..b7f1644 100644
+---- a/src/pages/projetos/imageGenerator/index.jsx
+-+++ b/src/pages/projetos/imageGenerator/index.jsx
+-@@ -40,7 +40,7 @@ const Portfolio = () => {
+-           <Container>
+-             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Gerador de Imagens com Visualização Ampliada - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+-             <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+-+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://image-generation.up.railway.app/home" target="_blank">🌎 Link do Projeto</a>
+-             </P>
+-             {isToggleOpen && (
+-               <>
+-diff --git a/src/pages/projetos/index.jsx b/src/pages/projetos/index.jsx
+-index ddb6a6d..b0f589d 100644
+---- a/src/pages/projetos/index.jsx
+-+++ b/src/pages/projetos/index.jsx
+-@@ -83,7 +83,7 @@ const Projetos = () => {
+-         <meta property="twitter:title" content="Portfólio de Projetos Web | Tecnologias Modernas" />
+-         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+-         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+--      </Head>;
+-+      </Head>
+- 
+-       {!isLoaded ? null : (
+-         <ContainerLayout>
+-@@ -168,7 +168,7 @@ const Projetos = () => {
+-                   </Link>
+-                 </div>
+-                 <div className="container-item">
+--                  <Link href="/projetos/dataAnalysis">
+-+                  <Link href="/projetos/dataAnalysisTwitter">
+-                     <Image src={analyzeFeelings} placeholder="blur" blurDataURL={analyzeImgBlur} alt="img" />
+-                     <div className="item">
+-                       <div className="sub-item">
+-@@ -236,7 +236,7 @@ const Projetos = () => {
+-                   </Link>
+-                 </div>
+-                 <div className="container-item">
+--                  <Link href="/projetos/youtube">
+-+                  <Link href="/projetos/playerVideoCustomizado">
+-                     <Image src={youtube} placeholder="blur" blurDataURL={youtubeImgBlur} alt="img" />
+-                     <div className="item">
+-                       <div className="sub-item">
+-@@ -310,7 +310,7 @@ const Projetos = () => {
+-                   </Link>
+-                 </div>
+-                 <div className="container-item">
+--                  <Link href="/projetos/cursoOnline">
+-+                  <Link href="/projetos/vendasCurso">
+-                     <Image src={cursoOline} placeholder="blur" blurDataURL={cursoOnlineImgBlur} alt="img" />
+-                     <div className="item">
+-                       <div className="sub-item">
+-diff --git a/src/pages/projetos/portfolio/index.jsx b/src/pages/projetos/portfolio/index.jsx
+-index 8143310..7e558b4 100644
+---- a/src/pages/projetos/portfolio/index.jsx
+-+++ b/src/pages/projetos/portfolio/index.jsx
+-@@ -39,9 +39,12 @@ const Portfolio = () => {
+-         <Header></Header>
+-         <Main>
+-           <Container>
+--            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Player de Vídeo Personalizado - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+-+            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen01 ? setIsToggleOpen01(false) : setIsToggleOpen01(true)}>Projeto: Player de Vídeo Customizado - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+-             <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+-+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://portfolio-study-production.up.railway.app/yt-mobile" target="_blank">🌎 Link do Projeto mobile</a>
+-+            </P>
+-+            <P>
+-+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://portfolio-study-production.up.railway.app/yt-desktop" target="_blank">🌎 Link do Projeto desktop</a>
+-             </P>
+-             {isToggleOpen01 && (
+-               <>
+-@@ -118,7 +121,7 @@ const Portfolio = () => {
+-             {/* ---------------------------------------------------------------------------- */}
+-             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen02 ? setIsToggleOpen02(false) : setIsToggleOpen02(true)}>Projeto: Catálogo de Carros  - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+-             <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+-+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://portfolio-study-production.up.railway.app/front-end/catalogo" target="_blank">🌎 Link do Projeto</a>
+-             </P>
+-             {isToggleOpen02 && (
+-               <>
+-diff --git a/src/pages/projetos/streamDolby/index.jsx b/src/pages/projetos/streamDolby/index.jsx
+-index e6722ae..5e855a0 100644
+---- a/src/pages/projetos/streamDolby/index.jsx
+-+++ b/src/pages/projetos/streamDolby/index.jsx
+-@@ -40,7 +40,7 @@ const Stripe = () => {
+-           <Container>
+-             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Sistema de Controle e Visualização de Transmissões ao Vivo - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+-             <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+-+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://dolby-io-streaming.up.railway.app" target="_blank">🌎 Link do Projeto</a>
+-             </P>
+-             {isToggleOpen && (
+-               <>
+-diff --git a/src/pages/projetos/stripe/index.jsx b/src/pages/projetos/stripe/index.jsx
+-index 6d9c7bb..55a882a 100644
+---- a/src/pages/projetos/stripe/index.jsx
+-+++ b/src/pages/projetos/stripe/index.jsx
+-@@ -40,7 +40,7 @@ const Stripe = () => {
+-           <Container>
+-             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Plataforma de Autenticação e Pagamentos com STRIPE - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+-             <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+-+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://stripe.up.railway.app/login" target="_blank">🌎 Link do Projeto</a>
+-             </P>
+-             {isToggleOpen && (
+-               <>
+-diff --git a/src/pages/projetos/youtube/index.jsx b/src/pages/projetos/youtube/index.jsx
+-deleted file mode 100644
+-index bf57911..0000000
+---- a/src/pages/projetos/youtube/index.jsx
+-+++ /dev/null
+-@@ -1,112 +0,0 @@
+--import { useState } from "react";
+--import Main from "@/components/layout/main";
+--import SideBar from "@/components/layout/sideBar";
+--import Header from "@/components/layout/header";
+--import Head from "next/head";
+--import { ContainerLayout } from "@/components/home";
+--
+--import { Container, P, H3, Li, Ul, H4, A } from "@/components/projetos/youtube/styles";
+--
+--const Portfolio = () => {
+--  const [isToggleOpen, setIsToggleOpen] = useState(false);
+--
+--  return (
+--    <>
+--      <Head>
+--        {/* <!-- Primary Meta Tags --> */}
+--        <title>Player de Vídeo Personalizado com React.js – UI/UX Moderna e Funcionalidades Avançadas</title>
+--        <meta name="title" content="Player de Vídeo Personalizado com React.js – UI/UX Moderna e Funcionalidades Avançadas" />
+--        <meta name="description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+--
+--        {/* <!-- Open Graph / Facebook --> */}
+--        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+--        <meta property="og:type" content="website" />
+--        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/youtube" />
+--        <meta property="og:title" content="Player de Vídeo Personalizado com React.js – UI/UX Moderna e Funcionalidades Avançadas" />
+--        <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+--        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/youtube.jpg" />
+--
+--        {/* <!-- Twitter --> */}
+--        <meta property="twitter:card" content="summary_large_image" />
+--        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/youtube" />
+--        <meta property="twitter:title" content="Player de Vídeo Personalizado com React.js – UI/UX Moderna e Funcionalidades Avançadas" />
+--        <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+--        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/youtube.jpg" />
+--      </Head>
+--      <ContainerLayout>
+--        <SideBar></SideBar>
+--        <Header></Header>
+--        <Main>
+--          <Container>
+--            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Player de Vídeo Personalizado - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+--            <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+--            </P>
+--            {isToggleOpen && (
+--              <>
+--                <div>
+--                  <H3>Descrição Geral</H3>
+--                  <P>Este projeto é um player de vídeo completo e interativo, desenvolvido com React.js, com funcionalidades que replicam a experiência imersiva de grandes plataformas de streaming, como YouTube e Netflix. Focado na facilidade de uso e personalização, ele oferece controle de volume, barra de progresso interativa, reprodução em lista (playlist) e configurações personalizáveis de qualidade e velocidade.</P>
+--                  <H4>Objetivo</H4>
+--                  <P>Criar uma experiência de reprodução de vídeo otimizada e acessível, com ênfase em uma interface de usuário <strong>(UI)</strong> intuitiva e interativa. Este player foi projetado para permitir uma navegação suave e intuitiva, enquanto oferece ao usuário controle total sobre a reprodução e personalização de sua experiência.</P>
+--                  <H4>1. Principais Funcionalidades</H4>
+--                  <Ul>
+--                    <Li>Botões de play/pause, avançar para o próximo vídeo e repetir.</Li>
+--                    <Li>Transição suave entre vídeos da playlist.</Li>
+--                  </Ul>
+--                  <H4>2. Barra de Progresso Personalizada</H4>
+--                  <Ul>
+--                    <Li>Permite ao usuário arrastar o playhead para avançar ou retroceder.</Li>
+--                    <Li>Exibe tempo atual e duração total, com indicadores de horas, minutos e segundos.</Li>
+--                  </Ul>
+--                  <H4>3. Controle de Volume Avançado</H4>
+--                  <Ul>
+--                    <Li>Ajuste progressivo do volume com botão de mute e desmute.</Li>
+--                    <Li>Indicador visual do volume (volume baixo, médio e mudo), atualizado dinamicamente.</Li>
+--                  </Ul>
+--                  <H4>4. Modo Tela Cheia e Miniatura</H4>
+--                  <Ul>
+--                    <Li>Alternância entre modos de tela cheia e minimizada.</Li>
+--                    <Li>Ícones personalizáveis para indicar o status.</Li>
+--                  </Ul>
+--                  <H4>5. Configurações Personalizáveis</H4>
+--                  <Ul>
+--                    <Li>Opções para ajuste de qualidade, legendas e velocidade.</Li>
+--                    <Li>Interface para exibir o menu de configurações com controles intuitivos.</Li>
+--                  </Ul>
+--                  <H4>Comentários e Playlist</H4>
+--                  <Ul>
+--                    <Li>Área para comentários abaixo do vídeo, criando um ambiente de interação.</Li>
+--                    <Li>Playlist interativa à direita para navegação rápida entre vídeos relacionados.</Li>
+--                  </Ul>
+--                  <H3>UX</H3>
+--                  <H4>Design Focado em Experiência do Usuário (UX)</H4>
+--                  <Ul>
+--                    <Li><strong>Acessibilidade e Facilidade de Navegação:</strong> A interface é projetada para ser intuitiva, com botões bem posicionados e funcionalidades facilmente acessíveis.</Li>
+--                    <Li><strong>Experiência Visual e Interativa:</strong> Transições suaves e animações de hover que tornam o player visualmente agradável e responsivo às ações do usuário.</Li>
+--                    <Li><strong>Layout Responsivo:</strong> Adaptado para uma experiência coesa em diferentes dispositivos, mantendo a estrutura organizada e eficiente em qualquer resolução.</Li>
+--                  </Ul>
+--                  <H3>UI</H3>
+--                  <H4>Interface de Usuário (UI)</H4>
+--                  <Ul>
+--                    <Li><strong>Estética Profissional e Minimalista:</strong> Elementos visuais inspirados em plataformas populares, com ícones claros e uma paleta de cores neutra.</Li>
+--                    <Li><strong>Elementos Interativos com Feedback Visual:</strong> Animações sutis e feedback imediato ao interagir com a barra de progresso, controles de volume e botões de reprodução.</Li>
+--                  </Ul>
+--                  <H3>Tecnologias Utilizadas</H3>
+--                  <Ul>
+--                    <Li>Frontend: <strong>React.js</strong></Li>
+--                    <Li><strong>Funcionalidades de Vídeo:</strong> HTML5 Video API, com manipulação de eventos (onMouseMove, onProgress, etc.)</Li>
+--                    <Li><strong>Estado e Controle de Contexto:</strong> Hooks personalizados e useRef para otimização de performance e gerenciamento do estado do player.</Li>
+--                    <Li><strong>Controle de Volume e Progresso:</strong> useState, onClick, onChange e onMouseDown para controle preciso das ações do usuário.</Li>
+--                  </Ul>
+--                </div>
+--              </>
+--            )}
+--          </Container>
+--        </Main>
+--      </ContainerLayout>
+--    </>
+--  );
+--};
+--
+--export default Portfolio;
+-\ No newline at end of file
+-diff --git a/src/pages/projetos/ytAnalyseVideo/index.jsx b/src/pages/projetos/ytAnalyseVideo/index.jsx
+-index 0c1dc26..3882764 100644
+---- a/src/pages/projetos/ytAnalyseVideo/index.jsx
+-+++ b/src/pages/projetos/ytAnalyseVideo/index.jsx
+-@@ -40,7 +40,7 @@ const Ytformp3 = () => {
+-           <Container>
+-             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>🎥 Projeto: Transcrever o áudio de vídeos do YouTube e resumir - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+-             <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+-+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://yt-analyze-video-frontend.up.railway.app" target="_blank">🌎 Link do Projeto</a>
+-             </P>
+-             <H3>Observação importante: para ter acesso backend, precisa ativar ngrok localmente!</H3>
+-             {isToggleOpen && (
+-diff --git a/src/pages/projetos/ytformp3/index.jsx b/src/pages/projetos/ytformp3/index.jsx
+-index 3faafa9..1c0597c 100644
+---- a/src/pages/projetos/ytformp3/index.jsx
+-+++ b/src/pages/projetos/ytformp3/index.jsx
+-@@ -40,7 +40,7 @@ const Ytformp3 = () => {
+-           <Container>
+-             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>🎥 Projeto: Download de Áudio do YouTube - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+-             <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+-+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://yt-download-mp3-frontend.up.railway.app/" target="_blank">🌎 Link do Projeto</a>
+-             </P>
+-             <H3>Observação importante: para ter acesso backend, precisa ativar ngrok localmente!</H3>
+-             {isToggleOpen && (
+-diff --git a/src/pages/projetos/ytformp4Cloud/index.jsx b/src/pages/projetos/ytformp4Cloud/index.jsx
+-index 15a1f08..563c0a0 100644
+---- a/src/pages/projetos/ytformp4Cloud/index.jsx
+-+++ b/src/pages/projetos/ytformp4Cloud/index.jsx
+-@@ -40,8 +40,9 @@ const Ytformp4 = () => {
+-           <Container>
+-             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>🎥 Projeto: YouTube Video Downloader e combiner (fluent-ffmpeg) - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+-             <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+-+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://ytmp4-frontend.up.railway.app" target="_blank">🌎 Link do Projeto</a>
+-             </P>
+-+            <H3>Estou usando server ngrok localmente para expor</H3>
+-             {isToggleOpen && (
+-               <>
+-                 <div>
+-diff --git a/src/pages/projetos/ytformp4Location/index.jsx b/src/pages/projetos/ytformp4Location/index.jsx
+-index 288c505..0957b6f 100644
+---- a/src/pages/projetos/ytformp4Location/index.jsx
+-+++ b/src/pages/projetos/ytformp4Location/index.jsx
+-@@ -40,7 +40,7 @@ const Ytformp4 = () => {
+-           <Container>
+-             <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>🎥 Projeto: Download de Vídeo do YouTube - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+-             <P>
+--              <a style={{ fontSize: "24px", fontWeight: "800" }} href="" target="_blank">🌎 Link do Projeto</a>
+-+              <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://ytmp4-frontend.up.railway.app/" target="_blank">🌎 Link do Projeto</a>
+-             </P>
+-             <H3>Observação importante: para ter acesso backend, precisa ativar ngrok localmente!</H3>
+-             {isToggleOpen && (
+diff --git a/public/sitemap-0.xml b/public/sitemap-0.xml
+index 13051ab..b89526f 100644
+--- a/public/sitemap-0.xml
++++ b/public/sitemap-0.xml
+@@ -1,19 +1,19 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+-<url><loc>https://portfolio-projects-production.up.railway.app</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/carousel</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/catalogo</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/cursoOnline</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/dataAnalysis</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/imageGenerator</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/portfolio</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/streamDolby</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/stripe</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/youtube</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytAnalyseVideo</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp3</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp4Cloud</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp4Location</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+-<url><loc>https://portfolio-projects-production.up.railway.app/sobre</loc><lastmod>2025-02-09T03:14:43.016Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos/carousel</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos/catalogo</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos/dataAnalysisTwitter</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos/imageGenerator</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos/playerVideoCustomizado</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos/portfolio</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos/streamDolby</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos/stripe</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos/vendasCurso</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytAnalyseVideo</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp3</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp4Cloud</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/projetos/ytformp4Location</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
++<url><loc>https://portfolio-projects-production.up.railway.app/sobre</loc><lastmod>2025-03-12T02:40:24.317Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+ </urlset>
+\ No newline at end of file
+diff --git a/src/pages/projetos/dataAnalysisTwitter/index.jsx b/src/pages/projetos/dataAnalysisTwitter/index.jsx
+index 0ca6e7b..f37cfff 100644
+--- a/src/pages/projetos/dataAnalysisTwitter/index.jsx
++++ b/src/pages/projetos/dataAnalysisTwitter/index.jsx
+@@ -21,14 +21,14 @@ const Carousel = () => {
+         {/* <!-- Open Graph / Facebook --> */}
+         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+         <meta property="og:type" content="website" />
+-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/dataAnalysis" />
++        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/dataAnalysisTwitter" />
+         <meta property="og:title" content="Projeto de Coleta e Análise de Dados no Twitter com IA – Puppeteer e OpenAI" />
+         <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/analyze-feelings.jpg" />
+ 
+         {/* <!-- Twitter --> */}
+         <meta property="twitter:card" content="summary_large_image" />
+-        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/dataAnalysis" />
++        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/dataAnalysisTwitter" />
+         <meta property="twitter:title" content="Projeto de Coleta e Análise de Dados no Twitter com IA – Puppeteer e OpenAI" />
+         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/analyze-feelings.jpg" />
+diff --git a/src/pages/projetos/playerVideoCustomizado/index.jsx b/src/pages/projetos/playerVideoCustomizado/index.jsx
+index adf0a95..bb8289a 100644
+--- a/src/pages/projetos/playerVideoCustomizado/index.jsx
++++ b/src/pages/projetos/playerVideoCustomizado/index.jsx
+@@ -21,14 +21,14 @@ const Portfolio = () => {
+         {/* <!-- Open Graph / Facebook --> */}
+         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+         <meta property="og:type" content="website" />
+-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/youtube" />
++        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/playerVideoCustomizado" />
+         <meta property="og:title" content="Player de Vídeo Personalizado com React.js – UI/UX Moderna e Funcionalidades Avançadas" />
+         <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/youtube.jpg" />
+ 
+         {/* <!-- Twitter --> */}
+         <meta property="twitter:card" content="summary_large_image" />
+-        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/youtube" />
++        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/playerVideoCustomizado" />
+         <meta property="twitter:title" content="Player de Vídeo Personalizado com React.js – UI/UX Moderna e Funcionalidades Avançadas" />
+         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/youtube.jpg" />
+diff --git a/src/pages/projetos/vendasCurso/index.jsx b/src/pages/projetos/vendasCurso/index.jsx
+index 9b65e12..e0a055b 100644
+--- a/src/pages/projetos/vendasCurso/index.jsx
++++ b/src/pages/projetos/vendasCurso/index.jsx
+@@ -21,14 +21,14 @@ const CursoOline = () => {
+         {/* <!-- Open Graph / Facebook --> */}
+         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+         <meta property="og:type" content="website" />
+-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/cursoOnline" />
++        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/vendasCurso" />
+         <meta property="og:title" content="Criação de Plataforma EAD com Pagamentos Integrados e Acesso Protegido" />
+         <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/cursoOnline.jpg" />
+ 
+         {/* <!-- Twitter --> */}
+         <meta property="twitter:card" content="summary_large_image" />
+-        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/cursoOnline" />
++        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/vendasCurso" />
+         <meta property="twitter:title" content="Criação de Plataforma EAD com Pagamentos Integrados e Acesso Protegido" />
+         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/cursoOnline.jpg" />
+diff --git a/src/pages/projetos/ytformp4Location/index.jsx b/src/pages/projetos/ytformp4Location/index.jsx
+index 0957b6f..a83b0c1 100644
+--- a/src/pages/projetos/ytformp4Location/index.jsx
++++ b/src/pages/projetos/ytformp4Location/index.jsx
+@@ -21,14 +21,14 @@ const Ytformp4 = () => {
+         {/* <!-- Open Graph / Facebook --> */}
+         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+         <meta property="og:type" content="website" />
+-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/ytformp4" />
++        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/projetos/ytformp4Location" />
+         <meta property="og:title" content="Baixar Vídeos do YouTube em MP4 com Nosso Conversor" />
+         <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/ytmp4.jpg" />
+ 
+         {/* <!-- Twitter --> */}
+         <meta property="twitter:card" content="summary_large_image" />
+-        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/ytformp4" />
++        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/projetos/ytformp4Location" />
+         <meta property="twitter:title" content="Baixar Vídeos do YouTube em MP4 com Nosso Conversor" />
+         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/ytmp4.jpg" />
