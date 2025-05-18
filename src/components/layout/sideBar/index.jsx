@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useGlobalState } from "../../../context/GlobalStateContext";
 
-import perfil from '../../../assets/images/perfil.jpeg';
+import perfil from '../../../assets/images/perfil.png';
 import { Containerfixed, Container, Menu, XContainer, Bar, DiagonalOne, DiagonalTwo } from './styles';
 
 const SideBar = () => {

@@ -25,14 +25,14 @@ const Layout = () => {
         <meta property="og:url" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:title" content="Jorge Luiz - Desenvolvedor Web Full Stack (React, Node.js, Next.js, PostgreSQL)" />
         <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
-        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="twitter:title" content="Jorge Luiz - Desenvolvedor Web Full Stack (React, Node.js, Next.js, PostgreSQL)" />
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
-        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
+        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
       </Head>
 
       {!isLoaded ? null : (
