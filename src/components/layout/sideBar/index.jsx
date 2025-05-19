@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useGlobalState } from "../../../context/GlobalStateContext";
 
 import perfil from '../../../assets/images/perfil.png';
-import { Containerfixed, Container, Menu, XContainer, Bar, DiagonalOne, DiagonalTwo, ImgPerfil, Span, H3, P, OverlayBlocker } from './styles';
+import { Containerfixed, Container, Menu, XContainer, Bar, DiagonalOne, DiagonalTwo, ImgPerfil, Span, H3, P } from './styles';
 
 const SideBar = () => {
   const { isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
