@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useGlobalState } from "../../../context/GlobalStateContext";
 
 import perfil from '../../../assets/images/perfil.png';
-import { Containerfixed, Container, Menu, XContainer, Bar, DiagonalOne, DiagonalTwo, ImgPerfil, Span, H3, P } from './styles';
+import { Containerfixed, Container, Menu, XContainer, Bar, DiagonalOne, DiagonalTwo, ImgPerfil, Span, H3, P, OverlayBlocker } from './styles';
 
 const SideBar = () => {
   const { isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
@@ -30,18 +30,10 @@ const SideBar = () => {
   };
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const body = document.body;
-
-    if (isHamburguerOpen) {
-      body.classList.add('body-no-scroll');
-    } else {
-      body.classList.remove('body-no-scroll');
-    }
+    document.body.style.overflow = isHamburguerOpen ? 'hidden' : 'auto';
 
     return () => {
-      body.classList.remove('body-no-scroll');
+      document.body.style.overflow = 'auto';
     };
   }, [isHamburguerOpen]);
 

@@ -9,26 +9,26 @@ export function GlobalStateProvider({ children }) {
   const [isLoaded, setIsLoaded] = useState(false); // Estado global de carregamento
 
   // O primeiro useEffect lida apenas com o redimensionamento.
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1250) {
-        setIsHamburguerOpen(true); // Aberto para telas grandes
-      } else {
-        setIsHamburguerOpen(false); // Fechado para telas menores
-      }
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth >= 1250) {
+  //       setIsHamburguerOpen(true); // Aberto para telas grandes
+  //     } else {
+  //       setIsHamburguerOpen(false); // Fechado para telas menores
+  //     }
+  //   };
 
-    // Inicializa o estado correto com base no tamanho da tela ao carregar o componente
-    handleResize();
+  //   // Inicializa o estado correto com base no tamanho da tela ao carregar o componente
+  //   handleResize();
 
-    // Adiciona o evento de redimensionamento
-    window.addEventListener('resize', handleResize);
+  //   // Adiciona o evento de redimensionamento
+  //   window.addEventListener('resize', handleResize);
 
-    // Limpa o evento ao desmontar o componente
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [setIsHamburguerOpen]);
+  //   // Limpa o evento ao desmontar o componente
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, [setIsHamburguerOpen]);
 
 
   // O segundo useEffect cuida apenas do carregamento inicial (isLoaded).
