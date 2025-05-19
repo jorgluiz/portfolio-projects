@@ -16,6 +16,10 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
+
+  .body-no-scroll {
+  overflow: hidden !important;
+}
   
 `;
 

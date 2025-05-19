@@ -29,14 +29,22 @@ const SideBar = () => {
     // setIsHamburguerOpen(prevState => !prevState);
   };
 
-  // Extra: Bloquear scroll só quando menu estiver visível
   useEffect(() => {
-    document.body.style.overflow = isHamburguerOpen ? 'hidden' : 'auto';
+    if (typeof window === 'undefined') return;
+
+    const body = document.body;
+
+    if (isHamburguerOpen) {
+      body.classList.add('body-no-scroll');
+    } else {
+      body.classList.remove('body-no-scroll');
+    }
 
     return () => {
-      document.body.style.overflow = 'auto';
+      body.classList.remove('body-no-scroll');
     };
   }, [isHamburguerOpen]);
+
 
   return (
     <Containerfixed isHamburguerOpen={isHamburguerOpen}>
