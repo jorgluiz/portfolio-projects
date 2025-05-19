@@ -36,6 +36,13 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  & .profile-image {
+   user-select: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  }
 `;
 
 export const Menu = styled.div`
@@ -93,4 +100,32 @@ export const DiagonalOne = styled(Bar)`
 
 export const DiagonalTwo = styled(Bar)`
   transform: rotate(-45deg);
+`;
+
+export const ImgPerfil = styled.div`
+margin-bottom: 10px;
+`;
+
+export const Span = styled.span`
+ cursor: pointer;
+ font-size: 20px;
+  color: rgb(188, 204, 220);
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE/Edge */
+`;
+
+export const H3 = styled.h3`
+  color: #d1dfed;
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE/Edge */
+`;
+
+export const P = styled.p`
+font-size: 20px;
+  color: #d1dfed;
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE/Edge */
 `;

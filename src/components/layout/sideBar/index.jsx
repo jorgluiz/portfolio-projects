@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useGlobalState } from "../../../context/GlobalStateContext";
 
 import perfil from '../../../assets/images/perfil.png';
-import { Containerfixed, Container, Menu, XContainer, Bar, DiagonalOne, DiagonalTwo } from './styles';
+import { Containerfixed, Container, Menu, XContainer, Bar, DiagonalOne, DiagonalTwo, ImgPerfil, Span, H3, P } from './styles';
 
 const SideBar = () => {
   const { isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
@@ -13,6 +13,11 @@ const SideBar = () => {
   const [activeLink, setActiveLink] = useState('/'); // Estado para armazenar o link ativo
   console.log(activeLink, "activeLink activeLink activeLink");
   const router = useRouter(); // Hook para pegar a rota atual
+
+  const handleNavigate = async (path) => {
+    await router.push(path);
+    setIsHamburguerOpen(false); // fecha depois da navegação
+  };
 
   useEffect(() => {
     setActiveLink(router.pathname); // Atualiza o estado com a rota atual
@@ -24,6 +29,15 @@ const SideBar = () => {
     // setIsHamburguerOpen(prevState => !prevState);
   };
 
+  // Extra: Bloquear scroll só quando menu estiver visível
+  useEffect(() => {
+    document.body.style.overflow = isHamburguerOpen ? 'hidden' : 'auto';
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isHamburguerOpen]);
+
   return (
     <Containerfixed isHamburguerOpen={isHamburguerOpen}>
       {isHamburguerOpen &&
@@ -33,33 +47,44 @@ const SideBar = () => {
         </XContainer>
       }
       <Container>
-        <div onClick={() => goHome()} style={{ display: "flex", justifyContent: "center", alignItems: "center", border: "solid 2px #243b53", borderRadius: '50%', width: "160px", height: "160px", marginTop: "40px", cursor: "pointer" }}>
-          <Image src={perfil} width={150} height={150} style={{ borderRadius: '50%' }} className="profile-image" alt="img" />
-        </div>
+        <ImgPerfil onClick={() => goHome()}
+          onContextMenu={(e) => e.preventDefault()}
+          style={{ display: "flex", justifyContent: "center", alignItems: "center", border: "solid 1px #243b53", borderRadius: '50%', width: "160px", height: "160px", marginTop: "40px", cursor: "pointer" }}>
+          <Image src={perfil} width={150} height={150} style={{ borderRadius: '50%' }} className="profile-image" alt="img" draggable={false} />
+        </ImgPerfil>
 
-        <h3 style={{ color: "#d1dfed" }}>Jorge Luiz de Medeiros e Silva Jr</h3>
-        <p style={{ color: "#bcccdc", fontSize: "20px" }}>Web Developer</p>
-        <div style={{ width: "260px", border: "solid 1px #243B53", marginTop: "20px" }}></div>
+        <H3>Jorge Luiz de Medeiros e Silva Jr</H3>
+        <P>Web Developer</P>
+        <div style={{ width: "260px", border: "solid 1px #243B53", marginTop: "20px", marginBottom: "10px" }}></div>
         <Menu>
           <ul>
             <li>
-              <Link href="/">
-                <span onClick={() => { setIsHamburguerOpen(prevState => !prevState); }} className={activeLink === '/' ? 'active' : ''}>Home</span>
-              </Link>
+              <Span
+                onClick={() => handleNavigate('/')}
+                className={activeLink === '/' ? 'active' : ''}
+              >
+                Home
+              </Span>
             </li>
             <li>
-              <Link href="/sobre">
-                <span onClick={() => { setIsHamburguerOpen(prevState => !prevState); }} className={activeLink === '/sobre' ? 'active' : ''}>Sobre</span>
-              </Link>
+              <Span
+                onClick={() => handleNavigate('/sobre')}
+                className={activeLink === '/sobre' ? 'active' : ''}
+              >
+                Sobre
+              </Span>
             </li>
             <li>
-              <Link href="/projetos">
-                <span onClick={() => { setIsHamburguerOpen(prevState => !prevState); }} className={activeLink === '/projetos' ? 'active' : ''}>Projetos</span>
-              </Link>
+              <Span
+                onClick={() => handleNavigate('/projetos')}
+                className={activeLink === '/projetos' ? 'active' : ''}
+              >
+                Projetos
+              </Span>
             </li>
           </ul>
         </Menu>
-        <div style={{ width: "260px", border: "solid 1px #243B53", marginTop: "20px" }}></div>
+        <div style={{ width: "260px", border: "solid 1px #243B53", marginTop: "10px" }}></div>
       </Container>
     </Containerfixed>
   );

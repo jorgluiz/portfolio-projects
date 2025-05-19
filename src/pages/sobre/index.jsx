@@ -33,7 +33,7 @@ import { ytmp4ImgBlur } from "@/utils/ytmp4";
 import { cursoOnlineImgBlur } from "@/utils/ytmp4";
 
 import { ContainerLayout } from "@/components/home";
-import { Container } from "@/components/projetos/sobre/styles";
+import { ContainerStyle, H1 } from "@/components/sobre";
 
 
 // 1. Efeito de redimensionamento da tela
@@ -90,9 +90,9 @@ const Projetos = () => {
           <SideBar></SideBar>
           <Header></Header>
           <Main>
-            <Container>
-              <div style={{ padding: "43px 40px 40px 40px " }}>
-                <p style={{ lineHeight: "28px", fontSize: "18px" }}> <strong> Sou um desenvolvedor Full Stack  </strong> apaixonado por tecnologia e inovação. Minha jornada na programação é moldada pelos projetos que desenvolvi, cada um deles representando um novo aprendizado e a aplicação de diferentes tecnologias para resolver problemas reais. Minha experiência é prática, baseada em desafios concretos que exigiram desde a construção de interfaces modernas e responsivas até a implementação de sistemas robustos no backend.</p><br />
+            <ContainerStyle>
+              <div>
+                <p style={{ lineHeight: "28px", fontSize: "18px" }}> <strong style={{ fontSize: "20px" }}> Sou um desenvolvedor Full Stack  </strong> apaixonado por tecnologia e inovação. Minha jornada na programação é moldada pelos projetos que desenvolvi, cada um deles representando um novo aprendizado e a aplicação de diferentes tecnologias para resolver problemas reais. Minha experiência é prática, baseada em desafios concretos que exigiram desde a construção de interfaces modernas e responsivas até a implementação de sistemas robustos no backend.</p><br />
                 <h2>Minhas Habilidades</h2><br />
                 <h3>Frontend</h3><br />
                 <ul style={{ lineHeight: "28px" }}>
@@ -141,7 +141,7 @@ const Projetos = () => {
                   {/* <p style={{ paddingLeft: "20px" }}>(81) 9 8760-4690</p> */}
                 </div>
               </div>
-            </Container>
+            </ContainerStyle>
           </Main>
         </ContainerLayout>
       )}

@@ -1,18 +1,9 @@
 import styled from "styled-components";
 
-export const ContainerLayout = styled.div`
-display: flex;
-
-@media (max-width: 1250px) {
-
-flex-direction: column;
-}
-`;
-
 export const ContainerStyle = styled.div`
 max-width: 950px;
 margin: 0 auto; /* Centraliza o container horizontalmente */
-padding: 20px 15px 0 15px;  /* ajuste de padding para um pouco de espaçamento interno */
+padding: 20px 15px 25px 15px;  /* ajuste de padding para um pouco de espaçamento interno */
 `;
 
 export const H1 = styled.h1`

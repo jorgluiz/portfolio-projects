@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const ContainerStyle = styled.div`
 max-width: 950px;
 margin: 0 auto; /* Centraliza o container horizontalmente */
-padding: 0 30px 0 30px; /* Opcional: ajuste de padding para um pouco de espaçamento interno */
+padding: 20px 15px 0 15px;  /* ajuste de padding para um pouco de espaçamento interno */
 `;
 
 export const GridContainer = styled.div`
@@ -22,7 +22,7 @@ export const GridContainer = styled.div`
    
   }
 
-  & img {
+  & .img-projetos {
     display: block;
     max-width: 100%;
     height: 244px;

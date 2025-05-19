@@ -32,7 +32,7 @@ import { ytmp3ImgBlur } from "@/utils/ytmp3";
 import { ytmp4ImgBlur } from "@/utils/ytmp4";
 import { cursoOnlineImgBlur } from "@/utils/ytmp4";
 
-import { GridContainer, Container } from "@/components/projetos/";
+import { GridContainer, ContainerStyle } from "@/components/projetos/style";
 import { ContainerLayout } from "@/components/home";
 
 // 1. Efeito de redimensionamento da tela
@@ -90,13 +90,13 @@ const Projetos = () => {
           <SideBar></SideBar>
           <Header></Header>
           <Main>
-            <Container>
+            <ContainerStyle onContextMenu={(e) => e.preventDefault()}>
               <h1 style={{ color: "323f4b" }}>Oi! 👋</h1>
               <p style={{ fontSize: "20px", color: "323f4b", lineHeight: "32px" }}>Este portfólio representa a síntese da minha jornada em desenvolvimento web e backend, demonstrando minha experiência com ReactJS no frontend e Express no backend para a construção de aplicações modernas e eficientes.</p>
               <GridContainer>
                 <div className="container-item">
                   <Link href="/projetos/portfolio">
-                    <Image src={portfolioImg} placeholder="blur" blurDataURL={portfolioImgBlur} alt="img" />
+                    <Image src={portfolioImg} placeholder="blur" blurDataURL={portfolioImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
                         <div>
@@ -113,7 +113,7 @@ const Projetos = () => {
                 </div>
                 <div className="container-item">
                   <Link href="/projetos/stripe">
-                    <Image src={stripelogo} placeholder="blur" blurDataURL={stripeImgBlur} alt="img" />
+                    <Image src={stripelogo} placeholder="blur" blurDataURL={stripeImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
                         <div style={{ display: "flex", flexWrap: "wrap" }}>
@@ -151,7 +151,7 @@ const Projetos = () => {
                 </div>
                 <div className="container-item">
                   <Link href="/projetos/carousel">
-                    <Image src={carousel} placeholder="blur" blurDataURL={carouseImgBlur} alt="img" />
+                    <Image src={carousel} placeholder="blur" blurDataURL={carouseImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
                         <div>
@@ -169,7 +169,7 @@ const Projetos = () => {
                 </div>
                 <div className="container-item">
                   <Link href="/projetos/dataAnalysisTwitter">
-                    <Image src={analyzeFeelings} placeholder="blur" blurDataURL={analyzeImgBlur} alt="img" />
+                    <Image src={analyzeFeelings} placeholder="blur" blurDataURL={analyzeImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
                         <div className="tech">
@@ -195,7 +195,7 @@ const Projetos = () => {
                 </div>
                 <div className="container-item">
                   <Link href="/projetos/streamDolby">
-                    <Image src={stream} placeholder="blur" blurDataURL={streamImgBlur} alt="img" />
+                    <Image src={stream} placeholder="blur" blurDataURL={streamImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
                         <div className="tech">
@@ -218,7 +218,7 @@ const Projetos = () => {
                 </div>
                 <div className="container-item">
                   <Link href="/projetos/imageGenerator">
-                    <Image src={imageGeneration} placeholder="blur" blurDataURL={imageGenerationImgBlur} alt="img" />
+                    <Image src={imageGeneration} placeholder="blur" blurDataURL={imageGenerationImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
                         <div className="tech">
@@ -237,7 +237,7 @@ const Projetos = () => {
                 </div>
                 <div className="container-item">
                   <Link href="/projetos/playerVideoCustomizado">
-                    <Image src={youtube} placeholder="blur" blurDataURL={youtubeImgBlur} alt="img" />
+                    <Image src={youtube} placeholder="blur" blurDataURL={youtubeImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
                         <div className="tech">
@@ -253,7 +253,7 @@ const Projetos = () => {
                 </div>
                 <div className="container-item">
                   <Link href="/projetos/catalogo">
-                    <Image src={catalogo} placeholder="blur" blurDataURL={catalogoImgBlur} alt="img" />
+                    <Image src={catalogo} placeholder="blur" blurDataURL={catalogoImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
                         <div className="tech">
@@ -270,7 +270,7 @@ const Projetos = () => {
                 </div>
                 <div className="container-item">
                   <Link href="/projetos/ytformp4Cloud">
-                    <Image src={ytmp4} placeholder="blur" blurDataURL={ytmp4ImgBlur} alt="img" />
+                    <Image src={ytmp4} placeholder="blur" blurDataURL={ytmp4ImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
                         <div className="tech">
@@ -291,7 +291,7 @@ const Projetos = () => {
                 </div>
                 <div className="container-item">
                   <Link href="/projetos/ytformp4Location">
-                    <Image src={ytmp4} placeholder="blur" blurDataURL={ytmp4ImgBlur} alt="img" />
+                    <Image src={ytmp4} placeholder="blur" blurDataURL={ytmp4ImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
                         <div className="tech">
@@ -311,7 +311,7 @@ const Projetos = () => {
                 </div>
                 <div className="container-item">
                   <Link href="/projetos/vendasCurso">
-                    <Image src={cursoOline} placeholder="blur" blurDataURL={cursoOnlineImgBlur} alt="img" />
+                    <Image src={cursoOline} placeholder="blur" blurDataURL={cursoOnlineImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
                         <div className="tech">
@@ -337,7 +337,7 @@ const Projetos = () => {
                 </div>
                 <div className="container-item">
                   <Link href="/projetos/ytformp3">
-                    <Image src={ytmp3} placeholder="blur" blurDataURL={ytmp3ImgBlur} alt="img" />
+                    <Image src={ytmp3} placeholder="blur" blurDataURL={ytmp3ImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
                         <div className="tech">
@@ -356,7 +356,7 @@ const Projetos = () => {
                 </div>
                 <div className="container-item">
                   <Link href="/projetos/ytAnalyseVideo">
-                    <Image src={ytAnalyzeVideo} placeholder="blur" blurDataURL={ytmp3ImgBlur} alt="img" />
+                    <Image src={ytAnalyzeVideo} placeholder="blur" blurDataURL={ytmp3ImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
                         <div className="tech">
@@ -376,7 +376,7 @@ const Projetos = () => {
                   </Link>
                 </div>
               </GridContainer>
-            </Container>
+            </ContainerStyle>
           </Main>
         </ContainerLayout>
       )}
