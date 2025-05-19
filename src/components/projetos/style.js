@@ -38,11 +38,11 @@ export const GridContainer = styled.div`
     display: flex;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2); */
 
-    &:hover {
-      box-shadow: 0 0 10px #102a43;
-    }
+    /* &:hover {
+      box-shadow: 0 0 20px #102a43;
+    } */
 
   & .sub-item {
     display: flex;
