@@ -82,6 +82,14 @@ const SideBar = () => {
                 Projetos
               </Span>
             </li>
+            <li>
+              <Span
+                onClick={() => handleNavigate('/diariodev')}
+                className={activeLink === '/diariodev' ? 'active' : ''}
+              >
+                Diário dev
+              </Span>
+            </li>
           </ul>
         </Menu>
         <div style={{ width: "260px", border: "solid 1px #243B53", marginTop: "10px" }}></div>
