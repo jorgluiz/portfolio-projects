@@ -8,23 +8,17 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 
 import Title from "@/components/common/title";
+import Span from "@/components/common/span";
 
-import { DiarioDevMainContainer, CollapsibleContent } from "@/components/diariodev/diarioDevMainContainer";
+import { BuildProjectMainContainer, CollapsibleContent } from "@/components/buildProject/buildProjectMainContainer";
 
-import BibliotecasFerramentas from "@/components/diariodev/bibliotecasFerramentas";
-import ArquiteturaMonolitica from "@/components/diariodev/arquiteturaMonolitica";
-import ArquiteturaMicroservices from "@/components/diariodev/arquiteturaMicroservices";
-import BackendNodeJS from "@/components/diariodev/backendNodeJS";
-import MySQLvsORM from "@/components/diariodev/mySQLvsORM";
-import FrontendTecnologiasReactjs from "@/components/diariodev/frontendTecnologiasReactjs";
-import DesignUIUX from "@/components/diariodev/designUIUx";
-import FrontendTecnologiasNextjs from "@/components/diariodev/frontendTecnologiasNextjs";
-import GitCommands from "@/components/diariodev/comandosGitHub";
-import ExpressServersDifference from "@/components/diariodev/expressHtmlServervsExpressEJSserver";
+import SaaSProjectGuide from "@/components/buildProject/saaSProjectGuide";
+import SaaSforDoctors from "@/components/buildProject/saaSforDoctors";
+import TeamHeader from "@/components/buildProject/team";
 
 
-// 1. Efeito de redimensionamento da tela
-const Projetos = () => {
+// lógica aqui
+const BuildProject = () => {
   const { isLoaded } = useGlobalState();
   const [visibleSections, setVisibleSections] = useState({});
 
@@ -35,23 +29,12 @@ const Projetos = () => {
     }));
   };
 
-  // const ComponenteTech01 = () => <p>Conteúdo do componente Tech 01</p>;
-  // const ComponenteTech02 = () => <p>Conteúdo do componente Tech 02</p>;
-  // const ComponenteTech03 = () => <p>Conteúdo do componente Tech 03</p>;
 
   const sections = [
-    { title: "Bibliotecas / Ferramentas", component: <BibliotecasFerramentas /> },
-    { title: "Arquitetura Monolitica", component: <ArquiteturaMonolitica /> },
-    { title: "Arquitetura Microservices", component: <ArquiteturaMicroservices /> },
-    { title: "Backend com JavaScript NodeJS", component: <BackendNodeJS /> },
-    { title: "MySQL vs ORM", component: <MySQLvsORM /> },
-    { title: "Frontend com ReactJS", component: <FrontendTecnologiasReactjs /> },
-    { title: "Design UI e UX em ReactJS", component: <DesignUIUX /> },
-    { title: "Frontend com NextJS", component: <FrontendTecnologiasNextjs /> },
-    { title: "Express HTML server e express EJS server", component: <ExpressServersDifference /> },
-    { title: "Comandos GitHub", component: <GitCommands /> },
+    { title: "O que é um projeto SaaS?", component: <SaaSProjectGuide /> },
+    { title: "Desenvolvimento de SaaS para Médicos com Plano de Emagrecimento", component: <SaaSforDoctors /> },
+    { title: "Team", component: <TeamHeader /> },
   ];
-
 
   return (
     <>
@@ -82,21 +65,20 @@ const Projetos = () => {
           <SideBarLayout></SideBarLayout>
           <HeaderLayout></HeaderLayout>
           <MainContentLayout>
-            <DiarioDevMainContainer>
+            <BuildProjectMainContainer>
               {sections.map((section, index) => (
-                <div key={index}>
-                  <Title
-                    className={`h3Center ${section.title} ${visibleSections[index] ? "active" : ""}`}
-                    onClick={() => toggleSection(index)}
-                  >
-                    {section.title} {visibleSections[index] ? "▲" : "▼"}
-                  </Title>
-                  <CollapsibleContent isOpen={visibleSections[index]}>
-                    {section.component}
-                  </CollapsibleContent>
-                </div>
+                <>
+                  <div key={index}>
+                    <Title onClick={() => toggleSection(index)}>
+                      {section.title} <Span>{visibleSections[index] ? "▲" : "▼"}</Span>
+                    </Title>
+                    <CollapsibleContent isOpen={visibleSections[index]}>
+                      {section.component}
+                    </CollapsibleContent>
+                  </div>
+                </>
               ))}
-            </DiarioDevMainContainer>
+            </BuildProjectMainContainer>
           </MainContentLayout>
         </MainLayout>
       )}
@@ -104,4 +86,4 @@ const Projetos = () => {
   );
 };
 
-export default Projetos;
+export default BuildProject;

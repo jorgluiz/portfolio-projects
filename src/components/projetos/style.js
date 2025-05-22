@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const ContainerStyle = styled.div`
-max-width: 950px;
-margin: 0 auto; /* Centraliza o container horizontalmente */
-padding: 20px 15px 0 15px;  /* ajuste de padding para um pouco de espaçamento interno */
-`;
-
 export const GridContainer = styled.div`
   display: grid;
   justify-content: center;
@@ -26,23 +20,13 @@ export const GridContainer = styled.div`
     display: block;
     max-width: 100%;
     height: 244px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
   };
 
   & .item {
     height: 244px;
     max-width: 100%;
-    border: 1px solid #ccc;
     background-color: #ffffff;
     display: flex;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    /* box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2); */
-
-    /* &:hover {
-      box-shadow: 0 0 20px #102a43;
-    } */
 
   & .sub-item {
     display: flex;
@@ -64,6 +48,13 @@ export const GridContainer = styled.div`
     overflow: hidden; /* Evita que imagens transbordem */
     transition: transform 500ms ease-in-out; /* Transição suave para mover o sidebar */
     transform: translateY(0); /* Posição inicial */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* sombra deslocada pra baixo */
+
+  &:hover {
+    box-shadow: 0 20px 40px rgba(16, 42, 67, 0.7); /* sombra maior e mais forte pra hover */
+  }
+    
 
   /* Transforma somente em telas maiores */
   @media (min-width: 700px) { /* Ajuste o valor conforme necessário */
@@ -71,6 +62,41 @@ export const GridContainer = styled.div`
       transform: translateY(-30px);
     }
   }
-  };
+};
 `;
 
+
+
+export const P = styled.p`
+
+font-size: 16px;
+line-height: 28px;
+color: #323F4B;
+margin-bottom: 20px;
+
+& a {
+  color: blue;
+}
+`;
+
+export const H3 = styled.h3`
+
+line-height: 28px;
+margin-bottom: 20px;
+`;
+
+export const H4 = styled.ul`
+
+font-weight: 600;
+margin-bottom: 20px;
+`;
+
+export const Li = styled.li`
+
+padding: 8px 0 8px 0;
+`;
+
+export const Ul = styled.ul`
+
+margin-bottom: 20px;
+`;

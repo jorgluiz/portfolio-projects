@@ -3,7 +3,7 @@ const ArquiteturaMicroservices = () => {
     fontFamily: 'Segoe UI, sans-serif',
     padding: '24px',
     maxWidth: '900px',
-    margin: '0 auto',
+    margin: '0 auto 40px',
     color: '#222',
     backgroundColor: '#f9f9f9',
     borderRadius: '12px',
@@ -51,7 +51,7 @@ const ArquiteturaMicroservices = () => {
     padding: '32px',
     borderRadius: '12px',
     maxWidth: '800px',
-    margin: '40px auto',
+    margin: '0 auto 40px',
     boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
     color: '#222',
     whiteSpace: 'pre-wrap'

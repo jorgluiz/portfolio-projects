@@ -1,42 +1,13 @@
-import { useState, useEffect } from "react";
-import Main from "@/components/layout/main";
-import SideBar from "@/components/layout/sideBar";
-import Header from "@/components/layout/header";
-// import whatsapp2 from "@/public/whatsapp2.png";
 import Image from 'next/image';
 import Head from "next/head";
 import { useGlobalState } from "../../context/GlobalStateContext";
 
-import portfolioImg from "../../assets/images/portfolio.png";
-import stripelogo from "../../assets/images/stripeLogo.png";
-import carousel from "../../assets/images/carousel.png";
-import analyzeFeelings from "../../assets/images/analyze-feelings.png";
-import stream from "../../assets/images/stream.png";
-import youtube from "../../assets/images/youtube.png";
-import imageGeneration from "../../assets/images/imageGeneration.png";
-import catalogo from "../../assets/images/catalogo.png";
-import ytmp3 from "../../assets/images/ytmp3.png";
-import ytmp4 from "../../assets/images/ytmp4.png";
-
-import Link from "next/link";
-
-import { portfolioImgBlur } from "@/utils/portfolio";
-import { stripeImgBlur } from "@/utils/stripe";
-import { carouseImgBlur } from "@/utils/carousel";
-import { analyzeImgBlur } from "@/utils/analyze";
-import { streamImgBlur } from "@/utils/stream";
-import { imageGenerationImgBlur } from "@/utils/imageGeneration";
-import { youtubeImgBlur } from "@/utils/youtube";
-import { catalogoImgBlur } from "@/utils/catalogo";
-import { ytmp3ImgBlur } from "@/utils/ytmp3";
-import { ytmp4ImgBlur } from "@/utils/ytmp4";
-import { cursoOnlineImgBlur } from "@/utils/ytmp4";
-
-import { ContainerLayout } from "@/components/home";
-import { ContainerStyle, H1 } from "@/components/sobre";
+import { MainLayout, MainContent } from "@/components/layout/mainLayout";
+import SideBarLayout from "@/components/layout/sideBarLayout";
+import HeaderLayout from "@/components/layout/headerLayout";
+import MainContentLayout from "@/components/layout/contentLayout";
 
 
-// 1. Efeito de redimensionamento da tela
 const Projetos = () => {
   const { isLoaded } = useGlobalState();
 
@@ -86,11 +57,11 @@ const Projetos = () => {
       </Head>
 
       {!isLoaded ? null : (
-        <ContainerLayout>
-          <SideBar></SideBar>
-          <Header></Header>
-          <Main>
-            <ContainerStyle>
+        <MainLayout>
+          <SideBarLayout></SideBarLayout>
+          <HeaderLayout></HeaderLayout>
+          <MainContentLayout>
+            <MainContent>
               <div>
                 <p style={{ lineHeight: "28px", fontSize: "18px" }}> <strong style={{ fontSize: "20px" }}> Sou um desenvolvedor Full Stack  </strong> apaixonado por tecnologia e inovação. Minha jornada na programação é moldada pelos projetos que desenvolvi, cada um deles representando um novo aprendizado e a aplicação de diferentes tecnologias para resolver problemas reais. Minha experiência é prática, baseada em desafios concretos que exigiram desde a construção de interfaces modernas e responsivas até a implementação de sistemas robustos no backend.</p><br />
                 <h2>Minhas Habilidades</h2><br />
@@ -141,9 +112,9 @@ const Projetos = () => {
                   {/* <p style={{ paddingLeft: "20px" }}>(81) 9 8760-4690</p> */}
                 </div>
               </div>
-            </ContainerStyle>
-          </Main>
-        </ContainerLayout>
+            </MainContent>
+          </MainContentLayout>
+        </MainLayout>
       )}
     </>
   );

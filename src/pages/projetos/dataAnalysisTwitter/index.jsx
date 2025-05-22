@@ -1,11 +1,14 @@
 import { useState } from "react";
-import Main from "@/components/layout/main";
-import SideBar from "@/components/layout/sideBar";
-import Header from "@/components/layout/header";
 import Head from "next/head";
-import { ContainerLayout } from "@/components/home";
 
-import { Container, P, H3, Li, Ul, H4 } from "@/components/projetos/dataAnalysis/styles";
+import Title from "@/components/common/title";
+
+import { P, H3, Ul, Li } from "@/components/projetos/style";
+
+import { MainLayout, MainContent } from "@/components/layout/mainLayout";
+import SideBarLayout from "@/components/layout/sideBarLayout";
+import HeaderLayout from "@/components/layout/headerLayout";
+import MainContentLayout from "@/components/layout/contentLayout";
 
 const Carousel = () => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
@@ -33,12 +36,13 @@ const Carousel = () => {
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/analyze-feelings.jpg" />
       </Head>
-      <ContainerLayout>
-        <SideBar></SideBar>
-        <Header></Header>
-        <Main>
-          <Container>
-            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Análise Completa do Projeto de Coleta e Análise de Dados no Twitter usando Puppeteer e OpenAI - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+
+      <MainLayout>
+        <SideBarLayout></SideBarLayout>
+        <HeaderLayout></HeaderLayout>
+        <MainContentLayout>
+          <MainContent>
+            <Title className="title-dataAnalysisTwitter" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Análise Completa do Projeto de Coleta e Análise de Dados no Twitter usando Puppeteer e OpenAI - <span style={{ color: "blue" }}>mais...</span></Title>
             <P>
               <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://analyze-feelings-twitter.up.railway.app/home" target="_blank">🌎 Link do Projeto</a>
             </P>
@@ -84,9 +88,9 @@ const Carousel = () => {
                 </div>
               </>
             )}
-          </Container>
-        </Main>
-      </ContainerLayout>
+          </MainContent>
+        </MainContentLayout>
+      </MainLayout>
     </>
   );
 };

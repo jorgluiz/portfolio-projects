@@ -1,11 +1,14 @@
 import { useState } from "react";
-import Main from "@/components/layout/main";
-import SideBar from "@/components/layout/sideBar";
-import Header from "@/components/layout/header";
 import Head from "next/head";
-import { ContainerLayout } from "@/components/home";
 
-import { Container, P, H3, Li, Ul, H4, A } from "@/components/projetos/streamDolby/styles";
+import Title from "@/components/common/title";
+
+import { P, H3, Ul, Li } from "@/components/projetos/style";
+
+import { MainLayout, MainContent } from "@/components/layout/mainLayout";
+import SideBarLayout from "@/components/layout/sideBarLayout";
+import HeaderLayout from "@/components/layout/headerLayout";
+import MainContentLayout from "@/components/layout/contentLayout";
 
 const Stripe = () => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
@@ -33,12 +36,13 @@ const Stripe = () => {
         <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/stream.jpg" />
       </Head>
-      <ContainerLayout>
-        <SideBar></SideBar>
-        <Header></Header>
-        <Main>
-          <Container>
-            <H3 className="player-video-personalizado onClickH3" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Sistema de Controle e Visualização de Transmissões ao Vivo - <span style={{ color: "blue" }}>Clique para ver mais</span>!</H3>
+
+      <MainLayout>
+        <SideBarLayout></SideBarLayout>
+        <HeaderLayout></HeaderLayout>
+        <MainContentLayout>
+          <MainContent>
+            <Title className="title-streamDolby" onClick={() => isToggleOpen ? setIsToggleOpen(false) : setIsToggleOpen(true)}>Projeto: Sistema de Controle e Visualização de Transmissões ao Vivo - <span style={{ color: "blue" }}>mais...</span></Title>
             <P>
               <a style={{ fontSize: "24px", fontWeight: "800" }} href="https://dolby-io-streaming.up.railway.app" target="_blank">🌎 Link do Projeto</a>
             </P>
@@ -88,9 +92,9 @@ const Stripe = () => {
                 <P>Este projeto é um sistema robusto para o controle de transmissões ao vivo, implementado com boas práticas de segurança e gerenciamento de dados. As integrações com APIs e o uso de GraphQL trazem flexibilidade para monitoramento, enquanto Firebase e Millicast facilitam o armazenamento e controle das transmissões. Este é um exemplo sólido de um sistema backend voltado para escalabilidade e modularidade, ideal para plataformas que demandam uma estrutura sólida e integração de dados em tempo real.</P>
               </>
             )}
-          </Container>
-        </Main>
-      </ContainerLayout>
+          </MainContent>
+        </MainContentLayout>
+      </MainLayout>
     </>
   );
 };

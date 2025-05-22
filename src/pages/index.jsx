@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
-import Main from "@/components/layout/main";
-import SideBar from "@/components/layout/sideBar";
-import Header from "@/components/layout/header";
 import Head from "next/head";
-
-import { ContainerLayout, ContainerStyle, H1 } from "@/components/home";
 import { useGlobalState } from "../context/GlobalStateContext";
+
+import Title from "@/components/common/title";
+
+import { MainLayout, MainContent } from "@/components/layout/mainLayout";
+import SideBarLayout from "@/components/layout/sideBarLayout";
+import HeaderLayout from "@/components/layout/headerLayout";
+import MainContentLayout from "@/components/layout/contentLayout";
 
 const Layout = () => {
   const { isLoaded } = useGlobalState();
@@ -36,13 +37,13 @@ const Layout = () => {
       </Head>
 
       {!isLoaded ? null : (
-        <ContainerLayout>
-          <Header></Header>
-          <SideBar></SideBar>
-          <Main>
-            <ContainerStyle>
+        <MainLayout>
+          <SideBarLayout></SideBarLayout>
+          <HeaderLayout></HeaderLayout>
+          <MainContentLayout>
+            <MainContent>
               <div>
-                <H1>Desenvolvimento de Portfólio Pessoal Frontend e Backend</H1><br />
+                <Title>Desenvolvimento de Portfólio Pessoal Frontend e Backend</Title><br />
                 <p style={{ lineHeight: "28px", fontSize: "16px" }}>Este projeto é o meu <strong>portfólio pessoal</strong> desenvolvido com <strong>Next.js</strong> e <strong>ReactJS</strong>, onde apresento minhas habilidades tanto no <strong>frontend</strong> quanto no <strong>backend</strong>. O objetivo principal do projeto é demonstrar minha capacidade de construir <strong>sites modernos e funcionais</strong>, com foco em <strong>SEO, performance</strong> e uma experiência de usuário otimizada.</p><br />
                 <ul style={{ padding: "0 0 0 30px", lineHeight: "28px" }}>
                   <li><strong>Estrutura de Rotas:</strong> O site utiliza a estrutura de <strong>páginas do Next.js</strong> para definir rotas de forma simples, sem a necessidade de funções como getServerSideProps ou getStaticProps, pois o projeto é focado em apresentar meu trabalho de maneira ágil e prática.</li><br />
@@ -57,9 +58,9 @@ const Layout = () => {
                   <span>Pesquiso no <span style={{ fontSize: "20px", color: "blue", fontWeight: "800" }}>G</span><span style={{ fontSize: "20px", color: "red", fontWeight: "800" }}>o</span><span style={{ fontSize: "20px", color: "#fbbc05", fontWeight: "800" }}>o</span><span style={{ fontSize: "20px", color: "blue", fontWeight: "800" }}>g</span><span style={{ fontSize: "20px", color: "green", fontWeight: "800" }}>l</span><span style={{ fontSize: "20px", color: "red", fontWeight: "800" }}>e</span>: <a style={{ color: "blue" }} href="https://www.google.com/search?q=https://portfolio-projects-production.up.railway.app" target="_blank" rel="noopener noreferrer">Buscar pagina no Google</a></span>
                 </div><br /><br /><br />
               </div>
-            </ContainerStyle>
-          </Main>
-        </ContainerLayout>
+            </MainContent>
+          </MainContentLayout>
+        </MainLayout>
       )}
     </>
   );

@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import Main from "@/components/layout/main";
-import SideBar from "@/components/layout/sideBar";
-import Header from "@/components/layout/header";
+import Head from "next/head";
 import Image from 'next/image';
+import Link from "next/link";
+import { useGlobalState } from "../../context/GlobalStateContext";
+
 import portfolioImg from "../../assets/images/portfolio.png";
 import stripelogo from "../../assets/images/stripeLogo.png";
 import carousel from "../../assets/images/carousel.png";
@@ -16,10 +16,6 @@ import ytmp4 from "../../assets/images/ytmp4.png";
 import cursoOline from "../../assets/images/curso-online.png";
 import ytAnalyzeVideo from "../../assets/images/yt-analyze-video.png";
 
-import Head from "next/head";
-import Link from "next/link";
-import { useGlobalState } from "../../context/GlobalStateContext";
-
 import { portfolioImgBlur } from "@/utils/portfolio";
 import { stripeImgBlur } from "@/utils/stripe";
 import { carouseImgBlur } from "@/utils/carousel";
@@ -32,10 +28,13 @@ import { ytmp3ImgBlur } from "@/utils/ytmp3";
 import { ytmp4ImgBlur } from "@/utils/ytmp4";
 import { cursoOnlineImgBlur } from "@/utils/ytmp4";
 
-import { GridContainer, ContainerStyle } from "@/components/projetos/style";
-import { ContainerLayout } from "@/components/home";
+import { MainLayout, MainContent } from "@/components/layout/mainLayout";
+import SideBarLayout from "@/components/layout/sideBarLayout";
+import HeaderLayout from "@/components/layout/headerLayout";
+import MainContentLayout from "@/components/layout/contentLayout";
 
-// 1. Efeito de redimensionamento da tela
+import { GridContainer } from "@/components/projetos/style";
+
 const Projetos = () => {
   const { isLoaded } = useGlobalState();
 
@@ -86,25 +85,76 @@ const Projetos = () => {
       </Head>
 
       {!isLoaded ? null : (
-        <ContainerLayout>
-          <SideBar></SideBar>
-          <Header></Header>
-          <Main>
-            <ContainerStyle onContextMenu={(e) => e.preventDefault()}>
+        <MainLayout>
+          <SideBarLayout></SideBarLayout>
+          <HeaderLayout></HeaderLayout>
+          <MainContentLayout>
+            <MainContent onContextMenu={(e) => e.preventDefault()}>
               <h1 style={{ color: "323f4b" }}>Oi! 👋</h1>
               <p style={{ fontSize: "20px", color: "323f4b", lineHeight: "32px" }}>Este portfólio representa a síntese da minha jornada em desenvolvimento web e backend, demonstrando minha experiência com ReactJS no frontend e Express no backend para a construção de aplicações modernas e eficientes.</p>
               <GridContainer>
                 <div className="container-item">
-                  <Link href="/projetos/portfolio">
-                    <Image src={portfolioImg} placeholder="blur" blurDataURL={portfolioImgBlur} alt="img" draggable={false} className="img-projetos" />
+                  <Link href="/projetos/playerVideoCustomizado">
+                    <Image src={youtube} placeholder="blur" blurDataURL={youtubeImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
-                        <div>
+                        <div className="tech">
                           <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                          <span style={{ margin: "0 8px 0 8px", padding: "0 5px 0 5px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React</span>
-                          <span style={{ margin: "0 8px 0 8px", padding: "0 5px 0 5px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Styled-components</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React.js</span>
                         </div>
-                        <h2 className="item-h2">Portfolio</h2>
+                        <h2 className="item-h2">Custom Video Player</h2>
+                        <p className="item-p">estudos e aprendizado</p>
+                        <p>⭐⭐⭐⭐⭐ 🚀</p>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+                <div className="container-item">
+                  <Link href="/projetos/vendasCurso">
+                    <Image src={cursoOline} placeholder="blur" blurDataURL={cursoOnlineImgBlur} alt="img" draggable={false} className="img-projetos" />
+                    <div className="item">
+                      <div className="sub-item">
+                        <div className="tech">
+                          <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React.js</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React Router DOM</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Context API</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Axios </span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> JWT-Decode</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Styled Components</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> LocalStorage </span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Node.js + Express</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> PostgreSQL</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> JWT (JSON Web Token) </span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Pagar.me API</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Socket.io</span>
+                        </div>
+                        <h2 className="item-h2">Plataforma vendas cursos online</h2>
+                        <p>⭐⭐⭐⭐⭐ 🚀</p>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+                <div className="container-item">
+                  <Link href="/projetos/dataAnalysisTwitter">
+                    <Image src={analyzeFeelings} placeholder="blur" blurDataURL={analyzeImgBlur} alt="img" draggable={false} className="img-projetos" />
+                    <div className="item">
+                      <div className="sub-item">
+                        <div className="tech">
+                          <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Node.js e Express</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Puppeteer</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Puppeteer-Extra</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>OpenAI API</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Frontend (HTML, CSS, JavaScript)</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>dotenv</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Heroku</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>archiver</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>unzipper</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>OpenAI</span>
+                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>path</span>
+                        </div>
+                        <h2 className="item-h2">data analysis tedency</h2>
                         <p className="item-p">estudos e aprendizado</p>
                         <p>⭐⭐⭐⭐⭐ 🚀</p>
                       </div>
@@ -168,32 +218,6 @@ const Projetos = () => {
                   </Link>
                 </div>
                 <div className="container-item">
-                  <Link href="/projetos/dataAnalysisTwitter">
-                    <Image src={analyzeFeelings} placeholder="blur" blurDataURL={analyzeImgBlur} alt="img" draggable={false} className="img-projetos" />
-                    <div className="item">
-                      <div className="sub-item">
-                        <div className="tech">
-                          <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Node.js e Express</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Puppeteer</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Puppeteer-Extra</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>OpenAI API</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Frontend (HTML, CSS, JavaScript)</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>dotenv</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Heroku</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>archiver</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>unzipper</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>OpenAI</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>path</span>
-                        </div>
-                        <h2 className="item-h2">data analysis tedency</h2>
-                        <p className="item-p">estudos e aprendizado</p>
-                        <p>⭐⭐⭐⭐⭐ 🚀</p>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-                <div className="container-item">
                   <Link href="/projetos/streamDolby">
                     <Image src={stream} placeholder="blur" blurDataURL={streamImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
@@ -229,22 +253,6 @@ const Projetos = () => {
                           <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Backend</span>
                         </div>
                         <h2 className="item-h2">Enlarged View Image Generator</h2>
-                        <p className="item-p">estudos e aprendizado</p>
-                        <p>⭐⭐⭐⭐⭐ 🚀</p>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-                <div className="container-item">
-                  <Link href="/projetos/playerVideoCustomizado">
-                    <Image src={youtube} placeholder="blur" blurDataURL={youtubeImgBlur} alt="img" draggable={false} className="img-projetos" />
-                    <div className="item">
-                      <div className="sub-item">
-                        <div className="tech">
-                          <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React.js</span>
-                        </div>
-                        <h2 className="item-h2">Custom Video Player</h2>
                         <p className="item-p">estudos e aprendizado</p>
                         <p>⭐⭐⭐⭐⭐ 🚀</p>
                       </div>
@@ -310,32 +318,6 @@ const Projetos = () => {
                   </Link>
                 </div>
                 <div className="container-item">
-                  <Link href="/projetos/vendasCurso">
-                    <Image src={cursoOline} placeholder="blur" blurDataURL={cursoOnlineImgBlur} alt="img" draggable={false} className="img-projetos" />
-                    <div className="item">
-                      <div className="sub-item">
-                        <div className="tech">
-                          <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React.js</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React Router DOM</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Context API</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Axios </span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> JWT-Decode</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Styled Components</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> LocalStorage </span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Node.js + Express</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> PostgreSQL</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> JWT (JSON Web Token) </span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Pagar.me API</span>
-                          <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Socket.io</span>
-                        </div>
-                        <h2 className="item-h2">Plataforma vendas cursos online</h2>
-                        <p>⭐⭐⭐⭐⭐ 🚀</p>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-                <div className="container-item">
                   <Link href="/projetos/ytformp3">
                     <Image src={ytmp3} placeholder="blur" blurDataURL={ytmp3ImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
@@ -375,10 +357,27 @@ const Projetos = () => {
                     </div>
                   </Link>
                 </div>
+                <div className="container-item">
+                  <Link href="/projetos/portfolio">
+                    <Image src={portfolioImg} placeholder="blur" blurDataURL={portfolioImgBlur} alt="img" draggable={false} className="img-projetos" />
+                    <div className="item">
+                      <div className="sub-item">
+                        <div>
+                          <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
+                          <span style={{ margin: "0 8px 0 8px", padding: "0 5px 0 5px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React</span>
+                          <span style={{ margin: "0 8px 0 8px", padding: "0 5px 0 5px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Styled-components</span>
+                        </div>
+                        <h2 className="item-h2">Portfolio</h2>
+                        <p className="item-p">estudos e aprendizado</p>
+                        <p>⭐⭐⭐⭐⭐ 🚀</p>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
               </GridContainer>
-            </ContainerStyle>
-          </Main>
-        </ContainerLayout>
+            </MainContent>
+          </MainContentLayout>
+        </MainLayout>
       )}
     </>
   );
