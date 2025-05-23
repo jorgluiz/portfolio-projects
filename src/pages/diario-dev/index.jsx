@@ -86,7 +86,7 @@ const Projetos = () => {
               {sections.map((section, index) => (
                 <div key={index}>
                   <Title
-                    className={`h3Center ${section.title} ${visibleSections[index] ? "active" : ""}`}
+                    className={`h3Center-diarioDev ${section.title} ${visibleSections[index] ? "active" : ""}`}
                     onClick={() => toggleSection(index)}
                   >
                     {section.title} {visibleSections[index] ? "▲" : "▼"}

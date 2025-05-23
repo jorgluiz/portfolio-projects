@@ -95,16 +95,16 @@ const SideBar = () => {
             </li>
             <li>
               <Span
-                onClick={() => handleNavigate('/diariodev')}
-                className={activeLink === '/diariodev' ? 'active' : ''}
+                onClick={() => handleNavigate('/diario-dev')}
+                className={activeLink === '/diario-dev' ? 'active' : ''}
               >
                 Diário dev
               </Span>
             </li>
             <li>
               <Span
-                onClick={() => handleNavigate('/buildProject')}
-                className={activeLink === '/buildProject' ? 'active' : ''}
+                onClick={() => handleNavigate('/build-project')}
+                className={activeLink === '/build-project' ? 'active' : ''}
               >
                 Build Project
               </Span>
@@ -120,16 +120,8 @@ const SideBar = () => {
               <ul>
                 <li>
                   <Span
-                    onClick={() => handleNavigate('/nodejsJavaSrping')}
-                    className={activeLink === '/nodejsJavaSrping' ? 'active' : ''}
-                  >
-                    NodeJS / Java
-                  </Span>
-                </li>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/nodejsJavaSrping')}
-                    className={activeLink === '/nodejsJavaSrping' ? 'active' : ''}
+                    onClick={() => handleNavigate('/menu-secreto/nodejs-java-spring')}
+                    className={activeLink === '/menu-secreto/nodejs-java-spring' ? 'active' : ''}
                   >
                     NodeJS / Java
                   </Span>

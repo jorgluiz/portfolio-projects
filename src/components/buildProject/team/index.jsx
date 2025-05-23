@@ -57,7 +57,8 @@ const team = [
 const styles = {
   header: {
     backgroundColor: '#f7f9fc',
-    padding: '16px 24px',
+    margin: '24px auto',
+    padding: '15px',
     boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     maxWidth: 900

@@ -8,7 +8,6 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 
 import Title from "@/components/common/title";
-import Span from "@/components/common/span";
 
 import { BuildProjectMainContainer, CollapsibleContent } from "@/components/buildProject/buildProjectMainContainer";
 
@@ -69,8 +68,9 @@ const BuildProject = () => {
               {sections.map((section, index) => (
                 <>
                   <div key={index}>
-                    <Title onClick={() => toggleSection(index)}>
-                      {section.title} <Span>{visibleSections[index] ? "▲" : "▼"}</Span>
+                    <Title className="h3Center-buildProject"
+                      onClick={() => toggleSection(index)}>
+                      {section.title} {visibleSections[index] ? "▲" : "▼"}
                     </Title>
                     <CollapsibleContent isOpen={visibleSections[index]}>
                       {section.component}

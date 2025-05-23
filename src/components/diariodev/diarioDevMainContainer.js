@@ -6,7 +6,7 @@ width: 100%;
 padding-top: 20px;
 user-select: none;
 
-& .h3Center {
+& .h3Center-diarioDev {
 text-align: center;
 margin-bottom: 15px;
 padding-bottom: 15px;
@@ -14,11 +14,11 @@ cursor: pointer;
 user-select: none;
 }
 
-& .h3Center:hover {
+& .h3Center-diarioDev:hover {
   color: blue; /* azul mais escuro ao passar mouse */
 }
 
-& .h3Center.active {
+& .h3Center-diarioDev.active {
   color: blue;
   text-decoration: none; /* pode tirar o underline se quiser */
 }

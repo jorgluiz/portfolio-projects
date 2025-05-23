@@ -1,11 +1,7 @@
-'use client';
-
-import React from 'react';
-
 const GitCommands = () => {
   const container = {
     fontFamily: 'Segoe UI, sans-serif',
-    padding: '24px',
+    padding: '15px',
     maxWidth: '900px',
     margin: '0 auto 40px',
     color: '#222',

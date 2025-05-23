@@ -19,6 +19,7 @@ const Title = styled.h3`
   &.title-ytAnalyseVideo,
   &.title-vendasCurso {
     line-height: 28px;
+    margin-bottom: 20px;
   }
 `;
 

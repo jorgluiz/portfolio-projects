@@ -89,12 +89,12 @@ const Projetos = () => {
           <SideBarLayout></SideBarLayout>
           <HeaderLayout></HeaderLayout>
           <MainContentLayout>
-            <MainContent onContextMenu={(e) => e.preventDefault()}>
+            <MainContent>
               <h1 style={{ color: "323f4b" }}>Oi! 👋</h1>
               <p style={{ fontSize: "20px", color: "323f4b", lineHeight: "32px" }}>Este portfólio representa a síntese da minha jornada em desenvolvimento web e backend, demonstrando minha experiência com ReactJS no frontend e Express no backend para a construção de aplicações modernas e eficientes.</p>
               <GridContainer>
                 <div className="container-item">
-                  <Link href="/projetos/playerVideoCustomizado">
+                  <Link href="/projetos/player-video-customizado">
                     <Image src={youtube} placeholder="blur" blurDataURL={youtubeImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
@@ -110,7 +110,7 @@ const Projetos = () => {
                   </Link>
                 </div>
                 <div className="container-item">
-                  <Link href="/projetos/vendasCurso">
+                  <Link href="/projetos/vendas-curso">
                     <Image src={cursoOline} placeholder="blur" blurDataURL={cursoOnlineImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
@@ -136,7 +136,7 @@ const Projetos = () => {
                   </Link>
                 </div>
                 <div className="container-item">
-                  <Link href="/projetos/dataAnalysisTwitter">
+                  <Link href="/projetos/data-analysis-twitter">
                     <Image src={analyzeFeelings} placeholder="blur" blurDataURL={analyzeImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
@@ -218,7 +218,7 @@ const Projetos = () => {
                   </Link>
                 </div>
                 <div className="container-item">
-                  <Link href="/projetos/streamDolby">
+                  <Link href="/projetos/stream-dolby">
                     <Image src={stream} placeholder="blur" blurDataURL={streamImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
@@ -241,7 +241,7 @@ const Projetos = () => {
                   </Link>
                 </div>
                 <div className="container-item">
-                  <Link href="/projetos/imageGenerator">
+                  <Link href="/projetos/image-generator">
                     <Image src={imageGeneration} placeholder="blur" blurDataURL={imageGenerationImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
@@ -277,7 +277,7 @@ const Projetos = () => {
                   </Link>
                 </div>
                 <div className="container-item">
-                  <Link href="/projetos/ytformp4Cloud">
+                  <Link href="/projetos/yt-for-mp4-cloud">
                     <Image src={ytmp4} placeholder="blur" blurDataURL={ytmp4ImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
@@ -298,7 +298,7 @@ const Projetos = () => {
                   </Link>
                 </div>
                 <div className="container-item">
-                  <Link href="/projetos/ytformp4Location">
+                  <Link href="/projetos/yt-for-mp4-location">
                     <Image src={ytmp4} placeholder="blur" blurDataURL={ytmp4ImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
@@ -318,7 +318,7 @@ const Projetos = () => {
                   </Link>
                 </div>
                 <div className="container-item">
-                  <Link href="/projetos/ytformp3">
+                  <Link href="/projetos/yt-for-mp3">
                     <Image src={ytmp3} placeholder="blur" blurDataURL={ytmp3ImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">
@@ -337,7 +337,7 @@ const Projetos = () => {
                   </Link>
                 </div>
                 <div className="container-item">
-                  <Link href="/projetos/ytAnalyseVideo">
+                  <Link href="/projetos/yt-analyse-video">
                     <Image src={ytAnalyzeVideo} placeholder="blur" blurDataURL={ytmp3ImgBlur} alt="img" draggable={false} className="img-projetos" />
                     <div className="item">
                       <div className="sub-item">

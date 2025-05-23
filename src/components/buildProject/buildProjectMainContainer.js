@@ -4,6 +4,20 @@ export const BuildProjectMainContainer = styled.div`
 
 padding-top: 20px;
 user-select: none;
+
+& .h3Center-buildProject {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+
+& .h3Center-buildProject:hover {
+  color: blue; /* azul mais escuro ao passar mouse */
+}
+
+& .h3Center-buildProject.active {
+  color: blue;
+  text-decoration: none; /* pode tirar o underline se quiser */
+}
 `;
 
 export const CollapsibleContent = styled.div`

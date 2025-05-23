@@ -65,8 +65,6 @@ export const GridContainer = styled.div`
 };
 `;
 
-
-
 export const P = styled.p`
 
 font-size: 16px;
