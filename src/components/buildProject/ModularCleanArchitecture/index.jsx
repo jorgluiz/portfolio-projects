@@ -1,3 +1,23 @@
+import styled from 'styled-components';
+
+const CompletedItem = styled.li`
+  text-decoration: line-through;
+  color: #999;
+  position: relative;
+  cursor: pointer;
+  padding-left: 20px;
+
+  &::before {
+    content: '✓';
+    color: #2ecc71;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+`;
+
+
 const ModularCleanArchitecture = () => {
   const container = {
     fontFamily: 'Segoe UI, sans-serif',
@@ -39,11 +59,6 @@ const ModularCleanArchitecture = () => {
     lineHeight: '1.6'
   };
 
-  const paragraph = {
-    marginBottom: '12px',
-    fontSize: '16px',
-    lineHeight: '1.5'
-  };
 
   return (
     <div style={container}>
@@ -53,11 +68,11 @@ const ModularCleanArchitecture = () => {
 
       <div style={subsectionTitle}>1. Qual arquitetura usar?</div>
       <ul style={list}>
-        <li>Arquitetura modular e limpa baseada em Domain-Driven Design (DDD) e Clean Architecture.</li>
+        <CompletedItem>Arquitetura modular e limpa baseada em Domain-Driven Design (DDD) e Clean Architecture.</CompletedItem>
         <li>Modularização clara: cada módulo representa um domínio (ex: Users, Auth, Scheduling, Chatbot, Finance, Media).</li>
         <li>Camadas separadas:
           <ul>
-            <li>Controllers: recebem requisições HTTP.</li>
+            <li >Controllers: recebem requisições HTTP.</li>
             <li>Services: regras de negócio.</li>
             <li>Repositories (Data Access Layer): acesso ao banco.</li>
             <li>Entities/Models: definição de dados.</li>

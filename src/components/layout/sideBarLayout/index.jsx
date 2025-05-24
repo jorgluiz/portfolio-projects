@@ -126,6 +126,14 @@ const SideBar = () => {
                     NodeJS / Java
                   </Span>
                 </li>
+                <li>
+                  <Span
+                    onClick={() => handleNavigate('/menu-secreto/node-js-frameworks')}
+                    className={activeLink === '/menu-secreto/node-js-frameworks' ? 'active' : ''}
+                  >
+                    NodeJS Frameworks
+                  </Span>
+                </li>
               </ul>
             </Menu>
           </>
