@@ -5,12 +5,14 @@ import { MainLayout } from "@/components/layout/mainLayout";
 import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
-
-import Title from "@/components/common/title";
+import Overlay from "@/components/overlay";
 
 // 1. Efeito de redimensionamento da tela
 const NodeJsJavaSpring = () => {
-  const { isLoaded } = useGlobalState();
+  const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
+
+  // Função para fechar sidebar clicando fora
+  const handleOverlayClick = () => setIsHamburguerOpen(false);
 
   const container = {
     fontFamily: 'Segoe UI, sans-serif',
@@ -74,59 +76,64 @@ const NodeJsJavaSpring = () => {
       </Head>
 
       {!isLoaded ? null : (
-        <MainLayout>
-          <SideBarLayout></SideBarLayout>
-          <HeaderLayout></HeaderLayout>
-          <MainContentLayout>
-            <div style={container}>
-              <div style={sectionTitle}>1. Node.js (JavaScript)</div>
+        <>
+          {isHamburguerOpen && (
+            <Overlay onClick={handleOverlayClick}></Overlay>
+          )}
+          <MainLayout>
+            <SideBarLayout></SideBarLayout>
+            <HeaderLayout></HeaderLayout>
+            <MainContentLayout>
+              <div style={container}>
+                <div style={sectionTitle}>1. Node.js (JavaScript)</div>
 
-              <div style={subtitle}>Vantagens:</div>
-              <ul style={list}>
-                <li>Muito rápido para desenvolvimento.</li>
-                <li>Similaridade com o frontend (React, por exemplo), o que facilita trabalhar no fullstack.</li>
-                <li>Grande número de pacotes no NPM.</li>
-                <li>Escalável com a arquitetura correta (microservices, clustering).</li>
-                <li>Desempenho excelente para I/O (input/output), como APIs e aplicações em tempo real.</li>
-              </ul>
+                <div style={subtitle}>Vantagens:</div>
+                <ul style={list}>
+                  <li>Muito rápido para desenvolvimento.</li>
+                  <li>Similaridade com o frontend (React, por exemplo), o que facilita trabalhar no fullstack.</li>
+                  <li>Grande número de pacotes no NPM.</li>
+                  <li>Escalável com a arquitetura correta (microservices, clustering).</li>
+                  <li>Desempenho excelente para I/O (input/output), como APIs e aplicações em tempo real.</li>
+                </ul>
 
-              <div style={subtitle}>Desvantagens:</div>
-              <ul style={list}>
-                <li>Não é tão eficiente para operações pesadas como processamento de vídeos (se comparado ao Java).</li>
-                <li>Código assíncrono pode ser mais difícil de manter se mal estruturado.</li>
-              </ul>
+                <div style={subtitle}>Desvantagens:</div>
+                <ul style={list}>
+                  <li>Não é tão eficiente para operações pesadas como processamento de vídeos (se comparado ao Java).</li>
+                  <li>Código assíncrono pode ser mais difícil de manter se mal estruturado.</li>
+                </ul>
 
-              <div style={subtitle}>Quando usar:</div>
-              <p style={paragraph}>
-                Projetos que precisam ser desenvolvidos rapidamente, APIs leves, aplicações em tempo real (WebSockets) e integração com outras tecnologias modernas.
-              </p>
+                <div style={subtitle}>Quando usar:</div>
+                <p style={paragraph}>
+                  Projetos que precisam ser desenvolvidos rapidamente, APIs leves, aplicações em tempo real (WebSockets) e integração com outras tecnologias modernas.
+                </p>
 
-              <hr style={{ margin: '30px 0' }} />
+                <hr style={{ margin: '30px 0' }} />
 
-              <div style={sectionTitle}>2. Java (Spring Boot ou Javalin)</div>
+                <div style={sectionTitle}>2. Java (Spring Boot ou Javalin)</div>
 
-              <div style={subtitle}>Vantagens:</div>
-              <ul style={list}>
-                <li>Excelente desempenho, especialmente para aplicações com processamento pesado.</li>
-                <li>Frameworks robustos como Spring Boot permitem construir sistemas corporativos e complexos.</li>
-                <li>Fortemente tipada: menos erros em produção.</li>
-                <li>Melhor para sistemas de larga escala e de alta performance.</li>
-                <li>Uso extensivo em grandes empresas e em projetos mais tradicionais.</li>
-              </ul>
+                <div style={subtitle}>Vantagens:</div>
+                <ul style={list}>
+                  <li>Excelente desempenho, especialmente para aplicações com processamento pesado.</li>
+                  <li>Frameworks robustos como Spring Boot permitem construir sistemas corporativos e complexos.</li>
+                  <li>Fortemente tipada: menos erros em produção.</li>
+                  <li>Melhor para sistemas de larga escala e de alta performance.</li>
+                  <li>Uso extensivo em grandes empresas e em projetos mais tradicionais.</li>
+                </ul>
 
-              <div style={subtitle}>Desvantagens:</div>
-              <ul style={list}>
-                <li>Desenvolvimento é mais `&lento` comparado ao Node.js.</li>
-                <li>Maior curva de aprendizado (muito código boilerplate em frameworks como Spring).</li>
-              </ul>
+                <div style={subtitle}>Desvantagens:</div>
+                <ul style={list}>
+                  <li>Desenvolvimento é mais `&lento` comparado ao Node.js.</li>
+                  <li>Maior curva de aprendizado (muito código boilerplate em frameworks como Spring).</li>
+                </ul>
 
-              <div style={subtitle}>Quando usar:</div>
-              <p style={paragraph}>
-                Projetos corporativos de grande escala, APIs que requerem alta performance e robustez ou aplicações com muitas operações em background.
-              </p>
-            </div>
-          </MainContentLayout>
-        </MainLayout>
+                <div style={subtitle}>Quando usar:</div>
+                <p style={paragraph}>
+                  Projetos corporativos de grande escala, APIs que requerem alta performance e robustez ou aplicações com muitas operações em background.
+                </p>
+              </div>
+            </MainContentLayout>
+          </MainLayout>
+        </>
       )}
     </>
   );

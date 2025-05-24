@@ -1,27 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ProductOwnerDashboard from '../productOwnerDashboard';
+import ArchitectDashboard from '../architectDashboard';
+import BackendDeveloperDashboard from '../backendDeveloperDashboard';
+import FrontendDeveloperDashboard from '../frontendDeveloperDashboard';
+import DevOpsDashboard from '../devOpsDashboard';
+import NlpAudioImageDashboard from '../nlpAudioImageDashboard';
+import DesignUiUxDashboard from '../designUiUxDashboard';
+import GraphicDesignerDashboard from '../graphicDesignerDashboard';
+import QaAnalystDashboard from '../qaAnalystDashboard';
+import SecuritySpecialistDashboard from '../securitySpecialistDashboard';
+import CustomerSuccessDashboard from '../customerSuccessDashboard';
 
 const team = [
   {
     group: 'Gestão de Projeto',
     roles: [
-      'Product Owner / Gerente de Produto',
-      'Scrum Master / Gerente de Projetos',
+      'Product Owner / Gerente de Produto'
     ],
   },
   {
     group: 'Desenvolvimento',
     roles: [
       'Arquiteto de Software',
-      'Backend Developers (2 a 3)',
-      'Frontend Developers (2)',
-      'Engenheiro de DevOps / Infraestrutura',
+      'Backend Developer',
+      'Frontend Developer',
+      'Engenheiro de DevOps',
     ],
   },
   {
-    group: 'Inteligência Artificial e Machine Learning',
+    group: 'Inteligência Artificial',
     roles: [
-      'Engenheiro de Machine Learning / Cientista de Dados (1 a 2)',
       'Especialista em NLP e Processamento de Áudio/Imagem',
     ],
   },
@@ -41,15 +49,13 @@ const team = [
   {
     group: 'Segurança e Compliance',
     roles: [
-      'Especialista em Segurança da Informação',
-      'Consultor Jurídico (opcional, terceirizado)',
+      'Especialista em Segurança da Informação'
     ],
   },
   {
-    group: 'Suporte e Operações',
+    group: 'Suporte',
     roles: [
       'Customer Success / Suporte Técnico',
-      'Analista de Dados (opcional)',
     ],
   },
 ];
@@ -98,7 +104,7 @@ const styles = {
     maxWidth: '800px',
     // marginLeft: 'auto',
     // marginRight: 'auto',
-    color: '#2c3e50',
+    color: '#34495e',
   },
   roleList: {
     listStyleType: 'disc',
@@ -121,20 +127,45 @@ const styles = {
     color: '#2980b9',
     fontWeight: '600',
     cursor: 'pointer'
+  },
+  active: {
+    color: 'blue',
+    textDecoration: 'none'
   }
 };
 
 const roleComponentMap = {
   'Product Owner / Gerente de Produto': ProductOwnerDashboard,
-  // 'Scrum Master / Gerente de Projetos': ScrumMasterDashboard,
-  // 'Backend Developers (2 a 3)': BackendDevDashboard,
-  // Adicione os outros conforme forem criados
+  'Arquiteto de Software': ArchitectDashboard,
+  'Backend Developer': BackendDeveloperDashboard,
+  'Frontend Developer': FrontendDeveloperDashboard,
+  'Engenheiro de DevOps': DevOpsDashboard,
+  'Especialista em NLP e Processamento de Áudio/Imagem': NlpAudioImageDashboard,
+  'UI/UX Designer': DesignUiUxDashboard,
+  'Designer Gráfico': GraphicDesignerDashboard,
+  'Analista de QA / Testador': QaAnalystDashboard,
+  'Especialista em Segurança da Informação': SecuritySpecialistDashboard,
+  'Customer Success / Suporte Técnico': CustomerSuccessDashboard,
 };
 
 export default function TeamHeader() {
   const [activeGroupIndex, setActiveGroupIndex] = useState(0);
   const [selectedRole, setSelectedRole] = useState(null);
   console.log(selectedRole, " selectedRole");
+  console.log(window.innerWidth, " window.innerWidth");
+
+  useEffect(() => {
+    if (selectedRole && roleComponentMap[selectedRole]) {
+      if (window.scrollY === 0 && window.innerWidth <= 750) {
+        window.scrollTo({
+          top: 300,  // ajuste conforme preferir
+          behavior: 'smooth',
+        });
+      }
+    }
+  }, [selectedRole]);
+
+
 
   const handleRoleClick = (role) => {
     setSelectedRole(role);
@@ -180,7 +211,7 @@ export default function TeamHeader() {
             {team[activeGroupIndex].roles.map((role, i) => (
               <li
                 key={i}
-                style={styles.roleItem}
+                style={selectedRole === role ? { ...styles.roleItem, ...styles.active } : styles.roleItem}
                 onClick={() => handleRoleClick(role)}
               >
                 {role}

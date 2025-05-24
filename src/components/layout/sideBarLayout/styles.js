@@ -4,7 +4,7 @@ export const ContentWrapper = styled.div`
   position: sticky;
   /* flex-shrink: 0; */
   top: 0;
-  z-index: 10;
+  z-index: 20;
   /* height: 100vh; */
   width: 330px;
   min-width: 330px; /* Impede que a largura seja comprimida */
@@ -24,6 +24,8 @@ export const ContentWrapper = styled.div`
     position: fixed;
     height: 100vh;
     left: 0;
+    height: 100vh;       /* manter altura fixa */
+    overflow-y: auto;    /* scroll interno */
     transform: ${({ isHamburguerOpen }) => (isHamburguerOpen ? 'translateX(0)' : 'translateX(-100%)')};
   }
 

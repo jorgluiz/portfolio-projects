@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 export const DiarioDevMainContainer = styled.div`
 
 width: 100%;
-padding-top: 20px;
 user-select: none;
+padding: 20px 10px;
 
 & .h3Center-diarioDev {
 text-align: center;

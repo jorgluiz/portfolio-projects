@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 const Title = styled.h3`
-  color: #34495e;
+  color: #2980b9;
   text-align: center;
   cursor: pointer;
+  user-select: none;
 
   &.title-carousel, 
   &.title-stripe,

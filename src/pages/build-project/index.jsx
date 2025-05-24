@@ -6,6 +6,7 @@ import { MainLayout } from "@/components/layout/mainLayout";
 import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
+import Overlay from "@/components/overlay";
 
 import Title from "@/components/common/title";
 
@@ -14,12 +15,16 @@ import { BuildProjectMainContainer, CollapsibleContent } from "@/components/buil
 import SaaSProjectGuide from "@/components/buildProject/saaSProjectGuide";
 import SaaSforDoctors from "@/components/buildProject/saaSforDoctors";
 import TeamHeader from "@/components/buildProject/team";
+import ModularCleanArchitecture from "@/components/buildProject/ModularCleanArchitecture";
 
 
 // lógica aqui
 const BuildProject = () => {
-  const { isLoaded } = useGlobalState();
+  const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
   const [visibleSections, setVisibleSections] = useState({});
+
+  // Função para fechar sidebar clicando fora
+  const handleOverlayClick = () => setIsHamburguerOpen(false);
 
   const toggleSection = (index) => {
     setVisibleSections((prev) => ({
@@ -33,6 +38,7 @@ const BuildProject = () => {
     { title: "O que é um projeto SaaS?", component: <SaaSProjectGuide /> },
     { title: "Desenvolvimento de SaaS para Médicos com Plano de Emagrecimento", component: <SaaSforDoctors /> },
     { title: "Team", component: <TeamHeader /> },
+    { title: "Guia Completo do Ciclo de Vida do Projeto SaaS Médico: Do Planejamento à Entrega", component: <ModularCleanArchitecture /> },
   ];
 
   return (
@@ -60,27 +66,32 @@ const BuildProject = () => {
       </Head>
 
       {!isLoaded ? null : (
-        <MainLayout>
-          <SideBarLayout></SideBarLayout>
-          <HeaderLayout></HeaderLayout>
-          <MainContentLayout>
-            <BuildProjectMainContainer>
-              {sections.map((section, index) => (
-                <>
-                  <div key={index}>
-                    <Title className="h3Center-buildProject"
-                      onClick={() => toggleSection(index)}>
-                      {section.title} {visibleSections[index] ? "▲" : "▼"}
-                    </Title>
-                    <CollapsibleContent isOpen={visibleSections[index]}>
-                      {section.component}
-                    </CollapsibleContent>
-                  </div>
-                </>
-              ))}
-            </BuildProjectMainContainer>
-          </MainContentLayout>
-        </MainLayout>
+        <>
+          {isHamburguerOpen && (
+            <Overlay onClick={handleOverlayClick}></Overlay>
+          )}
+          <MainLayout>
+            <SideBarLayout></SideBarLayout>
+            <HeaderLayout></HeaderLayout>
+            <MainContentLayout>
+              <BuildProjectMainContainer>
+                {sections.map((section, index) => (
+                  <>
+                    <div key={index}>
+                      <Title className="h3Center-buildProject"
+                        onClick={() => toggleSection(index)}>
+                        {section.title} {visibleSections[index] ? "▲" : "▼"}
+                      </Title>
+                      <CollapsibleContent isOpen={visibleSections[index]}>
+                        {section.component}
+                      </CollapsibleContent>
+                    </div>
+                  </>
+                ))}
+              </BuildProjectMainContainer>
+            </MainContentLayout>
+          </MainLayout>
+        </>
       )}
     </>
   );

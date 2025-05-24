@@ -2,8 +2,8 @@ import styled, { css } from "styled-components";
 
 export const BuildProjectMainContainer = styled.div`
 
-padding-top: 20px;
-user-select: none;
+/* user-select: none; */
+padding: 20px 10px;
 
 & .h3Center-buildProject {
   margin-bottom: 15px;

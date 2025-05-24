@@ -82,48 +82,48 @@ const SaaSforDoctors = () => {
 
       <h3 style={sectionTitle}>3. Funcionalidades do Agente</h3>
       <ul style={list}>
-        <li><span style={stepNumber}>4</span>O agente também precisa entender áudio, imagens e documentos.</li>
-        <li><span style={stepNumber}>5</span>O agente consegue enviar imagens dentro de um banco de dados do SaaS que são vinculadas aos serviços que ele oferece.</li>
-        <li><span style={stepNumber}>6</span>Criação automática de grupo de WhatsApp, onde terá o telefone do paciente e outros agentes como psicólogo, nutricionista, etc.</li>
-        <li><span style={stepNumber}>7</span>Configuração dos agentes para enviar mensagens de forma automática em horários pré-definidos.</li>
+        <li style={listItem} ><span style={stepNumber}>4</span>O agente também precisa entender áudio, imagens e documentos.</li>
+        <li style={listItem}><span style={stepNumber}>5</span>O agente consegue enviar imagens dentro de um banco de dados do SaaS que são vinculadas aos serviços que ele oferece.</li>
+        <li style={listItem}><span style={stepNumber}>6</span>Criação automática de grupo de WhatsApp, onde terá o telefone do paciente e outros agentes como psicólogo, nutricionista, etc.</li>
+        <li style={listItem}><span style={stepNumber}>7</span>Configuração dos agentes para enviar mensagens de forma automática em horários pré-definidos.</li>
       </ul>
 
       <h3 style={sectionTitle}>4. CRM - Funcionalidades</h3>
       <ul style={list}>
-        <li><span style={stepNumber}>8</span>Respostas humanizadas e personalizadas, sem enviar uma mensagem a cada mensagem do lead.</li>
-        <li><span style={stepNumber}>9</span>Entendimento de áudio, imagem, documento.</li>
-        <li><span style={stepNumber}>10</span>Envio de imagens (sem ser link).</li>
-        <li><span style={stepNumber}>11</span>Integração com calendário e envio de lembretes de consulta.</li>
-        <li><span style={stepNumber}>12</span>Envio de dicas baseado no cadastro do lead e no que ele gosta.</li>
-        <li><span style={stepNumber}>13</span>Identificação de se o lead já é paciente ou não.</li>
+        <li style={listItem}><span style={stepNumber}>8</span>Respostas humanizadas e personalizadas, sem enviar uma mensagem a cada mensagem do lead.</li>
+        <li style={listItem}><span style={stepNumber}>9</span>Entendimento de áudio, imagem, documento.</li>
+        <li style={listItem}><span style={stepNumber}>10</span>Envio de imagens (sem ser link).</li>
+        <li style={listItem}><span style={stepNumber}>11</span>Integração com calendário e envio de lembretes de consulta.</li>
+        <li style={listItem}><span style={stepNumber}>12</span>Envio de dicas baseado no cadastro do lead e no que ele gosta.</li>
+        <li style={listItem}><span style={stepNumber}>13</span>Identificação de se o lead já é paciente ou não.</li>
       </ul>
 
       <h3 style={sectionTitle}>5. Agentes Específicos</h3>
       <ul style={list}>
-        <li><span style={stepNumber}>14</span>Agente psicólogo: envio de mensagens motivacionais diárias.</li>
-        <li><span style={stepNumber}>15</span>Agente nutricionista: envio de mensagens e recomendações alimentares com base nas fotos do paciente.</li>
-        <li><span style={stepNumber}>16</span>Agente personal trainer: envio de treinos e mensagens motivacionais para o paciente.</li>
+        <li style={listItem}><span style={stepNumber}>14</span>Agente psicólogo: envio de mensagens motivacionais diárias.</li>
+        <li style={listItem}><span style={stepNumber}>15</span>Agente nutricionista: envio de mensagens e recomendações alimentares com base nas fotos do paciente.</li>
+        <li style={listItem}><span style={stepNumber}>16</span>Agente personal trainer: envio de treinos e mensagens motivacionais para o paciente.</li>
       </ul>
 
       <h3 style={sectionTitle}>6. Dashboard e Monitoramento</h3>
       <ul style={list}>
-        <li><span style={stepNumber}>17</span>Dashboard para monitoramento da quantidade de leads e mensagens enviadas.</li>
-        <li><span style={stepNumber}>18</span>Check-list semanal para avaliar a semana do paciente.</li>
+        <li style={listItem}><span style={stepNumber}>17</span>Dashboard para monitoramento da quantidade de leads e mensagens enviadas.</li>
+        <li style={listItem}><span style={stepNumber}>18</span>Check-list semanal para avaliar a semana do paciente.</li>
       </ul>
 
       <h3 style={sectionTitle}>7. Funcionalidades Avançadas</h3>
       <ul style={list}>
-        <li><span style={stepNumber}>19</span>Cadastro de serviços e valores com fotos de antes e depois para o agente enviar automaticamente.</li>
-        <li><span style={stepNumber}>20</span>Cadastro completo do lead com exames e informações de saúde para o agente usar em sua interação.</li>
-        <li><span style={stepNumber}>21</span>Integração com Instagram, WhatsApp e outras plataformas para comunicação.</li>
-        <li><span style={stepNumber}>22</span>Relatório financeiro e gerenciamento de custos com tokens de IA e integração com plataformas de pagamento.</li>
+        <li style={listItem}><span style={stepNumber}>19</span>Cadastro de serviços e valores com fotos de antes e depois para o agente enviar automaticamente.</li>
+        <li style={listItem}><span style={stepNumber}>20</span>Cadastro completo do lead com exames e informações de saúde para o agente usar em sua interação.</li>
+        <li style={listItem}><span style={stepNumber}>21</span>Integração com Instagram, WhatsApp e outras plataformas para comunicação.</li>
+        <li style={listItem}><span style={stepNumber}>22</span>Relatório financeiro e gerenciamento de custos com tokens de IA e integração com plataformas de pagamento.</li>
       </ul>
 
       <h3 style={sectionTitle}>Resumo das Funcionalidades</h3>
       <ul style={list}>
-        <li><span style={stepNumber}>23</span>Automatização de tarefas com integração de IA.</li>
-        <li><span style={stepNumber}>24</span>Integração com sistemas de pagamento, faturamento e emissão de notas fiscais.</li>
-        <li><span style={stepNumber}>25</span>Interface amigável e fácil de operar para o médico e seus pacientes.</li>
+        <li style={listItem}><span style={stepNumber}>23</span>Automatização de tarefas com integração de IA.</li>
+        <li style={listItem}><span style={stepNumber}>24</span>Integração com sistemas de pagamento, faturamento e emissão de notas fiscais.</li>
+        <li style={listItem}><span style={stepNumber}>25</span>Interface amigável e fácil de operar para o médico e seus pacientes.</li>
       </ul>
     </div>
   );

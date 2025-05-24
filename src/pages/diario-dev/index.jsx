@@ -6,6 +6,7 @@ import { MainLayout } from "@/components/layout/mainLayout";
 import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
+import Overlay from "@/components/overlay";
 
 import Title from "@/components/common/title";
 
@@ -25,8 +26,11 @@ import ExpressServersDifference from "@/components/diariodev/expressHtmlServervs
 
 // 1. Efeito de redimensionamento da tela
 const Projetos = () => {
-  const { isLoaded } = useGlobalState();
+  const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
   const [visibleSections, setVisibleSections] = useState({});
+
+  // Função para fechar sidebar clicando fora
+  const handleOverlayClick = () => setIsHamburguerOpen(false);
 
   const toggleSection = (index) => {
     setVisibleSections((prev) => ({
@@ -78,27 +82,32 @@ const Projetos = () => {
       </Head>
 
       {!isLoaded ? null : (
-        <MainLayout>
-          <SideBarLayout></SideBarLayout>
-          <HeaderLayout></HeaderLayout>
-          <MainContentLayout>
-            <DiarioDevMainContainer>
-              {sections.map((section, index) => (
-                <div key={index}>
-                  <Title
-                    className={`h3Center-diarioDev ${section.title} ${visibleSections[index] ? "active" : ""}`}
-                    onClick={() => toggleSection(index)}
-                  >
-                    {section.title} {visibleSections[index] ? "▲" : "▼"}
-                  </Title>
-                  <CollapsibleContent isOpen={visibleSections[index]}>
-                    {section.component}
-                  </CollapsibleContent>
-                </div>
-              ))}
-            </DiarioDevMainContainer>
-          </MainContentLayout>
-        </MainLayout>
+        <>
+          {isHamburguerOpen && (
+            <Overlay onClick={handleOverlayClick}></Overlay>
+          )}
+          <MainLayout>
+            <SideBarLayout></SideBarLayout>
+            <HeaderLayout></HeaderLayout>
+            <MainContentLayout>
+              <DiarioDevMainContainer>
+                {sections.map((section, index) => (
+                  <div key={index}>
+                    <Title
+                      className={`h3Center-diarioDev ${section.title} ${visibleSections[index] ? "active" : ""}`}
+                      onClick={() => toggleSection(index)}
+                    >
+                      {section.title} {visibleSections[index] ? "▲" : "▼"}
+                    </Title>
+                    <CollapsibleContent isOpen={visibleSections[index]}>
+                      {section.component}
+                    </CollapsibleContent>
+                  </div>
+                ))}
+              </DiarioDevMainContainer>
+            </MainContentLayout>
+          </MainLayout>
+        </>
       )}
     </>
   );

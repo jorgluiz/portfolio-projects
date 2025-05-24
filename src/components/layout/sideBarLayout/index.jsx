@@ -25,7 +25,7 @@ const SideBar = () => {
 
   const goHome = () => {
     router.push('/');
-    // setIsHamburguerOpen(prevState => !prevState);
+    setIsHamburguerOpen(prevState => !prevState);
   };
 
   useEffect(() => {
