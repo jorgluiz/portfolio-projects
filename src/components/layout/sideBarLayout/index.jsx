@@ -8,7 +8,7 @@ import { ContentWrapper, ContentNav, Menu, XContainer, DiagonalOne, DiagonalTwo,
 
 const SideBar = () => {
   const { isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
-  const [mostrarSpans, setMostrarSpans] = useState(false);
+  const [mostrarSpans, setMostrarSpans] = useState(true);
   const [contadorCliques, setContadorCliques] = useState(0);
   const [activeLink, setActiveLink] = useState('/'); // Estado para armazenar o link ativo
   const router = useRouter(); // Hook para pegar a rota atual
@@ -25,7 +25,7 @@ const SideBar = () => {
 
   const goHome = () => {
     router.push('/');
-    setIsHamburguerOpen(prevState => !prevState);
+    setIsHamburguerOpen(false);
   };
 
   useEffect(() => {
@@ -120,6 +120,14 @@ const SideBar = () => {
               <ul>
                 <li>
                   <Span
+                    onClick={() => handleNavigate('/menu-secreto/resumo-tech')}
+                    className={activeLink === '/menu-secreto/resumo-tech' ? 'active' : ''}
+                  >
+                    Resumo tech
+                  </Span>
+                </li>
+                <li>
+                  <Span
                     onClick={() => handleNavigate('/menu-secreto/nodejs-java-spring')}
                     className={activeLink === '/menu-secreto/nodejs-java-spring' ? 'active' : ''}
                   >
@@ -132,6 +140,22 @@ const SideBar = () => {
                     className={activeLink === '/menu-secreto/node-js-frameworks' ? 'active' : ''}
                   >
                     NodeJS Frameworks
+                  </Span>
+                </li>
+                <li>
+                  <Span
+                    onClick={() => handleNavigate('/menu-secreto/analytics-ga4-install')}
+                    className={activeLink === '/menu-secreto/analytics-ga4-install' ? 'active' : ''}
+                  >
+                    Integrar Google Analytics 4 (GA4) no Next.js
+                  </Span>
+                </li>
+                <li>
+                  <Span
+                    onClick={() => handleNavigate('/menu-secreto/seo-nextjs-guia')}
+                    className={activeLink === '/menu-secreto/seo-nextjs-guia' ? 'active' : ''}
+                  >
+                    SEO NextJS guia
                   </Span>
                 </li>
               </ul>

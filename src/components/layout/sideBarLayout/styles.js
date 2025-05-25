@@ -2,10 +2,8 @@ import styled from "styled-components";
 
 export const ContentWrapper = styled.div`
   position: sticky;
-  /* flex-shrink: 0; */
   top: 0;
   z-index: 20;
-  /* height: 100vh; */
   width: 330px;
   min-width: 330px; /* Impede que a largura seja comprimida */
   background: linear-gradient(135deg, #0a0b3d 0%, #3b0e81 100%);

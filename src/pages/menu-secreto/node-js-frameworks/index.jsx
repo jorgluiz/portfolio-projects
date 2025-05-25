@@ -49,14 +49,14 @@ const NodeJsFrameworks = () => {
   };
 
   const tableStyle = {
-    borderCollapse: "collapse",
-    width: "100%",
-    marginTop: "20px",
+    // borderCollapse: "collapse",
+    // width: "100%",
+    // marginTop: "20px",
   };
 
   const thTdStyle = {
     border: "1px solid #ddd",
-    padding: "8px",
+    padding: "8px 0",
     textAlign: "left",
   };
 

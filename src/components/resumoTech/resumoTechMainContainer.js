@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components";
 
-export const DiarioDevMainContainer = styled.div`
+export const ResumoTechMainContainer = styled.div`
 
 width: 100%;
 padding: 20px 10px;
 
-& .h3Center-diarioDev {
+& .h3Center-resumoTech {
 text-align: center;
 margin-bottom: 15px;
 padding-bottom: 15px;
@@ -13,11 +13,11 @@ cursor: pointer;
 user-select: none;
 }
 
-& .h3Center-diarioDev:hover {
+& .h3Center-resumoTech:hover {
   color: blue; /* azul mais escuro ao passar mouse */
 }
 
-& .h3Center-diarioDev.active {
+& .h3Center-resumoTech.active {
   color: blue;
   text-decoration: none; /* pode tirar o underline se quiser */
 }
