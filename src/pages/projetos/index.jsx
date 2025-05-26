@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from "next/link";
 import { useGlobalState } from "../../context/GlobalStateContext";
 
+import { Paragraph } from "@/styles/globalStyles";
+
 import portfolioImg from "../../assets/images/portfolio.png";
 import stripelogo from "../../assets/images/stripeLogo.png";
 import carousel from "../../assets/images/carousel.png";
@@ -99,7 +101,7 @@ const Projetos = () => {
             <MainContentLayout>
               <MainContent>
                 <h1 style={{ color: "323f4b" }}>Oi! 👋</h1>
-                <p style={{ fontSize: "20px", color: "323f4b", lineHeight: "32px" }}>Este portfólio representa a síntese da minha jornada em desenvolvimento web e backend, demonstrando minha experiência com ReactJS no frontend e Express no backend para a construção de aplicações modernas e eficientes.</p>
+                <Paragraph>Este portfólio representa a síntese da minha jornada em desenvolvimento web e backend, demonstrando minha experiência com ReactJS no frontend e Express no backend para a construção de aplicações modernas e eficientes.</Paragraph>
                 <GridContainer>
                   <div className="container-item">
                     <Link href="/projetos/player-video-customizado">

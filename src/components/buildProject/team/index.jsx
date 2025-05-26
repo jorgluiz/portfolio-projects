@@ -112,7 +112,7 @@ const styles = {
   },
 
   // Media query for mobile (small screens)
-  '@media (max-width: 600px)': {
+  '@media (max-width: 750px)': {
     nav: {
       flexDirection: 'column',
       alignItems: 'center',

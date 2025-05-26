@@ -1,96 +1,27 @@
+import { Container, SectionTitle, Check, ItemTitle, List, Title, Paragraph } from "@/styles/globalStyles";
+
 const FrontendTecnologiasReactjs = () => {
-  const container = {
-    fontFamily: 'Segoe UI, sans-serif',
-    padding: '15px',
-    maxWidth: '900px',
-    margin: '0 auto 40px',
-    color: '#222',
-    backgroundColor: '#f9f9f9',
-    borderRadius: '12px',
-    boxShadow: '0 0 20px rgba(0,0,0,0.05)'
-  };
-
-  const sectionTitle = {
-    fontSize: '24px',
-    fontWeight: '700',
-    marginBottom: '12px',
-    display: 'flex',
-    alignItems: 'center'
-  };
-
-  const check = {
-    color: '#2ecc71',
-    fontSize: '20px',
-    marginRight: '8px'
-  };
-
-  const itemTitle = {
-    fontSize: '18px',
-    fontWeight: '600',
-    margin: '20px 0 8px 0',
-    borderBottom: '2px solid #ddd',
-    paddingBottom: '4px'
-  };
-
-  const list = {
-    paddingLeft: '20px',
-    marginBottom: '12px',
-    lineHeight: '1.6'
-  };
-
-  const container1 = {
-    backgroundColor: '#f9f9f9',
-    fontFamily: 'Segoe UI, sans-serif',
-    padding: '32px',
-    borderRadius: '12px',
-    maxWidth: '800px',
-    margin: '0 auto 40px',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-    color: '#222'
-  };
-
-  const title1 = {
-    fontSize: '24px',
-    fontWeight: '700',
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '24px',
-  };
-
-  const check1 = {
-    fontSize: '22px',
-    color: '#27ae60',
-    marginRight: '10px',
-  };
-
-  const paragraph = {
-    fontSize: '16px',
-    lineHeight: '1.7',
-    marginBottom: '12px'
-  };
-
-
   return (
     <>
-      <div style={container}>
-        <div style={sectionTitle}>
-          <span style={check}>🚀</span> Tecnologias-chave para Frontend com React.js
-        </div>
+      <Container>
+        <SectionTitle>
+          <Check>🚀</Check> Tecnologias-chave para Frontend com React.js
+        </SectionTitle>
 
-        <div style={itemTitle}>1. React.js — Biblioteca principal para UI</div>
-        <ul style={list}>
+        <ItemTitle>1. React.js — Biblioteca principal para UI</ItemTitle>
+        <List>
           <li>Criação de interfaces reativas e componentes reutilizáveis.</li>
           <li>Ideal para SPAs (Single Page Applications).</li>
-        </ul>
+        </List>
 
-        <div style={itemTitle}>2. React Router</div>
-        <ul style={list}>
+        <ItemTitle>2. React Router</ItemTitle>
+        <List>
           <li>Gerencia navegação entre páginas/rotas na SPA.</li>
           <li>Uso obrigatório se seu app precisa ter múltiplas “páginas” internas.</li>
-        </ul>
+        </List>
 
-        <div style={itemTitle}>3. Estado da aplicação (State Management)</div>
-        <ul style={list}>
+        <ItemTitle>3. Estado da aplicação (State Management)</ItemTitle>
+        <List>
           <li>Para estados locais: React Hooks (useState, useReducer).</li>
           <li>Para estados globais ou complexos:
             <ul>
@@ -100,80 +31,79 @@ const FrontendTecnologiasReactjs = () => {
               <li>Context API (para estados globais simples)</li>
             </ul>
           </li>
-        </ul>
+        </List>
 
-        <div style={itemTitle}>4. Bibliotecas para requisições HTTP</div>
-        <ul style={list}>
+        <ItemTitle>4. Bibliotecas para requisições HTTP</ItemTitle>
+        <List>
           <li>Axios — mais completa e popular.</li>
           <li>fetch (nativo, leve, mas menos recursos).</li>
           <li>Para gerenciamento de dados assíncronos e cache: React Query ou SWR.</li>
-        </ul>
+        </List>
 
-        <div style={itemTitle}>5. Estilização</div>
-        <ul style={list}>
+        <ItemTitle>5. Estilização</ItemTitle>
+        <List>
           <li>CSS Modules (CSS scoped)</li>
           <li>Styled Components (CSS-in-JS)</li>
           <li>Tailwind CSS (utility-first CSS framework)</li>
           <li>Sass / LESS para pré-processamento</li>
-        </ul>
+        </List>
 
-        <div style={itemTitle}>6. Build e Bundlers</div>
-        <ul style={list}>
+        <ItemTitle>6. Build e Bundlers</ItemTitle>
+        <List>
           <li>Vite (ultra rápido, moderno)</li>
           <li>Create React App (CRA) — ferramenta oficial, fácil para começar</li>
           <li>Webpack (mais configurável, mas mais complexo)</li>
-        </ul>
+        </List>
 
-        <div style={itemTitle}>7. Testes</div>
-        <ul style={list}>
+        <ItemTitle>7. Testes</ItemTitle>
+        <List>
           <li>Jest + React Testing Library para testes unitários e componentes.</li>
           <li>Cypress para testes end-to-end (E2E).</li>
-        </ul>
-      </div>
+        </List>
+      </Container>
 
-      <div style={container1}>
-        <div style={title1}>
-          <span style={check1}>⏰</span> Quando usar React.js no Frontend?
-        </div>
+      <Container>
+        <Title>
+          <Check>⏰</Check> Quando usar React.js no Frontend?
+        </Title>
 
-        <p style={paragraph}>
+        <Paragraph>
           Quando você precisa de uma aplicação interativa, com UI dinâmica que reage ao usuário.
-        </p>
-        <p style={paragraph}>
+        </Paragraph>
+        <Paragraph>
           Para SPAs ou apps com múltiplas páginas gerenciadas no frontend.
-        </p>
-        <p style={paragraph}>
+        </Paragraph>
+        <Paragraph>
           Quando precisa de um ecossistema grande, com muitas bibliotecas e ferramentas.
-        </p>
-        <p style={paragraph}>
+        </Paragraph>
+        <Paragraph>
           Projetos onde reutilização de componentes é importante.
-        </p>
-        <p style={paragraph}>
+        </Paragraph>
+        <Paragraph>
           Apps que consomem APIs REST/GraphQL e querem atualizar a UI sem reload.
-        </p>
-      </div>
+        </Paragraph>
+      </Container>
 
-      <div style={container1}>
-        <div style={title1}>
-          <span style={check1}>🎁</span> Bônus: Quando NÃO usar React
-        </div>
+      <Container>
+        <Title>
+          <Check>🎁</Check> Bônus: Quando NÃO usar React
+        </Title>
 
-        <p style={paragraph}>
+        <Paragraph>
           Projeto muito simples, sem interatividade (ex: landing page estática).
-        </p>
-        <p style={paragraph}>
+        </Paragraph>
+        <Paragraph>
           Quando o SEO for super crítico e o projeto não tiver SSR (Server-Side Rendering).
-        </p>
-        <p style={paragraph}>
+        </Paragraph>
+        <Paragraph>
           Aplicações muito pequenas que não justificam o overhead da biblioteca.
-        </p>
-        <p style={paragraph}>
+        </Paragraph>
+        <Paragraph>
           Quando o time não tem experiência e prefere algo mais simples (ex: jQuery, Vanilla JS).
-        </p>
-      </div>
+        </Paragraph>
+      </Container>
     </>
   );
 };
-
 
 export default FrontendTecnologiasReactjs;

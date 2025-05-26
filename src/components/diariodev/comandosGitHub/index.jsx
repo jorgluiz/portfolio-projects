@@ -1,147 +1,108 @@
+import { Container, SectionTitle, Table, Th, Td, CommandCell } from "@/styles/globalStyles";
+
 const GitCommands = () => {
-  const container = {
-    fontFamily: 'Segoe UI, sans-serif',
-    padding: '15px',
-    maxWidth: '900px',
-    margin: '0 auto 40px',
-    color: '#222',
-    backgroundColor: '#f9f9f9',
-    borderRadius: '12px',
-    boxShadow: '0 0 20px rgba(0,0,0,0.05)',
-  };
-
-  const sectionTitle = {
-    fontSize: '24px',
-    fontWeight: '700',
-    marginBottom: '20px',
-  };
-
-  const table = {
-    width: '100%',
-    borderCollapse: 'collapse',
-  };
-
-  const th = {
-    textAlign: 'left',
-    borderBottom: '2px solid #ddd',
-    padding: '8px',
-    fontWeight: '600',
-  };
-
-  const td = {
-    padding: '8px',
-    borderBottom: '1px solid #eee',
-    verticalAlign: 'top',
-  };
-
-  const commandCell = {
-    fontFamily: 'monospace',
-    whiteSpace: 'nowrap',
-    width: '200px',
-  };
-
   return (
-    <div style={container}>
-      <h2 style={sectionTitle}>Comandos Git</h2>
-      <table style={table}>
+    <Container>
+      <SectionTitle>Comandos Git</SectionTitle>
+      <Table>
         <thead>
           <tr>
-            <th style={th}>Comando</th>
-            <th style={th}>Descrição</th>
+            <Th>Comando</Th>
+            <Th>Descrição</Th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git init</td>
-            <td style={td}>Inicializa um repositório Git local</td>
+            <Td as={CommandCell}>git init</Td>
+            <Td>Inicializa um repositório Git local</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git clone &lt;url&gt;</td>
-            <td style={td}>Clona um repositório remoto para o local</td>
+            <Td as={CommandCell}>git clone &lt;url&gt;</Td>
+            <Td>Clona um repositório remoto para o local</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git status</td>
-            <td style={td}>Mostra o status dos arquivos (modificados, staged)</td>
+            <Td as={CommandCell}>git status</Td>
+            <Td>Mostra o status dos arquivos (modificados, staged)</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git add &lt;arquivo&gt;</td>
-            <td style={td}>Adiciona arquivos ao staging (preparar para commit)</td>
+            <Td as={CommandCell}>git add &lt;arquivo&gt;</Td>
+            <Td>Adiciona arquivos ao staging (preparar para commit)</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git add .</td>
-            <td style={td}>Adiciona todos os arquivos modificados ao staging</td>
+            <Td as={CommandCell}>git add .</Td>
+            <Td>Adiciona todos os arquivos modificados ao staging</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git commit -m "mensagem"</td>
-            <td style={td}>Cria um commit com a mensagem informada</td>
+            <Td as={CommandCell}>git commit -m "mensagem"</Td>
+            <Td>Cria um commit com a mensagem informada</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git log</td>
-            <td style={td}>Mostra o histórico de commits</td>
+            <Td as={CommandCell}>git log</Td>
+            <Td>Mostra o histórico de commits</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git diff</td>
-            <td style={td}>Mostra as diferenças entre arquivos modificados</td>
+            <Td as={CommandCell}>git diff</Td>
+            <Td>Mostra as diferenças entre arquivos modificados</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git branch</td>
-            <td style={td}>Lista as branches existentes</td>
+            <Td as={CommandCell}>git branch</Td>
+            <Td>Lista as branches existentes</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git branch &lt;nome&gt;</td>
-            <td style={td}>Cria uma nova branch</td>
+            <Td as={CommandCell}>git branch &lt;nome&gt;</Td>
+            <Td>Cria uma nova branch</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git checkout &lt;branch&gt;</td>
-            <td style={td}>Muda para a branch especificada</td>
+            <Td as={CommandCell}>git checkout &lt;branch&gt;</Td>
+            <Td>Muda para a branch especificada</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git checkout -b &lt;branch&gt;</td>
-            <td style={td}>Cria e muda para a nova branch</td>
+            <Td as={CommandCell}>git checkout -b &lt;branch&gt;</Td>
+            <Td>Cria e muda para a nova branch</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git merge &lt;branch&gt;</td>
-            <td style={td}>Junta a branch especificada na branch atual</td>
+            <Td as={CommandCell}>git merge &lt;branch&gt;</Td>
+            <Td>Junta a branch especificada na branch atual</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git remote -v</td>
-            <td style={td}>Lista os repositórios remotos configurados</td>
+            <Td as={CommandCell}>git remote -v</Td>
+            <Td>Lista os repositórios remotos configurados</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git remote add origin &lt;url&gt;</td>
-            <td style={td}>Adiciona um repositório remoto chamado "origin"</td>
+            <Td as={CommandCell}>git remote add origin &lt;url&gt;</Td>
+            <Td>Adiciona um repositório remoto chamado "origin"</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git remote remove origin</td>
-            <td style={td}>Remove o repositório remoto chamado "origin"</td>
+            <Td as={CommandCell}>git remote remove origin</Td>
+            <Td>Remove o repositório remoto chamado "origin"</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git pull</td>
-            <td style={td}>Puxa as atualizações do repositório remoto e faz merge</td>
+            <Td as={CommandCell}>git pull</Td>
+            <Td>Puxa as atualizações do repositório remoto e faz merge</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git push</td>
-            <td style={td}>Envia commits para o repositório remoto</td>
+            <Td as={CommandCell}>git push</Td>
+            <Td>Envia commits para o repositório remoto</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git stash</td>
-            <td style={td}>Salva mudanças temporariamente para limpar o workspace</td>
+            <Td as={CommandCell}>git stash</Td>
+            <Td>Salva mudanças temporariamente para limpar o workspace</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git stash pop</td>
-            <td style={td}>Restaura as mudanças salvas com git stash</td>
+            <Td as={CommandCell}>git stash pop</Td>
+            <Td>Restaura as mudanças salvas com git stash</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git reset --hard</td>
-            <td style={td}>Desfaz todas as mudanças locais, retornando ao último commit</td>
+            <Td as={CommandCell}>git reset --hard</Td>
+            <Td>Desfaz todas as mudanças locais, retornando ao último commit</Td>
           </tr>
           <tr>
-            <td style={{ ...td, ...commandCell }}>git fetch</td>
-            <td style={td}>Baixa atualizações do remoto sem fazer merge</td>
+            <Td as={CommandCell}>git fetch</Td>
+            <Td>Baixa atualizações do remoto sem fazer merge</Td>
           </tr>
         </tbody>
-      </table>
-    </div>
+      </Table>
+    </Container>
   );
 };
 

@@ -1,5 +1,15 @@
 import Head from "next/head";
 import { useGlobalState } from "../../../context/GlobalStateContext";
+import {
+  Container,
+  SectionTitle,
+  Subtitle,
+  Paragraph,
+  CodeBlock,
+  List,
+  Link,
+  VideoYouTube
+} from "@/styles/globalStyles";
 
 import { MainLayout } from "@/components/layout/mainLayout";
 import SideBarLayout from "@/components/layout/sideBarLayout";
@@ -11,62 +21,6 @@ const SEOParaNextJs = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
 
   const handleOverlayClick = () => setIsHamburguerOpen(false);
-
-  const container = {
-    fontFamily: "Segoe UI, sans-serif",
-    maxWidth: 900,
-    margin: "0 auto 40px",
-    padding: 15,
-    backgroundColor: "#f9f9f9",
-    color: "#222",
-    borderRadius: 12,
-    boxShadow: "0 0 20px rgba(0,0,0,0.05)",
-    lineHeight: 1.5,
-  };
-
-  const sectionTitle = {
-    fontSize: "24px",
-    fontWeight: "700",
-    marginBottom: "20px",
-  };
-
-  const subtitle = {
-    fontSize: "20px",
-    fontWeight: "600",
-    marginTop: "24px",
-    marginBottom: "12px",
-    borderBottom: "2px solid #ddd",
-    paddingBottom: "6px",
-  };
-
-  const paragraph = {
-    fontSize: "16px",
-    marginBottom: "12px",
-  };
-
-  const codeBlock = {
-    backgroundColor: "#1e1e1e",
-    color: "#f1f1f1",
-    fontFamily: "monospace",
-    borderRadius: "8px",
-    whiteSpace: "pre-wrap",
-    fontSize: "14px",
-    marginBottom: "16px",
-    overflowX: "auto",
-  };
-
-  const list = {
-    paddingLeft: "20px",
-    marginBottom: "12px",
-  };
-
-  const link = {
-    color: "blue",
-  };
-
-  const boldText = {
-    fontWeight: "bold",
-  };
 
   return (
     <>
@@ -87,60 +41,56 @@ const SEOParaNextJs = () => {
             <MainContentLayout>
               <div>
                 <div>
-                  <div style={container}>
-                    <div style={sectionTitle}>Como garantir que seu projeto Next.js seja encontrado no Google 1/2</div>
+                  <Container>
+                    <SectionTitle>Como garantir que seu projeto Next.js seja encontrado no Google 1/2</SectionTitle>
 
-                    <p style={paragraph}>
+                    <Paragraph>
                       Para que seu projeto Next.js apareça nos resultados do Google, ele precisa estar otimizado para <strong>SEO</strong> e <strong>indexável</strong> pelos motores de busca. Além de usar boas meta tags, é essencial seguir algumas etapas para garantir que o Google consiga rastrear, indexar e exibir corretamente seu site.
-                    </p>
+                    </Paragraph>
 
-                    <div style={subtitle}>1. Verifique se seu site está público</div>
-                    <p style={paragraph}>
+                    <Subtitle>1. Verifique se seu site está público</Subtitle>
+                    <Paragraph>
                       Se você estiver hospedando no Railway, assegure-se de que o domínio gerado (exemplo:{" "}
-                      <a style={link} href="https://portfolio-projects-production.up.railway.app" target="_blank" rel="noopener noreferrer">
+                      <Link href="https://portfolio-projects-production.up.railway.app" target="_blank" rel="noopener noreferrer">
                         https://portfolio-projects-production.up.railway.app
-                      </a>
+                      </Link>
                       ) esteja acessível sem autenticação.
-                    </p>
-                    <p style={paragraph}>
-                      Além disso:
-                    </p>
-                    <ul style={list}>
+                    </Paragraph>
+                    <Paragraph>Além disso:</Paragraph>
+                    <List>
                       <li>Certifique-se de não estar bloqueando rastreadores com um robots.txt mal configurado.</li>
                       <li>Evite usar headers ou configurações que restrinjam o acesso público ao site.</li>
-                    </ul>
+                    </List>
 
-                    <div style={subtitle}>2. Adicione um arquivo robots.txt</div>
-                    <p style={paragraph}>
-                      O arquivo robots.txt orienta os motores de busca sobre quais páginas devem ou não ser rastreadas.
-                    </p>
-                    <p style={paragraph}>Passos:</p>
-                    <ul style={list}>
+                    <Subtitle>2. Adicione um arquivo robots.txt</Subtitle>
+                    <Paragraph>O arquivo robots.txt orienta os motores de busca sobre quais páginas devem ou não ser rastreadas.</Paragraph>
+                    <Paragraph>Passos:</Paragraph>
+                    <List>
                       <li>Crie um arquivo <strong>robots.txt</strong> na pasta <strong>public</strong> do seu projeto.</li>
                       <li>Use este conteúdo básico para liberar o rastreamento:
-                        <pre style={codeBlock}>
+                        <CodeBlock>
                           {`User-agent: *
 Allow: /
 Sitemap: https://portfolio-projects-production.up.railway.app/sitemap.xml`}
-                        </pre>
+                        </CodeBlock>
                       </li>
-                    </ul>
+                    </List>
 
-                    <div style={subtitle}>3. Gere e configure um Sitemap</div>
-                    <p style={paragraph}>
+                    <Subtitle>3. Gere e configure um Sitemap</Subtitle>
+                    <Paragraph>
                       O sitemap ajuda o Google a entender a estrutura do seu site e localizar todas as páginas relevantes.
-                    </p>
-                    <p style={paragraph}>Passos:</p>
-                    <ul style={list}>
-                      <li>Instale o pacote <code>next-sitemap</code>:
-                        <pre style={codeBlock}>
+                    </Paragraph>
+                    <Paragraph>Passos:</Paragraph>
+                    <List>
+                      <li>Instale o pacote <CodeBlock>next-sitemap</CodeBlock>:
+                        <CodeBlock>
                           {`npm install next-sitemap
 # ou
 yarn add next-sitemap`}
-                        </pre>
+                        </CodeBlock>
                       </li>
                       <li>Crie o arquivo <strong>next-sitemap.config.js</strong> na raiz do projeto com o seguinte conteúdo:
-                        <pre style={codeBlock}>
+                        <CodeBlock>
                           {`/** @type {import('next-sitemap').IConfig} */
 const config = {
   siteUrl: 'https://portfolio-projects-production.up.railway.app', // Seu domínio
@@ -149,73 +99,69 @@ const config = {
 };
 
 module.exports = config;`}
-                        </pre>
+                        </CodeBlock>
                       </li>
                       <li>Gere o sitemap executando:
-                        <pre style={codeBlock}>
-                          {`npx next-sitemap`}
-                        </pre>
+                        <CodeBlock>npx next-sitemap</CodeBlock>
                         Isso criará automaticamente o <strong>sitemap.xml</strong> (e o <strong>robots.txt</strong>, se configurado) na pasta public.
                       </li>
-                    </ul>
+                    </List>
 
-                    <p style={paragraph}>
+                    <Paragraph>
                       O Google usará esse sitemap para rastrear suas páginas.
-                    </p>
-                  </div>
+                    </Paragraph>
+                  </Container>
                 </div>
 
-                <div style={container}>
-                  <div style={sectionTitle}>
-                    Passo a passo para configurar o Google Search Console no seu projeto Next.js 2/2
-                  </div>
+                <div>
+                  <Container>
+                    <SectionTitle>
+                      Passo a passo para configurar o Google Search Console no seu projeto Next.js 2/2
+                    </SectionTitle>
 
-                  <div style={subtitle}>1. Acesse o Google Search Console</div>
-                  <p style={paragraph}>
-                    <a
-                      style={link}
-                      href="https://search.google.com/search-console/about"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      https://search.google.com/search-console/about
-                    </a>
-                  </p>
+                    <Subtitle>1. Acesse o Google Search Console</Subtitle>
+                    <Paragraph>
+                      <Link
+                        href="https://search.google.com/search-console/about"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        https://search.google.com/search-console/about
+                      </Link>
+                    </Paragraph>
 
-                  <div style={subtitle}>2. Adicione sua propriedade (domínio)</div>
-                  <p style={paragraph}>
-                    Clique em <strong>Adicionar Propriedade</strong>. Insira o domínio do seu site, por exemplo:
-                    <br />
-                    <code>https://portfolio-projects-production.up.railway.app</code>
-                  </p>
-
-                  <div style={subtitle}>3. Verifique a propriedade</div>
-                  <p style={paragraph}>
-                    Você pode verificar de duas formas principais:
-                  </p>
-
-                  <div style={subtitle}>a) Upload do arquivo HTML</div>
-                  <ul style={list}>
-                    <li>Baixe o arquivo de verificação fornecido pelo Search Console.</li>
-                    <li>Faça upload do arquivo na raiz do seu projeto para que fique acessível em:
+                    <Subtitle>2. Adicione sua propriedade (domínio)</Subtitle>
+                    <Paragraph>
+                      Clique em <strong>Adicionar Propriedade</strong>. Insira o domínio do seu site, por exemplo:
                       <br />
-                      <code>https://seusite.com/googleXXXX.html</code>
-                    </li>
-                  </ul>
+                      <CodeBlock>https://portfolio-projects-production.up.railway.app</CodeBlock>
+                    </Paragraph>
 
-                  <div style={subtitle}>b) Meta tag de verificação</div>
-                  <p style={paragraph}>
-                    Copie a meta tag que o Search Console fornecer, por exemplo:
-                  </p>
-                  <pre style={codeBlock}>
-                    {`<meta name="google-site-verification" content="SEU_CODIGO_DE_VERIFICACAO" />`}
-                  </pre>
-                  <p style={paragraph}>
-                    Cole essa meta tag na seção <code>{`<Head>`}</code> da página inicial do seu site (ex: em <code>pages/index.jsx</code> no Next.js):
-                  </p>
+                    <Subtitle>3. Verifique a propriedade</Subtitle>
+                    <Paragraph>Você pode verificar de duas formas principais:</Paragraph>
 
-                  <pre style={codeBlock}>
-                    {`import Head from 'next/head'
+                    <Subtitle>a) Upload do arquivo HTML</Subtitle>
+                    <List>
+                      <li>Baixe o arquivo de verificação fornecido pelo Search Console.</li>
+                      <li>Faça upload do arquivo na raiz do seu projeto para que fique acessível em:
+                        <br />
+                        <CodeBlock>https://seusite.com/googleXXXX.html</CodeBlock>
+                      </li>
+                    </List>
+
+                    <Subtitle>b) Meta tag de verificação</Subtitle>
+                    <Paragraph>
+                      Copie a meta tag que o Search Console fornecer, por exemplo:
+                    </Paragraph>
+                    <CodeBlock>
+                      {`<meta name="google-site-verification" content="SEU_CODIGO_DE_VERIFICACAO" />`}
+                    </CodeBlock>
+                    <Paragraph>
+                      Cole essa meta tag na seção <CodeBlock>{`<Head>`}</CodeBlock> da página inicial do seu site (ex: em <CodeBlock>pages/index.jsx</CodeBlock> no Next.js):
+                    </Paragraph>
+
+                    <CodeBlock>
+                      {`import Head from 'next/head'
 
 export default function Home() {
   return (
@@ -227,63 +173,65 @@ export default function Home() {
     </>
   )
 }`}
-                  </pre>
+                    </CodeBlock>
 
-                  <p style={paragraph}>
-                    Após adicionar, volte ao Search Console e clique em <strong>Verificar</strong>.
-                  </p>
+                    <Paragraph>
+                      Após adicionar, volte ao Search Console e clique em <strong>Verificar</strong>.
+                    </Paragraph>
 
-                  <div style={subtitle}>4. Adicionar sitemap para mapear suas rotas</div>
-                  <p style={paragraph}>
-                    Acesse a página de sitemaps do Search Console do seu site:
-                    <br />
-                    <a
-                      style={link}
-                      href="https://search.google.com/search-console/sitemaps?resource_id=SEU_DOMINIO"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      https://search.google.com/search-console/sitemaps?resource_id=SEU_DOMINIO
-                    </a>
-                  </p>
-                  <p style={paragraph}>
-                    Na pasta <code>public</code> do seu projeto, normalmente estão os arquivos <code>sitemap.xml</code> e <code>sitemap-0.xml</code>. Adicione as URLs dos sitemaps, por exemplo:
-                  </p>
-                  <pre style={codeBlock}>
-                    {`https://portfolio-projects-production.up.railway.app/sitemap.xml  
+                    <Subtitle>4. Adicionar sitemap para mapear suas rotas</Subtitle>
+                    <Paragraph>
+                      Acesse a página de sitemaps do Search Console do seu site:
+                      <br />
+                      <Link
+                        href="https://search.google.com/search-console/sitemaps?resource_id=SEU_DOMINIO"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        https://search.google.com/search-console/sitemaps?resource_id=SEU_DOMINIO
+                      </Link>
+                    </Paragraph>
+                    <Paragraph>
+                      Na pasta public do seu projeto, normalmente estão os arquivos sitemap.xml e sitemap-0.xml. Adicione as URLs dos sitemaps, por exemplo:
+                    </Paragraph>
+                    <CodeBlock>
+                      {`https://portfolio-projects-production.up.railway.app/sitemap.xml  
 https://portfolio-projects-production.up.railway.app/sitemap-0.xml`}
-                  </pre>
-                  <p style={paragraph}>Clique em <strong>Enviar</strong>.</p>
+                    </CodeBlock>
+                    <Paragraph>Clique em <strong>Enviar</strong>.</Paragraph>
 
-                  <div style={subtitle}>Observação importante</div>
-                  <p style={paragraph}>
-                    Garanta que a meta tag esteja realmente no <code>{`<Head>`}</code> da página raiz (<code>index.jsx</code>) do Next.js, e não dentro do corpo do componente, para que o Google consiga encontrá-la na fonte da página.
-                  </p>
+                    <Subtitle>Observação importante</Subtitle>
+                    <Paragraph>
+                      Garanta que a meta tag esteja realmente no {`<Head>`} da página raiz (index.jsx) do Next.js, e não dentro do corpo do componente, para que o Google consiga encontrá-la na fonte da página.
+                    </Paragraph>
+                  </Container>
                 </div>
 
-                <div style={container}>
-                  <div style={subtitle}>⚠️ <strong>Observação importante</strong> sobre sitemap</div>
-                  <p style={paragraph}>
-                    Ao executar o comando <code><strong>npx next-sitemap</strong></code>, serão gerados os arquivos <code><strong>sitemap.xml</strong></code> e <code><strong>sitemap-0.xml</strong></code>.
-                  </p>
-                  <p style={paragraph}>
-                    Por exemplo, se você já mapeou as rotas e adicionou novas páginas no projeto, é necessário gerar novamente o arquivo <code><strong>sitemap-0.xml</strong></code> para atualizar as rotas no{" "}
-                    <a style={link} href="https://search.google.com/search-console" target="_blank" rel="noopener noreferrer">
-                      <strong>Google Search Console</strong>
-                    </a>.
-                  </p>
-                  <p style={paragraph}>
-                    <strong>Importante:</strong> caso o arquivo <code><strong>sitemap-0.xml</strong></code> não contenha todas as <strong>rotas</strong>, siga estes passos para garantir a atualização correta:
-                  </p>
-                  <ol style={list}>
-                    <li>Delete a pasta <code><strong>.next</strong></code>.</li>
-                    <li>Rode o comando <code><strong>yarn next build</strong></code> para reconstruir o projeto e atualizar as rotas.</li>
-                    <li>Depois disso, execute o comando <code><strong>npx next-sitemap</strong></code> para gerar os arquivos de sitemap atualizados.</li>
-                    <li>Suba todas as novas alterações e rotas para o seu repositório Git.</li>
-                  </ol>
+                <div>
+                  <Container>
+                    <Subtitle>⚠️ <strong>Observação importante</strong> sobre sitemap</Subtitle>
+                    <Paragraph>
+                      Ao executar o comando <strong>npx next-sitemap</strong>, serão gerados os arquivos <strong>sitemap.xml</strong> e <strong>sitemap-0.xml</strong>.
+                    </Paragraph>
+                    <Paragraph>
+                      Por exemplo, se você já mapeou as rotas e adicionou novas páginas no projeto, é necessário gerar novamente o arquivo <strong>sitemap-0.xml</strong> para atualizar as rotas no{" "}
+                      <Link href="https://search.google.com/search-console" target="_blank" rel="noopener noreferrer">
+                        <strong>Google Search Console</strong>
+                      </Link>.
+                    </Paragraph>
+                    <Paragraph>
+                      <strong>Importante:</strong> caso o arquivo <strong>sitemap-0.xml</strong> não contenha todas as <strong>rotas</strong>, siga estes passos para garantir a atualização correta:
+                    </Paragraph>
+                    <List as="ol">
+                      <li>Delete a pasta <strong>.next</strong>.</li>
+                      <li>Rode o comando <strong>yarn next build</strong> para reconstruir o projeto e atualizar as rotas.</li>
+                      <li>Depois disso, execute o comando <strong>npx next-sitemap</strong> para gerar os arquivos de sitemap atualizados.</li>
+                      <li>Suba todas as novas alterações e rotas para o seu repositório Git.</li>
+                    </List>
+                  </Container>
                 </div>
 
-                <div
+                <VideoYouTube
                   style={{
                     position: "relative",
                     paddingBottom: "56.25%", // 16:9 aspect ratio
@@ -295,21 +243,13 @@ https://portfolio-projects-production.up.railway.app/sitemap-0.xml`}
                 >
                   <iframe
                     src="https://www.youtube.com/embed/qoAkHgfy7DQ"
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%",
-                      border: 0,
-                    }}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     title="Vídeo do YouTube"
                   />
-                </div>
-
+                </VideoYouTube>
               </div>
+
             </MainContentLayout>
           </MainLayout>
         </>

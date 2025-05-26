@@ -17,5 +17,6 @@ max-width: 950px;
 margin: 0 auto; /* Centraliza o container horizontalmente */
 padding: 20px 20px 0 20px;  /* ajuste de padding para um pouco de espaçamento interno */
 border: 1px solid #ccc;
+line-height: 1.6;
 `;
 

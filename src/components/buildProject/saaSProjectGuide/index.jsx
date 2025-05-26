@@ -1,227 +1,162 @@
+import {
+  ContainerBuildProject,
+  TitleBuildProject,
+  SectionTitleBuildProject,
+  ParagraphBuildProject,
+  ListBuildProject,
+  ListItemBuildProject,
+  StepNumberBuildProject,
+  TableBuildProject,
+  ThBuildProject,
+  TdBuildProject
+} from "@/styles/globalStyles";
+
 const SaaSProjectGuide = () => {
-  const container = {
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-    backgroundColor: '#fefefe',
-    maxWidth: '900px',
-    margin: '24px auto',
-    padding: '15px',
-    borderRadius: '14px',
-    boxShadow: '0 4px 18px rgba(0,0,0,0.08)',
-    color: '#2c3e50',
-    lineHeight: 1.65,
-  };
-
-  const title = {
-    fontSize: '28px',
-    fontWeight: '800',
-    marginBottom: '24px',
-    color: '#34495e',
-    textAlign: 'center',
-    letterSpacing: '0.05em',
-  };
-
-  const sectionTitle = {
-    fontSize: '22px',
-    fontWeight: '700',
-    color: '#2c3e50',
-    marginTop: '32px',
-    marginBottom: '16px',
-    borderBottom: '3px solid #3498db',
-    paddingBottom: '6px',
-  };
-
-  const paragraph = {
-    fontSize: '16px',
-    marginBottom: '18px',
-  };
-
-  const list = {
-    paddingLeft: '24px',
-    marginBottom: '24px',
-  };
-
-  const listItem = {
-    marginBottom: '12px',
-    fontWeight: '500',
-  };
-
-  const stepNumber = {
-    display: 'inline-block',
-    backgroundColor: '#3498db',
-    color: 'white',
-    fontWeight: '700',
-    borderRadius: '50%',
-    width: '30px',
-    height: '30px',
-    lineHeight: '30px',
-    textAlign: 'center',
-    marginRight: '12px',
-    fontSize: '16px',
-    userSelect: 'none',
-  };
-
-  const table = {
-    width: '100%',
-    borderCollapse: 'collapse',
-    marginTop: '32px',
-  };
-
-  const th = {
-    borderBottom: '2px solid #3498db',
-    textAlign: 'left',
-    padding: '10px 14px',
-    fontWeight: '700',
-    color: '#34495e',
-    backgroundColor: '#ecf0f1',
-  };
-
-  const td = {
-    padding: '10px 14px',
-    borderBottom: '1px solid #ddd',
-    color: '#555',
-  };
-
   return (
-    <article style={container}>
-      <p style={paragraph}>
+    <ContainerBuildProject>
+      <ParagraphBuildProject>
         SaaS é um modelo de software entregue pela internet onde o usuário acessa a aplicação via navegador, pagando geralmente uma assinatura, sem precisar instalar nada localmente.
-      </p>
+      </ParagraphBuildProject>
 
-      <h2 style={sectionTitle}>Como implementar um projeto SaaS? Passo a passo básico:</h2>
+      <SectionTitleBuildProject>
+        Como implementar um projeto SaaS? Passo a passo básico:
+      </SectionTitleBuildProject>
 
       {/* Passos numerados */}
-      <ol style={list}>
-        <li style={listItem}>
-          <span style={stepNumber}>1</span>
+      <ListBuildProject as="ol">
+        <ListItemBuildProject>
+          <StepNumberBuildProject>1</StepNumberBuildProject>
           <strong>Definir a ideia e o público-alvo</strong>
-          <p>Qual problema seu SaaS resolve? Quem vai usar? Quais funcionalidades básicas são essenciais?</p>
-        </li>
+          <ParagraphBuildProject>
+            Qual problema seu SaaS resolve? Quem vai usar? Quais funcionalidades básicas são essenciais?
+          </ParagraphBuildProject>
+        </ListItemBuildProject>
 
-        <li style={listItem}>
-          <span style={stepNumber}>2</span>
+        <ListItemBuildProject>
+          <StepNumberBuildProject>2</StepNumberBuildProject>
           <strong>Arquitetura e tecnologia</strong>
-          <p>Frontend: React, Vue, Angular, Next.js, etc (app web responsiva)</p>
-          <p>Backend: Node.js, Django, Ruby on Rails, Laravel, Spring Boot — API REST ou GraphQL</p>
-          <p>Banco de dados: PostgreSQL, MySQL, MongoDB, ou outros que escalem bem</p>
-          <p>Hospedagem: AWS, Azure, Google Cloud, DigitalOcean, Heroku, Vercel, etc</p>
-        </li>
+          <ParagraphBuildProject>Frontend: React, Vue, Angular, Next.js, etc (app web responsiva)</ParagraphBuildProject>
+          <ParagraphBuildProject>Backend: Node.js, Django, Ruby on Rails, Laravel, Spring Boot — API REST ou GraphQL</ParagraphBuildProject>
+          <ParagraphBuildProject>Banco de dados: PostgreSQL, MySQL, MongoDB, ou outros que escalem bem</ParagraphBuildProject>
+          <ParagraphBuildProject>Hospedagem: AWS, Azure, Google Cloud, DigitalOcean, Heroku, Vercel, etc</ParagraphBuildProject>
+        </ListItemBuildProject>
 
-        <li style={listItem}>
-          <span style={stepNumber}>3</span>
+        <ListItemBuildProject>
+          <StepNumberBuildProject>3</StepNumberBuildProject>
           <strong>Controle de usuários e autenticação</strong>
-          <p>Cadastro/login, recuperação de senha, autenticação JWT, OAuth, etc</p>
-          <p>Controle de permissões (ex: níveis de usuário, admins, clientes)</p>
-        </li>
+          <ParagraphBuildProject>Cadastro/login, recuperação de senha, autenticação JWT, OAuth, etc</ParagraphBuildProject>
+          <ParagraphBuildProject>Controle de permissões (ex: níveis de usuário, admins, clientes)</ParagraphBuildProject>
+        </ListItemBuildProject>
 
-        <li style={listItem}>
-          <span style={stepNumber}>4</span>
+        <ListItemBuildProject>
+          <StepNumberBuildProject>4</StepNumberBuildProject>
           <strong>Modelo de assinatura e faturamento</strong>
-          <p>Escolha um gateway de pagamento: Stripe, PayPal, PagSeguro, Mercado Pago</p>
-          <p>Implemente planos (gratuito, básico, premium) com controle de acesso às features</p>
-          <p>Cobrança automática recorrente e gestão de assinaturas</p>
-        </li>
+          <ParagraphBuildProject>Escolha um gateway de pagamento: Stripe, PayPal, PagSeguro, Mercado Pago</ParagraphBuildProject>
+          <ParagraphBuildProject>Implemente planos (gratuito, básico, premium) com controle de acesso às features</ParagraphBuildProject>
+          <ParagraphBuildProject>Cobrança automática recorrente e gestão de assinaturas</ParagraphBuildProject>
+        </ListItemBuildProject>
 
-        <li style={listItem}>
-          <span style={stepNumber}>5</span>
+        <ListItemBuildProject>
+          <StepNumberBuildProject>5</StepNumberBuildProject>
           <strong>Infraestrutura e escalabilidade</strong>
-          <p>Use containerização (Docker) para facilitar deploy e replicação</p>
-          <p>Considere arquitetura serverless ou microsserviços se for crescer rápido</p>
-          <p>Planeje backup e monitoramento (ex: New Relic, Datadog, Prometheus)</p>
-        </li>
+          <ParagraphBuildProject>Use containerização (Docker) para facilitar deploy e replicação</ParagraphBuildProject>
+          <ParagraphBuildProject>Considere arquitetura serverless ou microsserviços se for crescer rápido</ParagraphBuildProject>
+          <ParagraphBuildProject>Planeje backup e monitoramento (ex: New Relic, Datadog, Prometheus)</ParagraphBuildProject>
+        </ListItemBuildProject>
 
-        <li style={listItem}>
-          <span style={stepNumber}>6</span>
+        <ListItemBuildProject>
+          <StepNumberBuildProject>6</StepNumberBuildProject>
           <strong>Interface e experiência do usuário</strong>
-          <p>Foco na usabilidade, design limpo e responsivo</p>
-          <p>Painel de controle do cliente, dashboard com métricas</p>
-          <p>Comunicação clara sobre planos, upgrades, notificações</p>
-        </li>
+          <ParagraphBuildProject>Foco na usabilidade, design limpo e responsivo</ParagraphBuildProject>
+          <ParagraphBuildProject>Painel de controle do cliente, dashboard com métricas</ParagraphBuildProject>
+          <ParagraphBuildProject>Comunicação clara sobre planos, upgrades, notificações</ParagraphBuildProject>
+        </ListItemBuildProject>
 
-        <li style={listItem}>
-          <span style={stepNumber}>7</span>
+        <ListItemBuildProject>
+          <StepNumberBuildProject>7</StepNumberBuildProject>
           <strong>Segurança</strong>
-          <p>HTTPS obrigatório, proteção contra ataques comuns (XSS, CSRF)</p>
-          <p>Criptografia de senhas (bcrypt) e dados sensíveis</p>
-          <p>Políticas de privacidade e compliance (LGPD, GDPR, conforme a região)</p>
-        </li>
+          <ParagraphBuildProject>HTTPS obrigatório, proteção contra ataques comuns (XSS, CSRF)</ParagraphBuildProject>
+          <ParagraphBuildProject>Criptografia de senhas (bcrypt) e dados sensíveis</ParagraphBuildProject>
+          <ParagraphBuildProject>Políticas de privacidade e compliance (LGPD, GDPR, conforme a região)</ParagraphBuildProject>
+        </ListItemBuildProject>
 
-        <li style={listItem}>
-          <span style={stepNumber}>8</span>
+        <ListItemBuildProject>
+          <StepNumberBuildProject>8</StepNumberBuildProject>
           <strong>Suporte e documentação</strong>
-          <p>FAQ, chat online, tickets de suporte</p>
-          <p>Documentação API (se for aberta)</p>
-          <p>Base de conhecimento para clientes</p>
-        </li>
+          <ParagraphBuildProject>FAQ, chat online, tickets de suporte</ParagraphBuildProject>
+          <ParagraphBuildProject>Documentação API (se for aberta)</ParagraphBuildProject>
+          <ParagraphBuildProject>Base de conhecimento para clientes</ParagraphBuildProject>
+        </ListItemBuildProject>
 
-        <li style={listItem}>
-          <span style={stepNumber}>9</span>
+        <ListItemBuildProject>
+          <StepNumberBuildProject>9</StepNumberBuildProject>
           <strong>Monitoramento e análise</strong>
-          <p>Logs de uso e erros</p>
-          <p>Análise de métricas: churn, uso, receita, performance</p>
-          <p>Ferramentas: Google Analytics, Mixpanel, Sentry</p>
-        </li>
+          <ParagraphBuildProject>Logs de uso e erros</ParagraphBuildProject>
+          <ParagraphBuildProject>Análise de métricas: churn, uso, receita, performance</ParagraphBuildProject>
+          <ParagraphBuildProject>Ferramentas: Google Analytics, Mixpanel, Sentry</ParagraphBuildProject>
+        </ListItemBuildProject>
 
-        <li style={listItem}>
-          <span style={stepNumber}>10</span>
+        <ListItemBuildProject>
+          <StepNumberBuildProject>10</StepNumberBuildProject>
           <strong>Deploy e manutenção</strong>
-          <p>Pipeline de CI/CD (GitHub Actions, GitLab CI, Jenkins)</p>
-          <p>Atualizações contínuas, correção de bugs, melhorias constantes</p>
-        </li>
-      </ol>
+          <ParagraphBuildProject>Pipeline de CI/CD (GitHub Actions, GitLab CI, Jenkins)</ParagraphBuildProject>
+          <ParagraphBuildProject>Atualizações contínuas, correção de bugs, melhorias constantes</ParagraphBuildProject>
+        </ListItemBuildProject>
+      </ListBuildProject>
 
-      <h2 style={sectionTitle}>Resumo rápido</h2>
+      <SectionTitleBuildProject>Resumo rápido</SectionTitleBuildProject>
 
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+      <TableBuildProject>
         <thead>
           <tr style={{ backgroundColor: '#3498db', color: 'white' }}>
-            <th style={{ padding: '12px 10px', border: '1px solid #2980b9' }}>Etapa</th>
-            <th style={{ padding: '12px 10px', border: '1px solid #2980b9' }}>O que fazer</th>
+            <ThBuildProject>Etapa</ThBuildProject>
+            <ThBuildProject>O que fazer</ThBuildProject>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style={{ padding: '10px', border: '1px solid #ccc', fontWeight: '600' }}>Ideia e público</td>
-            <td style={{ padding: '10px', border: '1px solid #ccc' }}>Definir problema e usuário</td>
-          </tr>
-          <tr style={{ backgroundColor: '#f7f9fc' }}>
-            <td style={{ padding: '10px', border: '1px solid #ccc', fontWeight: '600' }}>Tech stack</td>
-            <td style={{ padding: '10px', border: '1px solid #ccc' }}>Frontend, backend, banco, hospedagem</td>
+            <TdBuildProject fontWeight="600">Ideia e público</TdBuildProject>
+            <TdBuildProject>Definir problema e usuário</TdBuildProject>
           </tr>
           <tr>
-            <td style={{ padding: '10px', border: '1px solid #ccc', fontWeight: '600' }}>Usuários e auth</td>
-            <td style={{ padding: '10px', border: '1px solid #ccc' }}>Login, controle acesso, segurança</td>
-          </tr>
-          <tr style={{ backgroundColor: '#f7f9fc' }}>
-            <td style={{ padding: '10px', border: '1px solid #ccc', fontWeight: '600' }}>Pagamentos</td>
-            <td style={{ padding: '10px', border: '1px solid #ccc' }}>Gateways, planos, assinaturas</td>
+            <TdBuildProject fontWeight="600" backgroundColor="#f7f9fc">Tech stack</TdBuildProject>
+            <TdBuildProject backgroundColor="#f7f9fc">Frontend, backend, banco, hospedagem</TdBuildProject>
           </tr>
           <tr>
-            <td style={{ padding: '10px', border: '1px solid #ccc', fontWeight: '600' }}>Infraestrutura</td>
-            <td style={{ padding: '10px', border: '1px solid #ccc' }}>Deploy, escalabilidade, backups</td>
-          </tr>
-          <tr style={{ backgroundColor: '#f7f9fc' }}>
-            <td style={{ padding: '10px', border: '1px solid #ccc', fontWeight: '600' }}>UI/UX</td>
-            <td style={{ padding: '10px', border: '1px solid #ccc' }}>Design, painel, experiência</td>
+            <TdBuildProject fontWeight="600">Usuários e auth</TdBuildProject>
+            <TdBuildProject>Login, controle acesso, segurança</TdBuildProject>
           </tr>
           <tr>
-            <td style={{ padding: '10px', border: '1px solid #ccc', fontWeight: '600' }}>Segurança</td>
-            <td style={{ padding: '10px', border: '1px solid #ccc' }}>HTTPS, criptografia, compliance</td>
-          </tr>
-          <tr style={{ backgroundColor: '#f7f9fc' }}>
-            <td style={{ padding: '10px', border: '1px solid #ccc', fontWeight: '600' }}>Suporte</td>
-            <td style={{ padding: '10px', border: '1px solid #ccc' }}>Atendimento, documentação</td>
+            <TdBuildProject fontWeight="600" backgroundColor="#f7f9fc">Pagamentos</TdBuildProject>
+            <TdBuildProject backgroundColor="#f7f9fc">Gateways, planos, assinaturas</TdBuildProject>
           </tr>
           <tr>
-            <td style={{ padding: '10px', border: '1px solid #ccc', fontWeight: '600' }}>Monitoramento</td>
-            <td style={{ padding: '10px', border: '1px solid #ccc' }}>Logs, métricas, análises</td>
+            <TdBuildProject fontWeight="600">Infraestrutura</TdBuildProject>
+            <TdBuildProject>Deploy, escalabilidade, backups</TdBuildProject>
           </tr>
-          <tr style={{ backgroundColor: '#f7f9fc' }}>
-            <td style={{ padding: '10px', border: '1px solid #ccc', fontWeight: '600' }}>Deploy</td>
-            <td style={{ padding: '10px', border: '1px solid #ccc' }}>Automação, CI/CD</td>
+          <tr>
+            <TdBuildProject fontWeight="600" backgroundColor="#f7f9fc">UI/UX</TdBuildProject>
+            <TdBuildProject backgroundColor="#f7f9fc">Design, painel, experiência</TdBuildProject>
+          </tr>
+          <tr>
+            <TdBuildProject fontWeight="600">Segurança</TdBuildProject>
+            <TdBuildProject>HTTPS, criptografia, compliance</TdBuildProject>
+          </tr>
+          <tr>
+            <TdBuildProject fontWeight="600" backgroundColor="#f7f9fc">Suporte</TdBuildProject>
+            <TdBuildProject backgroundColor="#f7f9fc">Atendimento, documentação</TdBuildProject>
+          </tr>
+          <tr>
+            <TdBuildProject fontWeight="600">Monitoramento</TdBuildProject>
+            <TdBuildProject>Logs, métricas, análises</TdBuildProject>
+          </tr>
+          <tr>
+            <TdBuildProject fontWeight="600" backgroundColor="#f7f9fc">Deploy</TdBuildProject>
+            <TdBuildProject backgroundColor="#f7f9fc">Automação, CI/CD</TdBuildProject>
           </tr>
         </tbody>
-      </table>
-    </article>
+      </TableBuildProject>
+    </ContainerBuildProject>
   );
 };
 

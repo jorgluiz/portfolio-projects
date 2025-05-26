@@ -120,29 +120,36 @@ export const ImgPerfil = styled.div`
 
 export const Span = styled.span`
  cursor: pointer;
- font-size: 20px;
+  font-size: 16px;
+  font-weight: 600;
   color: rgb(188, 204, 220);
   user-select: none;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none;     /* IE/Edge */
 `;
 
-export const TitleName = styled.h3`
+export const TitleMenuSecret = styled.h3`
+  font-size: 16px;
+  font-weight: 600;
   color: #d1dfed;
   user-select: none;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none;     /* IE/Edge */
 `;
 
-export const TitleMenuSecret = styled.h3`
+export const TitleName = styled.h3`
+  font-size: 16px;
+  font-weight: 600;
   color: #d1dfed;
   user-select: none;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none;     /* IE/Edge */
 `;
+
 
 export const SubTitle = styled.p`
-font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
   color: #d1dfed;
   user-select: none;
   -webkit-user-select: none; /* Safari */

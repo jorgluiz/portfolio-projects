@@ -37,7 +37,7 @@ export const CollapsibleContent = styled.div`
   ${({ isOpen }) =>
     isOpen &&
     css`
-      max-height: 9999px; /* valor muito alto para conter todo conteúdo */
+        max-height: none; /* permite altura natural do conteúdo */
       opacity: 1;
     `}
 `;
