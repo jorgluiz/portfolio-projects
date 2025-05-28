@@ -27,18 +27,16 @@ export const GridContainer = styled.div`
     max-width: 100%;
     background-color: #ffffff;
     display: flex;
+    border-top: 1px solid #ddd;
 
   & .sub-item {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    margin: 0 0 0 20px;
+    justify-content: space-between;
+    margin: 0 0 0 15px;
 
-    & .item-h2, .item-p {
-    color: #323F4B;
-  }
     & .item-p {
-      font-size: 20px;
+      font-size: 16px;
     }
   };
   };
@@ -57,9 +55,10 @@ export const GridContainer = styled.div`
     
 
   /* Transforma somente em telas maiores */
-  @media (min-width: 700px) { /* Ajuste o valor conforme necessário */
+  @media (min-width: 750px) { /* Ajuste o valor conforme necessário */
     &:hover {
       transform: translateY(-30px);
+      
     }
   }
 };

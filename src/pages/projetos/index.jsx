@@ -36,7 +36,7 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
 
-import { GridContainer } from "@/components/projetos/style";
+import { GridContainer, P } from "@/components/projetos/style";
 
 // Definindo o estilo de cada tag de tecnologia
 const tagStyle = {
@@ -108,15 +108,15 @@ const Projetos = ({ projetos }) => {
                         />
                         <div className="item">
                           <div className="sub-item">
+                            <p>{projeto.estrelas}</p>
                             <div className="tech">
-                              <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
+                              <p ><strong>Tech:</strong></p>
                               {projeto.tech.map((tech, idx) => (
                                 <span key={idx} style={tagStyle}>{tech}</span>
                               ))}
                             </div>
-                            <h2 className="item-h2">{projeto.title}</h2>
+                            <p><strong>{projeto.title}</strong></p>
                             <p className="item-p">{projeto.descricao}</p>
-                            <p>{projeto.estrelas}</p>
                           </div>
                         </div>
                       </Link>
@@ -160,7 +160,7 @@ export async function getStaticProps() {
           ],
           descricao: "Plataforma de cursos online.",
           estrelas: "⭐⭐⭐⭐⭐ 🚀",
-          alt: "curso online"
+          alt: "curso online",
         },
         {
           title: "Data Analysis Tendency",

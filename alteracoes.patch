@@ -1,0 +1,80 @@
+diff --git a/src/components/projetos/style.js b/src/components/projetos/style.js
+index af1cf67..db04652 100644
+--- a/src/components/projetos/style.js
++++ b/src/components/projetos/style.js
+@@ -27,18 +27,16 @@ export const GridContainer = styled.div`
+     max-width: 100%;
+     background-color: #ffffff;
+     display: flex;
++    border-top: 1px solid #ddd;
+ 
+   & .sub-item {
+     display: flex;
+     flex-direction: column;
+-    justify-content: space-evenly;
+-    margin: 0 0 0 20px;
++    justify-content: space-between;
++    margin: 0 0 0 15px;
+ 
+-    & .item-h2, .item-p {
+-    color: #323F4B;
+-  }
+     & .item-p {
+-      font-size: 20px;
++      font-size: 16px;
+     }
+   };
+   };
+@@ -57,9 +55,10 @@ export const GridContainer = styled.div`
+     
+ 
+   /* Transforma somente em telas maiores */
+-  @media (min-width: 700px) { /* Ajuste o valor conforme necessário */
++  @media (min-width: 750px) { /* Ajuste o valor conforme necessário */
+     &:hover {
+       transform: translateY(-30px);
++      
+     }
+   }
+ };
+diff --git a/src/pages/projetos/index.jsx b/src/pages/projetos/index.jsx
+index 963ab67..9bd3d0d 100644
+--- a/src/pages/projetos/index.jsx
++++ b/src/pages/projetos/index.jsx
+@@ -36,7 +36,7 @@ import HeaderLayout from "@/components/layout/headerLayout";
+ import MainContentLayout from "@/components/layout/contentLayout";
+ import Overlay from "@/components/overlay";
+ 
+-import { GridContainer } from "@/components/projetos/style";
++import { GridContainer, P } from "@/components/projetos/style";
+ 
+ // Definindo o estilo de cada tag de tecnologia
+ const tagStyle = {
+@@ -108,15 +108,15 @@ const Projetos = ({ projetos }) => {
+                         />
+                         <div className="item">
+                           <div className="sub-item">
++                            <p>{projeto.estrelas}</p>
+                             <div className="tech">
+-                              <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
++                              <p ><strong>Tech:</strong></p>
+                               {projeto.tech.map((tech, idx) => (
+                                 <span key={idx} style={tagStyle}>{tech}</span>
+                               ))}
+                             </div>
+-                            <h2 className="item-h2">{projeto.title}</h2>
++                            <p><strong>{projeto.title}</strong></p>
+                             <p className="item-p">{projeto.descricao}</p>
+-                            <p>{projeto.estrelas}</p>
+                           </div>
+                         </div>
+                       </Link>
+@@ -160,7 +160,7 @@ export async function getStaticProps() {
+           ],
+           descricao: "Plataforma de cursos online.",
+           estrelas: "⭐⭐⭐⭐⭐ 🚀",
+-          alt: "curso online"
++          alt: "curso online",
+         },
+         {
+           title: "Data Analysis Tendency",
