@@ -177,7 +177,7 @@ export default function TeamHeader() {
   return (
     <>
       <header style={styles.header}>
-        <h3 style={styles.title}>Equipe de Desenvolvimento</h3>
+        <h3 style={styles.title}>Equipe necessária para Desenvolvimento</h3>
 
         <nav style={styles.nav}>
           {team.map((group, idx) => (
