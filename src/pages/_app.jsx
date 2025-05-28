@@ -4,7 +4,7 @@ import Script from 'next/script';
 import { GlobalStyle } from '@/styles/globalStyles';
 import { GlobalStateProvider } from "../context/GlobalStateContext";
 
-const GA_ID = 'G-JXELT2K8RB';
+const GA_ID = 'G-T9MLFWWB7M';
 
 const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
