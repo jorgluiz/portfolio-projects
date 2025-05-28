@@ -8,7 +8,7 @@ import { ContentWrapper, ContentNav, Menu, XContainer, DiagonalOne, DiagonalTwo,
 
 const SideBar = () => {
   const { isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
-  const [mostrarSpans, setMostrarSpans] = useState(true);
+  const [mostrarSpans, setMostrarSpans] = useState(false);
   const [contadorCliques, setContadorCliques] = useState(0);
   const [activeLink, setActiveLink] = useState('/'); // Estado para armazenar o link ativo
   const router = useRouter(); // Hook para pegar a rota atual

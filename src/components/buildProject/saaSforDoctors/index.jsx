@@ -12,12 +12,12 @@ const SaaSforDoctors = () => {
     <ContainerBuildProject>
       <SectionTitleBuildProject>Descrição do Projeto</SectionTitleBuildProject>
       <ParagraphBuildProject>
-        Precisamos criar um SaaS para médicos, onde o N8n está por trás, e o médico vai adicionar somente o número de WhatsApp dele. As funções incluem:
+        Projeto voltado para médicos que acompanham pacientes em fase de emagrecimento. O SaaS utiliza N8n como motor de automações, permitindo que o médico apenas informe seu número de WhatsApp para começar. As interações com os pacientes são conduzidas por um agente de IA, que realiza agendamentos, acompanhamento e nutre o lead até se tornar paciente.
       </ParagraphBuildProject>
 
       <SectionTitleBuildProject>1. Início</SectionTitleBuildProject>
       <ParagraphBuildProject>
-        O médico vai informar os serviços que ele oferece, adicionar os valores, protocolos, etc., e uma IA vai gerar o prompt com os serviços, valores e forma de atendimento focado em conversão para transformar o lead em paciente.
+        SaaS para médicos, onde o N8n está por trás, e o médico vai adicionar somente o número de WhatsApp dele. O projeto é voltado para médicos que acompanham pacientes em fase de emagrecimento. As funções incluem informar os serviços oferecidos, adicionar valores, protocolos, etc. Uma IA vai gerar automaticamente o prompt com os serviços, valores e forma de atendimento focado em conversão para transformar o lead em paciente.
       </ParagraphBuildProject>
 
       <SectionTitleBuildProject>2. Agendamento e Interação com a IA</SectionTitleBuildProject>
