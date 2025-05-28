@@ -211,7 +211,7 @@ import {
   CodeBlock,
   List,
   Link,
-  BoldText,
+  // BoldText removed
 } from "@/styles/globalStyles";
 
 import { MainLayout } from "@/components/layout/mainLayout";
@@ -277,23 +277,23 @@ const GA4NextJsIntegration = () => {
                   <Subtitle>4. Escolher Objetivos de Negócio</Subtitle>
                   <List>
                     <li>
-                      <BoldText>Gerar leads:</BoldText> Capturar contatos de potenciais
+                      Gerar leads: Capturar contatos de potenciais
                       clientes interessados.
                     </li>
                     <li>
-                      <BoldText>Impulsionar vendas:</BoldText> Aumentar a conversão e receita
+                      Impulsionar vendas: Aumentar a conversão e receita
                       do negócio.
                     </li>
                     <li>
-                      <BoldText>Entender o tráfego da web:</BoldText> Analisar origem e
+                      Entender o tráfego da web: Analisar origem e
                       comportamento dos visitantes.
                     </li>
                     <li>
-                      <BoldText>Ver engajamento e retenção:</BoldText> Monitorar a interação e
+                      Ver engajamento e retenção: Monitorar a interação e
                       fidelização dos usuários.
                     </li>
                     <li>
-                      <BoldText>Outros (se aplicável):</BoldText> Definir metas específicas
+                      Outros (se aplicável): Definir metas específicas
                       conforme seu negócio.
                     </li>
                   </List>
@@ -390,13 +390,13 @@ export default MyApp;`}
 
                   <List>
                     <li>
-                      ✅ <BoldText>Monitorar o tráfego do seu site</BoldText>
+                      ✅ Monitorar o tráfego do seu site
                       <br />
                       GA4 mostra quantas pessoas acessam, de onde vêm (Google, Instagram, etc.),
                       quais páginas visitam e por quanto tempo ficam.
                     </li>
                     <li>
-                      ✅ <BoldText>Medir conversões</BoldText>
+                      ✅ Medir conversões
                       <br />
                       Você pode rastrear ações importantes, como:
                       <List>
@@ -407,12 +407,12 @@ export default MyApp;`}
                       </List>
                     </li>
                     <li>
-                      ✅ <BoldText>Analisar comportamento do usuário</BoldText>
+                      ✅ Analisar comportamento do usuário
                       <br />
                       Entenda como as pessoas interagem com seu conteúdo, quais seções funcionam melhor e onde estão desistindo.
                     </li>
                     <li>
-                      ✅ <BoldText>Tomar decisões com base em dados</BoldText>
+                      ✅ Tomar decisões com base em dados
                       <br />
                       GA4 te ajuda a:
                       <List>
@@ -422,7 +422,7 @@ export default MyApp;`}
                       </List>
                     </li>
                     <li>
-                      ✅ <BoldText>Acompanhar em tempo real</BoldText>
+                      ✅ Acompanhar em tempo real
                       <br />
                       Você pode ver quem está no seu site neste exato momento, por qual dispositivo acessou e quais páginas está navegando.
                     </li>
