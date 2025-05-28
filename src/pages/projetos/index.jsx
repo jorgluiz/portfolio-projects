@@ -28,7 +28,7 @@ import { youtubeImgBlur } from "@/utils/youtube";
 import { catalogoImgBlur } from "@/utils/catalogo";
 import { ytmp3ImgBlur } from "@/utils/ytmp3";
 import { ytmp4ImgBlur } from "@/utils/ytmp4";
-import { cursoOnlineImgBlur } from "@/utils/ytmp4";
+// import { cursoOnlineImgBlur } from "@/utils/ytmp4";
 
 import { MainLayout, MainContent } from "@/components/layout/mainLayout";
 import SideBarLayout from "@/components/layout/sideBarLayout";
@@ -38,32 +38,21 @@ import Overlay from "@/components/overlay";
 
 import { GridContainer } from "@/components/projetos/style";
 
-const Projetos = () => {
+// Definindo o estilo de cada tag de tecnologia
+const tagStyle = {
+  marginRight: "3px",
+  backgroundColor: "#e4e7eb",
+  color: "#52606D",
+  borderRadius: "5px",
+  padding: "2px 6px",
+  fontSize: "12px"
+};
+
+const Projetos = ({ projetos }) => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
 
   // Função para fechar sidebar clicando fora
   const handleOverlayClick = () => setIsHamburguerOpen(false);
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (window.innerWidth >= 1250) {
-  //       setIsHamburguerOpen(true); // Aberto para telas grandes
-  //     } else {
-  //       setIsHamburguerOpen(false); // Fechado para telas menores
-  //     }
-  //   };
-
-  //   // Inicializa o estado correto com base no tamanho da tela ao carregar o componente
-  //   handleResize();
-
-  //   // Adiciona o evento de redimensionamento
-  //   window.addEventListener('resize', handleResize);
-
-  //   // Limpa o evento ao desmontar o componente
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, [setIsHamburguerOpen]);
 
 
   return (
@@ -103,287 +92,36 @@ const Projetos = () => {
                 <h1 style={{ color: "323f4b" }}>Oi! 👋</h1>
                 <Paragraph>Este portfólio representa a síntese da minha jornada em desenvolvimento web e backend, demonstrando minha experiência com ReactJS no frontend e Express no backend para a construção de aplicações modernas e eficientes.</Paragraph>
                 <GridContainer>
-                  <div className="container-item">
-                    <Link href="/projetos/player-video-customizado">
-                      <Image src={youtube} placeholder="blur" alt="img" draggable={false} className="img-projetos" />
-                      <div className="item">
-                        <div className="sub-item">
-                          <div className="tech">
-                            <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React.js</span>
-                          </div>
-                          <h2 className="item-h2">Custom Video Player</h2>
-                          <p className="item-p">estudos e aprendizado</p>
-                          <p>⭐⭐⭐⭐⭐ 🚀</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="container-item">
-                    <Link href="/projetos/vendas-curso">
-                      <Image src={cursoOline} placeholder="blur" blurDataURL={cursoOnlineImgBlur} alt="img" draggable={false} className="img-projetos" />
-                      <div className="item">
-                        <div className="sub-item">
-                          <div className="tech">
-                            <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React.js</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React Router DOM</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Context API</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Axios </span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> JWT-Decode</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Styled Components</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> LocalStorage </span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Node.js + Express</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> PostgreSQL</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> JWT (JSON Web Token) </span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Pagar.me API</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Socket.io</span>
-                          </div>
-                          <h2 className="item-h2">Plataforma vendas cursos online</h2>
-                          <p>⭐⭐⭐⭐⭐ 🚀</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="container-item">
-                    <Link href="/projetos/data-analysis-twitter">
-                      <Image src={analyzeFeelings} placeholder="blur" alt="img" draggable={false} className="img-projetos" />
-                      <div className="item">
-                        <div className="sub-item">
-                          <div className="tech">
-                            <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Node.js e Express</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Puppeteer</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Puppeteer-Extra</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>OpenAI API</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Frontend (HTML, CSS, JavaScript)</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>dotenv</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Heroku</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>archiver</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>unzipper</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>OpenAI</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>path</span>
-                          </div>
-                          <h2 className="item-h2">data analysis tedency</h2>
-                          <p className="item-p">estudos e aprendizado</p>
-                          <p>⭐⭐⭐⭐⭐ 🚀</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="container-item">
-                    <Link href="/projetos/stripe">
-                      <Image src={stripelogo} placeholder="blur" alt="img" draggable={false} className="img-projetos" />
-                      <div className="item">
-                        <div className="sub-item">
-                          <div style={{ display: "flex", flexWrap: "wrap" }}>
-                            <div>
+                  {projetos.map((projeto, i) => (
+                    <div className="container-item" key={i}>
+                      <Link href={projeto.link}>
+                        <Image
+                          src={projeto.image}
+                          alt={projeto.alt}
+                          placeholder="blur"
+                          blurDataURL={projeto.blur}
+                          draggable={false}
+                          className="img-projetos"
+                          loading="lazy"
+                          width={400}  // Defina a largura da imagem
+                          height={300}  // Defina a altura da imagem
+                        />
+                        <div className="item">
+                          <div className="sub-item">
+                            <div className="tech">
                               <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
+                              {projeto.tech.map((tech, idx) => (
+                                <span key={idx} style={tagStyle}>{tech}</span>
+                              ))}
                             </div>
-                            <div style={{ display: "block", margin: "auto 0" }}>
-                              <span style={{ margin: "0 10px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Node.js e Express.js</span>
-                            </div>
-                            <div style={{ display: "block", margin: "auto 0" }}>
-                              <span style={{ margin: "0 10px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>JWT</span>
-                            </div>
-                            <div style={{ display: "block", margin: "auto 0" }}>
-                              <span style={{ margin: "0 10px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Stripe</span>
-                            </div>
-                            <div>
-                              <span style={{ margin: "0 10px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Firebase</span>
-                            </div>
-                            <div>
-                              <span style={{ margin: "0 10px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Middleware e Cookie</span>
-                            </div>
-                            <div>
-                              <span style={{ margin: "0 10px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>dotenv</span>
-                            </div>
-                            <div>
-                              <span style={{ margin: "10px 0 0 0", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>nodemon</span>
-                            </div>
+                            <h2 className="item-h2">{projeto.title}</h2>
+                            <p className="item-p">{projeto.descricao}</p>
+                            <p>{projeto.estrelas}</p>
                           </div>
-                          <h2 className="item-h2">Stripe</h2>
-                          <p className="item-p">estudos e aprendizado</p>
-                          <p>⭐⭐⭐⭐⭐ 🚀</p>
                         </div>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="container-item">
-                    <Link href="/projetos/carousel">
-                      <Image src={carousel} placeholder="blur" alt="img" draggable={false} className="img-projetos" />
-                      <div className="item">
-                        <div className="sub-item">
-                          <div>
-                            <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                            <span style={{ margin: "0 8px 0 8px", padding: "0 5px 0 5px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React</span>
-                            <span style={{ margin: "0 8px 0 8px", padding: "0 5px 0 5px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Next.js</span>
-                            <span style={{ margin: "0 8px 0 8px", padding: "0 5px 0 5px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>styled-components</span>
-                          </div>
-                          <h2 className="item-h2">Carousel</h2>
-                          <p className="item-p">estudos e aprendizado</p>
-                          <p>⭐⭐⭐⭐⭐ 🚀</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="container-item">
-                    <Link href="/projetos/stream-dolby">
-                      <Image src={stream} placeholder="blur" alt="img" draggable={false} className="img-projetos" />
-                      <div className="item">
-                        <div className="sub-item">
-                          <div className="tech">
-                            <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Node.js e Express</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Millicast API</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>EJS</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>HTML/CSS</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>GraphQL</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>dotenv</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>axios e https</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>open</span>
-                          </div>
-                          <h2 className="item-h2">Live Broadcast Control and Viewing System</h2>
-                          <p className="item-p">estudos e aprendizado</p>
-                          <p>⭐⭐⭐⭐⭐ 🚀</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="container-item">
-                    <Link href="/projetos/image-generator">
-                      <Image src={imageGeneration} placeholder="blur" alt="img" draggable={false} className="img-projetos" />
-                      <div className="item">
-                        <div className="sub-item">
-                          <div className="tech">
-                            <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> HTML5</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>CSS3</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>JavaScript</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Backend</span>
-                          </div>
-                          <h2 className="item-h2">Enlarged View Image Generator</h2>
-                          <p className="item-p">estudos e aprendizado</p>
-                          <p>⭐⭐⭐⭐⭐ 🚀</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="container-item">
-                    <Link href="/projetos/catalogo">
-                      <Image src={catalogo} placeholder="blur" alt="img" draggable={false} className="img-projetos" />
-                      <div className="item">
-                        <div className="sub-item">
-                          <div className="tech">
-                            <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React.js</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>CSS</span>
-                          </div>
-                          <h2 className="item-h2">catalog</h2>
-                          <p className="item-p">estudos e aprendizado</p>
-                          <p>⭐⭐⭐⭐⭐ 🚀</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="container-item">
-                    <Link href="/projetos/yt-for-mp4-cloud">
-                      <Image src={ytmp4} placeholder="blur" alt="img" draggable={false} className="img-projetos" />
-                      <div className="item">
-                        <div className="sub-item">
-                          <div className="tech">
-                            <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> HTML e CSS</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Node.js com Express.js</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> youtube-dl-exec e @distube/ytdl-core</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> fluent-ffmpeg</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Socket.io</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> CORS</span>
-                          </div>
-                          <h2 className="item-h2">Download de Vídeo do YouTube</h2>
-                          <p className="item-p"><span style={{ color: "red" }}>Backend na nuvem</span></p>
-                          <p>⭐⭐⭐⭐⭐ 🚀</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="container-item">
-                    <Link href="/projetos/yt-for-mp4-location">
-                      <Image src={ytmp4} placeholder="blur" alt="img" draggable={false} className="img-projetos" />
-                      <div className="item">
-                        <div className="sub-item">
-                          <div className="tech">
-                            <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> HTML e CSS</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> Socket.IO</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Node.js</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Express</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>@distube/ytdl-core</span>
-                          </div>
-                          <h2 className="item-h2">Download de Vídeo do YouTube</h2>
-                          <p className="item-p"><span style={{ color: "red" }}>Backend local</span></p>
-                          <p>⭐⭐⭐⭐⭐ 🚀</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="container-item">
-                    <Link href="/projetos/yt-for-mp3">
-                      <Image src={ytmp3} placeholder="blur" alt="img" draggable={false} className="img-projetos" />
-                      <div className="item">
-                        <div className="sub-item">
-                          <div className="tech">
-                            <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> HTML e CSS</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Node.js</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Express</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>@distube/ytdl-core</span>
-                          </div>
-                          <h2 className="item-h2">Download de Áudio do YouTube</h2>
-                          <p className="item-p">estudos e aprendizado</p>
-                          <p>⭐⭐⭐⭐⭐ 🚀</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="container-item">
-                    <Link href="/projetos/yt-analyse-video">
-                      <Image src={ytAnalyzeVideo} placeholder="blur" alt="img" draggable={false} className="img-projetos" />
-                      <div className="item">
-                        <div className="sub-item">
-                          <div className="tech">
-                            <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Node.js e Express.js</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>OpenAI API</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>File System (fs)</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>dotenv</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>youtubedl-exec</span>
-                            <span style={{ marginRight: "3px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>hbs (Handlebars)</span>
-                          </div>
-                          <h2 className="item-h2">Download de Áudio do YouTube</h2>
-                          <p className="item-p">estudos e aprendizado</p>
-                          <p>⭐⭐⭐⭐⭐ 🚀</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="container-item">
-                    <Link href="/projetos/portfolio">
-                      <Image src={portfolioImg} placeholder="blur" alt="img" draggable={false} className="img-projetos" />
-                      <div className="item">
-                        <div className="sub-item">
-                          <div>
-                            <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                            <span style={{ margin: "0 8px 0 8px", padding: "0 5px 0 5px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}> React</span>
-                            <span style={{ margin: "0 8px 0 8px", padding: "0 5px 0 5px", backgroundColor: "#e4e7eb", color: "#52606D", borderRadius: "5px" }}>Styled-components</span>
-                          </div>
-                          <h2 className="item-h2">Portfolio</h2>
-                          <p className="item-p">estudos e aprendizado</p>
-                          <p>⭐⭐⭐⭐⭐ 🚀</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
+                      </Link>
+                    </div>
+                  ))}
                 </GridContainer>
               </MainContent>
             </MainContentLayout>
@@ -395,3 +133,146 @@ const Projetos = () => {
 };
 
 export default Projetos;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      projetos: [
+        {
+          title: "Custom Video Player",
+          link: "/projetos/player-video-customizado",
+          image: "/assets/images/youtube.png",
+          blur: youtubeImgBlur,
+          tech: ["React.js"],
+          descricao: "Estudos e aprendizado",
+          estrelas: "⭐⭐⭐⭐⭐ 🚀",
+          alt: "youtube project"
+        },
+        {
+          title: "Plataforma vendas cursos online",
+          link: "/projetos/vendas-curso",
+          image: "/assets/images/curso-online.png",
+          blur: ytmp4ImgBlur,
+          tech: [
+            "React.js", "React Router DOM", "Context API", "Axios", "JWT-Decode",
+            "Styled Components", "LocalStorage", "Node.js + Express", "PostgreSQL",
+            "JWT (JSON Web Token)", "Pagar.me API", "Socket.io"
+          ],
+          descricao: "Plataforma de cursos online.",
+          estrelas: "⭐⭐⭐⭐⭐ 🚀",
+          alt: "curso online"
+        },
+        {
+          title: "Data Analysis Tendency",
+          link: "/projetos/data-analysis-twitter",
+          image: "/assets/images/analyze-feelings.png",
+          blur: analyzeImgBlur,
+          tech: ["Node.js e Express", "Puppeteer", "Puppeteer-Extra", "OpenAI API"],
+          descricao: "Estudos e aprendizado",
+          estrelas: "⭐⭐⭐⭐⭐ 🚀",
+          alt: "análise de sentimentos"
+        },
+        {
+          title: "Live Broadcast Control and Viewing System",
+          link: "/projetos/stream-dolby",
+          image: "/assets/images/stream.png",
+          blur: streamImgBlur,
+          tech: ["Node.js e Express", "Millicast API", "EJS", "HTML/CSS", "GraphQL", "dotenv", "axios e https"],
+          descricao: "Sistema de controle e visualização de transmissão ao vivo.",
+          estrelas: "⭐⭐⭐⭐⭐ 🚀",
+          alt: "live broadcast"
+        },
+        {
+          title: "Stripe",
+          link: "/projetos/stripe",
+          image: "/assets/images/stripeLogo.png",
+          blur: stripeImgBlur,
+          tech: ["Node.js e Express.js", "JWT", "Stripe", "Firebase", "Middleware e Cookie", "dotenv", "nodemon"],
+          descricao: "Integração com Stripe para pagamentos.",
+          estrelas: "⭐⭐⭐⭐⭐ 🚀",
+          alt: "stripe integration"
+        },
+        {
+          title: "Carousel",
+          link: "/projetos/carousel",
+          image: "/assets/images/carousel.png",
+          blur: carouseImgBlur,
+          tech: ["React", "Next.js", "styled-components"],
+          descricao: "Carrossel interativo de imagens.",
+          estrelas: "⭐⭐⭐⭐⭐ 🚀",
+          alt: "carousel"
+        },
+        {
+          title: "Enlarged View Image Generator",
+          link: "/projetos/image-generator",
+          image: "/assets/images/imageGeneration.png",
+          blur: imageGenerationImgBlur,
+          tech: ["HTML5", "CSS3", "JavaScript", "Backend"],
+          descricao: "Gerador de imagens ampliadas.",
+          estrelas: "⭐⭐⭐⭐⭐ 🚀",
+          alt: "image generator"
+        },
+        {
+          title: "Catalog",
+          link: "/projetos/catalogo",
+          image: "/assets/images/catalogo.png",
+          blur: catalogoImgBlur,
+          tech: ["React.js", "CSS"],
+          descricao: "Catálogo de itens.",
+          estrelas: "⭐⭐⭐⭐⭐ 🚀",
+          alt: "catalog"
+        },
+        {
+          title: "Download de Vídeo do YouTube (Cloud)",
+          link: "/projetos/yt-for-mp4-cloud",
+          image: "/assets/images/ytmp4.png",
+          blur: ytmp4ImgBlur,
+          tech: ["HTML e CSS", "Node.js com Express.js", "youtube-dl-exec e @distube/ytdl-core", "fluent-ffmpeg", "Socket.io", "CORS"],
+          descricao: "Download de vídeos do YouTube (Backend na nuvem).",
+          estrelas: "⭐⭐⭐⭐⭐ 🚀",
+          alt: "youtube download cloud"
+        },
+        {
+          title: "Download de Vídeo do YouTube (Local)",
+          link: "/projetos/yt-for-mp4-location",
+          image: "/assets/images/ytmp4.png",
+          blur: ytmp4ImgBlur,
+          tech: ["HTML e CSS", "Socket.IO", "Node.js", "Express", "@distube/ytdl-core"],
+          descricao: "Download de vídeos do YouTube (Backend local).",
+          estrelas: "⭐⭐⭐⭐⭐ 🚀",
+          alt: "youtube download local"
+        },
+        {
+          title: "Download de Áudio do YouTube",
+          link: "/projetos/yt-for-mp3",
+          image: "/assets/images/ytmp3.png",
+          blur: ytmp3ImgBlur,
+          tech: ["HTML e CSS", "Node.js", "Express", "@distube/ytdl-core"],
+          descricao: "Download de áudio do YouTube.",
+          estrelas: "⭐⭐⭐⭐⭐ 🚀",
+          alt: "youtube audio download"
+        },
+        {
+          title: "YouTube Video Analyze",
+          link: "/projetos/yt-analyse-video",
+          image: "/assets/images/yt-analyze-video.png",
+          blur: ytmp3ImgBlur,
+          tech: ["Node.js e Express.js", "OpenAI API", "File System (fs)", "dotenv", "youtubedl-exec", "hbs (Handlebars)"],
+          descricao: "Análise de vídeos do YouTube com OpenAI.",
+          estrelas: "⭐⭐⭐⭐⭐ 🚀",
+          alt: "yt video analyze"
+        },
+        {
+          title: "Portfolio",
+          link: "/projetos/portfolio",
+          image: "/assets/images/portfolio.png",
+          blur: portfolioImgBlur,
+          tech: ["React", "Styled-components"],
+          descricao: "Portfólio de projetos web.",
+          estrelas: "⭐⭐⭐⭐⭐ 🚀",
+          alt: "portfolio"
+        }
+      ],
+    },
+  };
+}
