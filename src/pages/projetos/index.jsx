@@ -91,8 +91,8 @@ const Projetos = ({ projetos }) => {
             <MainContent>
               <h1 style={{ color: "323f4b" }}>Oi! 👋</h1>
               <Paragraph>Este portfólio representa a síntese da minha jornada em desenvolvimento web e backend, demonstrando minha experiência com ReactJS no frontend e Express no backend para a construção de aplicações modernas e eficientes.</Paragraph>
-              <GridContainer>
-                {/* {projetos.map((projeto, i) => (
+              {/* <GridContainer> */}
+              {/* {projetos.map((projeto, i) => (
                   <div className="container-item" key={i}>
                     <Link href={projeto.link}>
                       <Image
@@ -122,7 +122,7 @@ const Projetos = ({ projetos }) => {
                     </Link>
                   </div>
                 ))} */}
-              </GridContainer>
+              {/* </GridContainer> */}
             </MainContent>
           </MainContentLayout>
         </MainLayout>
