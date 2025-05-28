@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from 'next/image';
 import Link from "next/link";
-import { useGlobalState } from "../../context/GlobalStateContext";
+// import { useGlobalState } from "../../context/GlobalStateContext";
 
 import { Paragraph } from "@/styles/globalStyles";
 
@@ -49,7 +49,7 @@ const tagStyle = {
 };
 
 const Projetos = ({ projetos }) => {
-  const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
+  // const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
 
   // Função para fechar sidebar clicando fora
   const handleOverlayClick = () => setIsHamburguerOpen(false);
@@ -79,55 +79,55 @@ const Projetos = ({ projetos }) => {
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.jpg" />
       </Head>
 
-      {!isLoaded ? null : (
-        <>
-          {isHamburguerOpen && (
+      {/* {!isLoaded ? null : ( */}
+      <>
+        {/* {isHamburguerOpen && (
             <Overlay onClick={handleOverlayClick}></Overlay>
-          )}
-          <MainLayout>
-            <SideBarLayout></SideBarLayout>
-            <HeaderLayout></HeaderLayout>
-            <MainContentLayout>
-              <MainContent>
-                <h1 style={{ color: "323f4b" }}>Oi! 👋</h1>
-                <Paragraph>Este portfólio representa a síntese da minha jornada em desenvolvimento web e backend, demonstrando minha experiência com ReactJS no frontend e Express no backend para a construção de aplicações modernas e eficientes.</Paragraph>
-                <GridContainer>
-                  {projetos.map((projeto, i) => (
-                    <div className="container-item" key={i}>
-                      <Link href={projeto.link}>
-                        <Image
-                          src={projeto.image}
-                          alt={projeto.alt}
-                          placeholder="blur"
-                          blurDataURL={projeto.blur}
-                          draggable={false}
-                          className="img-projetos"
-                          loading="lazy"
-                          width={400}  // Defina a largura da imagem
-                          height={300}  // Defina a altura da imagem
-                        />
-                        <div className="item">
-                          <div className="sub-item">
-                            <div className="tech">
-                              <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
-                              {projeto.tech.map((tech, idx) => (
-                                <span key={idx} style={tagStyle}>{tech}</span>
-                              ))}
-                            </div>
-                            <h2 className="item-h2">{projeto.title}</h2>
-                            <p className="item-p">{projeto.descricao}</p>
-                            <p>{projeto.estrelas}</p>
+          )} */}
+        <MainLayout>
+          <SideBarLayout></SideBarLayout>
+          <HeaderLayout></HeaderLayout>
+          <MainContentLayout>
+            <MainContent>
+              <h1 style={{ color: "323f4b" }}>Oi! 👋</h1>
+              <Paragraph>Este portfólio representa a síntese da minha jornada em desenvolvimento web e backend, demonstrando minha experiência com ReactJS no frontend e Express no backend para a construção de aplicações modernas e eficientes.</Paragraph>
+              <GridContainer>
+                {/* {projetos.map((projeto, i) => (
+                  <div className="container-item" key={i}>
+                    <Link href={projeto.link}>
+                      <Image
+                        src={projeto.image}
+                        alt={projeto.alt}
+                        placeholder="blur"
+                        blurDataURL={projeto.blur}
+                        draggable={false}
+                        className="img-projetos"
+                        loading="lazy"
+                        width={439}  // Defina uma largura base proporcional
+                        height={244}  // A altura é fixada como você já definiu no CSS
+                      />
+                      <div className="item">
+                        <div className="sub-item">
+                          <div className="tech">
+                            <h1 className="item-h1" style={{ display: "inline" }}>Tech:</h1>
+                            {projeto.tech.map((tech, idx) => (
+                              <span key={idx} style={tagStyle}>{tech}</span>
+                            ))}
                           </div>
+                          <h2 className="item-h2">{projeto.title}</h2>
+                          <p className="item-p">{projeto.descricao}</p>
+                          <p>{projeto.estrelas}</p>
                         </div>
-                      </Link>
-                    </div>
-                  ))}
-                </GridContainer>
-              </MainContent>
-            </MainContentLayout>
-          </MainLayout>
-        </>
-      )}
+                      </div>
+                    </Link>
+                  </div>
+                ))} */}
+              </GridContainer>
+            </MainContent>
+          </MainContentLayout>
+        </MainLayout>
+      </>
+      {/* )} */}
     </>
   );
 };
