@@ -4,7 +4,7 @@ import {
   ParagraphBuildProject,
   ListBuildProject,
   ListItemBuildProject,
-  StepNumberBuildProject,
+  StepNumberBuildProject
 } from "@/styles/globalStyles";
 
 const SaaSforDoctors = () => {

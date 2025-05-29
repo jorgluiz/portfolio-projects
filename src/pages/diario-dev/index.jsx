@@ -10,7 +10,7 @@ import Overlay from "@/components/overlay";
 
 import Title from "@/components/common/title";
 
-import { DiarioDevMainContainer, CollapsibleContent } from "@/components/diariodev/diarioDevMainContainer";
+import { DiarioDevMainContainer, CollapsibleContent } from "@/components/diariodev";
 
 import BibliotecasFerramentas from "@/components/diariodev/bibliotecasFerramentas";
 import ArquiteturaMonolitica from "@/components/diariodev/arquiteturaMonolitica";

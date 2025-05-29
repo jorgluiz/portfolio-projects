@@ -10,12 +10,13 @@ import Overlay from "@/components/overlay";
 
 import Title from "@/components/common/title";
 
-import { BuildProjectMainContainer, CollapsibleContent, H2 } from "@/components/buildProject";
+import { BuildProjectMainContainer, CollapsibleContent, H2 } from "@/components/eCommerce";
 
-import SaaSProjectGuide from "@/components/buildProject/saaSProjectGuide";
-import SaaSforDoctors from "@/components/buildProject/projectSaaS";
-import TeamHeader from "@/components/buildProject/team";
-import ModularCleanArchitecture from "@/components/buildProject/ModularCleanArchitecture";
+import StackDesenvolvimento from "@/components/eCommerce/stackDesenvolvimento";
+import PaymentCheckout from "@/components/eCommerce/pagamentoCheckout";
+import Features from "@/components/eCommerce/funcionalidades";
+import ECommerceLayout from "@/components/eCommerce/experienciaCompra";
+import ImageManagement from "@/components/eCommerce/dashboardAdministrativo/imageManagement";
 
 
 // lógica aqui
@@ -35,10 +36,11 @@ const BuildProject = () => {
 
 
   const sections = [
-    { title: "O que é um projeto SaaS?", component: <SaaSProjectGuide /> },
-    { title: "Projeto SaaS para Médicos com Plano de Emagrecimento", component: <SaaSforDoctors /> },
-    { title: "Team", component: <TeamHeader /> },
-    { title: "Guia Completo do Ciclo de Vida do Projeto SaaS Médico: Do Planejamento à Entrega", component: <ModularCleanArchitecture /> },
+    { title: "Stack de Desenvolvimento", component: <StackDesenvolvimento /> },
+    { title: "Pagamento e Checkout", component: <PaymentCheckout /> },
+    { title: "Funcionalidades", component: <Features /> },
+    { title: "Experiência de Compra", component: <ECommerceLayout /> },
+    { title: "Dashboard Admin - Gerenciamneto de imagens", component: <ImageManagement /> },
   ];
 
   return (
@@ -75,7 +77,7 @@ const BuildProject = () => {
             <HeaderLayout></HeaderLayout>
             <MainContentLayout>
               <BuildProjectMainContainer>
-                <H2>Este projeto está em desenvolvimento. Início 22/04/2025</H2>
+                <H2>Este projeto está em desenvolvimento. Início 29/05/2025</H2>
                 {sections.map((section, index) => (
                   <>
                     <div key={index}>

@@ -109,6 +109,14 @@ const SideBar = () => {
                 Build Project
               </Span>
             </li>
+            <li>
+              <Span
+                onClick={() => handleNavigate('/e-commerce-construction-project')}
+                className={activeLink === '/e-commerce-construction-project' ? 'active' : ''}
+              >
+                E-commerce
+              </Span>
+            </li>
           </ul>
         </Menu>
         <div style={{ width: "260px", border: "solid 1px #243B53", marginTop: "10px", marginBottom: "10px" }}></div>

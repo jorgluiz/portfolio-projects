@@ -33,3 +33,8 @@ export const CollapsibleContent = styled.div`
       opacity: 1;
     `}
 `;
+
+export const H2 = styled.h2`
+text-align: center;
+margin-bottom: 20px;
+`;
