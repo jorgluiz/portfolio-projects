@@ -40,6 +40,7 @@ const GA_ID = 'G-T9MLFWWB7M';
 const MyApp = ({ Component, pageProps }) => {
 
   const ENABLE_GA = process.env.NEXT_PUBLIC_ENABLE_GA === 'true';
+  console.log(process.env.NEXT_PUBLIC_ENABLE_GA, "process.env.NEXT_PUBLIC_ENABLE_GA");
   console.log(ENABLE_GA, "ENABLE_GA");
 
   useEffect(() => {
