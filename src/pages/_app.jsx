@@ -35,12 +35,11 @@ import Script from 'next/script';
 import { GlobalStyle } from '@/styles/globalStyles';
 import { GlobalStateProvider } from '../context/GlobalStateContext';
 
+const GA_ID = 'G-T9MLFWWB7M';
+
 const MyApp = ({ Component, pageProps }) => {
 
-  const GA_ID = 'G-T9MLFWWB7M';
-
-  const isLocalhost = typeof window !== 'undefined' && window.location.hostname === 'localhost';
-  const ENABLE_GA = !isLocalhost && process.env.NEXT_PUBLIC_ENABLE_GA === 'true';
+  const ENABLE_GA = process.env.NEXT_PUBLIC_ENABLE_GA === 'true';
   console.log(ENABLE_GA, "ENABLE_GA");
 
   useEffect(() => {
