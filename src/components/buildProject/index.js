@@ -37,4 +37,5 @@ export const CollapsibleContent = styled.div`
 export const H2 = styled.h2`
 text-align: center;
 margin-bottom: 20px;
+font-size: 16px;
 `;

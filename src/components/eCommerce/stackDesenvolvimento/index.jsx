@@ -45,13 +45,17 @@ const DevStack = () => {
     fontWeight: '500',
   };
 
+  const completedItem = {
+    textDecoration: 'line-through',
+  };
+
   return (
     <div style={container}>
       <h2 style={sectionTitle}>Stack de Desenvolvimento</h2>
 
       <h3 style={sectionTitle}>Frontend:</h3>
       <ul style={list}>
-        <li style={listItem}><span style={{ fontWeight: '700' }}>React.js</span> - Biblioteca JavaScript para construir interfaces de usuário.</li>
+        <li style={listItem}><span style={{ fontWeight: '700' }}>React.js</span> <span style={completedItem}> Biblioteca JavaScript para construir interfaces de usuário.</span></li>
         <li style={listItem}><span style={{ fontWeight: '700' }}>Next.js</span> - Framework para rotas, SSR (Server-Side Rendering) e otimização de SEO.</li>
         <li style={listItem}><span style={{ fontWeight: '700' }}>styled-components</span> - Biblioteca para estilização utilizando CSS-in-JS.</li>
         <li style={listItem}><span style={{ fontWeight: '700' }}>Axios ou Fetch</span> - Bibliotecas para realizar requisições HTTP.</li>

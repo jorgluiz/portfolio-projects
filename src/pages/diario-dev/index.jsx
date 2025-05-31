@@ -44,7 +44,7 @@ const Projetos = () => {
   // const ComponenteTech03 = () => <p>Conteúdo do componente Tech 03</p>;
 
   const sections = [
-    { title: "Bibliotecas / Ferramentas", component: <BibliotecasFerramentas /> },
+    { title: "Bibliotecas / Ferramentas / API / SDK", component: <BibliotecasFerramentas /> },
     { title: "Arquitetura Monolitica", component: <ArquiteturaMonolitica /> },
     { title: "Arquitetura Microservices", component: <ArquiteturaMicroservices /> },
     { title: "Backend com JavaScript NodeJS", component: <BackendNodeJS /> },

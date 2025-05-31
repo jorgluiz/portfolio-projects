@@ -1,0 +1,719 @@
+diff --git a/package.json b/package.json
+index 0546e1f..8fd79c7 100644
+--- a/package.json
++++ b/package.json
+@@ -10,6 +10,7 @@
+   },
+   "dependencies": {
+     "@babel/runtime": "^7.25.7",
++    "highlight.js": "^11.11.1",
+     "next": "^14.2.15",
+     "next-sitemap": "^4.2.3",
+     "react": "^18.3.1",
+diff --git a/src/components/buildProject/index.js b/src/components/buildProject/index.js
+index 6b31bef..22c870e 100644
+--- a/src/components/buildProject/index.js
++++ b/src/components/buildProject/index.js
+@@ -37,4 +37,5 @@ export const CollapsibleContent = styled.div`
+ export const H2 = styled.h2`
+ text-align: center;
+ margin-bottom: 20px;
++font-size: 16px;
+ `;
+\ No newline at end of file
+diff --git a/src/components/diariodev/bibliotecasFerramentas/index.jsx b/src/components/diariodev/bibliotecasFerramentas/index.jsx
+index 06fc04a..353fe75 100644
+--- a/src/components/diariodev/bibliotecasFerramentas/index.jsx
++++ b/src/components/diariodev/bibliotecasFerramentas/index.jsx
+@@ -1,7 +1,15 @@
++import { useEffect } from 'react';
+ import { Container, SectionTitle, Check, Paragraph, List } from "@/styles/globalStyles";
++import hljs from 'highlight.js'; // Importando o highlight.js
++import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
+ 
+ const BibliotecasFerramentas = () => {
+ 
++
++  useEffect(() => {
++    hljs.highlightAll(); // Aplica o destaque de sintaxe a todos os blocos de código
++  }, []);
++
+   return (
+     <>
+       <Container>
+@@ -11,17 +19,18 @@ const BibliotecasFerramentas = () => {
+ 
+         <Paragraph>
+           São pacotes que adicionam <strong>funcionalidades específicas</strong> que você usa diretamente no código da aplicação.
++          Elas oferecem funcionalidades prontas para uso, como o gerenciamento de banco de dados, tratamento de erros, validação de dados, etc.
+         </Paragraph>
+ 
+         <div style={{ fontWeight: '600', marginBottom: '8px' }}>Exemplos comuns:</div>
+ 
+         <List>
+-          <li><strong>express-async-errors (backend):</strong> tratamento de erros assíncronos no Express.</li>
+-          <li><strong>TypeORM / Prisma (backend):</strong> ORM para banco de dados.</li>
+-          <li><strong>Swagger (backend):</strong> documentação automática da API.</li>
+-          <li><strong>class-validator (backend):</strong> validação de dados.</li>
+-          <li><strong>Winston (backend):</strong> logging.</li>
+-          <li><strong>Helmet e CORS (backend):</strong> segurança HTTP e controle de acesso.</li>
++          <li><strong>express-async-errors (backend):</strong> tratamento de erros assíncronos no Express. <em>Exemplo: Facilita a captura e tratamento de erros em rotas assíncronas.</em></li>
++          <li><strong>TypeORM / Prisma (backend):</strong> ORM para banco de dados. <em>Exemplo: Permite interagir com o banco de dados através de um modelo de objetos.</em></li>
++          <li><strong>Swagger (backend):</strong> documentação automática da API. <em>Exemplo: Gera uma interface interativa que permite testar endpoints da API diretamente do navegador.</em></li>
++          <li><strong>class-validator (backend):</strong> validação de dados. <em>Exemplo: Valida se os dados de entrada correspondem ao formato esperado (ex: email válido).</em></li>
++          <li><strong>Winston (backend):</strong> logging. <em>Exemplo: Permite a criação de logs para monitoramento de atividades e erros no backend.</em></li>
++          <li><strong>Helmet e CORS (backend):</strong> segurança HTTP e controle de acesso. <em>Exemplo: Helmet melhora a segurança definindo cabeçalhos HTTP, e CORS controla quais origens podem acessar a API.</em></li>
+         </List>
+       </Container>
+ 
+@@ -32,16 +41,267 @@ const BibliotecasFerramentas = () => {
+ 
+         <Paragraph>
+           Auxiliam no desenvolvimento, organização, formatação e automação, mas atuam fora do fluxo direto do código da aplicação.
++          Elas são usadas para melhorar o ambiente de desenvolvimento e garantir padrões de qualidade no código.
++        </Paragraph>
++
++        <div style={{ fontWeight: '600', marginBottom: '8px' }}>Exemplos comuns:</div>
++
++        <List>
++          <li><strong>ESLint (front/backend):</strong> analisa e corrige problemas no código. <em>Exemplo: Identifica e alerta sobre erros de sintaxe e problemas de estilo no código.</em></li>
++          <li><strong>Prettier (front/backend):</strong> formata código automaticamente. <em>Exemplo: Formata o código para garantir consistência no estilo e facilitar a leitura.</em></li>
++          <li><strong>Husky (front/backend):</strong> executa tarefas automáticas (ex: testes) antes do commit. <em>Exemplo: Garante que os testes sejam executados antes de cada commit para evitar falhas no código.</em></li>
++          <li><strong>Lint-Staged (front/backend):</strong> verifica apenas arquivos modificados antes do commit. <em>Exemplo: Aumenta a eficiência ao realizar verificações apenas em arquivos que foram alterados.</em></li>
++          <li><strong>Jest / Supertest (front/backend):</strong> frameworks e ferramentas para testes unitários e de API. <em>Exemplo: Jest executa testes unitários para garantir a qualidade do código, enquanto o Supertest testa APIs.</em></li>
++        </List>
++      </Container>
++
++      <Container>
++        <SectionTitle>
++          <Check>🔌</Check> API
++        </SectionTitle>
++
++        <Paragraph>
++          API (Interface de Programação de Aplicações) é um conjunto de definições e protocolos que permite que um software interaja com outro, como uma ponte entre sistemas diferentes.
++          Elas permitem a comunicação entre sistemas de forma padronizada.
++        </Paragraph>
++
++        <div style={{ fontWeight: '600', marginBottom: '8px' }}>Exemplos comuns:</div>
++
++        <List>
++          <li><strong>API REST (frontend/backend):</strong> interface para comunicação entre sistemas via HTTP. <em>Exemplo: Você pode fazer requisições GET, POST, PUT, DELETE para interagir com a API de um sistema.</em></li>
++          <li><strong>Exemplo: API do GitHub:</strong> permite acessar informações sobre repositórios, commits e outros dados do GitHub via HTTP. <em>Exemplo prático: Obter informações sobre repositórios e contribuições diretamente pelo código.</em></li>
++          <li><strong>GraphQL (frontend/backend):</strong> consulta de dados com flexibilidade no backend. <em>Exemplo: Permite que o cliente defina exatamente os dados que deseja obter, sem depender de um endpoint fixo.</em></li>
++          <li><strong>Exemplo: API do Spotify:</strong> permite buscar músicas, álbuns, artistas e criar playlists via GraphQL. <em>Exemplo prático: Criar playlists personalizadas com base nas preferências do usuário.</em></li>
++        </List>
++      </Container>
++
++      <Container>
++        <SectionTitle>
++          <Check>🛠️</Check> SDK
++        </SectionTitle>
++
++        <Paragraph>
++          SDK (Kit de Desenvolvimento de Software) é um conjunto de ferramentas que facilita o desenvolvimento de aplicações para uma plataforma ou serviço específico.
++          Ele fornece os recursos necessários para facilitar a integração com plataformas externas, como Firebase ou Stripe.
+         </Paragraph>
+ 
+         <div style={{ fontWeight: '600', marginBottom: '8px' }}>Exemplos comuns:</div>
+ 
+         <List>
+-          <li><strong>ESLint (front/backend):</strong> analisa e corrige problemas no código.</li>
+-          <li><strong>Prettier (front/backend):</strong> formata código automaticamente.</li>
+-          <li><strong>Husky (front/backend):</strong> executa tarefas automáticas (ex: testes) antes do commit.</li>
+-          <li><strong>Lint-Staged (front/backend):</strong> verifica apenas arquivos modificados antes do commit.</li>
+-          <li><strong>Jest / Supertest (front/backend):</strong> frameworks e ferramentas para testes unitários e de API.</li>
++          <li><strong>Firebase SDK (frontend/backend):</strong> facilita a integração com a plataforma Firebase. <em>Exemplo: Uso do Firebase SDK para autenticar usuários, armazenar dados em tempo real e enviar notificações push.</em></li>
++          <li><strong>Exemplo: Firebase Authentication SDK:</strong> permite autenticar usuários via email, Google, Facebook e outros. <em>Exemplo prático: Permite que usuários se registrem ou façam login usando suas contas do Google.</em></li>
++          <li><strong>Stripe SDK (frontend/backend):</strong> permite integração de pagamentos em sites e aplicativos. <em>Exemplo: Uso do Stripe SDK para processar pagamentos seguros em um site de e-commerce.</em></li>
++          <li><strong>Exemplo: Stripe Checkout SDK:</strong> facilita a implementação de pagamentos de forma segura em e-commerce. <em>Exemplo prático: Configuração de uma página de pagamento que aceita cartões de crédito, débito e outros métodos de pagamento.</em></li>
++        </List>
++      </Container>
++
++      <Container>
++        <SectionTitle>
++          <Check>📚</Check> Bibliotecas
++        </SectionTitle>
++
++        <Paragraph>
++          São pacotes que adicionam <strong>funcionalidades específicas</strong> que você usa diretamente no código da aplicação.
++          Elas oferecem funcionalidades prontas para uso, como o gerenciamento de banco de dados, tratamento de erros, validação de dados, etc.
++        </Paragraph>
++
++        <div style={{ fontWeight: '600', marginBottom: '8px' }}>Exemplos reais:</div>
++
++        <List>
++          <li><strong>express-async-errors (backend):</strong> tratamento de erros assíncronos no Express.
++            <em>
++              <br />Exemplo de código:
++              <pre><code className="javascript">{`import express from 'express';
++import 'express-async-errors'; // Isso adiciona tratamento assíncrono de erros
++
++const app = express();
++
++app.get('/api', async (req, res) => {
++  throw new Error('Erro!'); // Exemplo de erro
++});
++
++app.listen(3000, () => console.log('Servidor rodando na porta 3000'));`}</code></pre>
++            </em>
++          </li>
++          <li><strong>TypeORM / Prisma (backend):</strong> ORM para banco de dados.
++            <em>
++              <br />Exemplo de código (TypeORM):
++              <pre><code className="javascript">{`import { createConnection } from 'typeorm';
++
++createConnection({
++  type: 'postgres',
++  host: 'localhost',
++  port: 5432,
++  username: 'test',
++  password: 'test',
++  database: 'test',
++  entities: [User],
++  synchronize: true,
++}).then(() => console.log('Conectado ao banco de dados'));`}</code></pre>
++            </em>
++          </li>
++          <li><strong>Swagger (backend):</strong> documentação automática da API.
++            <em>
++              <br />Exemplo de código:
++              <pre><code className="javascript">{`import express from 'express';
++import swaggerJsdoc from 'swagger-jsdoc';
++import swaggerUi from 'swagger-ui-express';
++
++const app = express();
++
++const options = {
++  definition: {
++    openapi: '3.0.0',
++    info: {
++      title: 'API exemplo',
++      version: '1.0.0',
++    },
++  },
++  apis: ['./routes.js'],
++};
++
++const specs = swaggerJsdoc(options);
++app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
++
++app.listen(3000, () => console.log('Servidor rodando na porta 3000'));`}</code></pre>
++            </em>
++          </li>
++        </List>
++      </Container>
++
++      <Container>
++        <SectionTitle>
++          <Check>🛠️</Check> Ferramentas
++        </SectionTitle>
++
++        <Paragraph>
++          Auxiliam no desenvolvimento, organização, formatação e automação, mas atuam fora do fluxo direto do código da aplicação.
++          Elas são usadas para melhorar o ambiente de desenvolvimento e garantir padrões de qualidade no código.
++        </Paragraph>
++
++        <div style={{ fontWeight: '600', marginBottom: '8px' }}>Exemplos reais:</div>
++
++        <List>
++          <li><strong>ESLint (front/backend):</strong> analisa e corrige problemas no código.
++            <em>
++              <br />Exemplo de código (configuração do ESLint):
++              <pre><code className="javascript">{`module.exports = {
++  env: {
++    node: true,
++    es6: true,
++  },
++  extends: ['eslint:recommended'],
++  parserOptions: {
++    ecmaVersion: 2020,
++  },
++  rules: {
++    'no-console': 'warn',
++  },
++};`}</code></pre>
++            </em>
++          </li>
++          <li><strong>Prettier (front/backend):</strong> formata código automaticamente.
++            <em>
++              <br />Exemplo de código (configuração do Prettier):
++              <pre><code className="javascript">{`module.exports = {
++  semi: false,
++  singleQuote: true,
++  trailingComma: 'all',
++};`}</code></pre>
++            </em>
++          </li>
++          <li><strong>Husky (front/backend):</strong> executa tarefas automáticas (ex: testes) antes do commit.
++            <em>
++              <br />Exemplo de código (configuração do Husky):
++              <pre><code className="javascript">{`"husky": {
++  "hooks": {
++    "pre-commit": "lint-staged",
++    "pre-push": "npm test"
++  }
++},`}</code></pre>
++            </em>
++          </li>
++        </List>
++      </Container>
++
++      <Container>
++        <SectionTitle>
++          <Check>🔌</Check> API
++        </SectionTitle>
++
++        <Paragraph>
++          API (Interface de Programação de Aplicações) é um conjunto de definições e protocolos que permite que um software interaja com outro, como uma ponte entre sistemas diferentes.
++          Elas permitem a comunicação entre sistemas de forma padronizada.
++        </Paragraph>
++
++        <div style={{ fontWeight: '600', marginBottom: '8px' }}>Exemplos reais:</div>
++
++        <List>
++          <li><strong>API REST (frontend/backend):</strong> interface para comunicação entre sistemas via HTTP.
++            <em>
++              <br />Exemplo de código:
++              <pre><code className="javascript">{`fetch('https://api.github.com/users/octocat')
++  .then(response => response.json())
++  .then(data => console.log(data));`}</code></pre>
++            </em>
++          </li>
++          <li><strong>Exemplo: API do GitHub:</strong> permite acessar informações sobre repositórios, commits e outros dados do GitHub via HTTP.
++            <em>
++              <br />Exemplo de código:
++              <pre><code className="javascript">{`fetch('https://api.github.com/repos/octocat/Hello-World/commits')
++  .then(response => response.json())
++  .then(data => console.log(data));`}</code></pre>
++            </em>
++          </li>
++        </List>
++      </Container>
++
++      <Container>
++        <SectionTitle>
++          <Check>🛠️</Check> SDK
++        </SectionTitle>
++
++        <Paragraph>
++          SDK (Kit de Desenvolvimento de Software) é um conjunto de ferramentas que facilita o desenvolvimento de aplicações para uma plataforma ou serviço específico.
++          Ele fornece os recursos necessários para facilitar a integração com plataformas externas, como Firebase ou Stripe.
++        </Paragraph>
++
++        <div style={{ fontWeight: '600', marginBottom: '8px' }}>Exemplos reais:</div>
++
++        <List>
++          <li><strong>Firebase SDK (frontend/backend):</strong> facilita a integração com a plataforma Firebase.
++            <em>
++              <br />Exemplo de código (Firebase Authentication):
++              <pre><code className="javascript">{`import firebase from 'firebase/app';
++import 'firebase/auth';
++
++firebase.initializeApp({ 
++  apiKey: 'YOUR_API_KEY',
++  authDomain: 'YOUR_AUTH_DOMAIN',
++  projectId: 'YOUR_PROJECT_ID',
++});
++
++firebase.auth().createUserWithEmailAndPassword('email@example.com', 'password')
++  .then(user => console.log(user))
++  .catch(error => console.log(error));`}</code></pre>
++            </em>
++          </li>
++          <li><strong>Stripe SDK (frontend/backend):</strong> permite integração de pagamentos em sites e aplicativos.
++            <em>
++              <br />Exemplo de código (Stripe Checkout):
++              <pre><code className="javascript">{`const stripe = Stripe('YOUR_PUBLIC_KEY');
++const checkoutButton = document.getElementById('checkout-button');
++
++checkoutButton.addEventListener('click', () => {
++  stripe.redirectToCheckout({ sessionId: 'SESSION_ID' })
++    .then(result => {
++      if (result.error) {
++        alert(result.error.message);
++      }
++    });
++});`}</code></pre>
++            </em>
++          </li>
+         </List>
+       </Container>
+     </>
+diff --git a/src/components/diariodev/frontendTecnologiasNextjs/index.jsx b/src/components/diariodev/frontendTecnologiasNextjs/index.jsx
+index 8dcf56d..b9c8fe8 100644
+--- a/src/components/diariodev/frontendTecnologiasNextjs/index.jsx
++++ b/src/components/diariodev/frontendTecnologiasNextjs/index.jsx
+@@ -1,6 +1,12 @@
++import { useEffect } from 'react';
+ import { Container, SectionTitle, Check, List, Title, Paragraph, CodeBlockF0F0F0, Label, Separator, Bold } from "@/styles/globalStyles";
++import hljs from 'highlight.js'; // Importando o highlight.js
++import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
+ 
+ const FrontendTecnologiasNextjs = () => {
++  useEffect(() => {
++    hljs.highlightAll(); // Aplica o destaque de sintaxe a todos os blocos de código
++  }, []);
+ 
+   return (
+     <>
+@@ -83,7 +89,7 @@ const FrontendTecnologiasNextjs = () => {
+         <Label>kotlin</Label>
+ 
+         <CodeBlockF0F0F0>
+-          {`/pages               <- cada arquivo vira uma rota
++          <pre><code className="javascript">{`/pages               <- cada arquivo vira uma rota
+ /api               <- API routes (funções backend)
+ index.tsx          <- página principal
+ about.tsx          <- página about
+@@ -91,7 +97,7 @@ about.tsx          <- página about
+ /public              <- arquivos estáticos (imagens, favicon, etc)
+ 
+ /components          <- componentes React reutilizáveis
+-/styles              <- estilos globais, CSS Modules, etc.`}
++/styles              <- estilos globais, CSS Modules, etc.`}</code></pre>
+         </CodeBlockF0F0F0>
+       </Container>
+ 
+@@ -107,7 +113,7 @@ about.tsx          <- página about
+         </List>
+ 
+         <CodeBlockF0F0F0>
+-          {`export async function getStaticProps() {
++          <pre><code className="javascript">{`export async function getStaticProps() {
+   const data = await fetch('https://api.example.com/data');
+   const json = await data.json();
+ 
+@@ -116,7 +122,7 @@ about.tsx          <- página about
+       data: json,
+     },
+   };
+-}`}
++}`}</code></pre>
+         </CodeBlockF0F0F0>
+ 
+         <Separator />
+@@ -132,7 +138,7 @@ about.tsx          <- página about
+         </List>
+ 
+         <CodeBlockF0F0F0>
+-          {`export async function getServerSideProps(context) {
++          <pre><code className="javascript">{`export async function getServerSideProps(context) {
+   const res = await fetch('https://api.example.com/dynamic-data');
+   const data = await res.json();
+ 
+@@ -141,7 +147,7 @@ about.tsx          <- página about
+       data,
+     },
+   };
+-}`}
++}`}</code></pre>
+         </CodeBlockF0F0F0>
+ 
+         <Separator />
+@@ -168,243 +174,6 @@ about.tsx          <- página about
+           Se o seu projeto não exige dados dinâmicos (como conteúdo atualizado frequentemente ou personalizado para o usuário), o uso de <Bold>getStaticProps</Bold> é mais eficiente, pois gera páginas estáticas e proporciona uma performance melhor.
+         </Paragraph>
+       </Container>
+-
+-      <Container>
+-        <SectionTitle>1. getStaticProps (Renderização Estática)</SectionTitle>
+-
+-        <Paragraph>
+-          getStaticProps é utilizado quando você deseja gerar uma página de forma estática no momento da construção (build) do site.
+-          Ele permite que você pré-renderize páginas com dados que não mudam com frequência. Usar getStaticProps é útil para gerar páginas de conteúdo fixo ou quase fixo.
+-        </Paragraph>
+-
+-        <Paragraph><Bold>Como usar:</Bold></Paragraph>
+-        <Paragraph>
+-          No caso da página de projetos, se as informações das metatags (como título, descrição, etc.) são estáticas ou mudam muito raramente, você pode usar getStaticProps.
+-        </Paragraph>
+-
+-        <CodeBlockF0F0F0>
+-          {`import Head from "next/head";
+-
+-const Projetos = ({ metadata }) => {
+-  return (
+-    <>
+-      <Head>
+-        <title>{metadata.title}</title>
+-        <meta name="description" content={metadata.description} />
+-        <meta property="og:title" content={metadata.ogTitle} />
+-        <meta property="og:description" content={metadata.ogDescription} />
+-        <meta property="og:image" content={metadata.ogImage} />
+-        <meta property="og:url" content={metadata.url} />
+-      </Head>
+-      <div style={{ display: "flex" }}>
+-        {/* Seu conteúdo */}
+-      </div>
+-    </>
+-  );
+-};
+-
+-// Usado para carregar dados no momento da construção (build)
+-export async function getStaticProps() {
+-
+-  // Aqui você pode buscar dados de uma API, banco de dados ou usar valores fixos
+-
+-  const metadata = {
+-    title: "Portfólio de Desenvolvimento Web",
+-    description: "Descrição do portfólio",
+-    ogTitle: "Portfólio de Desenvolvimento Web",
+-    ogDescription: "Descrição do portfólio",
+-    ogImage: "https://link-da-imagem.jpg",
+-    url: "https://meuportfolio.com/projetos",
+-  };
+-
+-  return {
+-    props: { metadata }, // Passa os dados para o componente como props
+-  };
+-}
+-
+-export default Projetos;`}
+-        </CodeBlockF0F0F0>
+-
+-        <Paragraph><Bold>Vantagens de getStaticProps:</Bold></Paragraph>
+-        <List style={{ paddingLeft: '20px' }}>
+-          <li>A página é gerada apenas uma vez durante o build (não há renderização dinâmica no momento de acesso).</li>
+-          <li>As páginas são extremamente rápidas para carregar, pois já estão geradas e prontas para serem entregues aos usuários.</li>
+-        </List>
+-
+-        <Paragraph><Bold>Quando usar:</Bold></Paragraph>
+-        <List style={{ paddingLeft: '20px' }}>
+-          <li>Quando o conteúdo não muda com frequência (por exemplo, descrições ou metatags fixas).</li>
+-          <li>Quando você não precisa de dados que variam a cada solicitação do usuário.</li>
+-        </List>
+-      </Container>
+-
+-      <Container>
+-        <SectionTitle>1.1 Cenários onde você usaria getStaticProps</SectionTitle>
+-
+-        <Paragraph>
+-          Com getStaticProps:
+-        </Paragraph>
+-
+-        <Paragraph>
+-          Se o conteúdo descritivo ou meta-informações (como o título, descrição ou destaques do projeto) forem armazenados em um CMS (como Strapi ou Sanity) ou em uma API, você poderia usar getStaticProps para buscar os dados na build e construir a página.
+-        </Paragraph>
+-
+-        <CodeBlockF0F0F0>
+-          {`export async function getStaticProps() {
+-
+-  const response = await fetch("https://api.example.com/project-data");
+-  const projectData = await response.json();
+-
+-  return {
+-    props: {
+-      projectData,
+-    },
+-    revalidate: 60, // Atualiza os dados a cada 60 segundos
+-  };
+-}`}
+-        </CodeBlockF0F0F0>
+-      </Container>
+-
+-      <Container>
+-        <SectionTitle>2. getServerSideProps (Renderização no Lado do Servidor)</SectionTitle>
+-
+-        <Paragraph>
+-          getServerSideProps é usado quando você precisa de dados dinâmicos que são gerados a cada requisição, ou seja, sempre que a página for carregada. Isso é útil se as metatags, por exemplo, dependerem de parâmetros dinâmicos ou de dados que mudam frequentemente (como informações de usuários ou dados em tempo real).
+-        </Paragraph>
+-
+-        <Paragraph><Bold>Como usar:</Bold></Paragraph>
+-        <Paragraph>
+-          Se as informações das metatags ou o conteúdo da página precisam ser dinâmicas e geradas a cada requisição (por exemplo, metatags personalizadas para cada usuário ou página), use getServerSideProps.
+-        </Paragraph>
+-
+-        <CodeBlockF0F0F0>
+-          {`import Head from "next/head";
+-
+-const Projetos = ({ metadata }) => {
+-
+-  return (
+-    <>
+-      <Head>
+-        <title>{metadata.title}</title>
+-        <meta name="description" content={metadata.description} />
+-        <meta property="og:title" content={metadata.ogTitle} />
+-        <meta property="og:description" content={metadata.ogDescription} />
+-        <meta property="og:image" content={metadata.ogImage} />
+-        <meta property="og:url" content={metadata.url} />
+-      </Head>
+-
+-      <div style={{ display: "flex" }}>
+-        {/* Seu conteúdo */}
+-      </div>
+-    </>
+-  );
+-};`}
+-        </CodeBlockF0F0F0>
+-
+-        <CodeBlockF0F0F0>
+-          {`// Usado para carregar dados sempre que a página for acessada
+-
+-export async function getServerSideProps() {
+-
+-  // Aqui você pode buscar dados dinâmicos de uma API ou banco de dados
+-
+-  const metadata = {
+-    title: "Portfólio de Desenvolvimento Web",
+-    description: "Descrição atualizada do portfólio",
+-    ogTitle: "Portfólio de Desenvolvimento Web",
+-    ogDescription: "Descrição atualizada do portfólio",
+-    ogImage: "https://link-da-imagem.jpg",
+-    url: "https://meuportfolio.com/projetos",
+-  };
+-
+-  return {
+-    props: { metadata }, // Passa os dados para o componente como props
+-  };
+-}
+-
+-export default Projetos;`}
+-        </CodeBlockF0F0F0>
+-
+-        <Paragraph><Bold>Vantagens de getServerSideProps:</Bold></Paragraph>
+-        <List style={{ paddingLeft: '20px' }}>
+-          <li>Gera conteúdo dinâmico sempre que a página é acessada.</li>
+-          <li>Ideal para casos onde as informações podem mudar frequentemente e precisam ser sempre atualizadas.</li>
+-        </List>
+-
+-        <Paragraph><Bold>Quando usar:</Bold></Paragraph>
+-        <List style={{ paddingLeft: '20px' }}>
+-          <li>Quando você precisa gerar conteúdo dinâmico, baseado em dados de um banco de dados ou API, em cada requisição.</li>
+-          <li>Para páginas com conteúdo que muda frequentemente e que não pode ser gerado apenas na construção.</li>
+-        </List>
+-      </Container>
+-
+-      <Container>
+-        <SectionTitle>2.2 Cenários onde você usaria getServerSideProps</SectionTitle>
+-
+-        <Paragraph>
+-          Com getServerSideProps:
+-        </Paragraph>
+-
+-        <Paragraph>
+-          Caso o conteúdo dependa de informações dinâmicas do usuário ou precise de atualizações frequentes (exemplo: autenticação ou parâmetros dinâmicos na URL), você poderia usar getServerSideProps.
+-        </Paragraph>
+-
+-        <CodeBlockF0F0F0>
+-          {`export async function getServerSideProps(context) {
+-
+-  const { params, req } = context;
+-  const response = await fetch(\`https://api.example.com/data?id=\${params.id}\`, {
+-    headers: { Authorization: \`Bearer \${req.cookies.token}\` },
+-  });
+-  const data = await response.json();
+-
+-  return {
+-    props: {
+-      data,
+-    },
+-  };
+-}`}
+-        </CodeBlockF0F0F0>
+-      </Container>
+-
+-      <Container>
+-        <SectionTitle>
+-          <Check>📌</Check> Resumo
+-        </SectionTitle>
+-
+-        <div>
+-          <Bold>getStaticProps:</Bold>
+-          <Paragraph>
+-            Ideal para dados estáticos ou que mudam raramente.
+-            <br />
+-            A página é pré-gerada no build e pode ser entregue rapidamente aos usuários.
+-          </Paragraph>
+-        </div>
+-
+-        <Separator />
+-
+-        <div>
+-          <Bold>getServerSideProps:</Bold>
+-          <Paragraph>
+-            Ideal para dados dinâmicos que precisam ser atualizados a cada requisição.
+-            <br />
+-            A página é gerada no servidor, a cada solicitação, o que pode aumentar o tempo de resposta.
+-          </Paragraph>
+-        </div>
+-
+-        <Separator />
+-
+-        <div>
+-          <Bold>Resumo geral:</Bold>
+-          <Paragraph>
+-            Se as metatags e os dados não mudam frequentemente, use getStaticProps para gerar a página de forma estática e mais rápida.
+-            <br />
+-            Se você precisa de dados que mudam frequentemente ou variam com base na requisição (como dados do usuário ou parâmetros dinâmicos), use getServerSideProps.
+-            <br />
+-            Isso ajudará a garantir que o conteúdo do {'<head>'}, como as metatags, seja sempre gerado corretamente e otimizado para SEO.
+-          </Paragraph>
+-        </div>
+-      </Container>
+     </>
+   );
+ };
+diff --git a/src/components/eCommerce/index.js b/src/components/eCommerce/index.js
+index 6b31bef..22c870e 100644
+--- a/src/components/eCommerce/index.js
++++ b/src/components/eCommerce/index.js
+@@ -37,4 +37,5 @@ export const CollapsibleContent = styled.div`
+ export const H2 = styled.h2`
+ text-align: center;
+ margin-bottom: 20px;
++font-size: 16px;
+ `;
+\ No newline at end of file
+diff --git a/src/components/eCommerce/stackDesenvolvimento/index.jsx b/src/components/eCommerce/stackDesenvolvimento/index.jsx
+index cf2cbe4..84c15b1 100644
+--- a/src/components/eCommerce/stackDesenvolvimento/index.jsx
++++ b/src/components/eCommerce/stackDesenvolvimento/index.jsx
+@@ -45,13 +45,17 @@ const DevStack = () => {
+     fontWeight: '500',
+   };
+ 
++  const completedItem = {
++    textDecoration: 'line-through',
++  };
++
+   return (
+     <div style={container}>
+       <h2 style={sectionTitle}>Stack de Desenvolvimento</h2>
+ 
+       <h3 style={sectionTitle}>Frontend:</h3>
+       <ul style={list}>
+-        <li style={listItem}><span style={{ fontWeight: '700' }}>React.js</span> - Biblioteca JavaScript para construir interfaces de usuário.</li>
++        <li style={listItem}><span style={{ fontWeight: '700' }}>React.js</span> <span style={completedItem}> Biblioteca JavaScript para construir interfaces de usuário.</span></li>
+         <li style={listItem}><span style={{ fontWeight: '700' }}>Next.js</span> - Framework para rotas, SSR (Server-Side Rendering) e otimização de SEO.</li>
+         <li style={listItem}><span style={{ fontWeight: '700' }}>styled-components</span> - Biblioteca para estilização utilizando CSS-in-JS.</li>
+         <li style={listItem}><span style={{ fontWeight: '700' }}>Axios ou Fetch</span> - Bibliotecas para realizar requisições HTTP.</li>
+diff --git a/src/pages/diario-dev/index.jsx b/src/pages/diario-dev/index.jsx
+index be66e7c..10b7926 100644
+--- a/src/pages/diario-dev/index.jsx
++++ b/src/pages/diario-dev/index.jsx
+@@ -44,7 +44,7 @@ const Projetos = () => {
+   // const ComponenteTech03 = () => <p>Conteúdo do componente Tech 03</p>;
+ 
+   const sections = [
+-    { title: "Bibliotecas / Ferramentas", component: <BibliotecasFerramentas /> },
++    { title: "Bibliotecas / Ferramentas / API / SDK", component: <BibliotecasFerramentas /> },
+     { title: "Arquitetura Monolitica", component: <ArquiteturaMonolitica /> },
+     { title: "Arquitetura Microservices", component: <ArquiteturaMicroservices /> },
+     { title: "Backend com JavaScript NodeJS", component: <BackendNodeJS /> },
+diff --git a/yarn.lock b/yarn.lock
+index 6a30b35..6065d34 100644
+--- a/yarn.lock
++++ b/yarn.lock
+@@ -1771,6 +1771,11 @@ hasown@^2.0.0, hasown@^2.0.1, hasown@^2.0.2:
+   dependencies:
+     function-bind "^1.1.2"
+ 
++highlight.js@^11.11.1:
++  version "11.11.1"
++  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.11.1.tgz#fca06fa0e5aeecf6c4d437239135fabc15213585"
++  integrity sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w==
++
+ ignore@^5.2.0, ignore@^5.3.1:
+   version "5.3.2"
+   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.3.2.tgz#3cd40e729f3643fd87cb04e50bf0eb722bc596f5"
