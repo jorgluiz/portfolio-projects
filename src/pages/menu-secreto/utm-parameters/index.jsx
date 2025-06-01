@@ -179,68 +179,6 @@ const GA4NextJsIntegration = () => {
                       {`utm_source=blog&utm_medium=referral&utm_campaign=parceiros`}
                     </code>
                   </pre>
-
-                  <SectionTitle>Como funciona:</SectionTitle>
-                  <Paragraph>
-                    Parâmetros UTM são pequenos pedaços de texto que você adiciona ao final de uma URL. Por exemplo:
-                  </Paragraph>
-                  <pre>
-                    <code className='javascript'>
-                      {`https://seusite.com?utm_source=whatsapp&utm_medium=social&utm_campaign=compartilhamento`}
-                    </code>
-                  </pre>
-
-                  <SectionTitle>Os parâmetros que você pode adicionar são:</SectionTitle>
-                  <List>
-                    <li><strong>utm_source:</strong> De onde vem o tráfego (ex: WhatsApp, LinkedIn, Facebook, etc.).</li>
-                    <li><strong>utm_medium:</strong> Como o tráfego foi enviado (ex: social, email, CPC, etc.).</li>
-                    <li><strong>utm_campaign:</strong> A campanha de marketing específica ou objetivo (ex: "compartilhamento", "promoção_fevereiro", etc.).</li>
-                    <li><strong>utm_term (opcional):</strong> Para campanhas pagas, você pode incluir palavras-chave.</li>
-                    <li><strong>utm_content (opcional):</strong> Usado para distinguir variações de anúncios ou links.</li>
-                  </List>
-
-                  <SectionTitle>Como adicionar parâmetros UTM:</SectionTitle>
-                  <Paragraph>
-                    Crie a URL com UTM: Suponhamos que o seu link original seja <pre><code>https://portfolio-projects-production.up.railway.app</code></pre>
-                  </Paragraph>
-                  <Paragraph>
-                    Você pode criar um link para o WhatsApp assim:
-                    <pre>
-                      <code>
-                        {`https://portfolio-projects-production.up.railway.app?utm_source=whatsapp&utm_medium=social&utm_campaign=compartilhamento`}
-                      </code>
-                    </pre>
-                  </Paragraph>
-
-                  <SectionTitle>Como visualizar no Google Analytics:</SectionTitle>
-                  <Paragraph>
-                    No Google Analytics, você pode acessar as informações dos cliques nos links com UTM ao navegar até <strong>relatórios</strong> → <strong>Gerar leads</strong> → <strong>Visão geral</strong> → <strong>Conferir campanhas manuais</strong>. Lá, você verá relatórios sobre o tráfego baseado nos parâmetros UTM que você configurou.
-                  </Paragraph>
-
-                  <SectionTitle>Passos para compartilhar no WhatsApp:</SectionTitle>
-                  <List>
-                    <li>Crie o link com UTM.</li>
-                    <li>Compartilhe no WhatsApp ou em qualquer plataforma que desejar.</li>
-                    <li>Ao clicar no link, a pessoa será redirecionada para o seu site, e o Google Analytics poderá rastrear de onde veio o clique.</li>
-                  </List>
-
-                  <SectionTitle>Exemplo:</SectionTitle>
-                  <Paragraph>
-                    Se você criar esse link para compartilhar no WhatsApp:
-                  </Paragraph>
-                  <pre>
-                    <code>
-                      {`https://portfolio-projects-production.up.railway.app?utm_source=whatsapp&utm_medium=social&utm_campaign=compartilhamento`}
-                    </code>
-                  </pre>
-                  <Paragraph>
-                    E alguém clicar nele, o Google Analytics registrará que o tráfego veio do WhatsApp <strong>(utm_source)</strong>, por um link social <strong>(utm_medium)</strong> e foi parte da campanha de compartilhamento <strong>(utm_campaign)</strong>.
-                  </Paragraph>
-
-                  <SectionTitle>Conclusão:</SectionTitle>
-                  <Paragraph>
-                    Essa técnica de usar UTM Parameters permite rastrear com precisão de onde vem o tráfego e como os usuários interagem com o seu site após clicar no link. Isso é fundamental para campanhas de marketing, promoções e para otimizar a análise de tráfego e conversões.
-                  </Paragraph>
                 </Container>
               </div>
             </MainContentLayout>
