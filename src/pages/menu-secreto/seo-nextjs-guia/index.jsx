@@ -188,7 +188,7 @@ module.exports = config;`}</code>
                       </pre>
                     </Paragraph>
 
-                    <Subtitle>3. Verifique a propriedade</Subtitle>
+                    <Subtitle>3. Verificar propriedade</Subtitle>
                     <Paragraph>Você pode verificar de duas formas principais:</Paragraph>
 
                     <Subtitle>a) Upload do arquivo HTML</Subtitle>
@@ -201,7 +201,7 @@ module.exports = config;`}</code>
                       </code>
                     </pre>
 
-                    <Subtitle>b) Meta tag de verificação</Subtitle>
+                    <Subtitle>b) Tag HTML</Subtitle>
                     <Paragraph>
                       Copie a meta tag que o Search Console fornecer, por exemplo:
                     </Paragraph>
@@ -211,7 +211,7 @@ module.exports = config;`}</code>
                       </code>
                     </pre>
                     <Paragraph>
-                      Cole essa meta tag na seção {`<Head>`} da página inicial do seu site Ex: em pages/index.jsx no Next.js:
+                      Cole essa meta tag na seção {`<Head>`} da <strong>página inicial</strong> do seu site Ex: em pages/index.jsx no Next.js:
                     </Paragraph>
 
                     <pre>
@@ -232,7 +232,12 @@ export default function Home() {
                     </pre>
 
                     <Paragraph>
-                      Após adicionar, volte ao Search Console e clique em <strong>Verificar</strong>.
+                      Após adicionar a meta tag, crie um commit e suba as alterações para o seu repositório Git.
+                      <br />
+                      Em seguida, volte ao Google Search Console e clique em <strong>Verificar</strong>.
+                    </Paragraph>
+                    <Paragraph>
+
                     </Paragraph>
 
                     <Subtitle>4. Adicionar sitemap para mapear suas rotas</Subtitle>
