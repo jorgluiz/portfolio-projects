@@ -33,11 +33,32 @@ const GA4NextJsIntegration = () => {
   return (
     <>
       <Head>
-        <title>Passo a passo: integrar Google Analytics 4 (GA4) no Next.js</title>
+        {/* Primary Meta Tags */}
+        <title>Passo a Passo: Integrar Google Analytics 4 (GA4) no Next.js | Guia Completo</title>
         <meta
           name="description"
-          content="Guia completo para integrar Google Analytics 4 (GA4) em projetos Next.js com otimizações e melhores práticas."
+          content="Guia completo para integrar o Google Analytics 4 (GA4) em projetos Next.js. Aprenda como rastrear tráfego e interações no seu site usando UTM Parameters e otimizações para análise de dados."
         />
+        <meta
+          name="keywords"
+          content="Google Analytics 4, GA4, Next.js, SEO, rastreamento, UTM parameters, integração, análise de dados"
+        />
+        <meta name="author" content="Jorge Luiz" />
+
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/utm-parameters" />
+        <meta property="og:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+        <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/utm-parameters" />
+        <meta property="twitter:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+        <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
       </Head>
 
       {!isLoaded ? null : (

@@ -6,7 +6,6 @@ import {
   SectionTitle,
   Subtitle,
   Paragraph,
-  CodeBlock,
   List,
   Link,
   VideoYouTube,
@@ -36,11 +35,32 @@ const SEOParaNextJs = () => {
   return (
     <>
       <Head>
-        <title>Como garantir que seu projeto Next.js seja encontrado no Google</title>
+        {/* Primary Meta Tags */}
+        <title>Como garantir que seu projeto Next.js seja encontrado no Google | SEO para Next.js</title>
         <meta
           name="description"
-          content="Guia completo para otimizar seu projeto Next.js para SEO e garantir que seja encontrado pelos motores de busca."
+          content="Guia completo para otimizar seu projeto Next.js para SEO e garantir que seja encontrado pelos motores de busca, incluindo integração com Google Search Console, sitemap, e robots.txt."
         />
+        <meta
+          name="keywords"
+          content="Next.js, SEO, Google Search Console, sitemap, robots.txt, otimização SEO, indexação, desenvolvimento web"
+        />menu-secreto/seo-nextjs-guia
+        <meta name="author" content="Jorge Luiz" />
+
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/seo-nextjs-guia" />
+        <meta property="og:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+        <meta property="og:description" content="Conheça meu portfólio de projetos de desenvolvimento web! Trabalho com tecnologias como ReactJS, NextJS, Node.js e muito mais." />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/seo-nextjs-guia" />
+        <meta property="twitter:title" content="Portfólio de Projetos | Desenvolvedor Full Stack com React, Next.js e Node.js" />
+        <meta property="twitter:description" content="Olá! Eu sou Jorge Luiz, desenvolvedor web especializado em frontend com ReactJS, NextJS e backend com Node.js. Explore meus projetos de sites modernos e aplicações robustas." />
+        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
       </Head>
 
       {!isLoaded ? null : (
@@ -125,7 +145,11 @@ module.exports = config;`}</code>
                         </pre>
                       </li>
                       <li>Gere o sitemap executando:
-                        <CodeBlock>npx next-sitemap</CodeBlock>
+                        <pre>
+                          <code>
+                            npx next-sitemap
+                          </code>
+                        </pre>
                         Isso criará automaticamente o <strong>sitemap.xml</strong> (e o <strong>robots.txt</strong>, se configurado) na pasta public.
                       </li>
                     </List>
@@ -157,7 +181,11 @@ module.exports = config;`}</code>
                     <Paragraph>
                       Clique em <strong>Adicionar Propriedade</strong>. Insira o domínio do seu site, por exemplo:
                       <br />
-                      <CodeBlock>https://portfolio-projects-production.up.railway.app</CodeBlock>
+                      <pre>
+                        <code>
+                          https://portfolio-projects-production.up.railway.app
+                        </code>
+                      </pre>
                     </Paragraph>
 
                     <Subtitle>3. Verifique a propriedade</Subtitle>

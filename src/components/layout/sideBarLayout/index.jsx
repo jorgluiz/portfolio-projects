@@ -150,20 +150,23 @@ const SideBar = () => {
                     NodeJS Frameworks
                   </Span>
                 </li>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/menu-secreto/analytics-ga4-install')}
-                    className={activeLink === '/menu-secreto/analytics-ga4-install' ? 'active' : ''}
-                  >
-                    Integrar Google Analytics 4 (GA4) no Next.js
-                  </Span>
-                </li>
+              </ul>
+              <TitleMenuSecret>Marketing dígital</TitleMenuSecret>
+              <ul>
                 <li>
                   <Span
                     onClick={() => handleNavigate('/menu-secreto/seo-nextjs-guia')}
                     className={activeLink === '/menu-secreto/seo-nextjs-guia' ? 'active' : ''}
                   >
                     SEO NextJS guia
+                  </Span>
+                </li>
+                <li>
+                  <Span
+                    onClick={() => handleNavigate('/menu-secreto/analytics-ga4-install')}
+                    className={activeLink === '/menu-secreto/analytics-ga4-install' ? 'active' : ''}
+                  >
+                    Integrar Google Analytics 4 (GA4) no Next.js
                   </Span>
                 </li>
                 <li>

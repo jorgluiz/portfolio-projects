@@ -133,6 +133,7 @@ export const TitleMenuSecret = styled.h3`
   font-weight: 600;
   color: #d1dfed;
   user-select: none;
+  text-decoration: underline;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none;     /* IE/Edge */
 `;
