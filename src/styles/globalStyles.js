@@ -429,3 +429,7 @@ export const TdBuildProject = styled.td`
   border-bottom: 1px solid #ddd;
   color: #555;
 `;
+
+export const CodeContainer = styled.div`
+width: 100%;
+`;

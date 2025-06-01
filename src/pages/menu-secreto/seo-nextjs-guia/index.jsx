@@ -9,7 +9,8 @@ import {
   CodeBlock,
   List,
   Link,
-  VideoYouTube
+  VideoYouTube,
+  CodeContainer
 } from "@/styles/globalStyles";
 
 import { MainLayout } from "@/components/layout/mainLayout";
@@ -49,7 +50,7 @@ const SEOParaNextJs = () => {
             <SideBarLayout />
             <HeaderLayout />
             <MainContentLayout>
-              <div>
+              <CodeContainer>
                 <div>
                   <Container>
                     <SectionTitle>Como garantir que seu projeto Next.js seja encontrado no Google 1/2</SectionTitle>
@@ -277,7 +278,7 @@ https://portfolio-projects-production.up.railway.app/sitemap-0.xml`}
                     title="Vídeo do YouTube"
                   />
                 </VideoYouTube>
-              </div>
+              </CodeContainer>
 
             </MainContentLayout>
           </MainLayout>

@@ -212,6 +212,7 @@ import {
   CodeBlock,
   List,
   Link,
+  CodeContainer
   // BoldText removed
 } from "@/styles/globalStyles";
 
@@ -223,6 +224,8 @@ import Overlay from "@/components/overlay";
 
 import hljs from 'highlight.js'; // Importando o highlight.js
 import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
+
+
 
 const GA4NextJsIntegration = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
@@ -251,7 +254,7 @@ const GA4NextJsIntegration = () => {
             <SideBarLayout />
             <HeaderLayout />
             <MainContentLayout>
-              <div>
+              <CodeContainer>
                 <Container>
                   <SectionTitle>
                     Passo a passo para integrar Google Analytics 4 (GA4) no Next.js
@@ -450,7 +453,7 @@ export default MyApp;`}
                     resultados. É essencial para quem deseja crescer de forma inteligente e com embasamento real.
                   </Paragraph>
                 </Container>
-              </div>
+              </CodeContainer>
             </MainContentLayout>
           </MainLayout>
         </>

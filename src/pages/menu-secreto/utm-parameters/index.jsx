@@ -9,6 +9,7 @@ import {
   CodeBlock,
   List,
   Link,
+  CodeContainer
 } from "@/styles/globalStyles";
 
 import { MainLayout } from "@/components/layout/mainLayout";
@@ -46,7 +47,7 @@ const GA4NextJsIntegration = () => {
             <SideBarLayout />
             <HeaderLayout />
             <MainContentLayout>
-              <div>
+              <CodeContainer>
                 <Container>
                   <SectionTitle>
                     A técnica UTM Parameters.
@@ -180,7 +181,7 @@ const GA4NextJsIntegration = () => {
                     </code>
                   </pre>
                 </Container>
-              </div>
+              </CodeContainer>
             </MainContentLayout>
           </MainLayout>
         </>
