@@ -166,6 +166,14 @@ const SideBar = () => {
                     SEO NextJS guia
                   </Span>
                 </li>
+                <li>
+                  <Span
+                    onClick={() => handleNavigate('/menu-secreto/utm-parameters')}
+                    className={activeLink === '/menu-secreto/utm-parameters' ? 'active' : ''}
+                  >
+                    UTM Parameters
+                  </Span>
+                </li>
               </ul>
             </Menu>
           </>

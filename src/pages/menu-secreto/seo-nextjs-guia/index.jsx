@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Head from "next/head";
 import { useGlobalState } from "../../../context/GlobalStateContext";
 import {
@@ -17,10 +18,19 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
 
+import hljs from 'highlight.js'; // Importando o highlight.js
+import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
+
+
 const SEOParaNextJs = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
 
   const handleOverlayClick = () => setIsHamburguerOpen(false);
+
+  useEffect(() => {
+    hljs.highlightAll(); // Aplica o destaque de sintaxe a todos os blocos de código
+  }, []);
+
 
   return (
     <>
@@ -68,11 +78,13 @@ const SEOParaNextJs = () => {
                     <List>
                       <li>Crie um arquivo <strong>robots.txt</strong> na pasta <strong>public</strong> do seu projeto.</li>
                       <li>Use este conteúdo básico para liberar o rastreamento:
-                        <CodeBlock>
-                          {`User-agent: *
+                        <pre>
+                          <code className="javascript">
+                            {`User-agent: *
 Allow: /
 Sitemap: https://portfolio-projects-production.up.railway.app/sitemap.xml`}
-                        </CodeBlock>
+                          </code>
+                        </pre>
                       </li>
                     </List>
 
@@ -82,24 +94,34 @@ Sitemap: https://portfolio-projects-production.up.railway.app/sitemap.xml`}
                     </Paragraph>
                     <Paragraph>Passos:</Paragraph>
                     <List>
-                      <li>Instale o pacote <CodeBlock>next-sitemap</CodeBlock>:
-                        <CodeBlock>
-                          {`npm install next-sitemap
+                      <li style={{ marginBottom: "20px" }}>
+                        Instale o pacote
+                        <pre>
+                          <code className="javascript">
+                            next-sitemap
+                          </code>
+                        </pre>
+                      </li>
+                      <li style={{ marginBottom: "10px" }}>
+                        <pre>
+                          <code className="javascript">
+                            {`npm install next-sitemap
 # ou
-yarn add next-sitemap`}
-                        </CodeBlock>
+yarn add next-sitemap`}</code>
+                        </pre>
                       </li>
                       <li>Crie o arquivo <strong>next-sitemap.config.js</strong> na raiz do projeto com o seguinte conteúdo:
-                        <CodeBlock>
-                          {`/** @type {import('next-sitemap').IConfig} */
+                        <pre>
+                          <code className="javascript">
+                            {`/** @type {import('next-sitemap').IConfig} */
 const config = {
   siteUrl: 'https://portfolio-projects-production.up.railway.app', // Seu domínio
   generateRobotsTxt: true, // Gera automaticamente o robots.txt
   sitemapSize: 5000,
 };
 
-module.exports = config;`}
-                        </CodeBlock>
+module.exports = config;`}</code>
+                        </pre>
                       </li>
                       <li>Gere o sitemap executando:
                         <CodeBlock>npx next-sitemap</CodeBlock>
@@ -141,27 +163,31 @@ module.exports = config;`}
                     <Paragraph>Você pode verificar de duas formas principais:</Paragraph>
 
                     <Subtitle>a) Upload do arquivo HTML</Subtitle>
-                    <List>
-                      <li>Baixe o arquivo de verificação fornecido pelo Search Console.</li>
-                      <li>Faça upload do arquivo na raiz do seu projeto para que fique acessível em:
-                        <br />
-                        <CodeBlock>https://seusite.com/googleXXXX.html</CodeBlock>
-                      </li>
-                    </List>
+
+                    <Paragraph>Baixe o arquivo de verificação fornecido pelo Search Console.</Paragraph>
+                    <Paragraph>Faça upload do arquivo na raiz do seu projeto para que fique acessível em:</Paragraph>
+                    <pre>
+                      <code className="javascript">
+                        https://seusite.com/googleXXXX.html
+                      </code>
+                    </pre>
 
                     <Subtitle>b) Meta tag de verificação</Subtitle>
                     <Paragraph>
                       Copie a meta tag que o Search Console fornecer, por exemplo:
                     </Paragraph>
-                    <CodeBlock>
-                      {`<meta name="google-site-verification" content="SEU_CODIGO_DE_VERIFICACAO" />`}
-                    </CodeBlock>
+                    <pre>
+                      <code className="javascript">
+                        {`<meta name="google-site-verification" content="SEU_CODIGO_DE_VERIFICACAO" />`}
+                      </code>
+                    </pre>
                     <Paragraph>
-                      Cole essa meta tag na seção <CodeBlock>{`<Head>`}</CodeBlock> da página inicial do seu site (ex: em <CodeBlock>pages/index.jsx</CodeBlock> no Next.js):
+                      Cole essa meta tag na seção {`<Head>`} da página inicial do seu site Ex: em pages/index.jsx no Next.js:
                     </Paragraph>
 
-                    <CodeBlock>
-                      {`import Head from 'next/head'
+                    <pre>
+                      <code className="javascript">
+                        {`import Head from 'next/head'
 
 export default function Home() {
   return (
@@ -173,7 +199,8 @@ export default function Home() {
     </>
   )
 }`}
-                    </CodeBlock>
+                      </code>
+                    </pre>
 
                     <Paragraph>
                       Após adicionar, volte ao Search Console e clique em <strong>Verificar</strong>.
@@ -194,10 +221,12 @@ export default function Home() {
                     <Paragraph>
                       Na pasta public do seu projeto, normalmente estão os arquivos sitemap.xml e sitemap-0.xml. Adicione as URLs dos sitemaps, por exemplo:
                     </Paragraph>
-                    <CodeBlock>
-                      {`https://portfolio-projects-production.up.railway.app/sitemap.xml  
+                    <pre>
+                      <code className="javascript">
+                        {`https://portfolio-projects-production.up.railway.app/sitemap.xml  
 https://portfolio-projects-production.up.railway.app/sitemap-0.xml`}
-                    </CodeBlock>
+                      </code>
+                    </pre>
                     <Paragraph>Clique em <strong>Enviar</strong>.</Paragraph>
 
                     <Subtitle>Observação importante</Subtitle>

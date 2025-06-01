@@ -201,6 +201,7 @@
 
 // export default GA4NextJsIntegration;
 
+import { useEffect } from 'react';
 import Head from "next/head";
 import { useGlobalState } from "../../../context/GlobalStateContext";
 import {
@@ -220,10 +221,18 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
 
+import hljs from 'highlight.js'; // Importando o highlight.js
+import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
+
 const GA4NextJsIntegration = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
 
   const handleOverlayClick = () => setIsHamburguerOpen(false);
+
+  useEffect(() => {
+    hljs.highlightAll(); // Aplica o destaque de sintaxe a todos os blocos de código
+  }, []);
+
 
   return (
     <>
@@ -307,8 +316,9 @@ const GA4NextJsIntegration = () => {
 
                   <Subtitle>6. Obter o Código de Rastreamento (gtag.js)</Subtitle>
                   <Paragraph>Após criar o fluxo, o Google gera um código como este:</Paragraph>
-                  <CodeBlock>
-                    {`<!-- Google tag (gtag.js) -->
+                  <pre>
+                    <code>
+                      {`<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -317,12 +327,14 @@ const GA4NextJsIntegration = () => {
 
   gtag('config', 'G-XXXXXXXXXX');
 </script>`}
-                  </CodeBlock>
+                    </code>
+                  </pre>
 
                   <Subtitle>7. Implementar no Next.js (arquivo _app.jsx)</Subtitle>
                   <Paragraph>Use o código abaixo para integrar o GA no seu Next.js:</Paragraph>
-                  <CodeBlock>
-                    {`import { useEffect } from 'react';
+                  <pre>
+                    <code>
+                      {`import { useEffect } from 'react';
 import Script from 'next/script';
 
 import { GlobalStyle } from '@/components/globalStyles';
@@ -352,8 +364,8 @@ const MyApp = ({ Component, pageProps }) => {
 };
 
 export default MyApp;`}
-                  </CodeBlock>
-
+                    </code>
+                  </pre>
                   <Subtitle>Observações Importantes</Subtitle>
                   <List>
                     <li>Substitua &apos;G-JXELT2K8RB&apos; pelo seu próprio ID GA4 obtido no Google Analytics.</li>
