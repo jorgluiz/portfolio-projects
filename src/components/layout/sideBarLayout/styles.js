@@ -150,7 +150,7 @@ export const TitleName = styled.h3`
 
 
 export const SubTitle = styled.p`
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   color: #d1dfed;
   user-select: none;

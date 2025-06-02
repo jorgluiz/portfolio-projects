@@ -21,6 +21,7 @@ import DesignUIUX from "@/components/diariodev/designUIUx";
 import FrontendTecnologiasNextjs from "@/components/diariodev/frontendTecnologiasNextjs";
 import GitCommands from "@/components/diariodev/comandosGitHub";
 import ExpressServersDifference from "@/components/diariodev/expressHtmlServervsExpressEJSserver";
+import NgrokUsage from "@/components/diariodev/ngrok";
 
 
 // 1. Efeito de redimensionamento da tela
@@ -51,8 +52,9 @@ const Projetos = () => {
     { title: "Frontend com ReactJS", component: <FrontendTecnologiasReactjs /> },
     { title: "Design UI e UX em ReactJS", component: <DesignUIUX /> },
     { title: "Frontend com NextJS", component: <FrontendTecnologiasNextjs /> },
-    { title: "Express HTML server e express EJS server", component: <ExpressServersDifference /> },
+    { title: "Express HTML server e Express EJS server", component: <ExpressServersDifference /> },
     { title: "Comandos GitHub", component: <GitCommands /> },
+    { title: "Ngrok", component: <NgrokUsage /> },
   ];
 
 
