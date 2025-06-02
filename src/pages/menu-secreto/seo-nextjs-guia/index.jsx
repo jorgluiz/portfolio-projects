@@ -245,7 +245,7 @@ export default function Home() {
                       Acesse a página de sitemaps do Search Console do seu site:
                       <br />
                       <Link
-                        href="https://search.google.com/search-console/sitemaps?resource_id=SEU_DOMINIO"
+                        href="https://search.google.com/search-console/sitemaps?resource_id=https%3A%2F%2Fportfolio-projects-production.up.railway.app%2F"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -253,7 +253,7 @@ export default function Home() {
                       </Link>
                     </Paragraph>
                     <Paragraph>
-                      Na pasta public do seu projeto, normalmente estão os arquivos sitemap.xml e sitemap-0.xml. Adicione as URLs dos sitemaps, por exemplo:
+                      Na pasta public do seu projeto, normalmente estão os arquivos <strong>sitemap.xml </strong>e <strong>sitemap-0.xml</strong>. Adicione as URLs dos sitemaps, por exemplo:
                     </Paragraph>
                     <pre>
                       <code className="javascript">

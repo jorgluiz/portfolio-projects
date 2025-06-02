@@ -64,8 +64,8 @@ const SideBar = () => {
           <Image src={perfil} width={150} height={150} style={{ borderRadius: '50%' }} className="profile-image" alt="img" draggable={false} />
         </ImgPerfil>
 
-        <TitleName onClick={cliqueSecreto}>Jorge Luiz de Medeiros e Silva Jr</TitleName>
-        <SubTitle>Web Developer</SubTitle>
+        <TitleName onClick={cliqueSecreto}>Jorge Luiz</TitleName>
+        <SubTitle>Web Developer Frontend</SubTitle>
         <div style={{ width: "260px", border: "solid 1px #243B53", marginTop: "20px", marginBottom: "10px" }}></div>
         <Menu>
           <ul>

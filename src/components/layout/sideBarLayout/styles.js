@@ -143,6 +143,7 @@ export const TitleName = styled.h3`
   font-weight: 600;
   color: #d1dfed;
   user-select: none;
+  margin: 11px;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none;     /* IE/Edge */
 `;
