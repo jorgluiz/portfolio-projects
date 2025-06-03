@@ -69,6 +69,10 @@ export const Menu = styled.div`
     color: #00BFFF  ; /* Cor para o link ativo */
     /* font-weight: bold; Torna o link ativo em negrito */
   }
+
+  &.text-center-menu-secreto {
+    text-align: center;
+  }
 `;
 
 export const XContainer = styled.div`
@@ -133,7 +137,7 @@ export const TitleMenuSecret = styled.h3`
   font-weight: 600;
   color: #d1dfed;
   user-select: none;
-  text-decoration: underline;
+  border-bottom: solid 1px #00BFFF;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none;     /* IE/Edge */
 `;

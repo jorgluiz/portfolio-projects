@@ -124,7 +124,7 @@ const SideBar = () => {
         {mostrarSpans && (
           <>
             <TitleMenuSecret>Menu secreto</TitleMenuSecret>
-            <Menu>
+            <Menu className='text-center-menu-secreto'>
               <ul>
                 <li>
                   <Span
@@ -177,13 +177,17 @@ const SideBar = () => {
                     UTM Parameters
                   </Span>
                 </li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>
+                  <Span
+                    onClick={() => handleNavigate('/menu-secreto/google-Ads')}
+                    className={activeLink === '/menu-secreto/google-Ads' ? 'active' : ''}
+                  >
+                    Google Ads
+                  </Span>
+                </li>
               </ul>
             </Menu>
+            <div style={{ width: "260px", border: "solid 1px #243B53", marginTop: "10px", marginBottom: "10px" }}></div>
           </>
         )}
 
