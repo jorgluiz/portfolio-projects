@@ -10,6 +10,7 @@ export const ContentWrapper = styled.div`
   transition: transform 500ms ease-in-out; /* Transição suave para mover o sidebar */
   transform: translateX(0); /* Posição inicial */
   border-top-right-radius: 50px;
+  transition: transform 600ms cubic-bezier(0.8, 1, 0.8, 1);
 
   * {  /* Aplica a todos os elementos dentro de VideoContainer */
       /* Remover realce azul no toque (Mobile e WebKit) */

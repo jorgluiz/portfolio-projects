@@ -111,6 +111,14 @@ const SideBar = () => {
             </li>
             <li>
               <Span
+                onClick={() => handleNavigate('/build-app')}
+                className={activeLink === '/build-app' ? 'active' : ''}
+              >
+                Build App
+              </Span>
+            </li>
+            <li>
+              <Span
                 onClick={() => handleNavigate('/e-commerce-construction-project')}
                 className={activeLink === '/e-commerce-construction-project' ? 'active' : ''}
               >
@@ -148,6 +156,22 @@ const SideBar = () => {
                     className={activeLink === '/menu-secreto/node-js-frameworks' ? 'active' : ''}
                   >
                     NodeJS Frameworks
+                  </Span>
+                </li>
+                <li>
+                  <Span
+                    onClick={() => handleNavigate('/menu-secreto/configurar-projeto-app')}
+                    className={activeLink === '/menu-secreto/configurar-projeto-app' ? 'active' : ''}
+                  >
+                    Config Projeto APP
+                  </Span>
+                </li>
+                <li>
+                  <Span
+                    onClick={() => handleNavigate('/menu-secreto/configurar-projeto-api')}
+                    className={activeLink === '/menu-secreto/configurar-projeto-api' ? 'active' : ''}
+                  >
+                    Config Projeto API
                   </Span>
                 </li>
               </ul>

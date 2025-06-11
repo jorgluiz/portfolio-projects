@@ -113,8 +113,6 @@ export const Span = styled.span`
   font-size: 16px;
 `;
 
-export const A = styled.a``;
-
 export const H2 = styled.h2`
   padding-bottom: 12px;
 `;
