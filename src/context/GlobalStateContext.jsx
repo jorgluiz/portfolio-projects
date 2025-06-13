@@ -5,7 +5,7 @@ const GlobalStateContext = createContext();
 
 // Criando o provider
 export function GlobalStateProvider({ children }) {
-  const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
+  const [isHamburguerOpen, setIsHamburguerOpen] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false); // Estado global de carregamento
 
   // O primeiro useEffect lida apenas com o redimensionamento.
