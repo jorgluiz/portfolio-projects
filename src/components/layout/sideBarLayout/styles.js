@@ -239,7 +239,7 @@ export const RotatingWrapper = styled.div`
 export const Face = styled.div`
           position: absolute;
           width: 100%;
-   height: 100%;
+          height: 100%;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -392,5 +392,32 @@ export const ScrollableMenuArea = styled.div`
   /* Efeito quando o mouse passa por cima da alça */
   &::-webkit-scrollbar-thumb:hover {
     background-color: #6b7280; /* Cor um pouco mais clara no hover */
+  }
+`;
+
+export const DividerWithText = styled.div`
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #94a3b8; /* Cor do texto */
+  font-size: 14px;
+  font-weight: 500;
+  width: 90%; /* Controla a largura total */
+  margin: 25px 0; /* Espaçamento vertical */
+
+  /* A linha antes do texto */
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #374151; /* Cor da linha */
+  }
+
+  /* Espaçamento entre a linha e o texto */
+  &::before {
+    margin-right: 0.5em;
+  }
+  &::after {
+    margin-left: 0.5em;
   }
 `;
