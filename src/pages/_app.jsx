@@ -79,6 +79,7 @@ import Script from 'next/script';
 
 import { GlobalStyle } from '@/styles/globalStyles';
 import { GlobalStateProvider } from '../context/GlobalStateContext';
+import { FlippedStateProvider } from '../context/FlippedContext';
 
 const GA_ID = 'G-T9MLFWWB7M';
 
@@ -120,17 +121,19 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <GlobalStateProvider>
-      <GlobalStyle />
+      <FlippedStateProvider>
+        <GlobalStyle />
 
-      {ENABLE_GA && (
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          onLoad={handleGtagLoad}
-        />
-      )}
+        {ENABLE_GA && (
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            onLoad={handleGtagLoad}
+          />
+        )}
 
-      <Component {...pageProps} />
+        <Component {...pageProps} />
+      </FlippedStateProvider>
     </GlobalStateProvider>
   );
 };

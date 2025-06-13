@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ContentWrapper = styled.div`
 display: none;
 background-color: #e4e7eb;
-height: 100px;
+height: 70px;
 width: 100%;
 
 box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
@@ -11,8 +11,8 @@ box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 & .hamburguer {
   background-color: #555;
   width: 30px;
-  height: 4px;
-  margin: 0 0 8px 0;
+  height: 3px;
+  margin: 0 0 4px 0;
 }
 
 @media (max-width: 1250px) {

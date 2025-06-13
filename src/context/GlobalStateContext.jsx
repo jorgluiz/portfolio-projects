@@ -29,6 +29,33 @@ export function GlobalStateProvider({ children }) {
   //     window.removeEventListener('resize', handleResize);
   //   };
   // }, [setIsHamburguerOpen]);
+  useEffect(() => {
+    // Função que verifica e aplica o estilo de overflow
+    const handleOverflow = () => {
+      const isMobile = window.innerWidth < 1250;
+
+      // A CONDIÇÃO PRINCIPAL:
+      // Trava o scroll SOMENTE se o menu estiver aberto E a tela for mobile
+      if (isHamburguerOpen && isMobile) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        // Para todos os outros casos (desktop, ou mobile com menu fechado), libera o scroll
+        document.body.style.overflow = 'auto';
+      }
+    };
+
+    // Executa a função
+    handleOverflow();
+
+    // Adiciona um listener para o caso de o usuário redimensionar a tela
+    window.addEventListener('resize', handleOverflow);
+
+    // Função de limpeza
+    return () => {
+      window.removeEventListener('resize', handleOverflow);
+      document.body.style.overflow = 'auto';
+    };
+  }, [isHamburguerOpen]); // A dependência continua sendo 'isHamburguerOpen'
 
 
   // O segundo useEffect cuida apenas do carregamento inicial (isLoaded).

@@ -61,8 +61,11 @@ const DevelopmentSteps = () => {
   const handleOverlayClick = () => setIsHamburguerOpen(false);
 
   useEffect(() => {
-    hljs.highlightAll(); // Aplica o destaque de sintaxe a todos os blocos de código
-  }, []);
+    // Só executa a estilização se o conteúdo estiver carregado e visível
+    if (isLoaded) {
+      hljs.highlightAll();
+    }
+  }, [isLoaded]); // Adicione 'isLoaded' como dependência!
 
   return (
     <>

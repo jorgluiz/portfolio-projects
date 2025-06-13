@@ -59,9 +59,11 @@ const AndroidStudioSetup = () => {
   const handleOverlayClick = () => setIsHamburguerOpen(false);
 
   useEffect(() => {
-    // Aplica o destaque de sintaxe a todos os blocos de código na montagem do componente
-    hljs.highlightAll();
-  }, []);
+    // Só executa a estilização se o conteúdo estiver carregado e visível
+    if (isLoaded) {
+      hljs.highlightAll();
+    }
+  }, [isLoaded]); // Adicione 'isLoaded' como dependência!
 
   return (
     <>

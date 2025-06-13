@@ -22,6 +22,7 @@ import FrontendTecnologiasNextjs from "@/components/diariodev/frontendTecnologia
 import GitCommands from "@/components/diariodev/comandosGitHub";
 import ExpressServersDifference from "@/components/diariodev/expressHtmlServervsExpressEJSserver";
 import NgrokUsage from "@/components/diariodev/ngrok";
+import RenewGitConnection from "@/components/diariodev/renewGitConnection";
 
 
 // 1. Efeito de redimensionamento da tela
@@ -54,6 +55,7 @@ const Projetos = () => {
     { title: "Frontend com NextJS", component: <FrontendTecnologiasNextjs /> },
     { title: "Express HTML server e Express EJS server", component: <ExpressServersDifference /> },
     { title: "Comandos GitHub", component: <GitCommands /> },
+    { title: "Renew GitConnection", component: <RenewGitConnection /> },
     { title: "Ngrok", component: <NgrokUsage /> },
   ];
 
