@@ -12,6 +12,9 @@ export const ContentWrapper = styled.div`
   /* border-top-right-radius: 50px; */
   transition: transform 600ms cubic-bezier(0.8, 1, 0.8, 1);
 
+    /* --- ADIÇÃO CRÍTICA AQUI --- */
+  height: 100vh; /* Garante que o sidebar ocupe sempre a altura total da tela */
+
   * {  /* Aplica a todos os elementos dentro de VideoContainer */
       /* Remover realce azul no toque (Mobile e WebKit) */
         -webkit-tap-highlight-color: transparent;
