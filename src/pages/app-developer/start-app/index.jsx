@@ -10,7 +10,8 @@ import {
   List,
   Link,
   CodeContainer,
-  Title
+  Title,
+  DividerWithText
 } from "@/styles/globalStyles";
 import styled from 'styled-components';
 
@@ -92,7 +93,7 @@ const DevelopmentSteps = () => {
             <MainContentLayout>
               <CodeContainer>
                 <Container>
-                  <SectionTitle>Passos para Iniciar o Desenvolvimento do Seu App</SectionTitle>
+                  <DividerWithText>Passos para Iniciar o Desenvolvimento do Seu App</DividerWithText>
 
                   <Subtitle>1. Configurar a Estrutura do Projeto</Subtitle>
                   <Paragraph>

@@ -431,3 +431,60 @@ export const TdBuildProject = styled.td`
 export const CodeContainer = styled.div`
 width: 100%;
 `;
+
+export const DividerWithText = styled.div`
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color:rgb(44, 45, 46); /* Cor do texto */
+  font-size: 25px;
+  font-weight: 500;
+
+  margin: 25px 0; /* Espaçamento vertical */
+
+  /* A linha antes do texto */
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #374151; /* Cor da linha */
+  }
+
+  /* Espaçamento entre a linha e o texto */
+  &::before {
+    margin-right: 0.5em;
+  }
+  &::after {
+    margin-left: 0.5em;
+  }
+`;
+
+export const Diagram = styled.div`
+
+  font-family: monospace;
+  white-space: pre;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 20px;
+`;
+
+export const Wrapper = styled.div`
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 900px;
+  padding: 15px;
+  background-color: #f9f9f9;
+`;
+
+// font-family: "Segoe UI", sans-serif;
+//   padding: 15px;
+//   max-width: 900px;
+//   margin: 0 auto 40px;
+//   color: #222;
+//   border-radius: 12px;
+//   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+//   line-height: 1.6;
+//   background-color: #f9f9f9;

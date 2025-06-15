@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGlobalState } from "../../context/GlobalStateContext";
+import { useGlobalState } from "@/context/GlobalStateContext";
 
 import { MainLayout } from "@/components/layout/mainLayout";
 import SideBarLayout from "@/components/layout/sideBarLayout";

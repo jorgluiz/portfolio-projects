@@ -10,14 +10,14 @@ import Overlay from "@/components/overlay";
 
 import Title from "@/components/common/title";
 
-import { ResumoTechMainContainer, CollapsibleContent } from "@/components/resumoTech/resumoTechMainContainer";
+import { ResumoTechMainContainer, CollapsibleContent } from "@/components/notasRapidas/resumoTechMainContainer";
 
-import BackendMiddlewares from "@/components/resumoTech/middlewares";
-import BlockchainNfts from "@/components/resumoTech/blockchainNfts";
-import ThemeCssUserSelect from "@/components/resumoTech/themeCssUserSelect";
-import MetaTagsWhatsappProblema from "@/components/resumoTech/metaTagsWhatsappProblema";
-import PlataformasCriacaoVideoArte from "@/components/resumoTech/plataformasCriacaoVideoArte";
-import ParadigmasJavaScript from "@/components/resumoTech/paradigmasJavaScript";
+import BackendMiddlewares from "@/components/notasRapidas/middlewares";
+import BlockchainNfts from "@/components/notasRapidas/blockchainNfts";
+import ThemeCssUserSelect from "@/components/notasRapidas/themeCssUserSelect";
+import MetaTagsWhatsappProblema from "@/components/notasRapidas/metaTagsWhatsappProblema";
+import PlataformasCriacaoVideoArte from "@/components/notasRapidas/plataformasCriacaoVideoArte";
+import ParadigmasJavaScript from "@/components/notasRapidas/paradigmasJavaScript";
 
 
 // 1. Efeito de redimensionamento da tela

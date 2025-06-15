@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from 'next/image';
 import Link from "next/link";
-import { useGlobalState } from "../../context/GlobalStateContext";
+import { useGlobalState } from "../../../context/GlobalStateContext";
 
 import { Paragraph } from "@/styles/globalStyles";
 

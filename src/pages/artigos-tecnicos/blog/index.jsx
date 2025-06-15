@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGlobalState } from "../../context/GlobalStateContext";
+import { useGlobalState } from "../../../context/GlobalStateContext";
 
 import { MainLayout } from "@/components/layout/mainLayout";
 import SideBarLayout from "@/components/layout/sideBarLayout";
@@ -9,20 +9,20 @@ import Overlay from "@/components/overlay";
 
 import Title from "@/components/common/title";
 
-import { DiarioDevMainContainer, CollapsibleContent } from "@/components/diariodev";
+import { DiarioDevMainContainer, CollapsibleContent } from "@/components/blog";
 
-import BibliotecasFerramentas from "@/components/diariodev/bibliotecasFerramentas";
-import ArquiteturaMonolitica from "@/components/diariodev/arquiteturaMonolitica";
-import ArquiteturaMicroservices from "@/components/diariodev/arquiteturaMicroservices";
-import BackendNodeJS from "@/components/diariodev/backendNodeJS";
-import MySQLvsORM from "@/components/diariodev/mySQLvsORM";
-import FrontendTecnologiasReactjs from "@/components/diariodev/frontendTecnologiasReactjs";
-import DesignUIUX from "@/components/diariodev/designUIUx";
-import FrontendTecnologiasNextjs from "@/components/diariodev/frontendTecnologiasNextjs";
-import GitCommands from "@/components/diariodev/comandosGitHub";
-import ExpressServersDifference from "@/components/diariodev/expressHtmlServervsExpressEJSserver";
-import NgrokUsage from "@/components/diariodev/ngrok";
-import RenewGitConnection from "@/components/diariodev/renewGitConnection";
+import BibliotecasFerramentas from "@/components/blog/bibliotecasFerramentas";
+import ArquiteturaMonolitica from "@/components/blog/arquiteturaMonolitica";
+import ArquiteturaMicroservices from "@/components/blog/arquiteturaMicroservices";
+import BackendNodeJS from "@/components/blog/backendNodeJS";
+import MySQLvsORM from "@/components/blog/mySQLvsORM";
+import FrontendTecnologiasReactjs from "@/components/blog/frontendTecnologiasReactjs";
+import DesignUIUX from "@/components/blog/designUIUx";
+import FrontendTecnologiasNextjs from "@/components/blog/frontendTecnologiasNextjs";
+import GitCommands from "@/components/blog/comandosGitHub";
+import ExpressServersDifference from "@/components/blog/expressHtmlServervsExpressEJSserver";
+import NgrokUsage from "@/components/blog/ngrok";
+import RenewGitConnection from "@/components/blog/renewGitConnection";
 
 
 // 1. Efeito de redimensionamento da tela

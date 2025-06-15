@@ -32,8 +32,7 @@ const horizontalVector = [0, 1, 0];
 const SideBar = () => {
   const { isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
   const { isFlipped, setIsFlipped } = useFlippedState();
-  const [mostrarSpans, setMostrarSpans] = useState(true);
-  const [contadorCliques, setContadorCliques] = useState(0);
+  // const [mostrarSpans, setMostrarSpans] = useState(true);
   const [activeLink, setActiveLink] = useState('/'); // Estado para armazenar o link ativo
   const router = useRouter(); // Hook para pegar a rota atual
 
@@ -60,19 +59,6 @@ const SideBar = () => {
     };
   }, [isHamburguerOpen]);
 
-  // Função que conta os cliques secretos no perfil
-  const cliqueSecreto = () => {
-    setContadorCliques(prev => {
-      const novo = prev + 1;
-      if (novo >= 3) {
-        setMostrarSpans(prev => !prev);
-        return 0; // zera o contador depois de 3 cliques
-      }
-      return novo;
-    });
-  };
-
-
   return (
     <ContentWrapper isHamburguerOpen={isHamburguerOpen}>
 
@@ -88,50 +74,50 @@ const SideBar = () => {
             <Image src={perfil} width={150} height={150} style={{ borderRadius: '50%' }} className="profile-image" alt="img" draggable={false} />
           </ImgPerfil>
 
-          <TitleName onClick={cliqueSecreto}>Jorge Luiz</TitleName>
+          <TitleName>Jorge Luiz</TitleName>
           <SubTitle>Web Developer Frontend</SubTitle>
 
           <ScrollableMenuArea>
-            <DividerWithText>Menu Principal</DividerWithText>
+            <DividerWithText>Navegação</DividerWithText>
             <Menu>
               <ul>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/')}
-                    className={activeLink === '/' ? 'active' : ''}
-                  >
+                <li
+                  onClick={() => handleNavigate('/')}
+                  className={activeLink === '/' ? 'active' : ''}>
+                  <Span>
                     Home
                   </Span>
                 </li>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/sobre')}
-                    className={activeLink === '/sobre' ? 'active' : ''}
-                  >
+                <li
+                  onClick={() => handleNavigate('/menu-principal/sobre')}
+                  className={activeLink === '/menu-principal/sobre' ? 'active' : ''}>
+                  <Span>
                     Sobre
                   </Span>
                 </li>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/projetos')}
-                    className={activeLink === '/projetos' ? 'active' : ''}
-                  >
+                <li
+                  onClick={() => handleNavigate('/menu-principal/projetos')}
+                  className={activeLink === '/menu-principal/projetos' ? 'active' : ''}>
+                  <Span>
                     Projetos
                   </Span>
                 </li>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/build-project')}
-                    className={activeLink === '/build-project' ? 'active' : ''}
-                  >
+              </ul>
+            </Menu>
+            <DividerWithText>Estudos de Caso</DividerWithText>
+            <Menu>
+              <ul>
+                <li
+                  onClick={() => handleNavigate('/menu-principal/build-project')}
+                  className={activeLink === '/menu-principal/build-project' ? 'active' : ''}>
+                  <Span>
                     Build Project
                   </Span>
                 </li>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/e-commerce-construction-project')}
-                    className={activeLink === '/e-commerce-construction-project' ? 'active' : ''}
-                  >
+                <li
+                  onClick={() => handleNavigate('/menu-principal/e-commerce')}
+                  className={activeLink === '/menu-principal/e-commerce' ? 'active' : ''}>
+                  <Span>
                     E-commerce
                   </Span>
                 </li>
@@ -140,70 +126,62 @@ const SideBar = () => {
             <DividerWithText>Artigos Técnicos</DividerWithText>
             <Menu className='text-center-menu-secreto'>
               <ul>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/menu-secreto/resumo-tech')}
-                    className={activeLink === '/menu-secreto/resumo-tech' ? 'active' : ''}
-                  >
+                <li
+                  onClick={() => handleNavigate('/artigos-tecnicos/notas-rapidas')}
+                  className={activeLink === '/artigos-tecnicos/notas-rapidas' ? 'active' : ''}>
+                  <Span>
                     Notas Rápidas
                   </Span>
                 </li>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/diario-dev')}
-                    className={activeLink === '/diario-dev' ? 'active' : ''}
-                  >
+                <li
+                  onClick={() => handleNavigate('/artigos-tecnicos/blog')}
+                  className={activeLink === '/artigos-tecnicos/blog' ? 'active' : ''}>
+                  <Span>
                     Blog
                   </Span>
                 </li>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/menu-secreto/nodejs-java-spring')}
-                    className={activeLink === '/menu-secreto/nodejs-java-spring' ? 'active' : ''}
-                  >
+                <li
+                  onClick={() => handleNavigate('/artigos-tecnicos/nodejs-java')}
+                  className={activeLink === '/artigos-tecnicos/nodejs-java' ? 'active' : ''}>
+                  <Span>
                     NodeJS / Java
                   </Span>
                 </li>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/menu-secreto/node-js-frameworks')}
-                    className={activeLink === '/menu-secreto/node-js-frameworks' ? 'active' : ''}
-                  >
+                <li
+                  onClick={() => handleNavigate('/artigos-tecnicos/nodejs-frameworks')}
+                  className={activeLink === '/artigos-tecnicos/nodejs-frameworks' ? 'active' : ''}>
+                  <Span>
                     NodeJS Frameworks
                   </Span>
                 </li>
               </ul>
               <DividerWithText>Marketing dígital</DividerWithText>
               <ul>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/menu-secreto/seo-nextjs-guia')}
-                    className={activeLink === '/menu-secreto/seo-nextjs-guia' ? 'active' : ''}
-                  >
+                <li
+                  onClick={() => handleNavigate('/marketing-digital/seo-nextjs-guia')}
+                  className={activeLink === '/marketing-digital/seo-nextjs-guia' ? 'active' : ''}>
+                  <Span>
                     SEO NextJS guia
                   </Span>
                 </li>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/menu-secreto/analytics-ga4-install')}
-                    className={activeLink === '/menu-secreto/analytics-ga4-install' ? 'active' : ''}
-                  >
+                <li
+                  onClick={() => handleNavigate('/marketing-digital/analytics-ga4-install')}
+                  className={activeLink === '/marketing-digital/analytics-ga4-install' ? 'active' : ''}>
+                  <Span>
                     Integrar Google Analytics 4 (GA4) no Next.js
                   </Span>
                 </li>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/menu-secreto/utm-parameters')}
-                    className={activeLink === '/menu-secreto/utm-parameters' ? 'active' : ''}
-                  >
+                <li
+                  onClick={() => handleNavigate('/marketing-digital/utm-parameters')}
+                  className={activeLink === '/marketing-digital/utm-parameters' ? 'active' : ''}>
+                  <Span>
                     UTM Parameters
                   </Span>
                 </li>
-                <li>
-                  <Span
-                    onClick={() => handleNavigate('/menu-secreto/google-Ads')}
-                    className={activeLink === '/menu-secreto/google-Ads' ? 'active' : ''}
-                  >
+                <li
+                  onClick={() => handleNavigate('/marketing-digital/google-Ads')}
+                  className={activeLink === '/marketing-digital/google-Ads' ? 'active' : ''}>
+                  <Span>
                     Google Ads
                   </Span>
                 </li>
@@ -220,37 +198,43 @@ const SideBar = () => {
             <FiArrowLeft size={30} color='#f1f1f1'></FiArrowLeft>
           </Arrow>
 
-          <TitleName onClick={cliqueSecreto}>Build </TitleName>
-          <SubTitle>App Developer</SubTitle>
+          <TitleName>Build & Deploy </TitleName>
+          <SubTitle>Desenvolvimento de App e API</SubTitle>
           <Menu>
-            <DividerWithText>Aplicação</DividerWithText>
+            <DividerWithText>Aplicação Mobile</DividerWithText>
             <ul>
-              <li>
-                <Span
-                  onClick={() => handleNavigate('/build-app')}
-                  className={activeLink === '/build-app' ? 'active' : ''}
-                >
-                  Build App
+              <li
+                onClick={() => handleNavigate('/app-developer/ambiente-android-para-react-native')}
+                className={activeLink === '/app-developer/ambiente-android-para-react-native' ? 'active' : ''}>
+                <Span>
+                  1. Ambiente Android para React Native
                 </Span>
               </li>
-              <li>
-                <Span
-                  onClick={() => handleNavigate('/menu-secreto/configurar-projeto-api')}
-                  className={activeLink === '/menu-secreto/configurar-projeto-api' ? 'active' : ''}
-                >
-                  Os Pilares de um Backend Robusto
+              <li
+                onClick={() => handleNavigate('/app-developer/start-app')}
+                className={activeLink === '/app-developer/start-app' ? 'active' : ''}>
+                <Span>
+                  2. Start App
                 </Span>
               </li>
-              <li>
-                <Span
-                  onClick={() => handleNavigate('/menu-secreto/configurar-projeto-app')}
-                  className={activeLink === '/menu-secreto/configurar-projeto-app' ? 'active' : ''}
-                >
-                  Boilerplate do App
+              <li
+                onClick={() => handleNavigate('/app-developer/configurar-projeto-app')}
+                className={activeLink === '/app-developer/configurar-projeto-app' ? 'active' : ''}>
+                <Span>
+                  3. Desenvolvimento Técnico - App
                 </Span>
               </li>
             </ul>
             <DividerWithText>API</DividerWithText>
+            <ul>
+              <li
+                onClick={() => handleNavigate('/app-developer/configurar-projeto-api')}
+                className={activeLink === '/app-developer/configurar-projeto-api' ? 'active' : ''}>
+                <Span>
+                  Download com Arquitetura Orientada a Jobs - API
+                </Span>
+              </li>
+            </ul>
           </Menu>
           {/* <div style={{ width: "100%", border: "solid 1px #374151", marginTop: "20px", marginBottom: "10px" }}></div> */}
           <FlipButtonContainer>

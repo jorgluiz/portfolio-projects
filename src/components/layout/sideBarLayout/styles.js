@@ -61,6 +61,7 @@ export const Menu = styled.div`
   padding: 8px 16px; /* Adiciona um espaçamento interno para o background */
   border-radius: 8px; /* Arredonda as bordas do background */
   transition: background-color 0.3s ease; /* Cria uma transição suave */
+  cursor: pointer;
 
     @media (min-width: 1250px) {
      &:hover {
@@ -80,8 +81,8 @@ export const Menu = styled.div`
   }
 
     /* Aplica estilo especial quando o link estiver ativo */
-    & span.active {
-    color: #00BFFF  ; /* Cor para o link ativo */
+    & .active span  {
+    color: #00BFFF; /* Cor para o link ativo */
     /* font-weight: bold; Torna o link ativo em negrito */
   }
 `;
@@ -140,7 +141,6 @@ export const ImgPerfil = styled.div`
 `;
 
 export const Span = styled.span`
- cursor: pointer;
   font-size: 16px;
   font-weight: 600;
   color: rgb(188, 204, 220);
