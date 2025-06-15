@@ -6,7 +6,6 @@ import {
   SectionTitle,
   Subtitle,
   Paragraph,
-  CodeBlock,
   List,
   Link,
   CodeContainer
@@ -19,22 +18,11 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
 
-import hljs from 'highlight.js'; // Importando o highlight.js
-import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
-
-
+import CodeBlock from '@/components/codeBlock';
 
 const GA4NextJsIntegration = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
-
   const handleOverlayClick = () => setIsHamburguerOpen(false);
-
-  useEffect(() => {
-    // Só executa a estilização se o conteúdo estiver carregado e visível
-    if (isLoaded) {
-      hljs.highlightAll();
-    }
-  }, [isLoaded]); // Adicione 'isLoaded' como dependência!
 
 
   return (
@@ -141,7 +129,7 @@ const GA4NextJsIntegration = () => {
                   <Subtitle>6. Obter o Código de Rastreamento (gtag.js)</Subtitle>
                   <Paragraph>Após criar o fluxo, o Google gera um código como este:</Paragraph>
                   <pre>
-                    <code>
+                    <CodeBlock language="html">
                       {`<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
@@ -151,13 +139,13 @@ const GA4NextJsIntegration = () => {
 
   gtag('config', 'G-XXXXXXXXXX');
 </script>`}
-                    </code>
+                    </CodeBlock>
                   </pre>
 
                   <Subtitle>7. Implementar no Next.js (arquivo _app.jsx)</Subtitle>
                   <Paragraph>Use o código abaixo para integrar o GA no seu Next.js:</Paragraph>
                   <pre>
-                    <code>
+                    <CodeBlock language="html">
                       {`import { useEffect } from 'react';
 import Script from 'next/script';
 
@@ -188,7 +176,7 @@ const MyApp = ({ Component, pageProps }) => {
 };
 
 export default MyApp;`}
-                    </code>
+                    </CodeBlock>
                   </pre>
                   <Subtitle>Observações Importantes</Subtitle>
                   <List>
@@ -197,7 +185,8 @@ export default MyApp;`}
                       O &lt;Script&gt; do Next.js carrega o script de forma otimizada após a página estar interativa.
                     </li>
                     <li>
-                      O <code>useEffect</code> inicializa o GA só no cliente, evitando problemas no servidor.
+                      {/* {} */}
+                      O useEffect inicializa o GA só no cliente, evitando problemas no servidor.
                     </li>
                   </List>
 
