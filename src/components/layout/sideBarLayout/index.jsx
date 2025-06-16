@@ -108,15 +108,15 @@ const SideBar = () => {
             <Menu>
               <ul>
                 <li
-                  onClick={() => handleNavigate('/menu-principal/build-project')}
-                  className={activeLink === '/menu-principal/build-project' ? 'active' : ''}>
+                  onClick={() => handleNavigate('/estudos-de-caso/project-SaaS')}
+                  className={activeLink === '/estudos-de-caso/project-SaaS' ? 'active' : ''}>
                   <Span>
                     Build Project
                   </Span>
                 </li>
                 <li
-                  onClick={() => handleNavigate('/menu-principal/e-commerce')}
-                  className={activeLink === '/menu-principal/e-commerce' ? 'active' : ''}>
+                  onClick={() => handleNavigate('/estudos-de-caso/e-commerce')}
+                  className={activeLink === '/estudos-de-caso/e-commerce' ? 'active' : ''}>
                   <Span>
                     E-commerce
                   </Span>
