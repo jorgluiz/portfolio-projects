@@ -133,7 +133,6 @@ const AndroidStudioSetup = () => {
                   <Paragraph>
                     <strong>A Decisão Final e o Aprendizado Chave:</strong> Foi decidido utilizar o <Code>Express.js</Code>. A conclusão foi a importância de adequar a ferramenta ao problema. Como a prioridade era a latência e a capacidade de processar requisições de forma "crua" e rápida, o ganho em organização do <Code>NestJS</Code> não justificava seu custo de performance. O aprendizado foi resistir à tendência de usar a ferramenta mais "completa" e, em vez disso, escolher a mais adequada.
                   </Paragraph>
-
                   <Subtitle>1.3. A "Stack" Arquitetural Inicial Definida</Subtitle>
                   <Paragraph>
                     Ao final desta fase de análise, a base do projeto estava definida:
