@@ -17,23 +17,12 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
-
-import hljs from 'highlight.js'; // Importando o highlight.js
-import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
-
+import CodeBlock from '@/components/codeBlock';
 
 const SEOParaNextJs = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
 
   const handleOverlayClick = () => setIsHamburguerOpen(false);
-
-  useEffect(() => {
-    // Só executa a estilização se o conteúdo estiver carregado e visível
-    if (isLoaded) {
-      hljs.highlightAll();
-    }
-  }, [isLoaded]); // Adicione 'isLoaded' como dependência!
-
 
   return (
     <>
@@ -102,16 +91,13 @@ const SEOParaNextJs = () => {
                     <List>
                       <li>Crie um arquivo <strong>robots.txt</strong> na pasta <strong>public</strong> do seu projeto.</li>
                       <li>Use este conteúdo básico para liberar o rastreamento:
-                        <pre>
-                          <code className="javascript">
-                            {`User-agent: *
+                        <CodeBlock language="javascript">
+                          {`User-agent: *
 Allow: /
 Sitemap: https://portfolio-projects-production.up.railway.app/sitemap.xml`}
-                          </code>
-                        </pre>
+                        </CodeBlock>
                       </li>
                     </List>
-
                     <Subtitle>3. Gere e configure um Sitemap</Subtitle>
                     <Paragraph>
                       O sitemap ajuda o Google a entender a estrutura do seu site e localizar todas as páginas relevantes.
@@ -120,39 +106,33 @@ Sitemap: https://portfolio-projects-production.up.railway.app/sitemap.xml`}
                     <List>
                       <li style={{ marginBottom: "20px" }}>
                         Instale o pacote
-                        <pre>
-                          <code className="javascript">
-                            next-sitemap
-                          </code>
-                        </pre>
+                        <CodeBlock language="javascript">
+                          next-sitemap
+                        </CodeBlock>
                       </li>
                       <li style={{ marginBottom: "10px" }}>
-                        <pre>
-                          <code className="javascript">
-                            {`npm install next-sitemap
+                        <CodeBlock language="javascript">
+                          {`npm install next-sitemap
 # ou
-yarn add next-sitemap`}</code>
-                        </pre>
+yarn add next-sitemap`}
+                        </CodeBlock>
                       </li>
                       <li>Crie o arquivo <strong>next-sitemap.config.js</strong> na raiz do projeto com o seguinte conteúdo:
-                        <pre>
-                          <code className="javascript">
-                            {`/** @type {import('next-sitemap').IConfig} */
+                        <CodeBlock language="javascript">
+                          {`/** @type {import('next-sitemap').IConfig} */
 const config = {
   siteUrl: 'https://portfolio-projects-production.up.railway.app', // Seu domínio
   generateRobotsTxt: true, // Gera automaticamente o robots.txt
   sitemapSize: 5000,
 };
 
-module.exports = config;`}</code>
-                        </pre>
+module.exports = config;`}
+                        </CodeBlock>
                       </li>
                       <li>Gere o sitemap executando:
-                        <pre>
-                          <code>
-                            npx next-sitemap
-                          </code>
-                        </pre>
+                        <CodeBlock language="javascript">
+                          npx next-sitemap
+                        </CodeBlock>
                         Isso criará automaticamente o <strong>sitemap.xml</strong> (e o <strong>robots.txt</strong>, se configurado) na pasta public.
                       </li>
                     </List>
@@ -184,11 +164,9 @@ module.exports = config;`}</code>
                     <Paragraph>
                       Clique em <strong>Adicionar Propriedade</strong>. Insira o domínio do seu site, por exemplo:
                       <br />
-                      <pre>
-                        <code>
-                          https://portfolio-projects-production.up.railway.app
-                        </code>
-                      </pre>
+                      <CodeBlock language="javascript">
+                        {`https://portfolio-projects-production.up.railway.app`}
+                      </CodeBlock>
                     </Paragraph>
 
                     <Subtitle>3. Verificar propriedade</Subtitle>
@@ -198,28 +176,21 @@ module.exports = config;`}</code>
 
                     <Paragraph>Baixe o arquivo de verificação fornecido pelo Search Console.</Paragraph>
                     <Paragraph>Faça upload do arquivo na raiz do seu projeto para que fique acessível em:</Paragraph>
-                    <pre>
-                      <code className="javascript">
-                        https://seusite.com/googleXXXX.html
-                      </code>
-                    </pre>
-
+                    <CodeBlock language="javascript">
+                      {`https://seusite.com/googleXXXX.html`}
+                    </CodeBlock>
                     <Subtitle>b) Tag HTML</Subtitle>
                     <Paragraph>
                       Copie a meta tag que o Search Console fornecer, por exemplo:
                     </Paragraph>
-                    <pre>
-                      <code className="javascript">
-                        {`<meta name="google-site-verification" content="SEU_CODIGO_DE_VERIFICACAO" />`}
-                      </code>
-                    </pre>
+                    <CodeBlock language="javascript">
+                      {`<meta name="google-site-verification" content="SEU_CODIGO_DE_VERIFICACAO" />`}
+                    </CodeBlock>
                     <Paragraph>
                       Cole essa meta tag na seção {`<Head>`} da <strong>página inicial</strong> do seu site Ex: em pages/index.jsx no Next.js:
                     </Paragraph>
-
-                    <pre>
-                      <code className="javascript">
-                        {`import Head from 'next/head'
+                    <CodeBlock language="html">
+                      {`import Head from 'next/head'
 
 export default function Home() {
   return (
@@ -231,9 +202,7 @@ export default function Home() {
     </>
   )
 }`}
-                      </code>
-                    </pre>
-
+                    </CodeBlock>
                     <Paragraph>
                       Após adicionar a meta tag, crie um commit e suba as alterações para o seu repositório Git.
                       <br />
@@ -258,12 +227,10 @@ export default function Home() {
                     <Paragraph>
                       Na pasta public do seu projeto, normalmente estão os arquivos <strong>sitemap.xml </strong>e <strong>sitemap-0.xml</strong>. Adicione as URLs dos sitemaps, por exemplo:
                     </Paragraph>
-                    <pre>
-                      <code className="javascript">
-                        {`https://portfolio-projects-production.up.railway.app/sitemap.xml  
+                    <CodeBlock language="javascript">
+                      {`https://portfolio-projects-production.up.railway.app/sitemap.xml  
 https://portfolio-projects-production.up.railway.app/sitemap-0.xml`}
-                      </code>
-                    </pre>
+                    </CodeBlock>
                     <Paragraph>Clique em <strong>Enviar</strong>.</Paragraph>
 
                     <Subtitle>Observação importante</Subtitle>
@@ -317,7 +284,7 @@ https://portfolio-projects-production.up.railway.app/sitemap-0.xml`}
               </CodeContainer>
 
             </MainContentLayout>
-          </MainLayout>
+          </MainLayout >
         </>
       )}
     </>
