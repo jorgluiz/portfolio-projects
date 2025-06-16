@@ -199,7 +199,7 @@ const SideBar = () => {
           </Arrow>
 
           <TitleName>Build & Deploy </TitleName>
-          <SubTitle>Desenvolvimento de App e API</SubTitle>
+          <SubTitle>App and API development</SubTitle>
           <Menu>
             <DividerWithText>Aplicação Mobile</DividerWithText>
             <ul>

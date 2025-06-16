@@ -1,6 +1,4 @@
 import { Container, SectionTitle, Subtitle, Paragraph, List, Link } from "@/styles/globalStyles";
-
-
 const PlataformasCriacaoVideoArte = () => {
 
   const BoldLabel = ({ children }) => <strong>{children}</strong>;
