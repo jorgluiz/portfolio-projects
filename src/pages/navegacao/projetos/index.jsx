@@ -140,7 +140,7 @@ export async function getStaticProps() {
       projetos: [
         {
           title: "Custom Video Player",
-          link: "/projetos/player-video-customizado",
+          link: "/navegacao/projetos/player-video-customizado",
           image: "/assets/images/youtube.png",
           // blur: youtubeImgBlur,
           tech: ["React.js"],
@@ -150,7 +150,7 @@ export async function getStaticProps() {
         },
         {
           title: "Plataforma vendas cursos online",
-          link: "/projetos/vendas-curso",
+          link: "/navegacao/projetos/vendas-curso",
           image: "/assets/images/curso-online.png",
           // blur: ytmp4ImgBlur,
           tech: [
@@ -164,7 +164,7 @@ export async function getStaticProps() {
         },
         {
           title: "Data Analysis Tendency",
-          link: "/projetos/data-analysis-twitter",
+          link: "/navegacao/projetos/data-analysis-twitter",
           image: "/assets/images/analyze-feelings.png",
           // blur: analyzeImgBlur,
           tech: ["Node.js e Express", "Puppeteer", "Puppeteer-Extra", "OpenAI API"],
@@ -174,7 +174,7 @@ export async function getStaticProps() {
         },
         {
           title: "Live Broadcast Control and Viewing System",
-          link: "/projetos/stream-dolby",
+          link: "/navegacao/projetos/stream-dolby",
           image: "/assets/images/stream.png",
           // blur: streamImgBlur,
           tech: ["Node.js e Express", "Millicast API", "EJS", "HTML/CSS", "GraphQL", "dotenv", "axios e https"],
@@ -184,7 +184,7 @@ export async function getStaticProps() {
         },
         {
           title: "Stripe",
-          link: "/projetos/stripe",
+          link: "/navegacao/projetos/stripe",
           image: "/assets/images/stripeLogo.png",
           // blur: stripeImgBlur,
           tech: ["Node.js e Express.js", "JWT", "Stripe", "Firebase", "Middleware e Cookie", "dotenv", "nodemon"],
@@ -194,7 +194,7 @@ export async function getStaticProps() {
         },
         {
           title: "Carousel",
-          link: "/projetos/carousel",
+          link: "/navegacao/projetos/carousel",
           image: "/assets/images/carousel.png",
           // blur: carouseImgBlur,
           tech: ["React", "Next.js", "styled-components"],
@@ -204,7 +204,7 @@ export async function getStaticProps() {
         },
         {
           title: "Enlarged View Image Generator",
-          link: "/projetos/image-generator",
+          link: "/navegacao/projetos/image-generator",
           image: "/assets/images/imageGeneration.png",
           // blur: imageGenerationImgBlur,
           tech: ["HTML5", "CSS3", "JavaScript", "Backend"],
@@ -214,7 +214,7 @@ export async function getStaticProps() {
         },
         {
           title: "Catalog",
-          link: "/projetos/catalogo",
+          link: "/navegacao/projetos/catalogo",
           image: "/assets/images/catalogo.png",
           // blur: catalogoImgBlur,
           tech: ["React.js", "CSS"],
@@ -224,7 +224,7 @@ export async function getStaticProps() {
         },
         {
           title: "Download de Vídeo do YouTube (Cloud)",
-          link: "/projetos/yt-for-mp4-cloud",
+          link: "/navegacao/projetos/yt-for-mp4-cloud",
           image: "/assets/images/ytmp4.png",
           // blur: ytmp4ImgBlur,
           tech: ["HTML e CSS", "Node.js com Express.js", "youtube-dl-exec e @distube/ytdl-core", "fluent-ffmpeg", "Socket.io", "CORS"],
@@ -234,7 +234,7 @@ export async function getStaticProps() {
         },
         {
           title: "Download de Vídeo do YouTube (Local)",
-          link: "/projetos/yt-for-mp4-location",
+          link: "/navegacao/projetos/yt-for-mp4-location",
           image: "/assets/images/ytmp4.png",
           // blur: ytmp4ImgBlur,
           tech: ["HTML e CSS", "Socket.IO", "Node.js", "Express", "@distube/ytdl-core"],
@@ -244,7 +244,7 @@ export async function getStaticProps() {
         },
         {
           title: "Download de Áudio do YouTube",
-          link: "/projetos/yt-for-mp3",
+          link: "/navegacao/projetos/yt-for-mp3",
           image: "/assets/images/ytmp3.png",
           // blur: ytmp3ImgBlur,
           tech: ["HTML e CSS", "Node.js", "Express", "@distube/ytdl-core"],
@@ -254,7 +254,7 @@ export async function getStaticProps() {
         },
         {
           title: "YouTube Video Analyze",
-          link: "/projetos/yt-analyse-video",
+          link: "/navegacao/projetos/yt-analyse-video",
           image: "/assets/images/yt-analyze-video.png",
           // blur: ytmp3ImgBlur,
           tech: ["Node.js e Express.js", "OpenAI API", "File System (fs)", "dotenv", "youtubedl-exec", "hbs (Handlebars)"],
@@ -264,7 +264,7 @@ export async function getStaticProps() {
         },
         {
           title: "Portfolio",
-          link: "/projetos/portfolio",
+          link: "/navegacao/projetos/portfolio",
           image: "/assets/images/portfolio.png",
           // blur: portfolioImgBlur,
           tech: ["React", "Styled-components"],

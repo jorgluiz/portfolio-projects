@@ -89,15 +89,15 @@ const SideBar = () => {
                   </Span>
                 </li>
                 <li
-                  onClick={() => handleNavigate('/menu-principal/sobre')}
-                  className={activeLink === '/menu-principal/sobre' ? 'active' : ''}>
+                  onClick={() => handleNavigate('/navegacao/sobre')}
+                  className={activeLink === '/navegacao/sobre' ? 'active' : ''}>
                   <Span>
                     Sobre
                   </Span>
                 </li>
                 <li
-                  onClick={() => handleNavigate('/menu-principal/projetos')}
-                  className={activeLink === '/menu-principal/projetos' ? 'active' : ''}>
+                  onClick={() => handleNavigate('/navegacao/projetos')}
+                  className={activeLink === '/navegacao/projetos' ? 'active' : ''}>
                   <Span>
                     Projetos
                   </Span>

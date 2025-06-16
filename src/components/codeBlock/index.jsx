@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react';
+import { useGlobalState } from '@/context/GlobalStateContext';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; // Estilo do highlight
 
 const CodeBlock = ({ children, language }) => {
+  const { isLoaded } = useGlobalState();
   const codeRef = useRef(null);
 
   useEffect(() => {
