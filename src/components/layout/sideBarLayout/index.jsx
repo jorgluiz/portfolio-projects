@@ -235,6 +235,16 @@ const SideBar = () => {
                 </Span>
               </li>
             </ul>
+            <DividerWithText>Infraestrutura e Serviços</DividerWithText>
+            <ul>
+              <li
+                onClick={() => handleNavigate('/app-developer/connect-cloudflare-r2')}
+                className={activeLink === '/app-developer/connect-cloudflare-r2' ? 'active' : ''}>
+                <Span>
+                  Configurando o Armazenamento Cloudflare R2
+                </Span>
+              </li>
+            </ul>
           </Menu>
           {/* <div style={{ width: "100%", border: "solid 1px #374151", marginTop: "20px", marginBottom: "10px" }}></div> */}
           <FlipButtonContainer>

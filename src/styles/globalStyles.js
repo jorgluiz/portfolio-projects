@@ -479,12 +479,11 @@ export const Wrapper = styled.div`
   background-color: #f9f9f9;
 `;
 
-// font-family: "Segoe UI", sans-serif;
-//   padding: 15px;
-//   max-width: 900px;
-//   margin: 0 auto 40px;
-//   color: #222;
-//   border-radius: 12px;
-//   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-//   line-height: 1.6;
-//   background-color: #f9f9f9;
+export const Code = styled.code`
+  background-color: #e9ecef; /* Um cinza claro e suave */
+  color: #c7254e;           /* Um tom de vermelho/rosa para o texto, comum para código */
+  padding: 3px 6px;        /* Espaçamento interno para não ficar colado no texto */
+  border-radius: 4px;      /* Bordas arredondadas */
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; /* Fontes de código */
+  font-size: 0.9em;          /* Um pouco menor que o texto ao redor */
+`;

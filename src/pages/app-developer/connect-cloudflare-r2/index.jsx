@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Head from "next/head";
 import { useGlobalState } from "../../../context/GlobalStateContext";
 import {
@@ -6,11 +7,11 @@ import {
   Subtitle,
   Paragraph,
   List,
+  Link, // Mantive o Link caso precise usar em algum momento
   CodeContainer,
   DividerWithText,
   Diagram,
-  Wrapper,
-  Code
+  Wrapper
 } from "@/styles/globalStyles";
 
 import { MainLayout } from "@/components/layout/mainLayout";
@@ -18,6 +19,9 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
+
+import hljs from 'highlight.js'; // Importando o highlight.js
+import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
 
 const tableStyle = {
   width: '100%',
@@ -55,6 +59,11 @@ const AndroidStudioSetup = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
 
   const handleOverlayClick = () => setIsHamburguerOpen(false);
+
+  useEffect(() => {
+    // Aplica o destaque de sintaxe a todos os blocos de código na montagem do componente
+    hljs.highlightAll();
+  }, []);
 
   return (
     <>
@@ -106,21 +115,21 @@ const AndroidStudioSetup = () => {
 
                   <Subtitle>1.1. O Panorama Inicial: Análise das Opções de Linguagem</Subtitle>
                   <Paragraph>
-                    A análise começou considerando linguagens para sistemas de alta concorrência: <Code>Go</Code>, <Code>Node.js</Code>, <Code>Python</Code> e <Code>Java</Code>. A escolha foi rapidamente direcionada para o <Code>Node.js</Code>.
+                    A análise começou considerando linguagens para sistemas de alta concorrência: <code>Go</code>, <code>Node.js</code>, <code>Python</code> e <code>Java</code>. A escolha foi rapidamente direcionada para o <code>Node.js</code>.
                   </Paragraph>
                   <Paragraph>
-                    <strong>Justificativa e Aprendizado:</strong> A escolha foi estratégica por seu ecossistema maduro (<Code>NPM</Code>) e, principalmente, por seu modelo de I/O (Entrada/Saída) não-bloqueante, ideal para lidar com um grande número de requisições de rede simultâneas de forma eficiente.
+                    <strong>Justificativa e Aprendizado:</strong> A escolha foi estratégica por seu ecossistema maduro (<code>NPM</code>) e, principalmente, por seu modelo de I/O (Entrada/Saída) não-bloqueante, ideal para lidar com um grande número de requisições de rede simultâneas de forma eficiente.
                   </Paragraph>
                   <Paragraph>
-                    <strong>Detalhes da Jornada:</strong> O ponto de partida foi validar as recomendações de uma conversa com o ChatGPT. Embora <Code>Go (Golang)</Code> tenha sido considerado por sua performance bruta, o <Code>Node.js</Code> foi selecionado pelo equilíbrio perfeito entre alto desempenho em operações de rede, a vasta quantidade de bibliotecas prontas no <Code>NPM</Code> e a familiaridade com o ecossistema JavaScript/TypeScript. Foi uma decisão pragmática, priorizando a velocidade de desenvolvimento sem sacrificar a capacidade de lidar com alta concorrência.
+                    <strong>Detalhes da Jornada:</strong> O ponto de partida foi validar as recomendações de uma conversa com o ChatGPT. Embora <code>Go (Golang)</code> tenha sido considerado por sua performance bruta, o <code>Node.js</code> foi selecionado pelo equilíbrio perfeito entre alto desempenho em operações de rede, a vasta quantidade de bibliotecas prontas no <code>NPM</code> e a familiaridade com o ecossistema JavaScript/TypeScript. Foi uma decisão pragmática, priorizando a velocidade de desenvolvimento sem sacrificar a capacidade de lidar com alta concorrência.
                   </Paragraph>
 
                   <Subtitle>1.2. O Duelo de Frameworks: NestJS vs. Express.js</Subtitle>
                   <Paragraph>
-                    <strong>Dúvida Crítica Resolvida:</strong> "Para uma API cujo requisito principal é performance bruta e baixa latência, qual a melhor escolha: o robusto <Code>NestJS</Code> ou o minimalista <Code>Express.js</Code>?"
+                    <strong>Dúvida Crítica Resolvida:</strong> "Para uma API cujo requisito principal é performance bruta e baixa latência, qual a melhor escolha: o robusto <code>NestJS</code> ou o minimalista <code>Express.js</code>?"
                   </Paragraph>
                   <Paragraph>
-                    <strong>Detalhes da Jornada (O Desafio Central da Análise):</strong> Esta foi a decisão mais debatida da fase inicial. A tentação era adotar o <Code>NestJS</Code> por ser um framework "completo" e moderno, que impõe uma organização robusta. No entanto, a análise aprofundada nos forçou a questionar o princípio fundamental: "Estamos construindo um sistema com regras de negócio complexas que se beneficia dessa estrutura, ou estamos adicionando um peso desnecessário para uma tarefa simples?".
+                    <strong>Detalhes da Jornada (O Desafio Central da Análise):</strong> Esta foi a decisão mais debatida da fase inicial. A tentação era adotar o <code>NestJS</code> por ser um framework "completo" e moderno, que impõe uma organização robusta. No entanto, a análise aprofundada nos forçou a questionar o princípio fundamental: "Estamos construindo um sistema com regras de negócio complexas que se beneficia dessa estrutura, ou estamos adicionando um peso desnecessário para uma tarefa simples?".
                   </Paragraph>
                   <List>
                     <li>
@@ -131,7 +140,7 @@ const AndroidStudioSetup = () => {
                     </li>
                   </List>
                   <Paragraph>
-                    <strong>A Decisão Final e o Aprendizado Chave:</strong> Foi decidido utilizar o <Code>Express.js</Code>. A conclusão foi a importância de adequar a ferramenta ao problema. Como a prioridade era a latência e a capacidade de processar requisições de forma "crua" e rápida, o ganho em organização do <Code>NestJS</Code> não justificava seu custo de performance. O aprendizado foi resistir à tendência de usar a ferramenta mais "completa" e, em vez disso, escolher a mais adequada.
+                    <strong>A Decisão Final e o Aprendizado Chave:</strong> Foi decidido utilizar o <code>Express.js</code>. A conclusão foi a importância de adequar a ferramenta ao problema. Como a prioridade era a latência e a capacidade de processar requisições de forma "crua" e rápida, o ganho em organização do <code>NestJS</code> não justificava seu custo de performance. O aprendizado foi resistir à tendência de usar a ferramenta mais "completa" e, em vez disso, escolher a mais adequada.
                   </Paragraph>
 
                   <Subtitle>1.3. A "Stack" Arquitetural Inicial Definida</Subtitle>
@@ -144,9 +153,10 @@ const AndroidStudioSetup = () => {
                     <li><strong>Conceito Arquitetural Chave:</strong> Ficou claro que, mesmo com o Express, a tarefa de download não poderia ocorrer na requisição principal. A decisão foi, portanto, atrelada à estratégia de implementar um sistema de filas para processar os downloads em segundo plano.</li>
                   </List>
                   <Paragraph>
-                    <strong>Detalhes da Jornada:</strong> A definição do conceito de fila assíncrona nesta fase inicial foi o aprendizado mais valioso, pois moldou todas as decisões técnicas subsequentes. Entendeu-se que a escolha do framework (<Code>Express</Code>, por ser leve) e a necessidade de um sistema de filas (que mais tarde seria o <Code>BullMQ</Code>) estavam intrinsecamente ligadas para alcançar o objetivo de alta performance.
+                    <strong>Detalhes da Jornada:</strong> A definição do conceito de fila assíncrona nesta fase inicial foi o aprendizado mais valioso, pois moldou todas as decisões técnicas subsequentes. Entendeu-se que a escolha do framework (<code>Express</code>, por ser leve) e a necessidade de um sistema de filas (que mais tarde seria o <code>BullMQ</code>) estavam intrinsecamente ligadas para alcançar o objetivo de alta performance.
                   </Paragraph>
                 </Container>
+
                 <Container>
                   <DividerWithText>
                     Passo 2: Configuração do Ambiente e Implementação da Arquitetura Básica
@@ -157,37 +167,37 @@ const AndroidStudioSetup = () => {
 
                   <Subtitle>2.1. Configuração do Ambiente de Desenvolvimento</Subtitle>
                   <Paragraph>
-                    As dependências essenciais (<Code>express</Code>, <Code>bullmq</Code>, <Code>ioredis</Code>, <Code>uuid</Code>) foram instaladas e o servidor Redis foi iniciado via <Code>Docker</Code>.
+                    As dependências essenciais (<code>express</code>, <code>bullmq</code>, <code>ioredis</code>, <code>uuid</code>) foram instaladas e o servidor Redis foi iniciado via <code>Docker</code>.
                   </Paragraph>
                   <Paragraph>
                     <strong>Desafio Chave Enfrentado: O Erro ECONNREFUSED</strong>
                     <br />
-                    <strong>Problema:</strong> Ao iniciar a aplicação pela primeira vez, o sistema falhou com o erro <Code>Error: connect ECONNREFUSED 127.0.0.1:6379</Code>.
+                    <strong>Problema:</strong> Ao iniciar a aplicação pela primeira vez, o sistema falhou com o erro <code>Error: connect ECONNREFUSED 127.0.0.1:6379</code>.
                     <br />
                     <strong>Diagnóstico e Jornada:</strong> A depuração revelou que a aplicação Node.js não conseguia se conectar ao servidor Redis. A investigação aprofundada mostrou que uma versão nativa e desatualizada (5.x) do Redis estava instalada no Windows, causando conflitos e incompatibilidade com as versões recomendadas pelo BullMQ.
                     <br />
-                    <strong>Aprendizado e Solução:</strong> O aprendizado fundamental foi que Redis não é uma biblioteca, mas sim um serviço de servidor independente. A solução foi modernizar o ambiente de desenvolvimento, desabilitando o serviço antigo e adotando o Docker Desktop. Um novo contêiner Redis foi iniciado com <Code>docker run ... redis:latest</Code>, resolvendo o erro de conexão e atualizando o Redis para a versão 7.x, alinhando o ambiente com as melhores práticas.
+                    <strong>Aprendizado e Solução:</strong> O aprendizado fundamental foi que Redis não é uma biblioteca, mas sim um serviço de servidor independente. A solução foi modernizar o ambiente de desenvolvimento, desabilitando o serviço antigo e adotando o Docker Desktop. Um novo contêiner Redis foi iniciado com <code>docker run ... redis:latest</code>, resolvendo o erro de conexão e atualizando o Redis para a versão 7.x, alinhando o ambiente com as melhores práticas.
                   </Paragraph>
 
                   <Subtitle>2.2. Implementação do "Produtor": A API Express</Subtitle>
                   <Paragraph>
-                    A rota <Code>POST /download</Code> foi implementada. Sua única responsabilidade é gerar um ID único para a requisição, adicionar um job à fila do BullMQ com o comando <Code>downloadQueue.add(...)</Code> e responder imediatamente ao cliente com o status <Code>202 Accepted</Code> e o ID do job.
+                    A rota <code>POST /download</code> foi implementada. Sua única responsabilidade é gerar um ID único para a requisição, adicionar um job à fila do BullMQ com o comando <code>downloadQueue.add(...)</code> e responder imediatamente ao cliente com o status <code>202 Accepted</code> e o ID do job.
                   </Paragraph>
                   <Paragraph>
-                    <strong>Aprendizado Chave:</strong> Esta foi a aplicação prática do padrão Produtor/Consumidor. A escolha pelo status HTTP <Code>202 Accepted</Code> foi intencional, pois ele comunica semanticamente que a solicitação foi aceita para processamento, mas ainda não foi concluída. O entendimento de como a operação <Code>await downloadQueue.add()</Code> é extremamente rápida e não bloqueia o servidor foi a base para uma experiência de usuário responsiva.
+                    <strong>Aprendizado Chave:</strong> Esta foi a aplicação prática do padrão Produtor/Consumidor. A escolha pelo status HTTP <code>202 Accepted</code> foi intencional, pois ele comunica semanticamente que a solicitação foi aceita para processamento, mas ainda não foi concluída. O entendimento de como a operação <code>await downloadQueue.add()</code> é extremamente rápida e não bloqueia o servidor foi a base para uma experiência de usuário responsiva.
                   </Paragraph>
 
                   <Subtitle>2.3. Implementação do "Consumidor": O Worker do BullMQ</Subtitle>
                   <Paragraph>
-                    Um processo Worker do BullMQ foi criado para operar em segundo plano, "escutando" a fila de downloads. A lógica inicial do worker foi extrair a URL do job e invocar a ferramenta <Code>yt-dlp</Code> através de um processo filho do Node.js.
+                    Um processo Worker do BullMQ foi criado para operar em segundo plano, "escutando" a fila de downloads. A lógica inicial do worker foi extrair a URL do job e invocar a ferramenta <code>yt-dlp</code> através de um processo filho do Node.js.
                   </Paragraph>
                   <Paragraph>
-                    <strong>Detalhes da Jornada:</strong> A primeira implementação utilizou <Code>child_process.exec</Code>. Embora funcional, a análise posterior (no passo de robustez) identificou um risco de segurança (Command Injection). O aprendizado foi a importância de usar <Code>execFile</Code> em seu lugar, que trata os argumentos de forma segura, uma prática essencial que foi incorporada nas iterações seguintes do projeto, demonstrando uma evolução no quesito segurança do código.
+                    <strong>Detalhes da Jornada:</strong> A primeira implementação utilizou <code>child_process.exec</code>. Embora funcional, a análise posterior (no passo de robustez) identificou um risco de segurança (Command Injection). O aprendizado foi a importância de usar <code>execFile</code> em seu lugar, que trata os argumentos de forma segura, uma prática essencial que foi incorporada nas iterações seguintes do projeto, demonstrando uma evolução no quesito segurança do código.
                   </Paragraph>
 
                   <Subtitle>2.4. O Elo de Ligação: A Rota de Status Inicial</Subtitle>
                   <Paragraph>
-                    A rota <Code>GET /status/:id</Code> foi implementada. A lógica inicial, intencionalmente simples, apenas usava <Code>fs.existsSync()</Code> para verificar se o arquivo de vídeo correspondente já havia sido criado pelo Worker.
+                    A rota <code>GET /status/:id</code> foi implementada. A lógica inicial, intencionalmente simples, apenas usava <code>fs.existsSync()</code> para verificar se o arquivo de vídeo correspondente já havia sido criado pelo Worker.
                   </Paragraph>
                   <Paragraph>
                     <strong>Aprendizado:</strong> Esta abordagem, embora soubesse que seria substituída, foi uma decisão pragmática. Ela serviu como um "teste de fumaça" (smoke test) rápido e eficaz para validar que todo o fluxo assíncrono estava funcionando de ponta a ponta (API enfileira -> Worker processa -> Rota de status confirma) antes de investir tempo em uma lógica de status mais complexa.
@@ -206,20 +216,20 @@ const AndroidStudioSetup = () => {
                   <Paragraph>
                     <strong>Problema:</strong> O que acontece se centenas de usuários solicitarem downloads ao mesmo tempo?
                     <br />
-                    <strong>Diagnóstico:</strong> O servidor tentaria iniciar centenas de processos <Code>yt-dlp</Code>, esgotando a CPU e a memória, levando ao colapso do serviço.
+                    <strong>Diagnóstico:</strong> O servidor tentaria iniciar centenas de processos <code>yt-dlp</code>, esgotando a CPU e a memória, levando ao colapso do serviço.
                     <br />
-                    <strong>Solução:</strong> Foi adicionada a opção <Code>{`{ concurrency: 6 }`}</Code> ao construtor do Worker do BullMQ.
+                    <strong>Solução:</strong> Foi adicionada a opção <code>{`{ concurrency: 6 }`}</code> ao construtor do Worker do BullMQ.
                     <br />
                     <strong>Aprendizado e Jornada:</strong> A lição aqui foi a transição de um pensamento de "funciona na minha máquina" para um de "como isso se comporta sob estresse?". A implementação do controle de concorrência foi um passo proativo para proteger o sistema de sua própria carga, atuando como um "gatekeeper" que processa a fila em um ritmo sustentável, garantindo performance e estabilidade.
                   </Paragraph>
 
                   <Subtitle>Pilar 2: Prevenção de Jobs Travados (Tolerância a Falhas)</Subtitle>
                   <Paragraph>
-                    <strong>Problema:</strong> E se um download específico nunca terminar, seja por um erro de rede ou do próprio <Code>yt-dlp</Code>?
+                    <strong>Problema:</strong> E se um download específico nunca terminar, seja por um erro de rede ou do próprio <code>yt-dlp</code>?
                     <br />
                     <strong>Diagnóstico:</strong> Um job "travado" no estado "ativo" poderia ocupar um dos preciosos slots de concorrência indefinidamente, diminuindo a capacidade de processamento do sistema e, eventualmente, paralisando a fila.
                     <br />
-                    <strong>Solução:</strong> Foi adicionada a opção <Code>{`{ timeout: 180000 }`}</Code> (3 minutos) ao criar cada job. Se um job exceder esse tempo, o BullMQ o marca automaticamente como falho.
+                    <strong>Solução:</strong> Foi adicionada a opção <code>{`{ timeout: 180000 }`}</code> (3 minutos) ao criar cada job. Se um job exceder esse tempo, o BullMQ o marca automaticamente como falho.
                     <br />
                     <strong>Aprendizado e Jornada:</strong> O aprendizado foi sobre a importância de projetar para a falha. Em vez de esperar que tudo funcione perfeitamente, o sistema foi equipado com um mecanismo de auto-regeneração ("self-healing"), garantindo que nenhuma tarefa problemática possa comprometer a saúde do sistema a longo prazo sem intervenção manual.
                   </Paragraph>
@@ -228,15 +238,15 @@ const AndroidStudioSetup = () => {
                   <Paragraph>
                     <strong>Problema:</strong> Como o usuário sabe por que seu download falhou? A rota de status inicial era um "buraco negro" de informação.
                     <br />
-                    <strong>Diagnóstico:</strong> A abordagem inicial com <Code>fs.existsSync()</Code> era frágil e incapaz de diferenciar um job em processamento de um que havia falhado.
+                    <strong>Diagnóstico:</strong> A abordagem inicial com <code>fs.existsSync()</code> era frágil e incapaz de diferenciar um job em processamento de um que havia falhado.
                   </Paragraph>
                   <Paragraph>
                     <strong>Solução e Jornada:</strong> O sistema foi refatorado em múltiplas frentes:
                   </Paragraph>
                   <List>
-                    <li><strong>Worker Inteligente:</strong> A lógica do worker foi aprimorada para capturar a saída de erro (<Code>stderr</Code>) do <Code>yt-dlp</Code> e rejeitar a promessa com essa mensagem específica.</li>
-                    <li><strong>Consulta Direta à Fila:</strong> A rota <Code>GET /status/:id</Code> foi reescrita para consultar o estado do job diretamente no Redis (<Code>downloadQueue.getJob()</Code>), permitindo o acesso a <Code>job.failedReason</Code>.</li>
-                    <li><strong>Separação de Responsabilidades:</strong> Foi criada uma nova rota <Code>GET /download/:key</Code> com a única finalidade de servir o link do arquivo, tornando a API mais limpa.</li>
+                    <li><strong>Worker Inteligente:</strong> A lógica do worker foi aprimorada para capturar a saída de erro (<code>stderr</code>) do <code>yt-dlp</code> e rejeitar a promessa com essa mensagem específica.</li>
+                    <li><strong>Consulta Direta à Fila:</strong> A rota <code>GET /status/:id</code> foi reescrita para consultar o estado do job diretamente no Redis (<code>downloadQueue.getJob()</code>), permitindo o acesso a <code>job.failedReason</code>.</li>
+                    <li><strong>Separação de Responsabilidades:</strong> Foi criada uma nova rota <code>GET /download/:key</code> com a única finalidade de servir o link do arquivo, tornando a API mais limpa.</li>
                   </List>
                   <Paragraph>
                     <strong>Aprendizado:</strong> O valor de projetar APIs claras e previsíveis. O sistema passou de um serviço que apenas "funcionava" para um que "se comunicava" de forma eficaz, o que é fundamental para a experiência do usuário e para a capacidade de depuração.
@@ -244,13 +254,13 @@ const AndroidStudioSetup = () => {
 
                   <Subtitle>Pilar 4: Arquitetura Stateless com Armazenamento em Nuvem</Subtitle>
                   <Paragraph>
-                    <strong>Problema:</strong> Após o primeiro deploy na <Code>Railway</Code>, a API retornava "Arquivo não encontrado", mesmo com os logs do Worker mostrando sucesso. Como o Serviço da API acessa um arquivo que foi baixado e salvo pelo Serviço do Worker, se ambos rodam em contêineres isolados?
+                    <strong>Problema:</strong> Após o primeiro deploy na <code>Railway</code>, a API retornava "Arquivo não encontrado", mesmo com os logs do Worker mostrando sucesso. Como o Serviço da API acessa um arquivo que foi baixado e salvo pelo Serviço do Worker, se ambos rodam em contêineres isolados?
                   </Paragraph>
                   <Paragraph>
                     <strong>Diagnóstico e Jornada:</strong> Este foi um desafio de infraestrutura crucial. Adicionando logs detalhados, foi provado que o Worker estava criando o arquivo, mas em seu próprio sistema de arquivos efêmero. A API, rodando em um contêiner separado, não tinha acesso a ele.
                   </Paragraph>
                   <Paragraph>
-                    <strong>Solução:</strong> A solução foi desacoplar completamente o armazenamento da aplicação, movendo-o para o <Code>Cloudflare R2</Code>. O <Code>downloadWorker</Code> agora faz o upload do vídeo para um "bucket". A API, por sua vez, gera um link de download seguro para o objeto no R2. A lógica de limpeza (<Code>cleanupWorker</Code>) também foi refeita para operar diretamente no bucket.
+                    <strong>Solução:</strong> A solução foi desacoplar completamente o armazenamento da aplicação, movendo-o para o <code>Cloudflare R2</code>. O <code>downloadWorker</code> agora faz o upload do vídeo para um "bucket". A API, por sua vez, gera um link de download seguro para o objeto no R2. A lógica de limpeza (<code>cleanupWorker</code>) também foi refeita para operar diretamente no bucket.
                   </Paragraph>
                   <Paragraph>
                     <strong>Aprendizado:</strong> O aprendizado fundamental foi sobre a natureza dos sistemas de arquivos isolados em arquiteturas de microserviços. A migração para armazenamento de objetos tornou a aplicação verdadeiramente stateless, um princípio essencial para a escalabilidade e manutenção na nuvem.
@@ -270,10 +280,10 @@ const AndroidStudioSetup = () => {
                     <strong>Problema / Dúvida Crítica:</strong> "Com o sistema robusto internamente, estou protegido se um ator malicioso tentar fazer milhares de requisições simultaneamente?"
                   </Paragraph>
                   <Paragraph>
-                    <strong>Diagnóstico e Jornada:</strong> A análise revelou uma vulnerabilidade crucial. Embora o Controle de Concorrência (Pilar 1) protegesse os workers da sobrecarga, ele não protegia a API ou a fila do <Code>Redis</Code>. Um atacante poderia inundar a rota <Code>POST /download</Code> com milhões de solicitações. Cada uma delas criaria um job na fila, o que poderia consumir toda a memória do servidor <Code>Redis</Code> e causar uma negação de serviço (DoS), derrubando todo o sistema de filas.
+                    <strong>Diagnóstico e Jornada:</strong> A análise revelou uma vulnerabilidade crucial. Embora o Controle de Concorrência (Pilar 1) protegesse os workers da sobrecarga, ele não protegia a API ou a fila do <code>Redis</code>. Um atacante poderia inundar a rota <code>POST /download</code> com milhões de solicitações. Cada uma delas criaria um job na fila, o que poderia consumir toda a memória do servidor <code>Redis</code> e causar uma negação de serviço (DoS), derrubando todo o sistema de filas.
                   </Paragraph>
                   <Paragraph>
-                    <strong>Solução:</strong> Foi implementada a Limitação de Taxa (Rate Limiting) utilizando a biblioteca <Code>express-rate-limit</Code>. Um middleware foi aplicado globalmente na API, estabelecendo uma regra clara: no máximo 100 requisições a cada 15 minutos por endereço de IP. Se um cliente ultrapassar esse limite, sua requisição é imediatamente bloqueada com um erro <Code>429 Too Many Requests</Code>, sem nunca chegar à lógica da rota e sem consumir recursos da fila.
+                    <strong>Solução:</strong> Foi implementada a Limitação de Taxa (Rate Limiting) utilizando a biblioteca <code>express-rate-limit</code>. Um middleware foi aplicado globalmente na API, estabelecendo uma regra clara: no máximo 100 requisições a cada 15 minutos por endereço de IP. Se um cliente ultrapassar esse limite, sua requisição é imediatamente bloqueada com um erro <code>429 Too Many Requests</code>, sem nunca chegar à lógica da rota e sem consumir recursos da fila.
                   </Paragraph>
                   <Paragraph>
                     <strong>Aprendizado:</strong> A importância de proteger a "porta de entrada" da aplicação. A robustez interna não é suficiente se a fronteira do serviço estiver vulnerável a ataques de volume.
@@ -281,16 +291,16 @@ const AndroidStudioSetup = () => {
 
                   <Subtitle>4.2. Estratégia de Defesa 2: Proteção na Saída com Links Seguros</Subtitle>
                   <Paragraph>
-                    <strong>Problema / Dúvida Crítica:</strong> "Agora que os vídeos estão no <Code>Cloudflare R2</Code>, como posso garantir que apenas o usuário que solicitou o vídeo possa baixá-lo? E como evitar que o link de download seja compartilhado e usado para sempre por qualquer pessoa?"
+                    <strong>Problema / Dúvida Crítica:</strong> "Agora que os vídeos estão no <code>Cloudflare R2</code>, como posso garantir que apenas o usuário que solicitou o vídeo possa baixá-lo? E como evitar que o link de download seja compartilhado e usado para sempre por qualquer pessoa?"
                   </Paragraph>
                   <Paragraph>
                     <strong>Diagnóstico:</strong> Simplesmente retornar um link público para o arquivo no bucket R2 seria uma falha grave de segurança. Isso permitiria <strong>hotlinking</strong> (outros sites usando seu link diretamente), acesso não autorizado e consumo de banda por terceiros, o que poderia gerar custos e sobrecarga.
                   </Paragraph>
                   <Paragraph>
-                    <strong>Solução:</strong> A rota <Code>GET /download/:key</Code> foi projetada para não retornar o arquivo diretamente. Em vez disso, ela atua como um "portão de autorização" que utiliza o <Code>AWS SDK</Code> para gerar uma <strong>URL de download assinada (pre-signed URL)</strong>. Essa URL é única, aponta para o arquivo no R2 e, crucialmente, possui uma validade curta (5 minutos). Após esse tempo, o link expira e se torna inválido, garantindo que o acesso ao arquivo seja temporário e controlado.
+                    <strong>Solução:</strong> A rota <code>GET /download/:key</code> foi projetada para não retornar o arquivo diretamente. Em vez disso, ela atua como um "portão de autorização" que utiliza o <code>AWS SDK</code> para gerar uma <strong>URL de download assinada (pre-signed URL)</strong>. Essa URL é única, aponta para o arquivo no R2 e, crucialmente, possui uma validade curta (5 minutos). Após esse tempo, o link expira e se torna inválido, garantindo que o acesso ao arquivo seja temporário e controlado.
                   </Paragraph>
                   <Paragraph>
-                    <strong>Aprendizado:</strong> A segurança dos dados não termina quando eles são armazenados; ela se estende até a sua entrega. O uso de URLs assinadas é uma prática padrão da indústria para fornecer acesso seguro e de curto prazo a objetos em armazenamento na nuvem.
+                    <strong>Aprendizado:</strong> A segurança dos dados não termina quando eles são armazenados; ela se estende até a sua entrega. O uso de URLs assinadas é uma prática padrão da indústria para fornecer acesso seguro и de curto prazo a objetos em armazenamento na nuvem.
                   </Paragraph>
                 </Container>
 
@@ -304,7 +314,7 @@ const AndroidStudioSetup = () => {
 
                   <Subtitle>5.1. A Dúvida Crítica de Experiência do Usuário (UX)</Subtitle>
                   <Paragraph>
-                    <strong>Problema:</strong> "Como o usuário pode ter uma experiência simples de 'clicar e baixar' se a nossa arquitetura de backend, por ser assíncrona, exige um fluxo com múltiplas requisições (<Code>POST /download</Code>, <Code>GET /status/:id</Code>, <Code>GET /download/:key</Code>)?"
+                    <strong>Problema:</strong> "Como o usuário pode ter uma experiência simples de 'clicar e baixar' se a nossa arquitetura de backend, por ser assíncrona, exige um fluxo com múltiplas requisições (<code>POST /download</code>, <code>GET /status/:id</code>, <code>GET /download/:key</code>)?"
                     <br />
                     <strong>Diagnóstico:</strong> A complexidade da arquitetura de backend é uma vantagem técnica, mas nunca deve ser um fardo para o usuário. A responsabilidade de gerenciar o fluxo de chamadas e o estado da interação deve ser inteiramente do código do frontend.
                   </Paragraph>
@@ -314,7 +324,7 @@ const AndroidStudioSetup = () => {
                     <strong>Estratégia Adotada:</strong> O frontend atuará como um "orquestrador" ou "maestro". O backend oferece os "instrumentos" (as rotas da API), e o frontend é responsável por "regê-los" na sequência e no tempo corretos para produzir a "música" (a experiência do usuário).
                   </Paragraph>
                   <Paragraph>
-                    <strong>Aprendizado Chave:</strong> A importância da separação de responsabilidades no desenvolvimento full-stack. O backend foi projetado para ser <strong>stateless</strong> (sem estado), processando cada requisição de forma independente. O frontend, por outro lado, se torna <strong>stateful</strong> durante a interação, gerenciando o estado do pedido do usuário (o <Code>requestId</Code>, o status atual, etc.) do início ao fim.
+                    <strong>Aprendizado Chave:</strong> A importância da separação de responsabilidades no desenvolvimento full-stack. O backend foi projetado para ser <strong>stateless</strong> (sem estado), processando cada requisição de forma independente. O frontend, por outro lado, se torna <strong>stateful</strong> durante a interação, gerenciando o estado do pedido do usuário (o <code>requestId</code>, o status atual, etc.) do início ao fim.
                   </Paragraph>
 
                   <Subtitle>5.3. O Fluxo de Execução no Código do Cliente</Subtitle>
@@ -323,23 +333,21 @@ const AndroidStudioSetup = () => {
                   </Paragraph>
                   <List>
                     <li>
-                      <strong>Requisição Inicial e Feedback Imediato:</strong> O frontend envia a requisição <Code>POST</Code> para <Code>/download</Code> com a URL. Imediatamente, a interface do usuário (UI) é atualizada para um estado de carregamento (ex: um spinner com a mensagem "Preparando seu download..."). A API responde em milissegundos com um <Code>{`{ "requestId": "..." }`}</Code>.
+                      <strong>Requisição Inicial e Feedback Imediato:</strong> O frontend envia a requisição <code>POST</code> para <code>/download</code> com a URL. Imediatamente, a interface do usuário (UI) é atualizada para um estado de carregamento (ex: um spinner com a mensagem "Preparando seu download..."). A API responde em milissegundos com um <code>{`{ "requestId": "..." }`}</code>.
                     </li>
-                    <br />
                     <li>
-                      <strong>Início do "Polling" Automático:</strong> Com o <Code>requestId</Code> em mãos, o frontend inicia um temporizador (<Code>setInterval</Code>) que, a cada 3 a 5 segundos, faz uma requisição <Code>GET</Code> para a rota <Code>/status/:requestId</Code>.
+                      <strong>Início do "Polling" Automático:</strong> Com o <code>requestId</code> em mãos, o frontend inicia um temporizador (<code>setInterval</code>) que, a cada 3 a 5 segundos, faz uma requisição <code>GET</code> para a rota <code>/status/:requestId</code>.
                     </li>
-                    <br />
                     <li>
                       <strong>O Loop de Verificação e Decisão:</strong> A cada resposta da rota de status, o código do frontend analisa o JSON recebido e toma uma decisão:
                       <List>
-                        <li>Se <Code>status: 'processing'</Code>, ele não faz nada e simplesmente aguarda o próximo ciclo do <Code>setInterval</Code>.</li>
-                        <li>Se <Code>status: 'failed'</Code>, ele interrompe o polling (<Code>clearInterval</Code>) e exibe uma mensagem de erro clara para o usuário, utilizando a informação do campo <Code>reason</Code>.</li>
-                        <li>Se <Code>status: 'completed'</Code>, ele interrompe o polling, pega a chave do arquivo (<Code>fileKey</Code>) que vem na resposta e avança para o passo final.</li>
+                        <li>Se <code>status: 'processing'</code>, ele não faz nada e simplesmente aguarda o próximo ciclo do <code>setInterval</code>.</li>
+                        <li>Se <code>status: 'failed'</code>, ele interrompe o polling (<code>clearInterval</code>) e exibe uma mensagem de erro clara para o usuário, utilizando a informação do campo <code>reason</code>.</li>
+                        <li>Se <code>status: 'completed'</code>, ele interrompe o polling, pega a chave do arquivo (<code>fileKey</code>) que vem na resposta e avança para o passo final.</li>
                       </List>
                     </li>
                     <li>
-                      <strong>O Gatilho do Download Final (com R2):</strong> Ao receber o status <Code>'completed'</Code>, o frontend usa a <Code>fileKey</Code> recebida para construir a URL final (ex: <Code>/download/${'fileKey'}</Code>). Ele então faz o navegador acessar esta rota. O backend, ao receber a requisição em <Code>GET /download/:key</Code>, não envia o arquivo. Em vez disso, ele gera a URL de download segura e temporária para o <Code>Cloudflare R2</Code> e <strong>redireciona</strong> o navegador do usuário para essa URL, que finalmente inicia o download do arquivo.
+                      <strong>O Gatilho do Download Final (com R2):</strong> Ao receber o status <code>'completed'</code>, o frontend usa a <code>fileKey</code> recebida para construir a URL final (ex: <code>/download/${'fileKey'}</code>). Ele então faz o navegador acessar esta rota. O backend, ao receber a requisição em <code>GET /download/:key</code>, não envia o arquivo. Em vez disso, ele gera a URL de download segura e temporária para o <code>Cloudflare R2</code> e <strong>redireciona</strong> o navegador do usuário para essa URL, que finalmente inicia o download do arquivo.
                     </li>
                   </List>
 
@@ -365,66 +373,66 @@ const AndroidStudioSetup = () => {
                     <tbody style={tbodyStyle}>
                       <tr>
                         <td style={tdStyle} rowSpan="2">🖥️ Backend (Aplicação Principal)</td>
-                        <td style={tdStyle}><Code>Node.js</Code></td>
+                        <td style={tdStyle}><code>Node.js</code></td>
                         <td style={tdStyle}>Ambiente de execução (runtime) JavaScript no servidor.</td>
                       </tr>
                       <tr>
-                        <td style={tdStyle}><Code>Express.js</Code></td>
+                        <td style={tdStyle}><code>Express.js</code></td>
                         <td style={tdStyle}>Framework web para construir e gerenciar as rotas da API.</td>
                       </tr>
                       <tr>
                         <td style={tdStyle} rowSpan="2">🔀 Fila de Jobs e Proc. Assíncrono</td>
-                        <td style={tdStyle}><Code>BullMQ</Code></td>
+                        <td style={tdStyle}><code>BullMQ</code></td>
                         <td style={tdStyle}>Biblioteca para gerenciar a criação (Produtor) e processamento (Worker) dos jobs.</td>
                       </tr>
                       <tr>
-                        <td style={tdStyle}><Code>Redis</Code></td>
+                        <td style={tdStyle}><code>Redis</code></td>
                         <td style={tdStyle}>Banco de dados em memória que atua como o armazenamento para as filas do BullMQ.</td>
                       </tr>
                       <tr>
                         <td style={tdStyle}>☁️ Armazenamento e Dados</td>
-                        <td style={tdStyle}><Code>Cloudflare R2</Code></td>
+                        <td style={tdStyle}><code>Cloudflare R2</code></td>
                         <td style={tdStyle}>Serviço de armazenamento de objetos para guardar os vídeos finais de forma escalável.</td>
                       </tr>
                       <tr>
                         <td style={tdStyle}>🛠️ Ferramentas Externas</td>
-                        <td style={tdStyle}><Code>yt-dlp</Code></td>
+                        <td style={tdStyle}><code>yt-dlp</code></td>
                         <td style={tdStyle}>Utilitário invocado pelo Worker para executar a lógica de download do vídeo.</td>
                       </tr>
                       <tr>
                         <td style={tdStyle} rowSpan="2">🛡️ Segurança</td>
-                        <td style={tdStyle}><Code>express-rate-limit</Code></td>
+                        <td style={tdStyle}><code>express-rate-limit</code></td>
                         <td style={tdStyle}>Middleware para proteger a API contra abuso e ataques de negação de serviço (DoS).</td>
                       </tr>
                       <tr>
-                        <td style={tdStyle}><Code>AWS SDK v3</Code></td>
+                        <td style={tdStyle}><code>AWS SDK v3</code></td>
                         <td style={tdStyle}>Utilizado para interagir com a API do R2 e gerar URLs de download seguras (pre-signed URLs).</td>
                       </tr>
                       <tr>
                         <td style={tdStyle} rowSpan="2">🚀 DevOps (Desenvolvimento e Deploy)</td>
-                        <td style={tdStyle}><Code>Docker</Code></td>
+                        <td style={tdStyle}><code>Docker</code></td>
                         <td style={tdStyle}>Usado para rodar o Redis localmente e criar a imagem da aplicação para deploy.</td>
                       </tr>
                       <tr>
-                        <td style={tdStyle}><Code>Railway.app</Code></td>
+                        <td style={tdStyle}><code>Railway.app</code></td>
                         <td style={tdStyle}>Plataforma de nuvem (PaaS) utilizada para hospedar os serviços da aplicação.</td>
                       </tr>
                       <tr>
                         <td style={tdStyle} rowSpan="2">🎨 Frontend (Visualização e Exemplo)</td>
-                        <td style={tdStyle}><Code>React</Code></td>
+                        <td style={tdStyle}><code>React</code></td>
                         <td style={tdStyle}>Biblioteca para construir a interface de usuário do portfólio.</td>
                       </tr>
                       <tr>
-                        <td style={tdStyle}><Code>styled-components</Code></td>
+                        <td style={tdStyle}><code>styled-components</code></td>
                         <td style={tdStyle}>Ferramenta de CSS-in-JS para estilizar os componentes React.</td>
                       </tr>
                       <tr>
                         <td style={tdStyle} rowSpan="2">⚙️ Utilitários</td>
-                        <td style={tdStyle}><Code>uuid</Code></td>
+                        <td style={tdStyle}><code>uuid</code></td>
                         <td style={tdStyle}>Para gerar identificadores únicos para cada job.</td>
                       </tr>
                       <tr>
-                        <td style={tdStyle}><Code>dotenv</Code></td>
+                        <td style={tdStyle}><code>dotenv</code></td>
                         <td style={tdStyle}>Para gerenciar variáveis de ambiente durante o desenvolvimento local.</td>
                       </tr>
                     </tbody>

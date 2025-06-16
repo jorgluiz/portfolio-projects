@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Head from "next/head";
 import { useGlobalState } from "../../../context/GlobalStateContext";
 import {
@@ -7,7 +6,6 @@ import {
   Subtitle,
   Paragraph,
   List,
-  Link, // Mantive o Link caso precise usar em algum momento
   CodeContainer
 } from "@/styles/globalStyles";
 import styled from 'styled-components';
@@ -17,53 +15,11 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
 
-import hljs from 'highlight.js'; // Importando o highlight.js
-import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
-
-/* Responsividade da tabela */
-const Table = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  overflow-x: auto;
-  display: block;
-  white-space: nowrap;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
-const Th = styled.th`
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
-`;
-
-const Td = styled.td`
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
-`;
-
-const THead = styled.thead`
-  background-color: #f4f4f4;
-`;
-
-const TBody = styled.tbody`
-  background-color: #fff;
-`;
-
 // Renomeando o componente para refletir o novo conteúdo
 const AndroidStudioSetup = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
 
   const handleOverlayClick = () => setIsHamburguerOpen(false);
-
-  useEffect(() => {
-    // Só executa a estilização se o conteúdo estiver carregado e visível
-    if (isLoaded) {
-      hljs.highlightAll();
-    }
-  }, [isLoaded]); // Adicione 'isLoaded' como dependência!
 
   return (
     <>
@@ -224,38 +180,3 @@ const AndroidStudioSetup = () => {
 
 // Exporte com o novo nome
 export default AndroidStudioSetup;
-
-{/* <Subtitle>5. Comandos de Verificação e Execução (Linha de Comando)</Subtitle>
-                  <Paragraph>
-                    Finalmente, foram utilizados comandos no terminal para validar toda a configuração.
-                  </Paragraph>
-
-                  <Paragraph><strong>Comando de Verificação:</strong></Paragraph>
-                  <pre>
-                    <code className="language-bash">
-                      adb devices
-                    </code>
-                  </pre>
-                  <Paragraph>
-                    <strong>Finalidade e Aprendizado:</strong> Usado para confirmar que o computador conseguia detectar e se comunicar com o emulador em execução.
-                  </Paragraph>
-
-                  <Paragraph><strong>Comando de Limpeza e Manutenção (Crucial):</strong></Paragraph>
-                  <pre>
-                    <code className="language-bash">
-                      cd android && ./gradlew clean && cd ..
-                    </code>
-                  </pre>
-                  <Paragraph>
-                    <strong>Finalidade e Aprendizado:</strong> Foi um comando chave para resolver "crashes" do aplicativo. Aprendeu-se que ele limpa builds antigos e força o Gradle a reconstruir o projeto do zero, resolvendo muitos erros "inexplicáveis".
-                  </Paragraph>
-
-                  <Paragraph><strong>Comando Final de Execução:</strong></Paragraph>
-                  <pre>
-                    <code className="language-bash">
-                      npm run android
-                    </code>
-                  </pre>
-                  <Paragraph>
-                    <strong>Finalidade e Aprendizado:</strong> Este foi o teste final que validou todo o setup. Um `BUILD SUCCESSFUL` neste passo significou que toda a configuração do Android Studio e do ambiente foi bem-sucedida.
-                  </Paragraph> */}

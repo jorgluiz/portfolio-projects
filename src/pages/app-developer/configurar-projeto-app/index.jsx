@@ -7,7 +7,6 @@ import {
   Subtitle,
   Paragraph,
   List,
-  Link, // Mantive o Link caso precise usar em algum momento
   CodeContainer,
   DividerWithText
 } from "@/styles/globalStyles";
@@ -17,9 +16,7 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
-
-import hljs from 'highlight.js'; // Importando o highlight.js
-import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
+import CodeBlock from '@/components/codeBlock';
 
 const Table = styled.table`
   width: 100%;
@@ -57,13 +54,6 @@ const AndroidStudioSetup = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
 
   const handleOverlayClick = () => setIsHamburguerOpen(false);
-
-  useEffect(() => {
-    // Só executa a estilização se o conteúdo estiver carregado e visível
-    if (isLoaded) {
-      hljs.highlightAll();
-    }
-  }, [isLoaded]); // Adicione 'isLoaded' como dependência!
 
   return (
     <>
@@ -127,7 +117,9 @@ const AndroidStudioSetup = () => {
                       <strong>Diagnóstico:</strong> Uma versão global e obsoleta da `react-native-cli` estava instalada, causando conflito.
                       <br />
                       <strong>Solução:</strong> Desinstalar o pacote global foi o primeiro passo.
-                      <pre><code className="language-bash">npm uninstall -g react-native-cli</code></pre>
+                      <CodeBlock language="javascript">
+                        {`npm uninstall -g react-native-cli`}
+                      </CodeBlock>
                     </li>
                     <li>
                       <strong>2. Segunda Tentativa e Erro:</strong>
@@ -140,7 +132,9 @@ const AndroidStudioSetup = () => {
                       <strong>3. O Comando Correto e o Sucesso:</strong>
                       <br />
                       Seguindo a orientação do erro, o comando correto foi utilizado.
-                      <pre><code className="language-bash">npx @react-native-community/cli init downloadVideoInstagram</code></pre>
+                      <CodeBlock language="javascript">
+                        {`npx @react-native-community/cli init downloadVideoInstagram`}
+                      </CodeBlock>
                       <strong>Aprendizado Chave:</strong> A importância de ler atentamente as mensagens de erro e usar os comandos recomendados pela comunidade oficial.
                     </li>
                   </List>
@@ -165,7 +159,9 @@ const AndroidStudioSetup = () => {
                       <strong>Desafio e Solução:</strong> Ao mover `App.tsx` para `src/`, o app quebrou. O diagnóstico foi que o ponto de entrada (`index.js`) precisava ser atualizado.
                       <br />
                       <strong>Solução:</strong> Editar o `index.js` para importar o App do novo local.
-                      <pre><code className="language-javascript">import App from './src/App';</code></pre>
+                      <CodeBlock language="javascript">
+                        {`import App from './src/App';`}
+                      </CodeBlock>
                     </li>
                   </List>
 
@@ -255,11 +251,9 @@ const AndroidStudioSetup = () => {
                     <strong>Implementação:</strong> Foi definido um tipo RootStackParamList que mapeia o nome de cada rota aos seus parâmetros esperados.
                   </Paragraph>
                   <Paragraph>
-                    <pre>
-                      <code>
-                        {`export type RootStackParamList = VideoPlayer: {filePath: string };`}
-                      </code>
-                    </pre>
+                    <CodeBlock language="javascript">
+                      {`export type RootStackParamList = VideoPlayer: {filePath: string };`}
+                    </CodeBlock>
                   </Paragraph>
                   <Paragraph>
                     <em>Aprendizado e Vantagens:</em> Essa abordagem permitiu que o TypeScript verificasse em tempo de compilação se as chamadas de navegação (navigation.navigate(...)) estavam corretas, prevenindo erros de digitação nos nomes das rotas e garantindo que os parâmetros corretos fossem sempre passados.
@@ -305,7 +299,9 @@ const AndroidStudioSetup = () => {
                   <Paragraph>
                     Para controlar o menu lateral, não foi necessário passar a função de navegação como prop. Em vez disso, o Hook useNavigation foi utilizado diretamente dentro do componente para obter acesso ao objeto de navegação. A ação de abrir o menu foi implementada com:
                     <br />
-                    <pre><code>{`navigation.dispatch(DrawerActions.toggleDrawer())`}</code></pre>
+                    <CodeBlock language="javascript">
+                      {`navigation.dispatch(DrawerActions.toggleDrawer())`}
+                    </CodeBlock>
                     <br />
                     <em>Aprendizado:</em> Esta abordagem desacopla o componente da tela pai, tornando-o mais autônomo e fácil de reutilizar em qualquer parte do aplicativo que esteja dentro de um DrawerNavigator.
                   </Paragraph>
@@ -314,7 +310,9 @@ const AndroidStudioSetup = () => {
                   <Paragraph>
                     Para uma aparência profissional, a biblioteca react-native-vector-icons foi escolhida. Em vez de usar texto ou imagens estáticas, foram utilizados os componentes &lt;Icon /&gt; do conjunto Ionicons.
                     <br />
-                    <pre><code>{`Icon name='menu' size={30} color='#fff'`}</code></pre>
+                    <CodeBlock language="javascript">
+                      {`Icon name='menu' size={30} color='#fff'`}
+                    </CodeBlock>
                     <br />
                     <em>Aprendizado:</em> O uso de ícones vetoriais melhora a qualidade visual (sem perda de resolução em diferentes telas) e a performance do aplicativo em comparação com o uso de múltiplos arquivos de imagem.
                   </Paragraph>
@@ -555,248 +553,6 @@ const AndroidStudioSetup = () => {
                     O VideoPlayerScreen.tsx evoluiu para um componente de nível profissional que demonstra um profundo entendimento de gestão de estado complexa, manipulação de eventos, ciclo de vida de componentes e integração de APIs nativas em React Native. O resultado é uma experiência de utilizador polida, intuitiva e funcional, que eleva a qualidade geral da aplicação.
                   </Paragraph>
                 </Container>
-
-                {/* <Container>
-                  <SectionTitle>
-                    passo 4: A Decisão Estratégica - A Necessidade de um Backend
-                  </SectionTitle>
-                  <Paragraph>
-                    O objetivo desta etapa foi analisar a viabilidade técnica da ideia original (baixar vídeos do Instagram) e tomar uma decisão arquitetural fundamental para garantir a estabilidade e o sucesso do projeto a longo prazo.
-                  </Paragraph>
-
-                  <Subtitle>4.1. A Investigação do Problema Central</Subtitle>
-                  <Paragraph>
-                    <strong>Estratégia Inicial (Hipótese):</strong> A primeira ideia era que o próprio aplicativo React Native, ao receber um link do Instagram, faria todo o trabalho.
-                  </Paragraph>
-                  <Paragraph>
-                    <strong>Análise Técnica:</strong> A investigação revelou que, para fazer isso diretamente do app, seria necessário usar "Web Scraping" (Raspagem de Dados). O processo envolveria baixar o HTML da página do Instagram e tentar encontrar o link do vídeo `.mp4` escondido dentro de tags `&lt;script&gt;` em um formato JSON complexo.
-                  </Paragraph>
-
-                  <Subtitle>4.2. O Diagnóstico: Riscos e Instabilidade</Subtitle>
-                  <Paragraph>
-                    A análise da abordagem de "Web Scraping" diretamente do aplicativo concluiu que ela era inviável e excessivamente arriscada.
-                  </Paragraph>
-                  <List>
-                    <li><strong>Instabilidade Extrema:</strong> O Instagram muda a estrutura de seu site constantemente. Uma pequena alteração quebraria a funcionalidade para todos os usuários instantaneamente.</li>
-                    <li><strong>Bloqueio de IP:</strong> Múltiplas requisições de scraping poderiam levar ao bloqueio de IPs dos usuários ou do próprio app.</li>
-                    <li><strong>Violação dos Termos de Serviço:</strong> A prática de scraping viola diretamente os Termos de Serviço, colocando o app em alto risco de ser banido da Google Play Store.</li>
-                    <li><strong>Complexidade:</strong> Lidar com diferentes tipos de posts e conteúdo privado aumentaria exponencialmente a fragilidade do código no frontend.</li>
-                  </List>
-
-                  <Subtitle>4.3. A Nova Estratégia: A Arquitetura Cliente-Servidor</Subtitle>
-                  <Paragraph>
-                    Com base nos riscos, foi tomada a decisão de mudar para uma arquitetura Cliente-Servidor, dividindo a lógica em duas partes claras.
-                  </Paragraph>
-                  <List>
-                    <li>
-                      <strong>Frontend (O App React Native):</strong> Responsável exclusivamente pela Experiência do Usuário (UI/UX). Suas tarefas seriam capturar a URL, se comunicar com o backend e exibir o status do processo.
-                    </li>
-                    <li>
-                      <strong>Backend (O Servidor Node.js):</strong> Responsável por todo o trabalho pesado. Suas tarefas seriam receber a URL, usar ferramentas poderosas (como o *******) para fazer o scraping e o download, e fornecer endpoints para o frontend.
-                    </li>
-                  </List>
-                  <Paragraph>
-                    <strong>Aprendizado Chave (Arquitetura de Software):</strong> O aprendizado fundamental desta fase foi a importância da <strong>separação de responsabilidades</strong>. Mover a lógica complexa e frágil para um servidor tornou o aplicativo mobile muito mais leve, estável e focado no que ele faz de melhor: interagir com o usuário.
-                  </Paragraph>
-                  <Paragraph>
-                    Ao final deste passo, a estratégia do projeto estava solidificada e pronta para a construção do backend.
-                  </Paragraph>
-                </Container> */}
-
-                {/* <Container>
-                  <SectionTitle>
-                    Passo 5: Construindo o "Motor" - A Arquitetura do Backend com Filas
-                  </SectionTitle>
-                  <Paragraph>
-                    O objetivo desta etapa foi desenvolver um servidor robusto e assíncrono capaz de receber solicitações, processá-las em segundo plano sem travar, e gerenciar os arquivos gerados de forma segura.
-                  </Paragraph>
-
-                  <Subtitle>5.1. A Escolha da "Stack" de Tecnologia do Backend</Subtitle>
-                  <List>
-                    <li><strong>Node.js:</strong> O ambiente de execução JavaScript no servidor.</li>
-                    <li><strong>Express.js:</strong> O framework para criar a API e definir as rotas.</li>
-                    <li><strong>Redis:</strong> O banco de dados em memória, usado como base para o sistema de filas.</li>
-                    <li><strong>BullMQ:</strong> A biblioteca para gerenciar a fila de trabalhos de forma robusta sobre o Redis.</li>
-                  </List>
-
-                  <Subtitle>5.2. A Arquitetura da API (Os "Portões" do Servidor)</Subtitle>
-                  <Paragraph>A API foi projetada com três endpoints claros:</Paragraph>
-                  <List>
-                    <li><strong>POST /download:</strong> Recebe a URL, cria um trabalho na fila com um ID único e responde imediatamente com esse ID.</li>
-                    <li><strong>GET /status/:id:</strong> Permite ao app consultar o status do trabalho (ex: `processing`, `completed`, `failed`).</li>
-                    <li><strong>GET /download/:id:</strong> Uma vez que o status é `completed`, o app usa este endpoint para baixar o arquivo final.</li>
-                  </List>
-
-                  <Subtitle>5.3. O Coração do Sistema: Fila de Trabalhos Assíncrona</Subtitle>
-                  <Paragraph>
-                    <strong>Aprendizado Chave:</strong> Entendeu-se que tarefas longas (como um download) não podem ser executadas na requisição da API, pois isso "travaria" o servidor. A solução foi um sistema de filas, com uma `Queue` para enfileirar os pedidos e um `Worker` (processo em segundo plano) para executá-los.
-                  </Paragraph>
-
-                  <Subtitle>5.4. A Ferramenta de Download: yt-dlp</Subtitle>
-                  <Paragraph>
-                    Em vez de criar um código de scraping frágil, a estratégia foi delegar a tarefa a uma ferramenta especializada. O Worker executa o <strong>yt-dlp.exe</strong> como um processo filho (`child_process.exec`), abstraindo toda a complexidade e tornando o backend extremamente versátil.
-                  </Paragraph>
-
-                  <Subtitle>5.5. Gerenciamento e Segurança</Subtitle>
-                  <Paragraph>Duas funcionalidades cruciais foram implementadas para a sustentabilidade do servidor:</Paragraph>
-                  <List>
-                    <li>
-                      <strong>Limpeza Automática de Arquivos:</strong> Uma segunda fila (`cleanupQueue`) com um Worker foi criada. Usando "jobs repetíveis" do BullMQ, uma tarefa de limpeza foi agendada para rodar de hora em hora, deletando arquivos antigos e prevenindo que o disco ficasse cheio.
-                    </li>
-                    <li>
-                      <strong>Segurança (Rate Limiting):</strong> Foi utilizado o middleware `express-rate-limit` para limitar o número de requisições que um mesmo IP pode fazer, prevenindo abusos. Foi necessário configurar o Express para confiar em proxies, algo essencial para produção.
-                      <pre><code className="language-javascript">app.set('trust proxy', 1);</code></pre>
-                    </li>
-                  </List>
-
-                  <Paragraph>
-                    Ao final deste passo, o "motor" do aplicativo estava completo: um backend robusto, assíncrono, seguro e eficiente, pronto para ser conectado ao frontend.
-                  </Paragraph>
-                </Container> */}
-
-                {/* <Container>
-                  <SectionTitle>
-                    Passo 6:  A Conexão - Integrando o Frontend com o Backend
-                  </SectionTitle>
-                  <Paragraph>
-                    O objetivo desta etapa foi fazer com que o aplicativo se comunicasse com a API do servidor, implementando o fluxo completo de download: desde a solicitação até o salvamento do arquivo e o registro no histórico.
-                  </Paragraph>
-
-                  <Subtitle>6.1. O Desafio da Conectividade Local</Subtitle>
-                  <Paragraph>
-                    <strong>Dúvida/Problema:</strong> "Como o app no emulador Android acessa o servidor `localhost` no meu computador?"
-                  </Paragraph>
-                  <Paragraph>
-                    <strong>Aprendizado Chave:</strong> Descobriu-se que o emulador opera em sua própria rede virtual. Para acessar o localhost da máquina hospedeira, foi necessário usar o endereço de IP especial <code>10.0.2.2</code>. Uma constante `BACKEND_URL` foi criada no código com o valor <code>http://10.0.2.2:3000</code>.
-                  </Paragraph>
-
-                  <Subtitle>6.2. Implementando o Fluxo de Comunicação</Subtitle>
-                  <Paragraph>
-                    A lógica da tela `HomeScreen.tsx` foi refeita para orquestrar a comunicação com o backend, utilizando `fetch` e `async/await`.
-                  </Paragraph>
-                  <List>
-                    <li>
-                      <strong>Lógica de "Polling" (Verificação Periódica):</strong> Este foi um conceito central. Um `useEffect` foi implementado para "observar" o `jobId` recebido do backend. Quando um ID existia, um `setInterval` era disparado para verificar o status do trabalho a cada 5 segundos, sendo limpo com `clearInterval` ao final do processo.
-                    </li>
-                    <li>
-                      <strong>Gerenciamento de Estado Avançado:</strong> Múltiplos estados (`isLoading`, `statusMessage`, `currentJobId`) foram criados para gerenciar o ciclo de vida completo do processo e dar feedback visual e textual em tempo real ao usuário.
-                    </li>
-                  </List>
-
-                  <Subtitle>6.3. Interação com o Sistema de Arquivos</Subtitle>
-                  <Paragraph>
-                    A biblioteca <strong>react-native-fs</strong> foi usada para baixar o vídeo pronto do nosso servidor para o dispositivo.
-                  </Paragraph>
-                  <Paragraph>
-                    <strong>Ação e Aprendizado:</strong> Uma função `startFinalDownload` foi criada para chamar `RNFS.downloadFile`. O destino do arquivo foi definido com `RNFS.ExternalDirectoryPath` para garantir compatibilidade com as regras do Android moderno (Scoped Storage). A callback `progress` foi implementada para calcular e exibir a porcentagem do download, melhorando drasticamente o feedback para o usuário.
-                  </Paragraph>
-
-                  <Subtitle>6.4. Persistência de Dados (Histórico)</Subtitle>
-                  <Paragraph>
-                    Para salvar o histórico de downloads, a biblioteca <strong>@react-native-async-storage/async-storage</strong> foi utilizada.
-                  </Paragraph>
-                  <Paragraph>
-                    <strong>Ação e Aprendizado:</strong> Após um download bem-sucedido, uma função lia o histórico existente do AsyncStorage, adicionava a nova entrada e salvava o array atualizado de volta. O aprendizado foi como usar o AsyncStorage para persistir dados (em formato de string `JSON`) no dispositivo, mantendo a informação disponível mesmo após fechar o app.
-                  </Paragraph>
-
-                  <Paragraph>
-                    Ao final deste passo, o aplicativo estava totalmente integrado ao backend e funcional de ponta a ponta.
-                  </Paragraph>
-
-                </Container> */}
-
-                {/* <Container>
-                  <SectionTitle>
-                    Passo 7: Refinamento e Funcionalidades Avançadas de UI/UX
-                  </SectionTitle>
-                  <Paragraph>
-                    O objetivo desta etapa foi construir as funcionalidades de visualização do histórico e de reprodução de vídeo, resolvendo desafios de performance e interface para criar um produto final coeso.
-                  </Paragraph>
-
-                  <Subtitle>7.1. Construção da Tela de Histórico (HistoryScreen)</Subtitle>
-                  <Paragraph>
-                    Para exibir a lista de vídeos salvos, o componente <strong>FlatList</strong> foi escolhido por sua alta performance, já que ele "virtualiza" a lista, renderizando apenas os itens visíveis.
-                  </Paragraph>
-                  <Paragraph>
-                    <strong>Aprendizado Chave:</strong> Foi usado o hook <strong>useFocusEffect</strong> do React Navigation em vez do `useEffect`. Isso garantiu que, ao navegar para a tela de Histórico, a lista fosse sempre recarregada e atualizada, algo que o `useEffect` padrão não faria.
-                  </Paragraph>
-
-                  <Subtitle>7.2. O Desafio do Preview de Vídeo (O "Bug do Fantasma")</Subtitle>
-                  <Paragraph>
-                    A estratégia inicial de usar um componente {'<Video paused={true} />'} para cada item da lista causou um bug visual, onde o preview de um vídeo aparecia no item de outro ao rolar a tela (um "frame fantasma").
-                  </Paragraph>
-                  <Paragraph>
-                    <strong>Solução Definitiva (e Aprendizado de Performance):</strong> A abordagem foi reformulada. Usando a biblioteca `react-native-create-thumbnail`, uma imagem estática foi gerada após cada download. Na tela de histórico, os componentes {'<Video>'} foram substituídos por componentes {'<Image>'}, que são muito mais leves.
-                  </Paragraph>
-                  <Paragraph>
-                    <strong>Aprendizado Fundamental:</strong> A solução não apenas resolveu o bug, mas melhorou drasticamente a performance da `FlatList`, tornando a rolagem muito mais fluida.
-                  </Paragraph>
-
-                  <Subtitle>7.3. Implementando o Player de Vídeo (VideoPlayerScreen)</Subtitle>
-                  <Paragraph>
-                    A biblioteca <strong>react-native-video</strong> foi utilizada para criar um player em tela cheia.
-                  </Paragraph>
-                  <Paragraph>
-                    <strong>Aprendizado Técnico:</strong> A lição mais importante foi descobrir que, para tocar um arquivo local, a `source` do vídeo precisa obrigatoriamente do prefixo `file://`. Um "crash" ao gerar thumbnails foi resolvido aplicando o mesmo prefixo, confirmando que bibliotecas nativas precisam de caminhos de arquivo explícitos.
-                  </Paragraph>
-
-                  <Subtitle>7.4. Polimento da Experiência de Navegação e UI</Subtitle>
-                  <List>
-                    <li>
-                      <strong>Player em Tela Cheia:</strong> Na configuração do navegador, a opção `headerShown: false` foi usada para remover o cabeçalho e criar uma experiência imersiva.
-                    </li>
-                    <li>
-                      <strong>Botão de Voltar Customizado:</strong> Um botão com um ícone da biblioteca `react-native-vector-icons` foi posicionado de forma "flutuante" sobre o vídeo. Foi usado o hook `useSafeAreaInsets` para garantir que o botão não ficasse sob o "notch" da câmera.
-                    </li>
-                    <li>
-                      <strong>Configuração de Ícones no Android:</strong> Foi necessário editar `android/app/build.gradle` para incluir as fontes dos ícones na compilação final do app, uma etapa crucial de configuração nativa.
-                      <pre><code className="javascript">{`apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"`}</code></pre>
-                    </li>
-                  </List>
-
-                  <Paragraph>
-                    Ao final, o aplicativo estava funcional e oferecia uma experiência de usuário refinada, com navegação intuitiva e um player imersivo.
-                  </Paragraph>
-                </Container>
-
-                <Container>
-                  <SectionTitle>
-                    Passo 8: Próximos Passos e Futuras Melhorias (O Roteiro do Produto)
-                  </SectionTitle>
-                  <Paragraph>
-                    Esta etapa planeja as próximas funcionalidades que transformariam o aplicativo de um protótipo funcional em um produto mais completo, robusto e pronto para o mercado.
-                  </Paragraph>
-
-                  <Subtitle>8.1. Melhorias na Experiência do Usuário (UX)</Subtitle>
-                  <List>
-                    <li><strong>Feedback Visual Aprimorado:</strong> Substituir os `Alerts` por componentes de "Toast" ou "Snackbar" (usando <code>react-native-toast-message</code>) para um feedback menos intrusivo.</li>
-                    <li><strong>Animações e Transições:</strong> Adicionar animações sutis nas telas e componentes com <code>react-native-reanimated</code> para tornar o uso do app mais fluido.</li>
-                    <li><strong>Modo Escuro (Dark Mode):</strong> Implementar um tema escuro que se adapta automaticamente às configurações do sistema operacional.</li>
-                  </List>
-
-                  <Subtitle>8.2. Funcionalidades Adicionais do Histórico</Subtitle>
-                  <List>
-                    <li><strong>Deletar Vídeos:</strong> Implementar a exclusão de itens do histórico, removendo a entrada do `AsyncStorage` e o arquivo físico do dispositivo com `react-native-fs`.</li>
-                    <li><strong>Compartilhar Vídeos:</strong> Adicionar um botão "Compartilhar" que permitiria enviar o vídeo para outros apps (WhatsApp, etc.) usando <code>react-native-share</code>.</li>
-                  </List>
-
-                  <Subtitle>8.3. Robustez e Gerenciamento de Erros</Subtitle>
-                  <List>
-                    <li><strong>Downloads em Segundo Plano:</strong> Implementar uma solução de download que continue rodando mesmo com o app minimizado, uma funcionalidade avançada que melhora muito a confiabilidade.</li>
-                    <li><strong>Gerenciamento de Rede:</strong> Detectar o tipo de rede com <code>@react-native-community/netinfo</code> e exibir um aviso antes de iniciar downloads grandes em redes de dados móveis.</li>
-                  </List>
-
-                  <Subtitle>8.4. Monetização e Publicação (O Objetivo Final)</Subtitle>
-                  <List>
-                    <li>
-                      <strong>Integração de Anúncios:</strong> Integrar o SDK do Google AdMob (via <code>react-native-google-mobile-ads</code>) para exibir anúncios de banner e intersticiais, visando a geração de receita.
-                    </li>
-                    <li>
-                      <strong>Preparação para a Google Play Store:</strong> Gerar a versão final assinada do app (arquivo `.aab`), criar os ícones, screenshots e escrever uma Política de Privacidade clara.
-                    </li>
-                  </List>
-
-                </Container> */}
 
                 <Container>
                   <DividerWithText>

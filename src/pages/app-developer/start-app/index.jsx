@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Head from "next/head";
 import { useGlobalState } from "@/context/GlobalStateContext";
 import {
@@ -6,67 +5,22 @@ import {
   SectionTitle,
   Subtitle,
   Paragraph,
-  CodeBlock,
   List,
-  Link,
   CodeContainer,
-  Title,
   DividerWithText
 } from "@/styles/globalStyles";
-import styled from 'styled-components';
 
 import { MainLayout } from "@/components/layout/mainLayout";
 import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
-
-import hljs from 'highlight.js'; // Importando o highlight.js
-import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
-
-/* Responsividade da tabela */
-const Table = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  overflow-x: auto;
-  display: block;
-  white-space: nowrap;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
-const Th = styled.th`
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
-`;
-
-const Td = styled.td`
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
-`;
-
-const THead = styled.thead`
-  background-color: #f4f4f4;
-`;
-
-const TBody = styled.tbody`
-  background-color: #fff;
-`;
+import CodeBlock from "@/components/codeBlock";
 
 const DevelopmentSteps = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
 
   const handleOverlayClick = () => setIsHamburguerOpen(false);
-
-  useEffect(() => {
-    // Só executa a estilização se o conteúdo estiver carregado e visível
-    if (isLoaded) {
-      hljs.highlightAll();
-    }
-  }, [isLoaded]); // Adicione 'isLoaded' como dependência!
 
   return (
     <>
@@ -117,25 +71,18 @@ const DevelopmentSteps = () => {
                   <Paragraph>
                     Instale o React Navigation, por exemplo:
                   </Paragraph>
-
-                  <pre>
-                    <code>
-                      {`npm install @react-navigation/native
+                  <CodeBlock language="javascript">
+                    {`npm install @react-navigation/native
 npm install @react-navigation/stack
 npm install react-native-screens react-native-safe-area-context`}
-                    </code>
-                  </pre>
-
+                  </CodeBlock>
                   <Paragraph>
                     E para navegação:
                   </Paragraph>
-                  <pre>
-                    <code>
-                      {`npx react-native link react-native-screens
+                  <CodeBlock language="javascript">
+                    {`npx react-native link react-native-screens
 npx react-native link react-native-safe-area-context`}
-                    </code>
-                  </pre>
-
+                  </CodeBlock>
                   <Subtitle>3. Integrar a Funcionalidade de Baixar Vídeos</Subtitle>
                   <Paragraph>
                     Crie um componente ou tela onde o usuário possa inserir o link do vídeo que deseja baixar. Use bibliotecas como Axios para fazer a requisição e baixar o vídeo do Instagram.
