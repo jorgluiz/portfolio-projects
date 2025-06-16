@@ -77,12 +77,9 @@ const GA4NextJsIntegration = () => {
                   <Paragraph>
                     Parâmetros UTM são pequenos pedaços de texto que você adiciona ao final de uma URL. Por exemplo:
                   </Paragraph>
-                  <pre>
-                    <code className='javascript'>
-                      {`https://seusite.com?utm_source=whatsapp&utm_medium=social&utm_campaign=compartilhamento`}
-                    </code>
-                  </pre>
-
+                  <CodeBlock language={"javascript"}>
+                    {`https://seusite.com?utm_source=whatsapp&utm_medium=social&utm_campaign=compartilhamento`}
+                  </CodeBlock>
                   <SectionTitle>Os parâmetros que você pode adicionar são:</SectionTitle>
                   <List>
                     <li><strong>utm_source:</strong> De onde vem o tráfego (ex: WhatsApp, LinkedIn, Facebook, etc.).</li>
@@ -99,9 +96,8 @@ const GA4NextJsIntegration = () => {
                   <Paragraph>
                     Você pode criar um link para o WhatsApp assim:
                     <CodeBlock language={"javascript"}>
-
+                      {`https://portfolio-projects-production.up.railway.app?utm_source=whatsapp&utm_medium=social&utm_campaign=compartilhamento`}
                     </CodeBlock>
-                    {`https://portfolio-projects-production.up.railway.app?utm_source=whatsapp&utm_medium=social&utm_campaign=compartilhamento`}
                   </Paragraph>
 
                   <SectionTitle>Como visualizar no Google Analytics:</SectionTitle>
