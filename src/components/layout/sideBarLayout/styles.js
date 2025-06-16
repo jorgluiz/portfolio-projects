@@ -6,14 +6,11 @@ export const ContentWrapper = styled.div`
   z-index: 20;
   width: 330px;
   min-width: 330px; /* Impede que a largura seja comprimida */
-  height: 100vh; /* Garante que o sidebar ocupe sempre a altura total da tela */
+   height: 100vh; /* Garante que o sidebar ocupe sempre a altura total da tela */
+  transition: transform 600ms cubic-bezier(0.8, 1, 0.8, 1);
 
- transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Apenas um exemplo de curva suave */
-
-   /* --- A SOLUÇÃO ESTÁ AQUI --- */
-  /* Avisa ao navegador para otimizar a animação da propriedade 'transform' */
-  will-change: transform;
-
+  transition: transform 200ms ease-in-out; /* Transição suave para mover o sidebar */
+  transform: translateX(0); /* Posição inicial */
 
   * {  /* Aplica a todos os elementos dentro de VideoContainer */
       /* Remover realce azul no toque (Mobile e WebKit) */
@@ -25,7 +22,8 @@ export const ContentWrapper = styled.div`
     /* Alterna para 'fixed' em telas menores para remover o espaço quando o sidebar é oculto */
     position: fixed;
     left: 0;
-    height: 100vh; 
+    height: 100vh;       /* manter altura fixa */
+
     transform: ${({ isHamburguerOpen }) => (isHamburguerOpen ? 'translateX(0)' : 'translateX(-100%)')};
   }
 
