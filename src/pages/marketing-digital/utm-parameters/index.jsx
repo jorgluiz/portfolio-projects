@@ -91,7 +91,10 @@ const GA4NextJsIntegration = () => {
 
                   <SectionTitle>Como adicionar parâmetros UTM:</SectionTitle>
                   <Paragraph>
-                    Crie a URL com UTM: Suponhamos que o seu link original seja <pre><code>https://portfolio-projects-production.up.railway.app</code></pre>
+                    Crie a URL com UTM: Suponhamos que o seu link original seja
+                    <CodeBlock language="javascript">
+                      {`https://portfolio-projects-production.up.railway.app`}
+                    </CodeBlock>
                   </Paragraph>
                   <Paragraph>
                     Você pode criar um link para o WhatsApp assim:
