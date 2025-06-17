@@ -8,12 +8,13 @@ import {
   List,
   CodeContainer
 } from "@/styles/globalStyles";
-import styled from 'styled-components';
+
 import { MainLayout } from "@/components/layout/mainLayout";
 import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
+import VoltarParaTopo from "@/components/backToTop";
 
 // Renomeando o componente para refletir o novo conteúdo
 const AndroidStudioSetup = () => {
@@ -169,6 +170,7 @@ const AndroidStudioSetup = () => {
                     <strong>Aprendizado:</strong> Aprendeu-se que é neste arquivo que se definem as versões globais do SDK. A propriedade `minSdkVersion` foi alterada para 24 para garantir compatibilidade com Android 7.0+.
                   </Paragraph>
                 </Container>
+                <VoltarParaTopo />
               </CodeContainer>
             </MainContentLayout>
           </MainLayout>

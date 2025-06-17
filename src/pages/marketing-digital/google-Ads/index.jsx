@@ -6,11 +6,9 @@ import {
   SectionTitle,
   Subtitle,
   Paragraph,
-  CodeBlock,
   List,
   Link,
-  CodeContainer,
-  Title
+  CodeContainer
 } from "@/styles/globalStyles";
 import styled from 'styled-components';
 
@@ -19,9 +17,9 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
+import VoltarParaTopo from '@/components/backToTop';
 
-import hljs from 'highlight.js'; // Importando o highlight.js
-import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
+import CodeBlock from '@/components/codeBlock';
 
 /* Responsividade da tabela */
 const Table = styled.table`
@@ -58,13 +56,6 @@ const ProjectPotentialSEO = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
 
   const handleOverlayClick = () => setIsHamburguerOpen(false);
-
-  useEffect(() => {
-    // Só executa a estilização se o conteúdo estiver carregado e visível
-    if (isLoaded) {
-      hljs.highlightAll();
-    }
-  }, [isLoaded]); // Adicione 'isLoaded' como dependência!
 
   return (
     <>
@@ -147,9 +138,8 @@ const ProjectPotentialSEO = () => {
                     <Paragraph>
                       Um arquivo sitemap.xml informa ao Google quais páginas existem no seu site, facilitando a indexação. Exemplo:
                     </Paragraph>
-                    <pre>
-                      <code className='javascript'>
-                        {`<?xml version="1.0" encoding="UTF-8"?>
+                    <CodeBlock language="javascript">
+                      {`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://seusite.com/</loc>
@@ -158,9 +148,7 @@ const ProjectPotentialSEO = () => {
     <priority>1.0</priority>
   </url>
 </urlset>`}
-                      </code>
-                    </pre>
-
+                    </CodeBlock>
                     <Subtitle>Como Configurar o Google Search Console</Subtitle>
                     <Paragraph>
                       Siga as etapas para adicionar seu site ao Google Search Console:
@@ -466,6 +454,7 @@ const ProjectPotentialSEO = () => {
                       </li>
                     </List>
                   </Container>
+                  <VoltarParaTopo></VoltarParaTopo>
                 </>
               </CodeContainer>
             </MainContentLayout>

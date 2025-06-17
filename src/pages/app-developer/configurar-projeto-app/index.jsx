@@ -17,6 +17,7 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
 import CodeBlock from '@/components/codeBlock';
+import VoltarParaTopo from '@/components/backToTop';
 
 const Table = styled.table`
   width: 100%;
@@ -719,6 +720,7 @@ const AndroidStudioSetup = () => {
                     <strong>Aprendizado:</strong> Utilizando react-native-permissions, foi criada uma função que primeiro verifica a versão do sistema (Platform.Version). Ela só solicita as permissões READ/WRITE_EXTERNAL_STORAGE em versões do Android onde é estritamente necessário (API &lt; 29), garantindo compatibilidade e seguindo as boas práticas modernas.
                   </Paragraph>
                 </Container>
+                <VoltarParaTopo></VoltarParaTopo>
               </CodeContainer>
             </MainContentLayout>
           </MainLayout>

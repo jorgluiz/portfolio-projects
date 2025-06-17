@@ -17,6 +17,7 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
 import CodeBlock from '@/components/codeBlock';
+import VoltarParaTopo from "@/components/backToTop";
 
 const SEOParaNextJs = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
@@ -280,8 +281,8 @@ https://portfolio-projects-production.up.railway.app/sitemap-0.xml`}
                     title="Vídeo do YouTube"
                   />
                 </VideoYouTube>
+                <VoltarParaTopo></VoltarParaTopo>
               </CodeContainer>
-
             </MainContentLayout>
           </MainLayout >
         </>

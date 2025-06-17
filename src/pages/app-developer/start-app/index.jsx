@@ -16,6 +16,7 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
 import CodeBlock from "@/components/codeBlock";
+import VoltarParaTopo from "@/components/backToTop";
 
 const DevelopmentSteps = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
@@ -111,6 +112,7 @@ npx react-native link react-native-safe-area-context`}
                     Se você tiver uma ideia de como deseja estruturar as telas e funcionalidades, posso te ajudar a criar o esqueleto inicial ou sugerir como implementar algumas funcionalidades específicas. Qual parte do desenvolvimento você quer começar agora?
                   </Paragraph>
                 </Container>
+                <VoltarParaTopo></VoltarParaTopo>
               </CodeContainer>
             </MainContentLayout>
           </MainLayout>

@@ -15,6 +15,7 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
+import VoltarParaTopo from "@/components/backToTop";
 
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
@@ -314,6 +315,7 @@ const signedUrl = await getSignedUrl(s3Client, command, { expiresIn: 300 });`}</
                     </List>
                   </InsightBox>
                 </Container>
+                <VoltarParaTopo></VoltarParaTopo>
               </CodeContainer>
             </MainContentLayout>
           </MainLayout>

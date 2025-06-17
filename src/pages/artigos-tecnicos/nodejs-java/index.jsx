@@ -13,6 +13,7 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
+import VoltarParaTopo from '@/components/backToTop';
 
 // 1. Efeito de redimensionamento da tela
 const NodeJsJavaSpring = () => {
@@ -105,6 +106,7 @@ const NodeJsJavaSpring = () => {
                   Projetos corporativos de grande escala, APIs que requerem alta performance e robustez ou aplicações com muitas operações em background.
                 </Paragraph>
               </Container>
+              <VoltarParaTopo></VoltarParaTopo>
             </MainContentLayout>
           </MainLayout>
         </>

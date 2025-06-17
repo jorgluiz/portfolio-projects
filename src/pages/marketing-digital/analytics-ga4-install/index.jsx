@@ -17,6 +17,7 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
+import VoltarParaTopo from "@/components/backToTop";
 
 import CodeBlock from '@/components/codeBlock';
 
@@ -263,6 +264,7 @@ export default MyApp;`}
                     resultados. É essencial para quem deseja crescer de forma inteligente e com embasamento real.
                   </Paragraph>
                 </Container>
+                <VoltarParaTopo></VoltarParaTopo>
               </CodeContainer>
             </MainContentLayout>
           </MainLayout>

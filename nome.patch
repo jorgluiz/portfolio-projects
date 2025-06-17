@@ -1,0 +1,305 @@
+diff --git a/src/pages/app-developer/ambiente-android-para-react-native/index.jsx b/src/pages/app-developer/ambiente-android-para-react-native/index.jsx
+index 70ec4fe..37dca65 100644
+--- a/src/pages/app-developer/ambiente-android-para-react-native/index.jsx
++++ b/src/pages/app-developer/ambiente-android-para-react-native/index.jsx
+@@ -8,12 +8,13 @@ import {
+   List,
+   CodeContainer
+ } from "@/styles/globalStyles";
+-import styled from 'styled-components';
++
+ import { MainLayout } from "@/components/layout/mainLayout";
+ import SideBarLayout from "@/components/layout/sideBarLayout";
+ import HeaderLayout from "@/components/layout/headerLayout";
+ import MainContentLayout from "@/components/layout/contentLayout";
+ import Overlay from "@/components/overlay";
++import VoltarParaTopo from "@/components/backToTop";
+ 
+ // Renomeando o componente para refletir o novo conteúdo
+ const AndroidStudioSetup = () => {
+@@ -169,6 +170,7 @@ const AndroidStudioSetup = () => {
+                     <strong>Aprendizado:</strong> Aprendeu-se que é neste arquivo que se definem as versões globais do SDK. A propriedade `minSdkVersion` foi alterada para 24 para garantir compatibilidade com Android 7.0+.
+                   </Paragraph>
+                 </Container>
++                <VoltarParaTopo />
+               </CodeContainer>
+             </MainContentLayout>
+           </MainLayout>
+diff --git a/src/pages/app-developer/configurar-projeto-api/index.jsx b/src/pages/app-developer/configurar-projeto-api/index.jsx
+index 4b7fcf6..59455fe 100644
+--- a/src/pages/app-developer/configurar-projeto-api/index.jsx
++++ b/src/pages/app-developer/configurar-projeto-api/index.jsx
+@@ -18,6 +18,7 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
+ import HeaderLayout from "@/components/layout/headerLayout";
+ import MainContentLayout from "@/components/layout/contentLayout";
+ import Overlay from "@/components/overlay";
++import VoltarParaTopo from "@/components/backToTop";
+ 
+ const tableStyle = {
+   width: '100%',
+@@ -613,6 +614,7 @@ const AndroidStudioSetup = () => {
+                     </li>
+                   </List>
+                 </Container>
++                <VoltarParaTopo></VoltarParaTopo>
+               </CodeContainer>
+             </MainContentLayout>
+           </MainLayout>
+diff --git a/src/pages/app-developer/configurar-projeto-app/index.jsx b/src/pages/app-developer/configurar-projeto-app/index.jsx
+index ccb9351..0b315e4 100644
+--- a/src/pages/app-developer/configurar-projeto-app/index.jsx
++++ b/src/pages/app-developer/configurar-projeto-app/index.jsx
+@@ -17,6 +17,7 @@ import HeaderLayout from "@/components/layout/headerLayout";
+ import MainContentLayout from "@/components/layout/contentLayout";
+ import Overlay from "@/components/overlay";
+ import CodeBlock from '@/components/codeBlock';
++import VoltarParaTopo from '@/components/backToTop';
+ 
+ const Table = styled.table`
+   width: 100%;
+@@ -719,6 +720,7 @@ const AndroidStudioSetup = () => {
+                     <strong>Aprendizado:</strong> Utilizando react-native-permissions, foi criada uma função que primeiro verifica a versão do sistema (Platform.Version). Ela só solicita as permissões READ/WRITE_EXTERNAL_STORAGE em versões do Android onde é estritamente necessário (API &lt; 29), garantindo compatibilidade e seguindo as boas práticas modernas.
+                   </Paragraph>
+                 </Container>
++                <VoltarParaTopo></VoltarParaTopo>
+               </CodeContainer>
+             </MainContentLayout>
+           </MainLayout>
+diff --git a/src/pages/app-developer/connect-cloudflare-r2/index.jsx b/src/pages/app-developer/connect-cloudflare-r2/index.jsx
+index d1e63ca..650726d 100644
+--- a/src/pages/app-developer/connect-cloudflare-r2/index.jsx
++++ b/src/pages/app-developer/connect-cloudflare-r2/index.jsx
+@@ -15,6 +15,7 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
+ import HeaderLayout from "@/components/layout/headerLayout";
+ import MainContentLayout from "@/components/layout/contentLayout";
+ import Overlay from "@/components/overlay";
++import VoltarParaTopo from "@/components/backToTop";
+ 
+ import React from 'react';
+ import styled, { keyframes } from 'styled-components';
+@@ -314,6 +315,7 @@ const signedUrl = await getSignedUrl(s3Client, command, { expiresIn: 300 });`}</
+                     </List>
+                   </InsightBox>
+                 </Container>
++                <VoltarParaTopo></VoltarParaTopo>
+               </CodeContainer>
+             </MainContentLayout>
+           </MainLayout>
+diff --git a/src/pages/app-developer/start-app/index.jsx b/src/pages/app-developer/start-app/index.jsx
+index 31b6a91..9fe9dd6 100644
+--- a/src/pages/app-developer/start-app/index.jsx
++++ b/src/pages/app-developer/start-app/index.jsx
+@@ -16,6 +16,7 @@ import HeaderLayout from "@/components/layout/headerLayout";
+ import MainContentLayout from "@/components/layout/contentLayout";
+ import Overlay from "@/components/overlay";
+ import CodeBlock from "@/components/codeBlock";
++import VoltarParaTopo from "@/components/backToTop";
+ 
+ const DevelopmentSteps = () => {
+   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
+@@ -111,6 +112,7 @@ npx react-native link react-native-safe-area-context`}
+                     Se você tiver uma ideia de como deseja estruturar as telas e funcionalidades, posso te ajudar a criar o esqueleto inicial ou sugerir como implementar algumas funcionalidades específicas. Qual parte do desenvolvimento você quer começar agora?
+                   </Paragraph>
+                 </Container>
++                <VoltarParaTopo></VoltarParaTopo>
+               </CodeContainer>
+             </MainContentLayout>
+           </MainLayout>
+diff --git a/src/pages/artigos-tecnicos/nodejs-frameworks/index.jsx b/src/pages/artigos-tecnicos/nodejs-frameworks/index.jsx
+index a1aa717..cef624e 100644
+--- a/src/pages/artigos-tecnicos/nodejs-frameworks/index.jsx
++++ b/src/pages/artigos-tecnicos/nodejs-frameworks/index.jsx
+@@ -16,6 +16,7 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
+ import HeaderLayout from "@/components/layout/headerLayout";
+ import MainContentLayout from "@/components/layout/contentLayout";
+ import Overlay from "@/components/overlay";
++import VoltarParaTopo from '@/components/backToTop';
+ 
+ const NodeJsFrameworks = () => {
+   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
+@@ -240,6 +241,7 @@ const NodeJsFrameworks = () => {
+                   </tbody>
+                 </table>
+               </Container>
++              <VoltarParaTopo></VoltarParaTopo>
+             </MainContentLayout>
+           </MainLayout>
+         </>
+diff --git a/src/pages/artigos-tecnicos/nodejs-java/index.jsx b/src/pages/artigos-tecnicos/nodejs-java/index.jsx
+index 62405be..dd83f7b 100644
+--- a/src/pages/artigos-tecnicos/nodejs-java/index.jsx
++++ b/src/pages/artigos-tecnicos/nodejs-java/index.jsx
+@@ -13,6 +13,7 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
+ import HeaderLayout from "@/components/layout/headerLayout";
+ import MainContentLayout from "@/components/layout/contentLayout";
+ import Overlay from "@/components/overlay";
++import VoltarParaTopo from '@/components/backToTop';
+ 
+ // 1. Efeito de redimensionamento da tela
+ const NodeJsJavaSpring = () => {
+@@ -105,6 +106,7 @@ const NodeJsJavaSpring = () => {
+                   Projetos corporativos de grande escala, APIs que requerem alta performance e robustez ou aplicações com muitas operações em background.
+                 </Paragraph>
+               </Container>
++              <VoltarParaTopo></VoltarParaTopo>
+             </MainContentLayout>
+           </MainLayout>
+         </>
+diff --git a/src/pages/marketing-digital/analytics-ga4-install/index.jsx b/src/pages/marketing-digital/analytics-ga4-install/index.jsx
+index 3bfe2bd..1d98977 100644
+--- a/src/pages/marketing-digital/analytics-ga4-install/index.jsx
++++ b/src/pages/marketing-digital/analytics-ga4-install/index.jsx
+@@ -17,6 +17,7 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
+ import HeaderLayout from "@/components/layout/headerLayout";
+ import MainContentLayout from "@/components/layout/contentLayout";
+ import Overlay from "@/components/overlay";
++import VoltarParaTopo from "@/components/backToTop";
+ 
+ import CodeBlock from '@/components/codeBlock';
+ 
+@@ -263,6 +264,7 @@ export default MyApp;`}
+                     resultados. É essencial para quem deseja crescer de forma inteligente e com embasamento real.
+                   </Paragraph>
+                 </Container>
++                <VoltarParaTopo></VoltarParaTopo>
+               </CodeContainer>
+             </MainContentLayout>
+           </MainLayout>
+diff --git a/src/pages/marketing-digital/google-Ads/index.jsx b/src/pages/marketing-digital/google-Ads/index.jsx
+index 6b0a5fc..e09f7da 100644
+--- a/src/pages/marketing-digital/google-Ads/index.jsx
++++ b/src/pages/marketing-digital/google-Ads/index.jsx
+@@ -6,11 +6,9 @@ import {
+   SectionTitle,
+   Subtitle,
+   Paragraph,
+-  CodeBlock,
+   List,
+   Link,
+-  CodeContainer,
+-  Title
++  CodeContainer
+ } from "@/styles/globalStyles";
+ import styled from 'styled-components';
+ 
+@@ -19,9 +17,9 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
+ import HeaderLayout from "@/components/layout/headerLayout";
+ import MainContentLayout from "@/components/layout/contentLayout";
+ import Overlay from "@/components/overlay";
++import VoltarParaTopo from '@/components/backToTop';
+ 
+-import hljs from 'highlight.js'; // Importando o highlight.js
+-import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
++import CodeBlock from '@/components/codeBlock';
+ 
+ /* Responsividade da tabela */
+ const Table = styled.table`
+@@ -59,13 +57,6 @@ const ProjectPotentialSEO = () => {
+ 
+   const handleOverlayClick = () => setIsHamburguerOpen(false);
+ 
+-  useEffect(() => {
+-    // Só executa a estilização se o conteúdo estiver carregado e visível
+-    if (isLoaded) {
+-      hljs.highlightAll();
+-    }
+-  }, [isLoaded]); // Adicione 'isLoaded' como dependência!
+-
+   return (
+     <>
+       <Head>
+@@ -147,9 +138,8 @@ const ProjectPotentialSEO = () => {
+                     <Paragraph>
+                       Um arquivo sitemap.xml informa ao Google quais páginas existem no seu site, facilitando a indexação. Exemplo:
+                     </Paragraph>
+-                    <pre>
+-                      <code className='javascript'>
+-                        {`<?xml version="1.0" encoding="UTF-8"?>
++                    <CodeBlock language="javascript">
++                      {`<?xml version="1.0" encoding="UTF-8"?>
+ <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+     <loc>https://seusite.com/</loc>
+@@ -158,9 +148,7 @@ const ProjectPotentialSEO = () => {
+     <priority>1.0</priority>
+   </url>
+ </urlset>`}
+-                      </code>
+-                    </pre>
+-
++                    </CodeBlock>
+                     <Subtitle>Como Configurar o Google Search Console</Subtitle>
+                     <Paragraph>
+                       Siga as etapas para adicionar seu site ao Google Search Console:
+@@ -466,6 +454,7 @@ const ProjectPotentialSEO = () => {
+                       </li>
+                     </List>
+                   </Container>
++                  <VoltarParaTopo></VoltarParaTopo>
+                 </>
+               </CodeContainer>
+             </MainContentLayout>
+diff --git a/src/pages/marketing-digital/seo-nextjs-guia/index.jsx b/src/pages/marketing-digital/seo-nextjs-guia/index.jsx
+index dbc3c09..ba16549 100644
+--- a/src/pages/marketing-digital/seo-nextjs-guia/index.jsx
++++ b/src/pages/marketing-digital/seo-nextjs-guia/index.jsx
+@@ -17,6 +17,7 @@ import HeaderLayout from "@/components/layout/headerLayout";
+ import MainContentLayout from "@/components/layout/contentLayout";
+ import Overlay from "@/components/overlay";
+ import CodeBlock from '@/components/codeBlock';
++import VoltarParaTopo from "@/components/backToTop";
+ 
+ const SEOParaNextJs = () => {
+   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
+@@ -280,8 +281,8 @@ https://portfolio-projects-production.up.railway.app/sitemap-0.xml`}
+                     title="Vídeo do YouTube"
+                   />
+                 </VideoYouTube>
++                <VoltarParaTopo></VoltarParaTopo>
+               </CodeContainer>
+-
+             </MainContentLayout>
+           </MainLayout >
+         </>
+diff --git a/src/pages/marketing-digital/utm-parameters/index.jsx b/src/pages/marketing-digital/utm-parameters/index.jsx
+index ccbdfc4..bdb29ad 100644
+--- a/src/pages/marketing-digital/utm-parameters/index.jsx
++++ b/src/pages/marketing-digital/utm-parameters/index.jsx
+@@ -15,6 +15,7 @@ import HeaderLayout from "@/components/layout/headerLayout";
+ import MainContentLayout from "@/components/layout/contentLayout";
+ import Overlay from "@/components/overlay";
+ import CodeBlock from '@/components/codeBlock';
++import VoltarParaTopo from '@/components/backToTop';
+ 
+ const GA4NextJsIntegration = () => {
+   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
+@@ -172,6 +173,7 @@ const GA4NextJsIntegration = () => {
+                     {`utm_source=blog&utm_medium=referral&utm_campaign=parceiros`}
+                   </CodeBlock>
+                 </Container>
++                <VoltarParaTopo></VoltarParaTopo>
+               </CodeContainer>
+             </MainContentLayout>
+           </MainLayout>
+diff --git a/src/styles/globalStyles.js b/src/styles/globalStyles.js
+index 9b7f70a..e62849a 100644
+--- a/src/styles/globalStyles.js
++++ b/src/styles/globalStyles.js
+@@ -34,7 +34,8 @@ export const Container = styled.div`
+   font-family: "Segoe UI", sans-serif;
+   max-width: 900px;
+   border-radius: 12px;
+-  padding: 2rem 3rem;
++  padding: 15px;
++  margin: 1rem auto;
+   color: #222;
+   border-radius: 12px;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+@@ -48,6 +49,7 @@ export const Container = styled.div`
+   }
+ `;
+ 
++
+ export const MainContent = styled.div`
+   width: 950px;
+   max-width: 950px;

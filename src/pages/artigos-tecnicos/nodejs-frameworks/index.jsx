@@ -16,6 +16,7 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
+import VoltarParaTopo from '@/components/backToTop';
 
 const NodeJsFrameworks = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
@@ -240,6 +241,7 @@ const NodeJsFrameworks = () => {
                   </tbody>
                 </table>
               </Container>
+              <VoltarParaTopo></VoltarParaTopo>
             </MainContentLayout>
           </MainLayout>
         </>

@@ -18,6 +18,7 @@ import SideBarLayout from "@/components/layout/sideBarLayout";
 import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
+import VoltarParaTopo from "@/components/backToTop";
 
 const tableStyle = {
   width: '100%',
@@ -613,6 +614,7 @@ const AndroidStudioSetup = () => {
                     </li>
                   </List>
                 </Container>
+                <VoltarParaTopo></VoltarParaTopo>
               </CodeContainer>
             </MainContentLayout>
           </MainLayout>

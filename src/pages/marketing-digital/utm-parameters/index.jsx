@@ -15,6 +15,7 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
 import CodeBlock from '@/components/codeBlock';
+import VoltarParaTopo from '@/components/backToTop';
 
 const GA4NextJsIntegration = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
@@ -172,6 +173,7 @@ const GA4NextJsIntegration = () => {
                     {`utm_source=blog&utm_medium=referral&utm_campaign=parceiros`}
                   </CodeBlock>
                 </Container>
+                <VoltarParaTopo></VoltarParaTopo>
               </CodeContainer>
             </MainContentLayout>
           </MainLayout>

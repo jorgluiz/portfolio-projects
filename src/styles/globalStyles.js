@@ -34,7 +34,8 @@ export const Container = styled.div`
   font-family: "Segoe UI", sans-serif;
   max-width: 900px;
   border-radius: 12px;
-  padding: 2rem 3rem;
+  padding: 15px;
+  margin: 1rem auto;
   color: #222;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
@@ -47,6 +48,7 @@ export const Container = styled.div`
     margin: 1rem auto;
   }
 `;
+
 
 export const MainContent = styled.div`
   width: 950px;
