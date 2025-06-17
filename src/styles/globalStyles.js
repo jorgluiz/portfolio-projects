@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, keyframes } from "styled-components";
 
 // Global Styles
 export const GlobalStyle = createGlobalStyle`
@@ -24,17 +24,28 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
 // Containers e Layout
 export const Container = styled.div`
   font-family: "Segoe UI", sans-serif;
-  padding: 15px;
   max-width: 900px;
-  margin: 0 auto 40px;
+  border-radius: 12px;
+  padding: 2rem 3rem;
   color: #222;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
   line-height: 1.6;
   background-color: #f9f9f9;
+  animation: ${fadeIn} 0.8s ease-out;
+
+   @media (max-width: 768px) {
+    padding: 1.5rem 1rem; // Diminui o padding horizontal em telas pequenas
+    margin: 1rem auto;
+  }
 `;
 
 export const MainContent = styled.div`
