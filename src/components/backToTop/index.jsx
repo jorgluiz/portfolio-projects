@@ -24,6 +24,9 @@ const BotaoVoltarAoTopo = styled.button`
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   z-index: 1000;
 
+    /* Adicionado para remover o efeito de toque no mobile */
+  -webkit-tap-highlight-color: transparent;
+
   &:hover {
     background-color: #0056b3;
   }

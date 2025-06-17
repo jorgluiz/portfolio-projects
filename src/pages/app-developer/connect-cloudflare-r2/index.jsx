@@ -227,7 +227,7 @@ const AndroidStudioSetup = () => {
                   <InsightBox>
                     <InsightTitle>Checklist de Configuração no Site</InsightTitle>
                     <List>
-                      <ListItem><strong><a color='black' target='_blank' href="https://dash.cloudflare.com/">Acessar o R2:</a></strong> Navegar até a seção R2 no menu principal da Cloudflare.</ListItem>
+                      <ListItem><strong><a style={{ color: "#0070f3" }} target='_blank' href="https://dash.cloudflare.com/">Acessar o R2:</a></strong> Navegar até a seção R2 no menu principal da Cloudflare.</ListItem>
                       <ListItem><strong>Criar o Bucket:</strong> Clicar em "Criar bucket", definir um nome único (que se torna a variável `R2_BUCKET_NAME`) e manter a localização como "Automático".</ListItem>
                       <ListItem>
                         <strong>Gerar Credenciais de Acesso (API Token):</strong>
