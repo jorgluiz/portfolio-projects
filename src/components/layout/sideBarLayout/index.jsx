@@ -224,6 +224,20 @@ const SideBar = () => {
                   3. Desenvolvimento Técnico - App
                 </Span>
               </li>
+              <li
+                onClick={() => handleNavigate('/app-developer/image-icon-app')}
+                className={activeLink === '/app-developer/image-icon-app' ? 'active' : ''}>
+                <Span>
+                  4. Personalizando o Ícone do App
+                </Span>
+              </li>
+              <li
+                onClick={() => handleNavigate('/app-developer/gerando-e-assinando-o-apk')}
+                className={activeLink === '/app-developer/gerando-e-assinando-o-apk' ? 'active' : ''}>
+                <Span>
+                  5. Gerando e Assinando o APK de Release
+                </Span>
+              </li>
             </ul>
             <DividerWithText>API</DividerWithText>
             <ul>
@@ -242,6 +256,23 @@ const SideBar = () => {
                 className={activeLink === '/app-developer/connect-cloudflare-r2' ? 'active' : ''}>
                 <Span>
                   Configurando o Armazenamento Cloudflare R2
+                </Span>
+              </li>
+            </ul>
+            <DividerWithText>Artigos Técnicos</DividerWithText>
+            <ul>
+              <li
+                onClick={() => handleNavigate('/app-developer/internacionalizacao-i18n-react-native')}
+                className={activeLink === '/app-developer/internacionalizacao-i18n-react-native' ? 'active' : ''}>
+                <Span>
+                  Internacionalização (i18n) em React Native
+                </Span>
+              </li>
+              <li
+                onClick={() => handleNavigate('/app-developer/notas-rapidas')}
+                className={activeLink === '/app-developer/notas-rapidas' ? 'active' : ''}>
+                <Span>
+                  Notas Rápidas
                 </Span>
               </li>
             </ul>

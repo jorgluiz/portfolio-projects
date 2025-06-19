@@ -12,14 +12,7 @@ import Title from "@/components/common/title";
 
 import { ResumoTechMainContainer, CollapsibleContent } from "@/components/notasRapidas/resumoTechMainContainer";
 
-import BackendMiddlewares from "@/components/notasRapidas/middlewares";
-import BlockchainNfts from "@/components/notasRapidas/blockchainNfts";
-import ThemeCssUserSelect from "@/components/notasRapidas/themeCssUserSelect";
-import MetaTagsWhatsappProblema from "@/components/notasRapidas/metaTagsWhatsappProblema";
-import PlataformasCriacaoVideoArte from "@/components/notasRapidas/plataformasCriacaoVideoArte";
-import ParadigmasJavaScript from "@/components/notasRapidas/paradigmasJavaScript";
-import Versionamento from "@/components/notasRapidas/versionamento";
-
+import ForcedUninstall from "@/components/app-developer/notasRapidas/forcedUninstall";
 
 // 1. Efeito de redimensionamento da tela
 const Projetos = () => {
@@ -37,13 +30,7 @@ const Projetos = () => {
   };
 
   const sections = [
-    { title: "Backend - Middlewares", component: <BackendMiddlewares /> },
-    { title: "Blockchain e NFTs", component: <BlockchainNfts /> },
-    { title: "CSS - Flickity e PhotoSwipe", component: <ThemeCssUserSelect /> },
-    { title: "Nextjs - Meta Tags Whatsapp Problema", component: <MetaTagsWhatsappProblema /> },
-    { title: "IA - Criação de Vídeos e Arte", component: <PlataformasCriacaoVideoArte /> },
-    { title: "JS - Paradigmas JavaScript", component: <ParadigmasJavaScript /> },
-    { title: "Versionamento", component: <Versionamento /> },
+    { title: "Forced Uninstall", component: <ForcedUninstall /> }
   ];
 
 

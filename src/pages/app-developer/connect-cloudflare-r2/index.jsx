@@ -29,9 +29,9 @@ const Container = styled.div`
   background-color: #1a1a1a;
   border: 1px solid #2a2a2a;
   border-radius: 12px;
-  padding: 2rem 3rem;
+  padding: 15px;
+  margin: 1rem auto;
   max-width: 900px;
-  margin: 2rem auto;
   animation: ${fadeIn} 0.8s ease-out;
 
   // --- AJUSTE RESPONSIVO ---
