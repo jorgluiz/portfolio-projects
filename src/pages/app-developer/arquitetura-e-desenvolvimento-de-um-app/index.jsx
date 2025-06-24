@@ -98,88 +98,106 @@ const AndroidStudioSetup = () => {
               <CodeContainer>
                 <Container>
                   <DividerWithText>
-                    Passo 1: O Nascimento do Projeto: Criação e Estrutura Inicial
+                    Guia Completo para o Desenvolvimento do Seu App
                   </DividerWithText>
-
                   <Paragraph>
-                    Com o ambiente Android configurado e validado, o objetivo desta etapa foi criar o esqueleto do aplicativo React Native e organizar seu código-fonte de uma maneira limpa e escalável.
+                    Esta é uma versão aprimorada do seu guia, detalhando cada passo com base na arquitetura de pastas que você definiu.
                   </Paragraph>
 
-                  <Subtitle>1.1. O Comando de Criação (Uma Jornada de Diagnóstico)</Subtitle>
+                  <Subtitle>Passo 0: Entendendo a Estrutura do Projeto</Subtitle>
                   <Paragraph>
-                    A criação do projeto não foi um único comando, mas um processo de depuração que gerou aprendizados valiosos sobre as ferramentas modernas de React Native.
+                    Antes de começar a codificar, é fundamental entender o papel de cada pasta que você criou. Essa organização é o seu mapa.
                   </Paragraph>
+                  <Paragraph><strong>src/:</strong> Coração do seu aplicativo. Todo o código-fonte principal vive aqui.</Paragraph>
+                  <Paragraph><strong>assets/:</strong> Para arquivos estáticos como imagens, ícones e fontes.</Paragraph>
+                  <Paragraph><strong>components/:</strong> Peças de UI reutilizáveis. Ex: <strong>CustomHeader.tsx</strong> (um cabeçalho padrão para as telas) e <strong>InputModal.tsx</strong> (um modal para inserir o link do vídeo).</Paragraph>
+                  <Paragraph><strong>constants/:</strong> Para valores que não mudam, como cores da marca, chaves de API ou URLs base. Isso evita "números mágicos" e textos repetidos no código.</Paragraph>
+                  <Paragraph><strong>hooks/:</strong> Para seus próprios hooks customizados do React. Ex: <strong>useDownloader()</strong>, que pode encapsular a lógica de estado de um download.</Paragraph>
+                  <Paragraph><strong>locales/:</strong> Para internacionalização (i18n). Os arquivos <strong>translation.json</strong> dentro de <strong>en-US</strong> e <strong>pt-BR</strong> conterão os textos do app em cada idioma, permitindo que ele seja multilíngue.</Paragraph>
+                  <Paragraph><strong>navigation/:</strong> Aqui ficará toda a lógica de navegação. Você pode criar seus Stacks, Tabs e Drawers aqui e apenas importá-los em <strong>App.tsx</strong>.</Paragraph>
+                  <Paragraph><strong>screens/:</strong> As telas principais do seu app. Cada arquivo representa uma tela, como <strong>HomeScreen.tsx</strong> (tela inicial) ou <strong>HistoryScreen.tsx</strong> (tela de histórico de downloads).</Paragraph>
+                  <Paragraph><strong>services/:</strong> Para a lógica de negócios que não está diretamente ligada à UI. <strong>videoService.ts</strong> é o lugar perfeito para colocar as funções que fazem chamadas de API e gerenciam o download dos vídeos.</Paragraph>
+                  <Paragraph><strong>utils/:</strong> Funções utilitárias genéricas que podem ser usadas em qualquer lugar. Ex: uma função para formatar datas, validar URLs, etc.</Paragraph>
+                  <Paragraph><strong>__tests__/:</strong> Para os testes automatizados do seu aplicativo, garantindo que tudo funcione como esperado.</Paragraph>
+
+                  <Subtitle>Passos para o Desenvolvimento</Subtitle>
+
+                  <Subtitle>1. Configurar a Navegação do App</Subtitle>
+                  <Paragraph>Sua estrutura já tem uma pasta <strong>navigation/</strong>. Vamos usá-la.</Paragraph>
+                  <Paragraph><strong>Instalar dependências:</strong> Seus comandos estão corretos. Para garantir, aqui estão todos os pacotes essenciais para uma navegação em stack:</Paragraph>
+                  <CodeBlock language="bash">
+                    {`npm install @react-navigation/native @react-navigation/stack
+npm install react-native-screens react-native-safe-area-context react-native-gesture-handler`}
+                  </CodeBlock>
+                  <Paragraph><strong>Criar o Navegador:</strong> Dentro da pasta <strong>navigation/</strong>, crie um arquivo como <strong>RootNavigator.tsx</strong>. Nele, defina seu Stack Navigator com todas as telas da pasta <strong>screens/</strong>.</Paragraph>
+                  <CodeBlock language="typescript">
+                    {`import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from '../screens/HomeScreen';
+import HistoryScreen from '../screens/HistoryScreen';
+// Importe outras telas...
+
+const Stack = createStackNavigator();
+
+export function RootNavigator() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="History" component={HistoryScreen} />
+      {/* Adicione outras telas aqui */}
+    </Stack.Navigator>
+  );
+}`}
+                  </CodeBlock>
+                  <Paragraph><strong>Integrar no App.tsx:</strong> Seu <strong>App.tsx</strong> ficará bem limpo, apenas envolvendo o <strong>RootNavigator</strong> com o <strong>NavigationContainer</strong>.</Paragraph>
+
+                  <Subtitle>2. Desenvolver as Telas e Componentes</Subtitle>
+                  <Paragraph>Com a navegação pronta, comece a construir a interface.</Paragraph>
+                  <Paragraph><strong>Tela Inicial (HomeScreen.tsx):</strong> Crie a UI principal onde o usuário irá colar o link. Use o componente <strong>InputModal.tsx</strong> ou um input direto na tela para receber a URL. Adicione um botão "Baixar" que, ao ser pressionado, chamará a função de download.</Paragraph>
+                  <Paragraph><strong>Componentes Reutilizáveis (components/):</strong> Desenvolva o <strong>CustomHeader.tsx</strong>. Ele pode receber o título da tela como uma prop e ser usado em todas as telas do seu Stack Navigator, garantindo um visual consistente. O <strong>InputModal.tsx</strong> pode ser um modal que aparece ao clicar em um botão, mantendo a tela principal mais limpa.</Paragraph>
+
+                  <Subtitle>3. Implementar a Lógica de Download (Services)</Subtitle>
+                  <Paragraph>Esta é a funcionalidade principal e deve ficar bem isolada na sua pasta de serviços.</Paragraph>
+                  <Paragraph><strong>Bibliotecas Necessárias:</strong> Para baixar arquivos, você precisará de uma biblioteca para fazer requisições HTTP e outra para acessar o sistema de arquivos do dispositivo.</Paragraph>
+                  <Paragraph><strong>Axios:</strong> Ótimo para as requisições. <strong>npm install axios</strong></Paragraph>
+                  <Paragraph><strong>React Native FS:</strong> Essencial para salvar o vídeo na memória do celular. <strong>npm install react-native-fs</strong></Paragraph>
+                  <Paragraph><strong>Criar o videoService.ts:</strong> Dentro de <strong>services/videoService.ts</strong>, crie uma função assíncrona, como <strong>downloadVideoFromURL(url: string)</strong>. Esta função usará o Axios para se comunicar com uma possível API e depois usará o React Native FS para baixar o arquivo e salvá-lo em uma pasta no dispositivo.</Paragraph>
+
+                  <Subtitle>4. Gerenciar o Estado Global</Subtitle>
+                  <Paragraph>Você precisará saber o status dos downloads ou a lista de vídeos baixados em várias telas.</Paragraph>
+                  <Paragraph><strong>React Context com Hooks:</strong> Para um app como este, é uma ótima escolha. Crie um <strong>DownloadProvider</strong> que gerencia uma lista de downloads e o status atual. Você pode colocar essa lógica na pasta <strong>hooks/</strong> ou criar uma nova pasta <strong>context/</strong>.</Paragraph>
+                  <Paragraph><strong>Zustand ou Redux:</strong> Se o app crescer muito, considere uma biblioteca de estado mais robusta. Zustand é uma alternativa moderna e mais simples que o Redux.</Paragraph>
+
+                  <Subtitle>5. Internacionalização (i18n)</Subtitle>
+                  <Paragraph>Seu app está preparado para ser multilíngue!</Paragraph>
+                  <Paragraph><strong>Preencha os translation.json:</strong> Em <strong>locales/pt-BR/translation.json</strong>: <strong>{`{ "download_button": "Baixar Vídeo" }`}</strong>. Em <strong>locales/en-US/translation.json</strong>: <strong>{`{ "download_button": "Download Video" }`}</strong>.</Paragraph>
+                  <Paragraph><strong>Use nos Componentes:</strong> No seu componente, em vez de escrever o texto diretamente, use a função <strong>t</strong> do i18next.</Paragraph>
+                  <CodeBlock language="jsx">
+                    {`import { useTranslation } from 'react-i18next';
+const { t } = useTranslation();
+
+<Button title={t('download_button')} />`}
+                  </CodeBlock>
+
+                  <Subtitle>6. Adicionar Testes</Subtitle>
+                  <Paragraph>A pasta <strong>__tests__</strong> está lá para ser usada. Crie testes para seus componentes com a <strong>React Native Testing Library</strong> e testes unitários para suas funções em <strong>utils/</strong> e <strong>services/</strong>.</Paragraph>
+
+                  <Subtitle>7. Configurações Nativas e Permissões</Subtitle>
+                  <Paragraph>Para salvar arquivos, você precisará de permissões do usuário. Edite o <strong>main/AndroidManifest.xml</strong> (para Android) para adicionar a permissão de escrita no armazenamento externo:</Paragraph>
+                  <CodeBlock language="xml">
+                    {`<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />`}
+                  </CodeBlock>
+                  <Paragraph>No código, use a API de <strong>PermissionsAndroid</strong> do React Native para solicitar essa permissão ao usuário antes de tentar baixar o primeiro vídeo.</Paragraph>
+
+                  <Subtitle>Resumo das Ações Iniciais (Refinado)</Subtitle>
                   <List>
-                    <li>
-                      <strong>1. Primeira Tentativa e Erro:</strong>
-                      <br />
-                      O comando `npx react-native init downloadVideoInstagram` resultou no erro: `TypeError: cli.init is not a function`.
-                      <br />
-                      <strong>Diagnóstico:</strong> Uma versão global e obsoleta da `react-native-cli` estava instalada, causando conflito.
-                      <br />
-                      <strong>Solução:</strong> Desinstalar o pacote global foi o primeiro passo.
-                      <CodeBlock language="javascript">
-                        {`npm uninstall -g react-native-cli`}
-                      </CodeBlock>
-                    </li>
-                    <li>
-                      <strong>2. Segunda Tentativa e Erro:</strong>
-                      <br />
-                      A nova execução do comando gerou o aviso: `The init command is deprecated`.
-                      <br />
-                      <strong>Diagnóstico:</strong> O próprio comando `init` direto do pacote `react-native` estava descontinuado.
-                    </li>
-                    <li>
-                      <strong>3. O Comando Correto e o Sucesso:</strong>
-                      <br />
-                      Seguindo a orientação do erro, o comando correto foi utilizado.
-                      <CodeBlock language="javascript">
-                        {`npx @react-native-community/cli init downloadVideoInstagram`}
-                      </CodeBlock>
-                      <strong>Aprendizado Chave:</strong> A importância de ler atentamente as mensagens de erro e usar os comandos recomendados pela comunidade oficial.
-                    </li>
+                    <li><strong>Estrutura:</strong> Entenda o propósito de cada pasta que você criou.</li>
+                    <li><strong>Navegação:</strong> Implemente o <strong>RootNavigator.tsx</strong> na pasta <strong>navigation/</strong>.</li>
+                    <li><strong>Telas:</strong> Comece a desenvolver a <strong>HomeScreen.tsx</strong> e seus componentes.</li>
+                    <li><strong>Serviço:</strong> Crie a função de download em <strong>services/videoService.ts</strong> usando Axios e react-native-fs.</li>
+                    <li><strong>Estado:</strong> Crie um Contexto para gerenciar a lista de histórico de downloads.</li>
+                    <li><strong>Tradução:</strong> Adicione os textos nos arquivos .json e use-os nos componentes.</li>
+                    <li><strong>Permissões:</strong> Configure o <strong>AndroidManifest.xml</strong> e adicione a lógica para solicitar permissão de armazenamento.</li>
                   </List>
-
-                  <Subtitle>1.2. A Arquitetura de Pastas e a Decisão pelo TypeScript</Subtitle>
-                  <Paragraph>
-                    Desde o início, foram tomadas decisões para garantir que o projeto fosse organizado e robusto.
-                  </Paragraph>
-                  <List>
-                    <li>
-                      <strong>Ação 1: Uso de TypeScript por Padrão</strong>
-                      <br />
-                      <strong>Estratégia:</strong> O projeto foi criado e mantido em TypeScript (.tsx).
-                      <br />
-                      <strong>Aprendizado:</strong> Entendeu-se a vantagem de usar TypeScript para um código mais seguro e detecção de erros na fase de desenvolvimento. Foi crucial ajustar o `tsconfig.json` para o Jest entender a sintaxe JSX.
-                    </li>
-                    <li>
-                      <strong>Ação 2: Organização do Código-Fonte</strong>
-                      <br />
-                      <strong>Estratégia:</strong> Uma pasta `src/` foi criada para separar o código da aplicação dos arquivos de configuração. Dentro dela, foram criadas as subpastas `screens`, `components`, `services` e `assets`.
-                      <br />
-                      <strong>Desafio e Solução:</strong> Ao mover `App.tsx` para `src/`, o app quebrou. O diagnóstico foi que o ponto de entrada (`index.js`) precisava ser atualizado.
-                      <br />
-                      <strong>Solução:</strong> Editar o `index.js` para importar o App do novo local.
-                      <CodeBlock language="javascript">
-                        {`import App from './src/App';`}
-                      </CodeBlock>
-                    </li>
-                  </List>
-
-                  <Subtitle>1.3. A "Saúde" do Projeto: Revisão do package.json</Subtitle>
-                  <Paragraph>
-                    Uma verificação das dependências foi feita para garantir que o projeto estava limpo.
-                    <br />
-                    <strong>Dúvida Crítica Resolvida:</strong> "Devo fazer o downgrade do react@19.0.0 para o 18.0.0?".
-                    <br />
-                    <strong>Diagnóstico e Aprendizado Final:</strong> A investigação provou o contrário. A versão `react-native@0.79.2` foi projetada para funcionar com `react@19.0.0`. O aprendizado fundamental foi confiar nas versões que a ferramenta oficial instala.
-                    <br />
-                    <strong>Ação de Limpeza:</strong> As dependências desnecessárias "install" e "npm" foram removidas do `package.json`.
-                  </Paragraph>
-
-                  <Paragraph>
-                    Ao final deste passo, tínhamos um projeto funcional, com uma estrutura limpa e as dependências corretas, pronto para a próxima fase.
-                  </Paragraph>
                 </Container>
 
                 <Container>

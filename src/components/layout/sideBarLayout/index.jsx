@@ -6,7 +6,9 @@ import Image from 'next/image';
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 
 import perfil from '../../../assets/images/perfil.png';
-import { ContentWrapper, ContentNav, Menu, Arrow, DiagonalOne, DiagonalTwo, ImgPerfil, Span, TitleName, SubTitle, TitleMenuSecret, AppContainer, MenuToggleButton, MainContent, SidebarContainer, RotatingWrapper, Face, FrontFace, BackFace, ProfileSection, ProfileImage, Title, Subtitle, Divider, NavMenu, MenuItemSpan, FlipButtonContainer, FlipButton, ScrollableMenuArea, DividerWithText } from './styles';
+import CollapsibleSection from '@/components/collapsibleSection';
+import ScrollableMenuArea from '@/components/scrollableMenuArea';
+import { ContentWrapper, ContentNav, Menu, Arrow, DiagonalOne, DiagonalTwo, ImgPerfil, Span, TitleName, SubTitle, TitleMenuSecret, AppContainer, MenuToggleButton, MainContent, SidebarContainer, RotatingWrapper, Face, FrontFace, BackFace, ProfileSection, ProfileImage, Title, Subtitle, Divider, NavMenu, MenuItemSpan, FlipButtonContainer, FlipButton, DividerWithText } from './styles';
 
 // --- Ícones (SVGs embutidos) ---
 const MenuIcon = () => (
@@ -30,11 +32,28 @@ const FlipIcon = ({ ...props }) => (
 const horizontalVector = [0, 1, 0];
 
 const SideBar = () => {
-  const { isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
+  const { isHamburguerOpen, setIsHamburguerOpen, openSections, setOpenSections } = useGlobalState();
   const { isFlipped, setIsFlipped } = useFlippedState();
+
   // const [mostrarSpans, setMostrarSpans] = useState(true);
   const [activeLink, setActiveLink] = useState('/'); // Estado para armazenar o link ativo
   const router = useRouter(); // Hook para pegar a rota atual
+
+  // ▼▼▼ ADICIONADO: Função para alternar a seção visível ▼▼▼
+  const handleSectionToggle = (title) => {
+    setOpenSections(prevOpenSections => {
+      // Verifica se a seção já está no array (ou seja, aberta)
+      const isAlreadyOpen = prevOpenSections.includes(title);
+
+      if (isAlreadyOpen) {
+        // Se estiver aberta, remove o título do array para fechá-la
+        return prevOpenSections.filter((item) => item !== title);
+      } else {
+        // Se estiver fechada, adiciona o título ao array para abri-la
+        return [...prevOpenSections, title];
+      }
+    });
+  };
 
   const handleNavigate = async (path) => {
     await router.push(path);
@@ -59,9 +78,9 @@ const SideBar = () => {
     };
   }, [isHamburguerOpen]);
 
+
   return (
     <ContentWrapper isHamburguerOpen={isHamburguerOpen}>
-
       <RotatingWrapper isFlipped={isFlipped} vector={horizontalVector}>
         <FrontFace>
           <Arrow onClick={() => setIsHamburguerOpen(prevState => !prevState)}>
@@ -77,7 +96,7 @@ const SideBar = () => {
           <TitleName>Jorge Luiz</TitleName>
           <SubTitle>Web Developer Frontend</SubTitle>
 
-          <ScrollableMenuArea>
+          <ScrollableMenuArea key="front" isVisible={!isFlipped}>
             <DividerWithText>Navegação</DividerWithText>
             <Menu>
               <ul>
@@ -200,83 +219,133 @@ const SideBar = () => {
 
           <TitleName>Build & Deploy </TitleName>
           <SubTitle>App and API development</SubTitle>
-          <Menu>
-            <DividerWithText>Aplicação Mobile</DividerWithText>
-            <ul>
-              <li
-                onClick={() => handleNavigate('/app-developer/ambiente-android-para-react-native')}
-                className={activeLink === '/app-developer/ambiente-android-para-react-native' ? 'active' : ''}>
-                <Span>
-                  1. Ambiente Android para React Native
-                </Span>
-              </li>
-              <li
-                onClick={() => handleNavigate('/app-developer/start-app')}
-                className={activeLink === '/app-developer/start-app' ? 'active' : ''}>
-                <Span>
-                  2. Start App
-                </Span>
-              </li>
-              <li
-                onClick={() => handleNavigate('/app-developer/configurar-projeto-app')}
-                className={activeLink === '/app-developer/configurar-projeto-app' ? 'active' : ''}>
-                <Span>
-                  3. Desenvolvimento Técnico - App
-                </Span>
-              </li>
-              <li
-                onClick={() => handleNavigate('/app-developer/image-icon-app')}
-                className={activeLink === '/app-developer/image-icon-app' ? 'active' : ''}>
-                <Span>
-                  4. Personalizando o Ícone do App
-                </Span>
-              </li>
-              <li
-                onClick={() => handleNavigate('/app-developer/gerando-e-assinando-o-apk')}
-                className={activeLink === '/app-developer/gerando-e-assinando-o-apk' ? 'active' : ''}>
-                <Span>
-                  5. Gerando e Assinando o APK de Release
-                </Span>
-              </li>
-            </ul>
-            <DividerWithText>API</DividerWithText>
-            <ul>
-              <li
-                onClick={() => handleNavigate('/app-developer/configurar-projeto-api')}
-                className={activeLink === '/app-developer/configurar-projeto-api' ? 'active' : ''}>
-                <Span>
-                  Download com Arquitetura Orientada a Jobs - API
-                </Span>
-              </li>
-            </ul>
-            <DividerWithText>Infraestrutura e Serviços</DividerWithText>
-            <ul>
-              <li
-                onClick={() => handleNavigate('/app-developer/connect-cloudflare-r2')}
-                className={activeLink === '/app-developer/connect-cloudflare-r2' ? 'active' : ''}>
-                <Span>
-                  Configurando o Armazenamento Cloudflare R2
-                </Span>
-              </li>
-            </ul>
-            <DividerWithText>Artigos Técnicos</DividerWithText>
-            <ul>
-              <li
-                onClick={() => handleNavigate('/app-developer/internacionalizacao-i18n-react-native')}
-                className={activeLink === '/app-developer/internacionalizacao-i18n-react-native' ? 'active' : ''}>
-                <Span>
-                  Internacionalização (i18n) em React Native
-                </Span>
-              </li>
-              <li
-                onClick={() => handleNavigate('/app-developer/notas-rapidas')}
-                className={activeLink === '/app-developer/notas-rapidas' ? 'active' : ''}>
-                <Span>
-                  Notas Rápidas
-                </Span>
-              </li>
-            </ul>
-          </Menu>
+          <ScrollableMenuArea key={'back'} isVisible={isFlipped}>
+            <Menu>
+              <CollapsibleSection title={'Aplicação Mobile 1.0'}
+                isOpen={openSections.includes('Aplicação Mobile 1.0')}
+                onToggle={() => handleSectionToggle('Aplicação Mobile 1.0')}
+              >
+                <ul>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/ambiente-android-para-react-native')}
+                    className={activeLink === '/app-developer/ambiente-android-para-react-native' ? 'active' : ''}>
+                    <Span>
+                      1. Ambiente Android para React Native
+                    </Span>
+                  </li>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/configuracao-Inicial-e-Estrutura')}
+                    className={activeLink === '/app-developer/configuracao-Inicial-e-Estrutura' ? 'active' : ''}>
+                    <Span>
+                      2. Configuração Inicial e Estrutura
+                    </Span>
+                  </li>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/arquitetura-e-desenvolvimento-de-um-app')}
+                    className={activeLink === '/app-developer/arquitetura-e-desenvolvimento-de-um-app' ? 'active' : ''}>
+                    <Span>
+                      3. Arquitetura e Desenvolvimento de um App
+                    </Span>
+                  </li>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/personalizando-o-icone-do-app')}
+                    className={activeLink === '/app-developer/personalizando-o-icone-do-app' ? 'active' : ''}>
+                    <Span>
+                      4. Personalizando o Ícone do App
+                    </Span>
+                  </li>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/gerando-e-assinando-o-apk-de-release')}
+                    className={activeLink === '/app-developer/gerando-e-assinando-o-apk-de-release' ? 'active' : ''}>
+                    <Span>
+                      5. Gerando e Assinando o APK de Release
+                    </Span>
+                  </li>
+                </ul>
+              </CollapsibleSection>
+              <CollapsibleSection
+                title={'Aplicação Mobile 2.0'}
+                isOpen={openSections.includes('Aplicação Mobile 2.0')}
+                onToggle={() => handleSectionToggle('Aplicação Mobile 2.0')}
+              >
+                <ul>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/gerando-e-assinando-o-apk')}
+                    className={activeLink === '/app-developer/gerando-e-assinando-o-apk' ? 'active' : ''}>
+                    <Span>
+                      5. Gerando e Assinando o APK de Release
+                    </Span>
+                  </li>
+                </ul>
+              </CollapsibleSection>
+              <CollapsibleSection
+                title={'API 1.0'}
+                isOpen={openSections.includes('API 1.0')}
+                onToggle={() => handleSectionToggle('API 1.0')}
+              >
+                <ul>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/arquitetura-de-um-backend-assincrono-e-escalavel-com-node.js')}
+                    className={activeLink === '/app-developer/arquitetura-de-um-backend-assincrono-e-escalavel-com-node.js' ? 'active' : ''}>
+                    <Span>
+                      Arquitetura de um Backend Assíncrono e Escalável com Node.js
+                    </Span>
+                  </li>
+                </ul>
+              </CollapsibleSection>
+              <CollapsibleSection
+                title={'Infraestrutura e Serviços'}
+                isOpen={openSections.includes('Infraestrutura e Serviços')}
+                onToggle={() => handleSectionToggle('Infraestrutura e Serviços')}
+              >
+                <ul>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/configurando-o-armazenamento-cloudflare-r2')}
+                    className={activeLink === '/app-developer/configurando-o-armazenamento-cloudflare-r2' ? 'active' : ''}>
+                    <Span>
+                      Configurando o Armazenamento Cloudflare R2
+                    </Span>
+                  </li>
+                </ul>
+              </CollapsibleSection>
+              <CollapsibleSection
+                title={'Artigos Técnicos'}
+                isOpen={openSections.includes('Artigos Técnicos')}
+                onToggle={() => handleSectionToggle('Artigos Técnicos')}
+              >
+                <ul>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/notas-rapidas-react-native')}
+                    className={activeLink === '/app-developer/notas-rapidas-react-native' ? 'active' : ''}>
+                    <Span>
+                      Notas Rápidas React-Native
+                    </Span>
+                  </li>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/forced-uninstall-app-android')}
+                    className={activeLink === '/app-developer/forced-uninstall-app-android' ? 'active' : ''}>
+                    <Span>
+                      Forced Uninstall App Android
+                    </Span>
+                  </li>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/contornando-limites-do-instagram')}
+                    className={activeLink === '/app-developer/contornando-limites-do-instagram' ? 'active' : ''}>
+                    <Span>
+                      Contornando Limites do Instagram - API
+                    </Span>
+                  </li>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/internacionalizacao-i18n-react-native')}
+                    className={activeLink === '/app-developer/internacionalizacao-i18n-react-native' ? 'active' : ''}>
+                    <Span>
+                      Internacionalização (i18n) em React Native - APP
+                    </Span>
+                  </li>
+                </ul>
+              </CollapsibleSection>
+            </Menu>
+          </ScrollableMenuArea>
           {/* <div style={{ width: "100%", border: "solid 1px #374151", marginTop: "20px", marginBottom: "10px" }}></div> */}
           <FlipButtonContainer>
             <FlipButton onClick={() => setIsFlipped(false)}><FlipIcon style={{ transform: 'rotateY(180deg)' }} /><span>Voltar</span></FlipButton>

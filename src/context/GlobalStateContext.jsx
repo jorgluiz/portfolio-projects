@@ -8,6 +8,10 @@ export function GlobalStateProvider({ children }) {
   const [isHamburguerOpen, setIsHamburguerOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false); // Estado global de carregamento
 
+  // ▼▼▼ ADICIONADO: Estado para a seção aberta do menu sanfona ▼▼▼
+  const [openSections, setOpenSections] = useState([]);
+
+
   // O primeiro useEffect lida apenas com o redimensionamento.
   // useEffect(() => {
   //   const handleResize = () => {
@@ -37,7 +41,7 @@ export function GlobalStateProvider({ children }) {
   }, []); // Executa apenas uma vez quando o componente é montado
 
   return (
-    <GlobalStateContext.Provider value={{ isHamburguerOpen, setIsHamburguerOpen, isLoaded }}>
+    <GlobalStateContext.Provider value={{ isHamburguerOpen, setIsHamburguerOpen, isLoaded, openSections, setOpenSections }}>
       {children}
     </GlobalStateContext.Provider>
   );

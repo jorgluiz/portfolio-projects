@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ContentWrapper = styled.div`
   position: sticky;
@@ -6,8 +6,9 @@ export const ContentWrapper = styled.div`
   z-index: 20;
   width: 330px;
   min-width: 330px; /* Impede que a largura seja comprimida */
-   height: 100vh; /* Garante que o sidebar ocupe sempre a altura total da tela */
+  height: 100vh; /* Garante que o sidebar ocupe sempre a altura total da tela */
   transition: transform 600ms cubic-bezier(0.8, 1, 0.8, 1);
+  overflow: hidden;
 
   transition: transform 200ms ease-in-out; /* Transição suave para mover o sidebar */
   transform: translateX(0); /* Posição inicial */
@@ -49,6 +50,7 @@ export const Menu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 
   & li {
     text-align: center;
@@ -242,6 +244,7 @@ export const Face = styled.div`
           align-items: center;
           box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
           backface-visibility: hidden;
+          /* overflow: hidden; */
         `;
 
 export const FrontFace = styled(Face)`
@@ -357,40 +360,6 @@ export const FlipButton = styled.button`
 //   align-items: center;
 //   padding: 0 1rem; /* Espaçamento lateral para os menus */
 // `;
-export const ScrollableMenuArea = styled.div`
-  flex-grow: 1; 
-  width: 100%;
-  overflow-y: auto; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 1rem;
-
-   scroll-behavior: smooth; /* <-- ADICIONE ESTA LINHA */
-
-  /* --- INÍCIO DA CUSTOMIZAÇÃO DO SCROLLBAR --- */
-
-  /* Para navegadores baseados em WebKit (Chrome, Safari, Edge, etc.) */
-  &::-webkit-scrollbar {
-    width: 6px; /* Largura da barra de rolagem. Deixe mais fino aqui! */
-  }
-
-  /* Fundo da barra de rolagem (a "trilha") */
-  &::-webkit-scrollbar-track {
-    background: transparent; /* Deixa a trilha invisível */
-  }
-
-  /* O "polegar" ou a alça que você arrasta */
-  &::-webkit-scrollbar-thumb {
-    background-color: #4b5563;    /* Cor da alça do scroll */
-    border-radius: 20px;       /* Bordas arredondadas para um look moderno */
-  }
-
-  /* Efeito quando o mouse passa por cima da alça */
-  &::-webkit-scrollbar-thumb:hover {
-    background-color: #6b7280; /* Cor um pouco mais clara no hover */
-  }
-`;
 
 export const DividerWithText = styled.div`
   display: flex;

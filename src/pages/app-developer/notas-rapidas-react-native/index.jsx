@@ -12,7 +12,12 @@ import Title from "@/components/common/title";
 
 import { ResumoTechMainContainer, CollapsibleContent } from "@/components/notasRapidas/resumoTechMainContainer";
 
-import ForcedUninstall from "@/components/app-developer/notasRapidas/forcedUninstall";
+import FunctionNames from "@/components/app-developer/notasRapidas/functionNames";
+import ReactNativeEssentialConcepts from "@/components/app-developer/notasRapidas/reactNativeEssentialConcepts";
+import AdvancedReactNativeconcepts from "@/components/app-developer/notasRapidas/advancedReactNativeconcepts";
+import EventProperties from "@/components/app-developer/notasRapidas/eventProperties";
+import Debugging from "@/components/app-developer/notasRapidas/debugging";
+import PushNotifications from "@/components/app-developer/notasRapidas/pushNotifications";
 
 // 1. Efeito de redimensionamento da tela
 const Projetos = () => {
@@ -30,7 +35,12 @@ const Projetos = () => {
   };
 
   const sections = [
-    { title: "Forced Uninstall", component: <ForcedUninstall /> }
+    { title: "Conceitos Essenciais - React Native", component: <ReactNativeEssentialConcepts /> },
+    { title: "Converções de Nomenclatura - React Native", component: <FunctionNames /> },
+    { title: "Conceitos Avançados - React Native", component: <AdvancedReactNativeconcepts /> },
+    { title: "Propriedades de Evento - React Native", component: <EventProperties /> },
+    { title: "Debugging - React Native", component: <Debugging /> },
+    { title: " Notificações Push - React Native", component: <PushNotifications /> }
   ];
 
 

@@ -19,16 +19,15 @@ const BotaoVoltarAoTopo = styled.button`
   align-items: center;
   cursor: pointer;
   opacity: ${({ $visivel }) => ($visivel ? '1' : '0')};
-  transform: ${({ $visivel }) =>
-    $visivel ? 'translateY(0)' : 'translateY(20px)'};
+  transform: ${({ $visivel }) => ($visivel ? 'translateY(0)' : 'translateY(20px)')};
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   z-index: 1000;
 
     /* Adicionado para remover o efeito de toque no mobile */
   -webkit-tap-highlight-color: transparent;
 
-  &:hover {
-    background-color: #0056b3;
+  &:active {
+    background-color: ${$visivel => ($visivel ? '#0056b3' : '')};
   }
 `;
 

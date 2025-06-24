@@ -22,10 +22,9 @@ user-select: none;
   text-decoration: none; /* pode tirar o underline se quiser */
 }
 
-& .EJS, .GitConnection, .MySQL {
+/* & .EJS, .GitConnection, .MySQL {
 border-bottom: 1px solid #ccc;
-/* box-shadow: 0 1px 0 0 #eee; */
-}
+} */
 `;
 
 export const CollapsibleContent = styled.div`

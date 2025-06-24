@@ -40,23 +40,34 @@ const Projetos = () => {
     }));
   };
 
-  // const ComponenteTech01 = () => <p>Conteúdo do componente Tech 01</p>;
-  // const ComponenteTech02 = () => <p>Conteúdo do componente Tech 02</p>;
-  // const ComponenteTech03 = () => <p>Conteúdo do componente Tech 03</p>;
-
-  const sections = [
-    { title: "Bibliotecas / Ferramentas / API / SDK", component: <BibliotecasFerramentas /> },
-    { title: "Arquitetura Monolitica", component: <ArquiteturaMonolitica /> },
-    { title: "Arquitetura Microservices", component: <ArquiteturaMicroservices /> },
-    { title: "Backend com JavaScript NodeJS", component: <BackendNodeJS /> },
-    { title: "MySQL vs ORM", component: <MySQLvsORM /> },
-    { title: "Frontend com ReactJS", component: <FrontendTecnologiasReactjs /> },
-    { title: "Design UI e UX em ReactJS", component: <DesignUIUX /> },
-    { title: "Frontend com NextJS", component: <FrontendTecnologiasNextjs /> },
-    { title: "Express HTML server e Express EJS server", component: <ExpressServersDifference /> },
-    { title: "Comandos GitHub", component: <GitCommands /> },
-    { title: "Renew GitConnection", component: <RenewGitConnection /> },
-    { title: "Ngrok", component: <NgrokUsage /> },
+  const modules = [
+    {
+      moduleTitle: "Módulo Versionamento e Ferramentas",
+      sections: [
+        { title: "Comandos GitHub", component: <GitCommands />, key: "ferramentas-git" },
+        { title: "Renovando a Conexão com o Git", component: <RenewGitConnection />, key: "ferramentas-git-renew" },
+        { title: "Ngrok - Expondo seu localhost", component: <NgrokUsage />, key: "ferramentas-ngrok" },
+        { title: "Bibliotecas / Ferramentas / API / SDK", component: <BibliotecasFerramentas />, key: "ferramentas-bibliotecas" },
+      ],
+    },
+    {
+      moduleTitle: "Módulo Arquitetura e Backend",
+      sections: [
+        { title: "Arquitetura Monolítica", component: <ArquiteturaMonolitica />, key: "arquitetura-mono" },
+        { title: "Arquitetura de Microserviços", component: <ArquiteturaMicroservices />, key: "arquitetura-micro" },
+        { title: "Backend com JavaScript e NodeJS", component: <BackendNodeJS />, key: "backend-nodejs" },
+        { title: "Express: Servidor HTML vs. Servidor EJS", component: <ExpressServersDifference />, key: "backend-express" },
+        { title: "MySQL vs ORM", component: <MySQLvsORM />, key: "backend-orm" },
+      ],
+    },
+    {
+      moduleTitle: "Módulo Frontend",
+      sections: [
+        { title: "Frontend com ReactJS", component: <FrontendTecnologiasReactjs />, key: "frontend-react" },
+        { title: "Frontend com NextJS", component: <FrontendTecnologiasNextjs />, key: "frontend-next" },
+        { title: "Design UI e UX em ReactJS", component: <DesignUIUX />, key: "frontend-uiux" },
+      ],
+    },
   ];
 
 
@@ -72,17 +83,26 @@ const Projetos = () => {
             <HeaderLayout></HeaderLayout>
             <MainContentLayout>
               <DiarioDevMainContainer>
-                {sections.map((section, index) => (
-                  <div key={index}>
-                    <Title
-                      className={`h3Center-diarioDev ${section.title} ${visibleSections[index] ? "active" : ""}`}
-                      onClick={() => toggleSection(index)}
-                    >
-                      {section.title} {visibleSections[index] ? "▲" : "▼"}
-                    </Title>
-                    <CollapsibleContent isOpen={visibleSections[index]}>
-                      {section.component}
-                    </CollapsibleContent>
+                {/* Renderização aninhada: primeiro itera nos módulos, depois nas seções */}
+                {modules.map((module, moduleIndex) => (
+                  <div key={moduleIndex} className="module-container">
+                    {/* Título do Módulo */}
+                    <h1 style={{ textAlign: "center", marginBottom: "20px" }} className="h2-module-title">{module.moduleTitle}</h1>
+
+                    {/* Seções dentro do Módulo */}
+                    {module.sections.map((section) => (
+                      <div key={section.key}>
+                        <Title
+                          className={`h3Center-diarioDev ${visibleSections[section.key] ? "active" : ""}`}
+                          onClick={() => toggleSection(section.key)}
+                        >
+                          {section.title} {visibleSections[section.key] ? "▲" : "▼"}
+                        </Title>
+                        <CollapsibleContent isOpen={visibleSections[section.key]}>
+                          {section.component}
+                        </CollapsibleContent>
+                      </div>
+                    ))}
                   </div>
                 ))}
               </DiarioDevMainContainer>

@@ -126,6 +126,11 @@ export const Span = styled.span`
   font-size: 16px;
 `;
 
+export const Underline = styled.span`
+  background-color:rgb(230, 230, 230);
+`;
+
+
 export const H2 = styled.h2`
   padding-bottom: 12px;
 `;

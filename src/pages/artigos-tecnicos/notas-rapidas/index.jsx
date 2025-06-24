@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
-import { useGlobalState } from "../../../context/GlobalStateContext";
+import { useGlobalState } from "@/context/GlobalStateContext";
 
 import { MainLayout } from "@/components/layout/mainLayout";
 import SideBarLayout from "@/components/layout/sideBarLayout";
@@ -19,6 +19,8 @@ import MetaTagsWhatsappProblema from "@/components/notasRapidas/metaTagsWhatsapp
 import PlataformasCriacaoVideoArte from "@/components/notasRapidas/plataformasCriacaoVideoArte";
 import ParadigmasJavaScript from "@/components/notasRapidas/paradigmasJavaScript";
 import Versionamento from "@/components/notasRapidas/versionamento";
+import FunctionNames from "@/components/notasRapidas/functionNames";
+import PollingVsWebSockets from "@/components/notasRapidas/pollingVsWebSockets";
 
 
 // 1. Efeito de redimensionamento da tela
@@ -36,14 +38,37 @@ const Projetos = () => {
     }));
   };
 
-  const sections = [
-    { title: "Backend - Middlewares", component: <BackendMiddlewares /> },
-    { title: "Blockchain e NFTs", component: <BlockchainNfts /> },
-    { title: "CSS - Flickity e PhotoSwipe", component: <ThemeCssUserSelect /> },
-    { title: "Nextjs - Meta Tags Whatsapp Problema", component: <MetaTagsWhatsappProblema /> },
-    { title: "IA - Criação de Vídeos e Arte", component: <PlataformasCriacaoVideoArte /> },
-    { title: "JS - Paradigmas JavaScript", component: <ParadigmasJavaScript /> },
-    { title: "Versionamento", component: <Versionamento /> },
+  // 1. Estrutura de dados organizada por módulos
+  const modules = [
+    {
+      moduleTitle: "Módulo Fundamentos",
+      sections: [
+        { title: "Versionamento", component: <Versionamento />, key: "fundamentos-versionamento" },
+        { title: "Convenções de Nomenclatura", component: <FunctionNames />, key: "fundamentos-nomenclatura" },
+        { title: "JS - Paradigmas JavaScript", component: <ParadigmasJavaScript />, key: "fundamentos-paradigmas" },
+      ],
+    },
+    {
+      moduleTitle: "Módulo Frontend",
+      sections: [
+        { title: "CSS - Flickity e PhotoSwipe", component: <ThemeCssUserSelect />, key: "frontend-css" },
+        { title: "Next.js - Meta Tags Whatsapp Problema", component: <MetaTagsWhatsappProblema />, key: "frontend-nextjs" },
+      ],
+    },
+    {
+      moduleTitle: "Módulo Backend",
+      sections: [
+        { title: "Backend - Middlewares", component: <BackendMiddlewares />, key: "backend-middlewares" },
+        { title: "Polling vs. WebSockets", component: <PollingVsWebSockets />, key: "backend-polling" },
+      ],
+    },
+    {
+      moduleTitle: "Módulo Especialidades",
+      sections: [
+        { title: "Blockchain e NFTs", component: <BlockchainNfts />, key: "especialidades-blockchain" },
+        { title: "IA - Criação de Vídeos e Arte", component: <PlataformasCriacaoVideoArte />, key: "especialidades-ia" },
+      ],
+    },
   ];
 
 
@@ -81,19 +106,27 @@ const Projetos = () => {
             <HeaderLayout></HeaderLayout>
             <MainContentLayout>
               <ResumoTechMainContainer>
-                {sections.map((section, index) => (
-                  <div key={index}>
-                    <Title
-                      className={`h3Center-resumoTech ${section.title} ${visibleSections[index] ? "active" : ""}`}
-                      onClick={() => toggleSection(index)}
-                    >
-                      {section.title} {visibleSections[index] ? "▲" : "▼"}
-                    </Title>
-                    <CollapsibleContent isOpen={visibleSections[index]}>
-                      {section.component}
-                    </CollapsibleContent>
+                {/* 2. Renderização em dois níveis: Módulos e depois Seções */}
+                {modules.map((module, moduleIndex) => (
+                  <div key={moduleIndex} className="module-container">
+                    <h1 style={{ textAlign: "center", marginBottom: "20px" }} className="h2-module-title">{module.moduleTitle}</h1>
+                    {/* Seções dentro do Módulo */}
+                    {module.sections.map((section) => (
+                      <div key={section.key}>
+                        <Title
+                          className={`h3Center-resumoTech ${section.title} ${visibleSections[section.key] ? "active" : ""}`}
+                          onClick={() => toggleSection(section.key)}
+                        >
+                          {section.title} {visibleSections[section.key] ? "▲" : "▼"}
+                        </Title>
+                        <CollapsibleContent isOpen={visibleSections[section.key]}>
+                          {section.component}
+                        </CollapsibleContent>
+                      </div>
+                    ))}
                   </div>
                 ))}
+
               </ResumoTechMainContainer>
             </MainContentLayout>
           </MainLayout>
