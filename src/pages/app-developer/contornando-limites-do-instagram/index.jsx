@@ -85,7 +85,7 @@ const AndroidStudioSetup = () => {
                     <strong>Como Implementar:</strong>
                     <List>
                       <li>Contrate um serviço de proxy rotativo. Empresas como <strong>Bright Data</strong>, <strong>Oxylabs</strong> ou <strong>Smartproxy</strong> oferecem acesso a milhões de IPs residenciais ou de data centers.</li>
-                      <li>Você receberá um endereço de acesso ao serviço de proxy (ex: <code>http://usuario:senha@proxy.servico.com:12345</code>).</li>
+                      <li>Você receberá um endereço de acesso ao serviço de proxy (ex: http://usuario:senha@proxy.servico.com:12345).</li>
                       <li>No seu script (ex: <code>downloadWorker.js</code>), modifique o comando que faz a requisição (como o <code>yt-dlp</code>) para usar a flag de proxy.</li>
                     </List>
                   </Paragraph>

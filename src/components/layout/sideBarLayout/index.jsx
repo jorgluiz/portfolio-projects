@@ -263,7 +263,7 @@ const SideBar = () => {
                   </li>
                 </ul>
               </CollapsibleSection>
-              <CollapsibleSection
+              {/* <CollapsibleSection
                 title={'Aplicação Mobile 2.0'}
                 isOpen={openSections.includes('Aplicação Mobile 2.0')}
                 onToggle={() => handleSectionToggle('Aplicação Mobile 2.0')}
@@ -277,7 +277,7 @@ const SideBar = () => {
                     </Span>
                   </li>
                 </ul>
-              </CollapsibleSection>
+              </CollapsibleSection> */}
               <CollapsibleSection
                 title={'API 1.0'}
                 isOpen={openSections.includes('API 1.0')}

@@ -1,0 +1,35 @@
+diff --git a/src/components/layout/sideBarLayout/index.jsx b/src/components/layout/sideBarLayout/index.jsx
+index 94c46b9..1f76dcf 100644
+--- a/src/components/layout/sideBarLayout/index.jsx
++++ b/src/components/layout/sideBarLayout/index.jsx
+@@ -263,7 +263,7 @@ const SideBar = () => {
+                   </li>
+                 </ul>
+               </CollapsibleSection>
+-              <CollapsibleSection
++              {/* <CollapsibleSection
+                 title={'Aplicação Mobile 2.0'}
+                 isOpen={openSections.includes('Aplicação Mobile 2.0')}
+                 onToggle={() => handleSectionToggle('Aplicação Mobile 2.0')}
+@@ -277,7 +277,7 @@ const SideBar = () => {
+                     </Span>
+                   </li>
+                 </ul>
+-              </CollapsibleSection>
++              </CollapsibleSection> */}
+               <CollapsibleSection
+                 title={'API 1.0'}
+                 isOpen={openSections.includes('API 1.0')}
+diff --git a/src/pages/app-developer/contornando-limites-do-instagram/index.jsx b/src/pages/app-developer/contornando-limites-do-instagram/index.jsx
+index 52c2e0b..6fb7d28 100644
+--- a/src/pages/app-developer/contornando-limites-do-instagram/index.jsx
++++ b/src/pages/app-developer/contornando-limites-do-instagram/index.jsx
+@@ -85,7 +85,7 @@ const AndroidStudioSetup = () => {
+                     <strong>Como Implementar:</strong>
+                     <List>
+                       <li>Contrate um serviço de proxy rotativo. Empresas como <strong>Bright Data</strong>, <strong>Oxylabs</strong> ou <strong>Smartproxy</strong> oferecem acesso a milhões de IPs residenciais ou de data centers.</li>
+-                      <li>Você receberá um endereço de acesso ao serviço de proxy (ex: <code>http://usuario:senha@proxy.servico.com:12345</code>).</li>
++                      <li>Você receberá um endereço de acesso ao serviço de proxy (ex: http://usuario:senha@proxy.servico.com:12345).</li>
+                       <li>No seu script (ex: <code>downloadWorker.js</code>), modifique o comando que faz a requisição (como o <code>yt-dlp</code>) para usar a flag de proxy.</li>
+                     </List>
+                   </Paragraph>
