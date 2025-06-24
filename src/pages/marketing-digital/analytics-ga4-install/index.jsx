@@ -85,46 +85,51 @@ const GA4NextJsIntegration = () => {
                   </Paragraph>
 
                   <Subtitle>2. Criar Propriedade</Subtitle>
-                  <Paragraph>
-                    Defina o nome da propriedade (ex: "Portfólio Jorge Luiz"). Escolha país,
-                    fuso horário e moeda. Clique para avançar.
-                  </Paragraph>
+                  <List>
+                    <li>Defina o nome da propriedade (ex: {'"Portfólio Jorge Luiz"'}).</li>
+                    <li>Escolha país, fuso horário e moeda. Clique para avançar.</li>
+                  </List>
 
                   <Subtitle>3. Descrever seu Negócio</Subtitle>
-                  <Paragraph>
-                    Informe o setor (ex: Financeiro, Tecnologia, etc) e o tamanho da empresa
-                    (ex: 1 a 10 funcionários). Clique para continuar.
-                  </Paragraph>
+                  <List>
+                    <li>Informe o setor (ex: Financeiro, Tecnologia, etc)</li>
+                    <li>Tamanho da empresa (ex: 1 a 10 funcionários). Clique para continuar.</li>
+                  </List>
 
                   <Subtitle>4. Escolher Objetivos de Negócio</Subtitle>
                   <List>
                     <li>
-                      Gerar leads: Capturar contatos de potenciais
+                      <strong>Gerar leads:</strong> Capturar contatos de potenciais
                       clientes interessados.
                     </li>
                     <li>
-                      Impulsionar vendas: Aumentar a conversão e receita
+                      <strong>Impulsionar vendas</strong>: Aumentar a conversão e receita
                       do negócio.
                     </li>
                     <li>
-                      Entender o tráfego da web: Analisar origem e
+                      <strong>Entender o tráfego da web</strong>: Analisar origem e
                       comportamento dos visitantes.
                     </li>
                     <li>
-                      Ver engajamento e retenção: Monitorar a interação e
+                      <strong>Ver engajamento e retenção</strong>: Monitorar a interação e
                       fidelização dos usuários.
                     </li>
                     <li>
-                      Outros (se aplicável): Definir metas específicas
+                      <strong>Outros (se aplicável)</strong>: Definir metas específicas
                       conforme seu negócio.
                     </li>
                   </List>
 
                   <Subtitle>5. Começar a Coletar Dados</Subtitle>
+                  <List>
+                    <li><strong>Web</strong></li>
+                    <li><strong>App Android</strong></li>
+                    <li><strong>App iOS</strong></li>
+                  </List>
                   <Paragraph>
-                    Escolha a plataforma: Web (se for site Next.js). Informe a URL do seu
-                    site (ex: https://portfolio-projects-production.up.railway.app). Dê um
-                    nome para o fluxo de dados (ex: "Site Principal") e crie o fluxo.
+                    Escolha a plataforma <strong>Web</strong> para sites e informe a URL do seu
+                    site Ex: https://portfolio-projects-production.up.railway.app Dê um
+                    nome para o fluxo de dados (ex: {'"Site Principal"'}) e crie o fluxo.
                   </Paragraph>
 
                   <Subtitle>6. Obter o Código de Rastreamento (gtag.js)</Subtitle>
@@ -146,7 +151,7 @@ const GA4NextJsIntegration = () => {
                   <Subtitle>7. Implementar no Next.js (arquivo _app.jsx)</Subtitle>
                   <Paragraph>Use o código abaixo para integrar o GA no seu Next.js:</Paragraph>
                   <pre>
-                    <CodeBlock language="html">
+                    <CodeBlock language="jsx">
                       {`import { useEffect } from 'react';
 import Script from 'next/script';
 

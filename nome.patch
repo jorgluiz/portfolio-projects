@@ -1,35 +1,134 @@
-diff --git a/src/components/layout/sideBarLayout/index.jsx b/src/components/layout/sideBarLayout/index.jsx
-index 94c46b9..1f76dcf 100644
---- a/src/components/layout/sideBarLayout/index.jsx
-+++ b/src/components/layout/sideBarLayout/index.jsx
-@@ -263,7 +263,7 @@ const SideBar = () => {
-                   </li>
-                 </ul>
-               </CollapsibleSection>
--              <CollapsibleSection
-+              {/* <CollapsibleSection
-                 title={'Aplicação Mobile 2.0'}
-                 isOpen={openSections.includes('Aplicação Mobile 2.0')}
-                 onToggle={() => handleSectionToggle('Aplicação Mobile 2.0')}
-@@ -277,7 +277,7 @@ const SideBar = () => {
-                     </Span>
-                   </li>
-                 </ul>
--              </CollapsibleSection>
-+              </CollapsibleSection> */}
-               <CollapsibleSection
-                 title={'API 1.0'}
-                 isOpen={openSections.includes('API 1.0')}
-diff --git a/src/pages/app-developer/contornando-limites-do-instagram/index.jsx b/src/pages/app-developer/contornando-limites-do-instagram/index.jsx
-index 52c2e0b..6fb7d28 100644
---- a/src/pages/app-developer/contornando-limites-do-instagram/index.jsx
-+++ b/src/pages/app-developer/contornando-limites-do-instagram/index.jsx
-@@ -85,7 +85,7 @@ const AndroidStudioSetup = () => {
-                     <strong>Como Implementar:</strong>
-                     <List>
-                       <li>Contrate um serviço de proxy rotativo. Empresas como <strong>Bright Data</strong>, <strong>Oxylabs</strong> ou <strong>Smartproxy</strong> oferecem acesso a milhões de IPs residenciais ou de data centers.</li>
--                      <li>Você receberá um endereço de acesso ao serviço de proxy (ex: <code>http://usuario:senha@proxy.servico.com:12345</code>).</li>
-+                      <li>Você receberá um endereço de acesso ao serviço de proxy (ex: http://usuario:senha@proxy.servico.com:12345).</li>
-                       <li>No seu script (ex: <code>downloadWorker.js</code>), modifique o comando que faz a requisição (como o <code>yt-dlp</code>) para usar a flag de proxy.</li>
-                     </List>
+diff --git a/nome.patch b/nome.patch
+index 8b9ee19..e69de29 100644
+--- a/nome.patch
++++ b/nome.patch
+@@ -1,35 +0,0 @@
+-diff --git a/src/components/layout/sideBarLayout/index.jsx b/src/components/layout/sideBarLayout/index.jsx
+-index 94c46b9..1f76dcf 100644
+---- a/src/components/layout/sideBarLayout/index.jsx
+-+++ b/src/components/layout/sideBarLayout/index.jsx
+-@@ -263,7 +263,7 @@ const SideBar = () => {
+-                   </li>
+-                 </ul>
+-               </CollapsibleSection>
+--              <CollapsibleSection
+-+              {/* <CollapsibleSection
+-                 title={'Aplicação Mobile 2.0'}
+-                 isOpen={openSections.includes('Aplicação Mobile 2.0')}
+-                 onToggle={() => handleSectionToggle('Aplicação Mobile 2.0')}
+-@@ -277,7 +277,7 @@ const SideBar = () => {
+-                     </Span>
+-                   </li>
+-                 </ul>
+--              </CollapsibleSection>
+-+              </CollapsibleSection> */}
+-               <CollapsibleSection
+-                 title={'API 1.0'}
+-                 isOpen={openSections.includes('API 1.0')}
+-diff --git a/src/pages/app-developer/contornando-limites-do-instagram/index.jsx b/src/pages/app-developer/contornando-limites-do-instagram/index.jsx
+-index 52c2e0b..6fb7d28 100644
+---- a/src/pages/app-developer/contornando-limites-do-instagram/index.jsx
+-+++ b/src/pages/app-developer/contornando-limites-do-instagram/index.jsx
+-@@ -85,7 +85,7 @@ const AndroidStudioSetup = () => {
+-                     <strong>Como Implementar:</strong>
+-                     <List>
+-                       <li>Contrate um serviço de proxy rotativo. Empresas como <strong>Bright Data</strong>, <strong>Oxylabs</strong> ou <strong>Smartproxy</strong> oferecem acesso a milhões de IPs residenciais ou de data centers.</li>
+--                      <li>Você receberá um endereço de acesso ao serviço de proxy (ex: <code>http://usuario:senha@proxy.servico.com:12345</code>).</li>
+-+                      <li>Você receberá um endereço de acesso ao serviço de proxy (ex: http://usuario:senha@proxy.servico.com:12345).</li>
+-                       <li>No seu script (ex: <code>downloadWorker.js</code>), modifique o comando que faz a requisição (como o <code>yt-dlp</code>) para usar a flag de proxy.</li>
+-                     </List>
+-                   </Paragraph>
+diff --git a/src/pages/_app.jsx b/src/pages/_app.jsx
+index 10fdb5b..dfa9915 100644
+--- a/src/pages/_app.jsx
++++ b/src/pages/_app.jsx
+@@ -81,7 +81,7 @@ import { GlobalStyle } from '@/styles/globalStyles';
+ import { GlobalStateProvider } from '../context/GlobalStateContext';
+ import { FlippedStateProvider } from '../context/FlippedContext';
+ 
+-const GA_ID = 'G-T9MLFWWB7M';
++const GA_ID = 'G-C7KZR4C3K4';
+ 
+ const MyApp = ({ Component, pageProps }) => {
+   const ENABLE_GA = process.env.NEXT_PUBLIC_ENABLE_GA === 'true';
+diff --git a/src/pages/marketing-digital/analytics-ga4-install/index.jsx b/src/pages/marketing-digital/analytics-ga4-install/index.jsx
+index 1d98977..3052c20 100644
+--- a/src/pages/marketing-digital/analytics-ga4-install/index.jsx
++++ b/src/pages/marketing-digital/analytics-ga4-install/index.jsx
+@@ -85,46 +85,51 @@ const GA4NextJsIntegration = () => {
                    </Paragraph>
+ 
+                   <Subtitle>2. Criar Propriedade</Subtitle>
+-                  <Paragraph>
+-                    Defina o nome da propriedade (ex: "Portfólio Jorge Luiz"). Escolha país,
+-                    fuso horário e moeda. Clique para avançar.
+-                  </Paragraph>
++                  <List>
++                    <li>Defina o nome da propriedade (ex: {'"Portfólio Jorge Luiz"'}).</li>
++                    <li>Escolha país, fuso horário e moeda. Clique para avançar.</li>
++                  </List>
+ 
+                   <Subtitle>3. Descrever seu Negócio</Subtitle>
+-                  <Paragraph>
+-                    Informe o setor (ex: Financeiro, Tecnologia, etc) e o tamanho da empresa
+-                    (ex: 1 a 10 funcionários). Clique para continuar.
+-                  </Paragraph>
++                  <List>
++                    <li>Informe o setor (ex: Financeiro, Tecnologia, etc)</li>
++                    <li>Tamanho da empresa (ex: 1 a 10 funcionários). Clique para continuar.</li>
++                  </List>
+ 
+                   <Subtitle>4. Escolher Objetivos de Negócio</Subtitle>
+                   <List>
+                     <li>
+-                      Gerar leads: Capturar contatos de potenciais
++                      <strong>Gerar leads:</strong> Capturar contatos de potenciais
+                       clientes interessados.
+                     </li>
+                     <li>
+-                      Impulsionar vendas: Aumentar a conversão e receita
++                      <strong>Impulsionar vendas</strong>: Aumentar a conversão e receita
+                       do negócio.
+                     </li>
+                     <li>
+-                      Entender o tráfego da web: Analisar origem e
++                      <strong>Entender o tráfego da web</strong>: Analisar origem e
+                       comportamento dos visitantes.
+                     </li>
+                     <li>
+-                      Ver engajamento e retenção: Monitorar a interação e
++                      <strong>Ver engajamento e retenção</strong>: Monitorar a interação e
+                       fidelização dos usuários.
+                     </li>
+                     <li>
+-                      Outros (se aplicável): Definir metas específicas
++                      <strong>Outros (se aplicável)</strong>: Definir metas específicas
+                       conforme seu negócio.
+                     </li>
+                   </List>
+ 
+                   <Subtitle>5. Começar a Coletar Dados</Subtitle>
++                  <List>
++                    <li><strong>Web</strong></li>
++                    <li><strong>App Android</strong></li>
++                    <li><strong>App iOS</strong></li>
++                  </List>
+                   <Paragraph>
+-                    Escolha a plataforma: Web (se for site Next.js). Informe a URL do seu
+-                    site (ex: https://portfolio-projects-production.up.railway.app). Dê um
+-                    nome para o fluxo de dados (ex: "Site Principal") e crie o fluxo.
++                    Escolha a plataforma <strong>Web</strong> para sites e informe a URL do seu
++                    site Ex: https://portfolio-projects-production.up.railway.app Dê um
++                    nome para o fluxo de dados (ex: {'"Site Principal"'}) e crie o fluxo.
+                   </Paragraph>
+ 
+                   <Subtitle>6. Obter o Código de Rastreamento (gtag.js)</Subtitle>
+@@ -146,7 +151,7 @@ const GA4NextJsIntegration = () => {
+                   <Subtitle>7. Implementar no Next.js (arquivo _app.jsx)</Subtitle>
+                   <Paragraph>Use o código abaixo para integrar o GA no seu Next.js:</Paragraph>
+                   <pre>
+-                    <CodeBlock language="html">
++                    <CodeBlock language="jsx">
+                       {`import { useEffect } from 'react';
+ import Script from 'next/script';
+ 

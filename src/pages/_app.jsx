@@ -81,7 +81,7 @@ import { GlobalStyle } from '@/styles/globalStyles';
 import { GlobalStateProvider } from '../context/GlobalStateContext';
 import { FlippedStateProvider } from '../context/FlippedContext';
 
-const GA_ID = 'G-T9MLFWWB7M';
+const GA_ID = 'G-C7KZR4C3K4';
 
 const MyApp = ({ Component, pageProps }) => {
   const ENABLE_GA = process.env.NEXT_PUBLIC_ENABLE_GA === 'true';
