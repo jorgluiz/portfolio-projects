@@ -85,6 +85,31 @@ const AndroidStudioSetup = () => {
                       <CodeBlock language="bash">
                         {`keytool -genkeypair -v -keystore sua-chave-de-release.keystore -alias seu-alias-da-chave -keyalg RSA -keysize 2048 -validity 10000`}
                       </CodeBlock>
+                      <li>
+                        1. Enter keystore password:
+                      </li>
+                      <li>
+                        2. Re-enter new password:
+                      </li>
+                      <li>
+                        3. What is your first and last name?
+                      </li>
+                      <li>
+                        4. What is the name of your organizational unit?
+                      </li>
+                      <li>
+                        5. What is the name of your organization?
+                      </li>
+                      <li>
+                        6. What is the name of your City or Locality?
+                      </li>
+                      <li>
+                        7. What is the name of your State or Province?
+                      </li>
+                      <li>
+                        8. What is the two-letter country code for this unit?
+                      </li>
+                      <br />
                       <strong>Resultado:</strong> Um arquivo `sua-chave-de-release.keystore` foi criado. Ele foi movido para a pasta `android/app` do projeto e suas senhas foram guardadas em um local seguro.
                     </li>
                   </List>
@@ -95,7 +120,7 @@ const AndroidStudioSetup = () => {
                   </Paragraph>
                   <List>
                     <li>
-                      <strong>Ação:</strong> Editamos o arquivo `android/gradle.properties` e adicionamos as seguintes linhas, que são lidas pelo sistema de build, mas não são expostas no controle de versão se o arquivo estiver no `.gitignore`.
+                      <strong>Ação:</strong> Editamos o arquivo <strong>android/gradle.properties</strong> e adicionamos as seguintes linhas, que são lidas pelo sistema de build, mas não são expostas no controle de versão se o arquivo estiver no `.gitignore`.
                       <CodeBlock language="properties">
                         {`MYAPP_UPLOAD_STORE_FILE=sua-chave-de-release.keystore
 MYAPP_UPLOAD_KEY_ALIAS=seu-alias-da-chave
@@ -111,7 +136,7 @@ MYAPP_UPLOAD_KEY_PASSWORD=sua-senha-da-chave`}
                   </Paragraph>
                   <List>
                     <li>
-                      <strong>Ação:</strong> Editamos o arquivo `android/app/build.gradle`. Primeiro, adicionamos um bloco `signingConfigs` para carregar as variáveis do passo anterior. Em seguida, no bloco `buildTypes`, garantimos que o tipo `release` usasse essa nova configuração de assinatura.
+                      <strong>Ação:</strong> Editamos o arquivo <strong>android/app/build.gradle</strong>. Primeiro, adicionamos um bloco `signingConfigs` para carregar as variáveis do passo anterior. Em seguida, no bloco `buildTypes`, garantimos que o tipo `release` usasse essa nova configuração de assinatura.
                       <CodeBlock language="groovy">
                         {`...
 android {
@@ -139,7 +164,7 @@ android {
 
                   <Subtitle>4. Gerenciando a Versão do App (versionCode & versionName) 📊</Subtitle>
                   <Paragraph>
-                    Esta parte é crucial para publicar e, principalmente, atualizar seu aplicativo na <strong>Google Play Store</strong>. As configurações ficam em `android/app/build.gradle`.
+                    Esta parte é crucial para publicar e, principalmente, atualizar seu aplicativo na <strong>Google Play Store</strong>. As configurações ficam em <strong>android/app/build.gradle</strong>.
                   </Paragraph>
                   <List>
                     <li>

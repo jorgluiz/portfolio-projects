@@ -1,8 +1,39 @@
+import Head from "next/head";
 import { Container, SectionTitle, Check, ItemTitle, List, Title, Paragraph } from "@/styles/globalStyles";
 
 const FrontendTecnologiasReactjs = () => {
   return (
     <>
+      <Head>
+        {/* Primary Meta Tags Atualizados para "Tecnologias Frontend com React.js" */}
+        <title>Ecossistema React.js: Guia de Tecnologias para Frontend</title>
+        <meta
+          name="description"
+          content="Explore o ecossistema React.js para frontend. Guia de tecnologias essenciais: State Management (Redux, Zustand), Roteamento (React Router), Estilização e Ferramentas de Build (Vite)."
+        />
+        <meta
+          name="keywords"
+          content="React.js, Frontend, SPA, Single Page Application, React Router, Redux, Zustand, Recoil, Axios, React Query, Styled Components, Tailwind CSS, Vite, Jest"
+        />
+        <meta name="author" content="Jorge Luiz" />
+
+        {/* Open Graph / Facebook Atualizados */}
+        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+        <meta property="og:type" content="website" />
+        {/* URL mantida conforme o padrão anterior */}
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/artigos-tecnicos/blog" />
+        <meta property="og:title" content="Ecossistema React.js: Guia de Tecnologias para Frontend" />
+        <meta property="og:description" content="Um guia completo sobre as principais ferramentas e bibliotecas do ecossistema React.js para criar Single Page Applications (SPAs) modernas e eficientes." />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+
+        {/* Twitter Atualizados */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/artigos-tecnicos/blog" />
+        <meta property="twitter:title" content="Ecossistema React.js: Guia de Tecnologias para Frontend" />
+        <meta property="twitter:description" content="Montando uma SPA com React? Confira este guia da stack essencial: de state management com Redux/Zustand a build tools como o Vite." />
+        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+      </Head>
+
       <Container>
         <SectionTitle>
           <Check>🚀</Check> Tecnologias-chave para Frontend com React.js

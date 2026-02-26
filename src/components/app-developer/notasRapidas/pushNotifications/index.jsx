@@ -22,32 +22,32 @@ const PushNotifications = () => {
   return (
     <>
       <Head>
-        {/* Primary Meta Tags Atualizados */}
-        <title>Guia Completo: Configurando o Ambiente Android Studio para React Native</title>
+        {/* Primary Meta Tags Atualizados para "Notificações em React Native" */}
+        <title>Guia de Notificações em React Native: Locais e Push (Expo & Firebase)</title>
         <meta
           name="description"
-          content="Passo a passo detalhado para configurar o Android Studio, SDK, AVD e variáveis de ambiente para desenvolvimento React Native. Solucione problemas comuns e domine o setup."
+          content="Aprenda a implementar notificações locais e push em React Native. Guia completo sobre o fluxo de push tokens, Expo Notifications, Firebase (FCM) e Notifee."
         />
         <meta
           name="keywords"
-          content="React Native, Android Studio, Configuração de Ambiente, SDK, AVD, Gradle, adb, Desenvolvimento Mobile"
+          content="React Native, Notificações Push, Notificações Locais, Expo Notifications, Firebase, FCM, Notifee, Push Token, APNs, Desenvolvimento Mobile"
         />
         <meta name="author" content="Jorge Luiz" />
 
         {/* Open Graph / Facebook Atualizados */}
         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:type" content="website" />
-        {/* URL atualizada para refletir o novo conteúdo */}
-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/configuracao-ambiente-android" />
-        <meta property="og:title" content="Guia Completo: Configurando o Ambiente Android Studio para React Native" />
-        <meta property="og:description" content="Aprenda o passo a passo para preparar seu ambiente de desenvolvimento Android para projetos React Native, desde a instalação até a resolução de problemas comuns." />
+        {/* URL mantida conforme solicitado */}
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/app-developer/notas-rapidas" />
+        <meta property="og:title" content="Guia de Notificações em React Native: Locais e Push (Expo & Firebase)" />
+        <meta property="og:description" content="Domine as notificações em React Native. Este guia cobre tudo, desde o fluxo de push tokens até a implementação prática com Expo Notifications e a combinação Firebase/Notifee." />
         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
 
         {/* Twitter Atualizados */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/configuracao-ambiente-android" />
-        <meta property="twitter:title" content="Guia Completo: Configurando o Ambiente Android Studio para React Native" />
-        <meta property="twitter:description" content="Um guia detalhado sobre como configurar o Android Studio, SDK, AVD e variáveis de ambiente para começar a desenvolver com React Native." />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/app-developer/notas-rapidas" />
+        <meta property="twitter:title" content="Guia de Notificações em React Native: Locais e Push (Expo & Firebase)" />
+        <meta property="twitter:description" content="Implementando notificações em React Native? Aprenda a diferença entre locais e push, e veja como usar Expo Notifications ou Firebase (FCM) + Notifee." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
       </Head>
 

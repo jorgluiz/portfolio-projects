@@ -8,7 +8,7 @@ import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import perfil from '../../../assets/images/perfil.png';
 import CollapsibleSection from '@/components/collapsibleSection';
 import ScrollableMenuArea from '@/components/scrollableMenuArea';
-import { ContentWrapper, ContentNav, Menu, Arrow, DiagonalOne, DiagonalTwo, ImgPerfil, Span, TitleName, SubTitle, TitleMenuSecret, AppContainer, MenuToggleButton, MainContent, SidebarContainer, RotatingWrapper, Face, FrontFace, BackFace, ProfileSection, ProfileImage, Title, Subtitle, Divider, NavMenu, MenuItemSpan, FlipButtonContainer, FlipButton, DividerWithText } from './styles';
+import { ContentWrapper, ContentNav, Menu, Arrow, DiagonalOne, DiagonalTwo, ImgPerfil, Span, TitleName, SubTitle, TitleMenuSecret, AppContainer, MenuToggleButton, MainContent, SidebarContainer, RotatingWrapper, Face, FrontFace, BackFace, ProfileSection, ProfileImage, Title, Subtitle, Divider, NavMenu, MenuItemSpan, FlipButtonContainer, FlipButton, DividerWithText, DataStart, DataEnd } from './styles';
 
 // --- Ícones (SVGs embutidos) ---
 const MenuIcon = () => (
@@ -217,7 +217,7 @@ const SideBar = () => {
             <FiArrowLeft size={30} color='#f1f1f1'></FiArrowLeft>
           </Arrow>
 
-          <TitleName>Build & Deploy </TitleName>
+          <TitleName>Build & Deploy</TitleName>
           <SubTitle>App and API development</SubTitle>
           <ScrollableMenuArea key={'back'} isVisible={isFlipped}>
             <Menu>
@@ -262,6 +262,8 @@ const SideBar = () => {
                     </Span>
                   </li>
                 </ul>
+                <DataStart>04/06/2025 Início do projeto App 1.0</DataStart>
+                <DataEnd>24/06/2025 Fim do projeto App 1.0</DataEnd>
               </CollapsibleSection>
               {/* <CollapsibleSection
                 title={'Aplicação Mobile 2.0'}
@@ -315,10 +317,10 @@ const SideBar = () => {
               >
                 <ul>
                   <li
-                    onClick={() => handleNavigate('/app-developer/notas-rapidas-react-native')}
-                    className={activeLink === '/app-developer/notas-rapidas-react-native' ? 'active' : ''}>
+                    onClick={() => handleNavigate('/app-developer/notas-rapidas')}
+                    className={activeLink === '/app-developer/notas-rapidas' ? 'active' : ''}>
                     <Span>
-                      Notas Rápidas React-Native
+                      Estudo React-Native
                     </Span>
                   </li>
                   <li
@@ -326,6 +328,13 @@ const SideBar = () => {
                     className={activeLink === '/app-developer/forced-uninstall-app-android' ? 'active' : ''}>
                     <Span>
                       Forced Uninstall App Android
+                    </Span>
+                  </li>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/desafio-de-build')}
+                    className={activeLink === '/app-developer/desafio-de-build' ? 'active' : ''}>
+                    <Span>
+                      Desafio de Build
                     </Span>
                   </li>
                   <li
@@ -340,6 +349,50 @@ const SideBar = () => {
                     className={activeLink === '/app-developer/internacionalizacao-i18n-react-native' ? 'active' : ''}>
                     <Span>
                       Internacionalização (i18n) em React Native - APP
+                    </Span>
+                  </li>
+                  <li
+                    onClick={() => handleNavigate('/app-developer/estrategias-e-ferramentas-para-gerar-receita-com-aplicativos-em-react-native')}
+                    className={activeLink === '/app-developer/estrategias-e-ferramentas-para-gerar-receita-com-aplicativos-em-react-native' ? 'active' : ''}>
+                    <Span>
+                      Gerar Receita com APP em React Native
+                    </Span>
+                  </li>
+                </ul>
+              </CollapsibleSection>
+              <CollapsibleSection
+                // --- O NOME PERFEITO PARA SUA NECESSIDADE ---
+                title={'Laboratório de Ideias'}
+                isOpen={openSections.includes('Laboratorio de Ideias')}
+                onToggle={() => handleSectionToggle('Laboratorio de Ideias')}
+              >
+                <ul>
+                  {/* Dentro, você lista os conceitos de apps. 
+        Você pode até adicionar uma pequena descrição.
+      */}
+                  <li>
+                    <Span>
+                      <strong>App de Fitness:</strong> Foco em emagrecimento com gamificação.
+                    </Span>
+                  </li>
+                  <li>
+                    <Span>
+                      <strong>Gestor Financeiro:</strong> Sincronização automática com bancos.
+                    </Span>
+                  </li>
+                  <li>
+                    <Span>
+                      <strong>Rede Social para Leitores:</strong> Para troca e avaliação de livros.
+                    </Span>
+                  </li>
+                  <li>
+                    <Span>
+                      <strong>Organizador de Viagens:</strong> Planejamento colaborativo para grupos.
+                    </Span>
+                  </li>
+                  <li>
+                    <Span style={{ color: '#9CA3AF' }}> {/* Pode usar uma cor para ideias menos maduras */}
+                      Plataforma de Cursos Rápidos (Micro-learning)
                     </Span>
                   </li>
                 </ul>

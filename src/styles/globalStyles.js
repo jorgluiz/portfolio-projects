@@ -122,6 +122,11 @@ export const Paragraph = styled.p`
   padding-bottom: 12px;
 `;
 
+export const HighlightText = styled.span`
+  color: #3B82F6; /* Cor de destaque (violeta) */
+  font-weight: bold;
+`;
+
 export const Span = styled.span`
   font-size: 16px;
 `;

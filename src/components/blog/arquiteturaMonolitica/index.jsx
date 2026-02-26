@@ -1,8 +1,39 @@
+import Head from "next/head";
 import { Container, SectionTitle, Title, Check, SubsectionTitle, List, Paragraph, CodeBlockF0F0F0 } from "@/styles/globalStyles";
 
 const ArquiteturaMonolitica = () => {
   return (
     <>
+      <Head>
+        {/* Primary Meta Tags Atualizados para "Arquitetura Monolítica" */}
+        <title>Arquitetura Monolítica: O que é, Vantagens e Desvantagens</title>
+        <meta
+          name="description"
+          content="Entenda a arquitetura monolítica, suas vantagens para MVPs e projetos simples, e as desvantagens em escalabilidade. Ideal para startups e equipes pequenas."
+        />
+        <meta
+          name="keywords"
+          content="Arquitetura Monolítica, Monólito, Arquitetura de Software, MVP, Desenvolvimento de Software, Escalabilidade, Manutenção de Código"
+        />
+        <meta name="author" content="Jorge Luiz" />
+
+        {/* Open Graph / Facebook Atualizados */}
+        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+        <meta property="og:type" content="website" />
+        {/* URL mantida conforme o padrão anterior */}
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/artigos-tecnicos/blog" />
+        <meta property="og:title" content="Arquitetura Monolítica: O que é, Vantagens e Desvantagens" />
+        <meta property="og:description" content="Um guia rápido sobre a arquitetura monolítica. Saiba quando ela é a melhor escolha e quais são seus desafios em termos de escalabilidade e manutenção." />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+
+        {/* Twitter Atualizados */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/artigos-tecnicos/blog" />
+        <meta property="twitter:title" content="Arquitetura Monolítica: O que é, Vantagens e Desvantagens" />
+        <meta property="twitter:description" content="Começando um novo projeto? Veja se a arquitetura monolítica é a ideal. Um resumo sobre suas vantagens para MVPs e desvantagens a longo prazo." />
+        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+      </Head>
+
       <Container>
         <SectionTitle>
           <Check>🏗️</Check> Arquitetura Monolítica – Resumo

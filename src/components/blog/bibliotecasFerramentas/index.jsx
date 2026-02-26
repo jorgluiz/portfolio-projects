@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Head from 'next/head';
 import { Container, SectionTitle, Check, Paragraph, List } from "@/styles/globalStyles";
 import hljs from 'highlight.js'; // Importando o highlight.js
 import 'highlight.js/styles/atom-one-dark.css'; // Estilo para colorir a sintaxe
@@ -12,6 +13,36 @@ const BibliotecasFerramentas = () => {
 
   return (
     <>
+      <Head>
+        {/* Primary Meta Tags Atualizados para "Bibliotecas, Ferramentas, APIs e SDKs" */}
+        <title>Bibliotecas, Ferramentas, APIs e SDKs: Entenda a Diferença</title>
+        <meta
+          name="description"
+          content="Desmistificando o ecossistema de desenvolvimento: aprenda o que são e quando usar Bibliotecas (Prisma, Swagger), Ferramentas (ESLint, Prettier), APIs (REST, GraphQL) e SDKs (Firebase, Stripe)."
+        />
+        <meta
+          name="keywords"
+          content="Bibliotecas, Ferramentas, API, SDK, Prisma, Swagger, ESLint, Prettier, Husky, REST, GraphQL, Firebase SDK, Stripe SDK, Desenvolvimento de Software"
+        />
+        <meta name="author" content="Jorge Luiz" />
+
+        {/* Open Graph / Facebook Atualizados */}
+        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+        <meta property="og:type" content="website" />
+        {/* URL mantida conforme o padrão anterior */}
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/artigos-tecnicos/blog" />
+        <meta property="og:title" content="Bibliotecas, Ferramentas, APIs e SDKs: Entenda a Diferença" />
+        <meta property="og:description" content="Um guia claro e direto para entender a diferença fundamental entre Bibliotecas, Ferramentas, APIs e SDKs, com exemplos práticos como Prisma, ESLint, REST e Firebase." />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+
+        {/* Twitter Atualizados */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/artigos-tecnicos/blog" />
+        <meta property="twitter:title" content="Bibliotecas, Ferramentas, APIs e SDKs: Entenda a Diferença" />
+        <meta property="twitter:description" content="Confuso sobre a diferença entre uma Biblioteca, Ferramenta, API e SDK? Este guia rápido explica tudo com exemplos claros para desenvolvedores." />
+        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+      </Head>
+
       <Container>
         <SectionTitle>
           <Check>📚</Check> Bibliotecas

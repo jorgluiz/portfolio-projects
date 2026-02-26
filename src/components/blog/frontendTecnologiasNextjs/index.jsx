@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useEffect } from 'react';
 import { Container, SectionTitle, Check, List, Title, Paragraph, CodeBlockF0F0F0, Label, Separator, Bold } from "@/styles/globalStyles";
 import hljs from 'highlight.js'; // Importando o highlight.js
@@ -10,6 +11,36 @@ const FrontendTecnologiasNextjs = () => {
 
   return (
     <>
+      <Head>
+        {/* Primary Meta Tags Atualizados para "Tecnologias Frontend com Next.js" */}
+        <title>Guia de Next.js: Quando Usar, Vantagens e Data Fetching (SSR/SSG)</title>
+        <meta
+          name="description"
+          content="Aprenda quando e por que usar Next.js para seus projetos frontend. Entenda as vantagens de SSR e SSG para SEO e a diferença entre getStaticProps e getServerSideProps."
+        />
+        <meta
+          name="keywords"
+          content="Next.js, React, Frontend, SSR, SSG, getStaticProps, getServerSideProps, Server-Side Rendering, Static Site Generation, SEO, Performance, JavaScript"
+        />
+        <meta name="author" content="Jorge Luiz" />
+
+        {/* Open Graph / Facebook Atualizados */}
+        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+        <meta property="og:type" content="website" />
+        {/* URL mantida conforme o padrão anterior */}
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/artigos-tecnicos/blog" />
+        <meta property="og:title" content="Guia de Next.js: Quando Usar, Vantagens e Data Fetching (SSR/SSG)" />
+        <meta property="og:description" content="Um guia completo para decidir se Next.js é a escolha certa. Explore as vantagens de performance, SEO, e aprenda a usar getStaticProps e getServerSideProps." />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+
+        {/* Twitter Atualizados */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/artigos-tecnicos/blog" />
+        <meta property="twitter:title" content="Guia de Next.js: Quando Usar, Vantagens e Data Fetching (SSR/SSG)" />
+        <meta property="twitter:description" content="Pensando em usar Next.js? Este guia explica quando ele brilha (SEO, performance), suas principais vantagens, e a diferença crucial entre getStaticProps e getServerSideProps." />
+        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+      </Head>
+
       <Container>
         <SectionTitle>
           <Check>🚀</Check> Quando usar Next.js no frontend?

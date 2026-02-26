@@ -1,9 +1,40 @@
+import Head from "next/head";
 import { Container, SectionTitle, Check, SubsectionTitle, ItemTitle, List, CodeBlockF0F0F0 } from "@/styles/globalStyles";
 
 const BackendTecnologias = () => {
 
   return (
     <>
+      <Head>
+        {/* Primary Meta Tags Atualizados para "Tecnologias Backend" */}
+        <title>Tecnologias Essenciais para Backend Node.js: Guia 2025</title>
+        <meta
+          name="description"
+          content="Explore as principais tecnologias para backend com Node.js: frameworks (Express, NestJS), bancos de dados (PostgreSQL, MongoDB), autenticação (JWT), testes e padrões de arquitetura."
+        />
+        <meta
+          name="keywords"
+          content="Node.js, Backend, JavaScript, Express.js, NestJS, Fastify, PostgreSQL, MongoDB, JWT, Docker, Zod, Jest, Arquitetura de Software, API REST"
+        />
+        <meta name="author" content="Jorge Luiz" />
+
+        {/* Open Graph / Facebook Atualizados */}
+        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+        <meta property="og:type" content="website" />
+        {/* URL mantida conforme o padrão anterior */}
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/artigos-tecnicos/blog" />
+        <meta property="og:title" content="Tecnologias Essenciais para Backend Node.js: Guia 2025" />
+        <meta property="og:description" content="Um guia completo das ferramentas e padrões essenciais para construir aplicações backend robustas com Node.js em 2025, de frameworks e bancos de dados a deploy." />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+
+        {/* Twitter Atualizados */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/artigos-tecnicos/blog" />
+        <meta property="twitter:title" content="Tecnologias Essenciais para Backend Node.js: Guia 2025" />
+        <meta property="twitter:description" content="Montando sua stack backend com Node.js? Confira este guia de tecnologias essenciais, incluindo Express, NestJS, Zod, Docker, e os melhores padrões de arquitetura." />
+        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+      </Head>
+
       <Container>
         <SectionTitle>
           <Check>✅</Check>

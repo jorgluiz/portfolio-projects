@@ -1,0 +1,493 @@
+// src/screens/HomeScreen.tsx
+import React, {useState, useEffect, useRef, useCallback} from 'react';
+import {
+  SafeAreaView,
+  ScrollView,
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  Alert,
+  Keyboard,
+  ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform,
+  StatusBar,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+
+import Clipboard from '@react-native-clipboard/clipboard';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import type {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../App';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {createThumbnail} from 'react-native-create-thumbnail';
+import {PERMISSIONS, requestMultiple, RESULTS} from 'react-native-permissions';
+import RNFS from 'react-native-fs';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useTranslation} from 'react-i18next';
+
+// --- Interfaces e Tipos ---
+
+/**
+ * @interface HistoryEntry
+ * @description Define a estrutura de um item do histórico de downloads.
+ * @property {string} id - Identificador único da entrada (timestamp).
+ * @property {string} url - A URL original do vídeo fornecida pelo usuário.
+ * @property {string} filePath - O caminho local no dispositivo onde o vídeo foi salvo.
+ * @property {string} thumbnailPath - O caminho local no dispositivo onde a miniatura do vídeo foi salva.
+ * @property {string} downloadedAt - A data e hora do download no formato ISO.
+ */
+export interface HistoryEntry {
+  id: string;
+  url: string;
+  filePath: string;
+  thumbnailPath: string;
+  downloadedAt: string;
+}
+
+/**
+ * @type {HomeScreenNavigationProp}
+ * @description Define o tipo para a propriedade de navegação da tela Home,
+ * garantindo a tipagem correta para o hook 'useNavigation'.
+              */
+              type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+
+              // --- Constantes ---
+
+              const STORAGE_KEY = '@video_history';
+              const HEADER_HEIGHT = 100;
+              const BACKEND_URL = 'https://api-production-3306.up.railway.app';
+
+              // --- Componente Principal: HomeScreen ---
+
+              /**
+               * @component HomeScreen
+               * @description A tela principal da aplicação. Permite ao usuário colar uma URL de vídeo,
+               * iniciar o processo de download, visualizar o progresso e ver o vídeo mais recente baixado.
+               */
+              function HomeScreen() {
+  // --- Hooks ---
+  const {t} = useTranslation();
+              const navigation = useNavigation<HomeScreenNavigationProp>();
+
+                // --- Estados (States) ---
+                const [videoUrl, setVideoUrl] = useState<string>('');
+                  const [isLoading, setIsLoading] = useState<boolean>(false);
+                    const [statusMessage, setStatusMessage] = useState<string>(t('status.initial'));
+                      const [currentJob, setCurrentJob] = useState<{id: string; url: string} | null>(null);
+                      const [recentVideo, setRecentVideo] = useState<HistoryEntry | null>(null);
+
+                      // --- Referências (Refs) ---
+                      const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // --- Lógica de Histórico e Foco da Tela ---
+
+  /**
+   * @function loadRecentVideo
+   * @description Carrega o vídeo mais recente do histórico a partir do AsyncStorage.
+   * A função é memoizada com 'useCallback' para evitar recriações desnecessárias.
+              */
+  const loadRecentVideo = useCallback(async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem(STORAGE_KEY);
+              const history = jsonValue != null ? JSON.parse(jsonValue) : [];
+      setRecentVideo(history.length > 0 ? history[0] : null);
+    } catch (e) {
+                console.error('Falha ao carregar o vídeo recente.', e);
+    }
+  }, []);
+
+              /**
+               * @hook useFocusEffect
+               * @description Executa a função 'loadRecentVideo' toda vez que a tela entra em foco,
+              * garantindo que o vídeo mais recente seja sempre exibido.
+              */
+              useFocusEffect(
+    useCallback(() => {
+                loadRecentVideo();
+    }, [loadRecentVideo]),
+              );
+
+  /**
+   * @function saveToHistory
+   * @description Salva uma nova entrada de vídeo no histórico do AsyncStorage.
+   * @param {string} originalUrl - A URL original do vídeo.
+              * @param {string} finalFilePath - O caminho final do arquivo de vídeo salvo.
+              * @param {string} thumbnailPath - O caminho do arquivo da miniatura gerada.
+              */
+  const saveToHistory = async (originalUrl: string, finalFilePath: string, thumbnailPath: string) => {
+    try {
+      const newEntry: HistoryEntry = {
+                id: new Date().getTime().toString(),
+              url: originalUrl,
+              filePath: finalFilePath,
+              thumbnailPath: thumbnailPath,
+              downloadedAt: new Date().toISOString(),
+      };
+              const existingHistoryJson = await AsyncStorage.getItem(STORAGE_KEY);
+              const existingHistory: HistoryEntry[] = existingHistoryJson ? JSON.parse(existingHistoryJson) : [];
+              const updatedHistory = [newEntry, ...existingHistory];
+              await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updatedHistory));
+              setRecentVideo(newEntry);
+    } catch (e) {
+                console.error('Falha ao salvar no histórico.', e);
+    }
+  };
+
+  // --- Lógica Principal de Download ---
+
+  /**
+   * @function handleDownloadPress
+   * @description Função principal que inicia o processo de download. Ela valida a URL,
+   * solicita permissões de armazenamento, e envia a requisição inicial para o backend.
+   */
+  const handleDownloadPress = async () => {
+    const trimmedUrl = videoUrl.trim();
+              if (!trimmedUrl) {
+                Alert.alert(t('alerts.invalid_input_title'), t('alerts.invalid_input_message'));
+              return;
+    }
+
+              Keyboard.dismiss();
+              const hasPermission = await requestStoragePermission();
+              if (!hasPermission) return;
+
+              setIsLoading(true);
+              setStatusMessage(t('status.sending_request'));
+
+              try {
+      const response = await fetch('$ {BACKEND_URL}/download', {
+                method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({url: trimmedUrl}),
+      });
+
+              const data = await response.json();
+              if (!response.ok) {
+        throw new Error(data.message || t('alerts.unknown_server_error_message'));
+      }
+
+              setStatusMessage(t('status.request_queued'));
+              setCurrentJob({id: data.requestId, url: trimmedUrl});
+              setVideoUrl('');
+    } catch (error: any) {
+                console.error('Erro ao iniciar download:', error);
+              Alert.alert(t('alerts.connection_error_title'), error.message);
+              setIsLoading(false);
+    }
+  };
+
+  /**
+   * @function requestStoragePermission
+   * @description Verifica e solicita permissões de leitura e escrita no armazenamento externo para Android.
+   * Para Android 10 (API 29) e superior, ou outras plataformas, retorna 'true' diretamente,
+              * pois o acesso via 'RNFS.ExternalDirectoryPath' não exige permissão explícita.
+              * @returns {Promise < boolean >} Retorna 'true' se a permissão for concedida, 'false' caso contrário.
+              */
+              const requestStoragePermission = async (): Promise<boolean> => {
+    if (Platform.OS !== 'android' || Platform.Version >= 29) {
+      return true;
+    }
+                try {
+      const granted = await requestMultiple([PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE, PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE]);
+                const writePermission = granted[PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE];
+                const readPermission = granted[PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE];
+
+                if (writePermission === RESULTS.GRANTED && readPermission === RESULTS.GRANTED) {
+        return true;
+      } else {
+                  Alert.alert(t('alerts.permission_needed_title'), t('alerts.permission_needed_message'));
+                return false;
+      }
+    } catch (error) {
+                  console.error('Erro ao solicitar permissões:', error);
+                return false;
+    }
+  };
+
+  /**
+   * @hook useEffect (Polling)
+   * @description Observa o estado 'currentJob'. Quando um novo job é definido,
+   * inicia um "polling" (verificação periódica) para consultar o status do job no backend.
+   * Limpa o intervalo quando o componente é desmontado ou o job é finalizado.
+   */
+  useEffect(() => {
+    if (currentJob) {
+                  pollingIntervalRef.current = setInterval(() => {
+                    checkStatus(currentJob.id, currentJob.url);
+                  }, 5000); // Verifica a cada 5 segundos
+    }
+    return () => {
+                  stopPolling(); // Função de limpeza
+    };
+  }, [currentJob]);
+
+  /**
+   * @function checkStatus
+   * @description Consulta o endpoint de status do backend para verificar o progresso do job de download.
+   * Com base na resposta, atualiza a UI ou inicia a próxima etapa (download final).
+   * @param {string} jobId - O ID do job retornado pelo backend.
+                * @param {string} originalUrl - A URL original do vídeo, para salvar no histórico.
+                */
+  const checkStatus = async (jobId: string, originalUrl: string) => {
+    try {
+      const response = await fetch('$ {BACKEND_URL}/status/$ {jobId}');
+                const data = await response.json();
+
+                switch (data.status) {
+        case 'completed':
+                stopPolling();
+                setStatusMessage(t('status.processed_downloading'));
+                if (data.fileKey) {
+            const backendDownloadUrl = '$ {BACKEND_URL}/download/$ {data.fileKey}';
+                await startFinalDownload(jobId, originalUrl, backendDownloadUrl);
+          } else {
+            throw new Error(t('alerts.invalid_filekey_message'));
+          }
+                break;
+
+                case 'failed':
+                stopPolling();
+                Alert.alert(t('alerts.processing_failed_title'), t('alerts.processing_failed_message', {reason: data.reason}));
+                setIsLoading(false);
+                setCurrentJob(null);
+                break;
+
+                case 'processing':
+                setStatusMessage(t('status.processing_server'));
+                break;
+
+                case 'not_found':
+                stopPolling();
+                Alert.alert(t('alerts.error_title'), t('alerts.job_not_found_message'));
+                setIsLoading(false);
+                setCurrentJob(null);
+                break;
+      }
+    } catch (error) {
+                  stopPolling();
+                Alert.alert(t('alerts.connection_error_title'), t('alerts.status_check_failed_message'));
+                setIsLoading(false);
+                setCurrentJob(null);
+    }
+  };
+
+  /**
+   * @function startFinalDownload
+   * @description Baixa o arquivo de vídeo processado do backend para o armazenamento local do dispositivo.
+   * Após o download, gera uma miniatura, salva no histórico e notifica o usuário.
+   * @param {string} jobId - O ID do job para nomear o arquivo.
+                * @param {string} originalUrl - A URL original para salvar no histórico.
+                * @param {string} backendDownloadUrl - A URL do backend para baixar o arquivo.
+                */
+  const startFinalDownload = async (jobId: string, originalUrl: string, backendDownloadUrl: string) => {
+    const downloadDestPath = '$ {RNFS.ExternalDirectoryPath}/DownloadedVideos/video_$ {jobId}.mp4';
+                try {
+                  await RNFS.mkdir('$ {RNFS.ExternalDirectoryPath}/DownloadedVideos');
+
+                const response = await fetch(backendDownloadUrl);
+                const finalCloudflareUrl = response.url; // URL final após redirecionamentos
+                if (!response.ok) {
+        throw new Error(t('alerts.server_response_error', {status: response.status}));
+      }
+
+                const download = RNFS.downloadFile({
+                  fromUrl: finalCloudflareUrl,
+                toFile: downloadDestPath,
+        progress: res => {
+          const percentage = ((res.bytesWritten / res.contentLength) * 100).toFixed(0);
+                setStatusMessage(t('status.downloading_device', {percentage}));
+        },
+      });
+
+                const result = await download.promise;
+
+                if (result.statusCode === 200) {
+                  setStatusMessage(t('status.generating_thumbnail'));
+                const thumbnail = await createThumbnail({
+                  url: 'file://$ {downloadDestPath}',
+                timeStamp: 1000,
+        });
+                await saveToHistory(originalUrl, downloadDestPath, thumbnail.path);
+                Alert.alert(t('alerts.success_title'), t('alerts.success_message'));
+      } else {
+        throw new Error(t('alerts.file_server_response_error', {status: result.statusCode}));
+      }
+    } catch (error) {
+                  console.error('Erro no download final:', error);
+                Alert.alert(t('alerts.save_error_title'), t('alerts.save_error_message'));
+                setStatusMessage(t('status.save_error'));
+    } finally {
+                  setIsLoading(false);
+                setCurrentJob(null);
+    }
+  };
+
+  /**
+   * @function stopPolling
+   * @description Para a verificação periódica de status, limpando o intervalo.
+   */
+  const stopPolling = () => {
+    if (pollingIntervalRef.current) {
+                  clearInterval(pollingIntervalRef.current);
+                pollingIntervalRef.current = null;
+    }
+  };
+
+  // --- Funções Utilitárias ---
+
+  /**
+   * @function handlePaste
+   * @description Pega o conteúdo da área de transferência (clipboard) e o insere no campo de texto da URL.
+   */
+  const handlePaste = async () => {
+    try {
+      const text = await Clipboard.getString();
+                setVideoUrl(text);
+                setStatusMessage(t('status.pasted'));
+    } catch (e) {
+                  console.error('Falha ao colar do clipboard', e);
+                setStatusMessage(t('status.paste_error'));
+    }
+  };
+
+                // --- Renderização do Componente ---
+                return (
+                <SafeAreaView style={styles.safeArea}>
+                  <StatusBar backgroundColor='transparent' translucent={false} barStyle='dark-content' />
+                  <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.keyboardAvoidingContainer} keyboardVerticalOffset={HEADER_HEIGHT}>
+                    <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps='handled'>
+                      {/* Seção de Vídeo Recente */}
+                      {recentVideo && (
+                        <View style={styles.recentVideoSection}>
+                          <Text style={styles.sectionTitle}>{t('homeScreen.recent_video')}</Text>
+                          <TouchableOpacity
+                            style={styles.thumbnailTouchable}
+                            onPress={() =>
+                              navigation.navigate('VideoPlayer', {
+                                filePath: recentVideo.filePath,
+                              })
+                            }>
+                            <Image source={{ uri: 'file://$ {recentVideo.thumbnailPath}' }} style={styles.thumbnail} />
+                            <View style={styles.playIconContainer}>
+                              <Icon name='play-circle' size={60} color='rgba(255, 255, 255, 0.9)' />
+                            </View>
+                          </TouchableOpacity>
+                        </View>
+                      )}
+
+                      {/* Seção do Formulário de Download */}
+                      <View style={styles.formSection}>
+                        <Text style={styles.title}>{t('homeScreen.new_download')}</Text>
+                        <Text style={styles.status}>{statusMessage}</Text>
+                        <TextInput
+                          style={styles.input}
+                          placeholder={t('homeScreen.url_input_placeholder')}
+                          placeholderTextColor='#999'
+                          value={videoUrl}
+                          onChangeText={setVideoUrl}
+                          editable={!isLoading && !currentJob}
+                        />
+                        {isLoading ? (
+                          <ActivityIndicator size='large' color='#841584' style={styles.activityIndicator} />
+                        ) : (
+                          <View style={styles.buttonContainer}>
+                            <View style={styles.buttonWrapper}>
+                              <Button title={t('homeScreen.paste_link_button')} onPress={handlePaste} color='#5bc0de' />
+                            </View>
+                            <View style={styles.buttonWrapper}>
+                              <Button title={t('homeScreen.download_button')} onPress={handleDownloadPress} color='#841584' />
+                            </View>
+                            <View style={styles.buttonWrapper}>
+                              <Button title={'Go to Details'} onPress={() => navigation.navigate('MainLayoutScreen')} />
+                            </View>
+                          </View>
+                        )}
+                      </View>
+                    </ScrollView>
+                  </KeyboardAvoidingView>
+                </SafeAreaView>
+                );
+}
+
+                // --- Estilos (StyleSheet) ---
+                const styles = StyleSheet.create({
+                  safeArea: {flex: 1, backgroundColor: '#f4f4f8'},
+                keyboardAvoidingContainer: {flex: 1},
+                container: {
+                  flexGrow: 1,
+                padding: 20,
+  },
+                recentVideoSection: {
+                  marginBottom: 40,
+  },
+                sectionTitle: {
+                  fontSize: 20,
+                fontWeight: 'bold',
+                color: '#333',
+                marginBottom: 15,
+  },
+                thumbnailTouchable: {
+                  width: '100%',
+                height: 200,
+                borderRadius: 12,
+                backgroundColor: '#000',
+                justifyContent: 'center',
+                alignItems: 'center',
+                elevation: 4,
+                shadowColor: '#000',
+                shadowOffset: {width: 0, height: 2},
+                shadowOpacity: 0.25,
+                shadowRadius: 3.84,
+  },
+                thumbnail: {
+                  width: '100%',
+                height: '100%',
+                borderRadius: 12,
+  },
+                playIconContainer: {
+                  position: 'absolute',
+  },
+                formSection: { },
+                title: {
+                  fontSize: 26,
+                fontWeight: 'bold',
+                textAlign: 'center',
+                marginBottom: 10,
+                color: '#333',
+  },
+                status: {
+                  fontSize: 16,
+                textAlign: 'center',
+                marginBottom: 20,
+                color: '#555',
+                minHeight: 40,
+  },
+                input: {
+                  height: 50,
+                backgroundColor: '#FFFFFF',
+                borderColor: '#DDD',
+                borderWidth: 1,
+                borderRadius: 8,
+                paddingHorizontal: 15,
+                marginBottom: 20,
+                fontSize: 16,
+                color: '#333',
+  },
+                buttonContainer: {
+                  flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginTop: 10,
+  },
+                buttonWrapper: {
+                  flex: 1,
+                marginHorizontal: 5,
+  },
+                activityIndicator: {
+                  marginTop: 10,
+                alignSelf: 'center',
+  },
+});

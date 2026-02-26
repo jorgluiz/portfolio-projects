@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
-import { useGlobalState } from "@/context/GlobalStateContext";
+import { useGlobalState } from "../../../context/GlobalStateContext";
 
 import { MainLayout } from "@/components/layout/mainLayout";
 import SideBarLayout from "@/components/layout/sideBarLayout";
@@ -12,16 +12,17 @@ import Title from "@/components/common/title";
 
 import { ResumoTechMainContainer, CollapsibleContent } from "@/components/artigosTecnicos/resumoTechMainContainer";
 
-import BackendMiddlewares from "@/components/artigosTecnicos/notasRapidas/middlewares";
-import BlockchainNfts from "@/components/artigosTecnicos/notasRapidas/blockchainNfts";
-import ThemeCssUserSelect from "@/components/artigosTecnicos/notasRapidas/themeCssUserSelect";
-import MetaTagsWhatsappProblema from "@/components/artigosTecnicos/notasRapidas/metaTagsWhatsappProblema";
-import PlataformasCriacaoVideoArte from "@/components/artigosTecnicos/notasRapidas/plataformasCriacaoVideoArte";
-import ParadigmasJavaScript from "@/components/artigosTecnicos/notasRapidas/paradigmasJavaScript";
-import Versionamento from "@/components/artigosTecnicos/notasRapidas/versionamento";
-import FunctionNames from "@/components/artigosTecnicos/notasRapidas/functionNames";
-import PollingVsWebSockets from "@/components/artigosTecnicos/notasRapidas/pollingVsWebSockets";
-
+import FunctionNames from "@/components/app-developer/notasRapidas/functionNames";
+import ReactNativeEssentialConcepts from "@/components/app-developer/notasRapidas/reactNativeEssentialConcepts";
+import AdvancedReactNativeconcepts from "@/components/app-developer/notasRapidas/advancedReactNativeconcepts";
+import EventProperties from "@/components/app-developer/notasRapidas/eventProperties";
+import Debugging from "@/components/app-developer/notasRapidas/debugging";
+import PushNotifications from "@/components/app-developer/notasRapidas/pushNotifications";
+import DemystifyingReactNavigation from "@/components/app-developer/notasRapidas/demystifyingReactNavigation";
+import ArchitectureAndPatterns from "@/components/app-developer/notasRapidas/homeScreen";
+import HistoryScreen from "@/components/app-developer/notasRapidas/historyScreen";
+import VideoPlayerScreen from "@/components/app-developer/notasRapidas/videoPlayerScreen";
+import CustomHeader from "@/components/app-developer/notasRapidas/customHeader";
 
 // 1. Efeito de redimensionamento da tela
 const Projetos = () => {
@@ -38,38 +39,69 @@ const Projetos = () => {
     }));
   };
 
-  // 1. Estrutura de dados organizada por módulos
   const modules = [
     {
-      moduleTitle: "Módulo Fundamentos",
+      moduleTitle: "Dominando o React Native",
       sections: [
-        { title: "Versionamento", component: <Versionamento />, key: "fundamentos-versionamento" },
-        { title: "Convenções de Nomenclatura", component: <FunctionNames />, key: "fundamentos-nomenclatura" },
-        { title: "JS - Paradigmas JavaScript", component: <ParadigmasJavaScript />, key: "fundamentos-paradigmas" },
+        { title: "Conceitos Essenciais - React Native", component: <ReactNativeEssentialConcepts />, key: "rn-conceitos-essenciais" },
+        { title: "Converções de Nomenclatura - React Native", component: <FunctionNames />, key: "rn-convencoes-nomenclatura" },
+        { title: "Conceitos Avançados - React Native", component: <AdvancedReactNativeconcepts />, key: "rn-conceitos-avancados" },
+        { title: "Propriedades de Evento - React Native", component: <EventProperties />, key: "rn-propriedades-evento" },
+        { title: "Debugging - React Native", component: <Debugging />, key: "rn-debugging" },
+        { title: "Notificações Push - React Native", component: <PushNotifications />, key: "rn-push-notifications" },
       ],
     },
     {
-      moduleTitle: "Módulo Frontend",
+      moduleTitle: "Análise de Arquitetura de um App 1.0",
       sections: [
-        { title: "CSS - Flickity e PhotoSwipe", component: <ThemeCssUserSelect />, key: "frontend-css" },
-        { title: "Next.js - Meta Tags Whatsapp Problema", component: <MetaTagsWhatsappProblema />, key: "frontend-nextjs" },
+        { title: "Desmistificando o React Navigation: A Anatomia de um App.tsx", component: <DemystifyingReactNavigation />, key: "anatomia-react-navigation" },
+        { title: "Component CustomHeader.tsx", component: <CustomHeader />, key: "component-customHeader" },
+        { title: "Arquitetura e Padrões de Desenvolvimento: HomeScreen.tsx", component: <ArchitectureAndPatterns />, key: "anatomia-homescreen" },
+        { title: "Arquitetura e Padrões de Desenvolvimento: HistoryScreen.tsx", component: <HistoryScreen />, key: "anatomia-historyscreen" },
+        { title: "Arquitetura e Padrões de Desenvolvimento: VideoPlayerScreen.tsx", component: <VideoPlayerScreen />, key: "anatomia-videoplayerscreen" }
       ],
     },
     {
-      moduleTitle: "Módulo Backend",
+      moduleTitle: "Análise de Arquitetura de um App 2.0",
       sections: [
-        { title: "Backend - Middlewares", component: <BackendMiddlewares />, key: "backend-middlewares" },
-        { title: "Polling vs. WebSockets", component: <PollingVsWebSockets />, key: "backend-polling" },
+        // { title: "Desmistificando o React Navigation: A Anatomia de um App.tsx", component: <DemystifyingReactNavigation />, key: "anatomia-react-navigation" },
       ],
-    },
-    {
-      moduleTitle: "Módulo Especialidades",
-      sections: [
-        { title: "Blockchain e NFTs", component: <BlockchainNfts />, key: "especialidades-blockchain" },
-        { title: "IA - Criação de Vídeos e Arte", component: <PlataformasCriacaoVideoArte />, key: "especialidades-ia" },
-      ],
-    },
+    }
   ];
+
+  // 1. Estrutura de dados organizada por módulos
+  // const modules = [
+  //   {
+  //     moduleTitle: "Módulo Fundamentos",
+  //     sections: [
+  //       { title: "Versionamento", component: <Versionamento />, key: "fundamentos-versionamento" },
+  //       { title: "Convenções de Nomenclatura", component: <FunctionNames />, key: "fundamentos-nomenclatura" },
+  //       { title: "JS - Paradigmas JavaScript", component: <ParadigmasJavaScript />, key: "fundamentos-paradigmas" },
+  //     ],
+  //   },
+  //   {
+  //     moduleTitle: "Módulo Frontend",
+  //     sections: [
+  //       { title: "CSS - Flickity e PhotoSwipe", component: <ThemeCssUserSelect />, key: "frontend-css" },
+  //       { title: "Next.js - Meta Tags Whatsapp Problema", component: <MetaTagsWhatsappProblema />, key: "frontend-nextjs" },
+  //     ],
+  //   },
+  //   {
+  //     moduleTitle: "Módulo Backend",
+  //     sections: [
+  //       { title: "Backend - Middlewares", component: <BackendMiddlewares />, key: "backend-middlewares" },
+  //       { title: "Polling vs. WebSockets", component: <PollingVsWebSockets />, key: "backend-polling" },
+  //     ],
+  //   },
+  //   {
+  //     moduleTitle: "Módulo Especialidades",
+  //     sections: [
+  //       { title: "Blockchain e NFTs", component: <BlockchainNfts />, key: "especialidades-blockchain" },
+  //       { title: "IA - Criação de Vídeos e Arte", component: <PlataformasCriacaoVideoArte />, key: "especialidades-ia" },
+  //     ],
+  //   },
+  // ];
+
 
 
   return (
@@ -106,11 +138,9 @@ const Projetos = () => {
             <HeaderLayout></HeaderLayout>
             <MainContentLayout>
               <ResumoTechMainContainer>
-                {/* 2. Renderização em dois níveis: Módulos e depois Seções */}
                 {modules.map((module, moduleIndex) => (
-                  <div key={moduleIndex} className="module-container">
+                  <div key={moduleIndex}>
                     <h1 style={{ textAlign: "center", marginBottom: "20px" }} className="h2-module-title">{module.moduleTitle}</h1>
-                    {/* Seções dentro do Módulo */}
                     {module.sections.map((section) => (
                       <div key={section.key}>
                         <Title
@@ -126,7 +156,6 @@ const Projetos = () => {
                     ))}
                   </div>
                 ))}
-
               </ResumoTechMainContainer>
             </MainContentLayout>
           </MainLayout>

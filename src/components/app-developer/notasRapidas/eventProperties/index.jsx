@@ -55,32 +55,32 @@ const EventProperties = () => {
   return (
     <>
       <Head>
-        {/* Primary Meta Tags Atualizados */}
-        <title>Guia Completo: Configurando o Ambiente Android Studio para React Native</title>
+        {/* Primary Meta Tags Atualizados para "Eventos de Toque" */}
+        <title>Guia de Eventos em React Native: De onClick para onPress</title>
         <meta
           name="description"
-          content="Passo a passo detalhado para configurar o Android Studio, SDK, AVD e variáveis de ambiente para desenvolvimento React Native. Solucione problemas comuns e domine o setup."
+          content="Aprenda a lidar com eventos de toque em React Native. Entenda a diferença entre onClick e onPress, onChange e onChangeText, e como usar TouchableOpacity e Pressable."
         />
         <meta
           name="keywords"
-          content="React Native, Android Studio, Configuração de Ambiente, SDK, AVD, Gradle, adb, Desenvolvimento Mobile"
+          content="React Native, onPress, onClick, Pressable, TouchableOpacity, Eventos de Toque, onChangeText, Gesture Handler, Desenvolvimento Mobile, Eventos"
         />
         <meta name="author" content="Jorge Luiz" />
 
         {/* Open Graph / Facebook Atualizados */}
         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:type" content="website" />
-        {/* URL atualizada para refletir o novo conteúdo */}
-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/configuracao-ambiente-android" />
-        <meta property="og:title" content="Guia Completo: Configurando o Ambiente Android Studio para React Native" />
-        <meta property="og:description" content="Aprenda o passo a passo para preparar seu ambiente de desenvolvimento Android para projetos React Native, desde a instalação até a resolução de problemas comuns." />
+        {/* URL mantida conforme solicitado */}
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/app-developer/notas-rapidas" />
+        <meta property="og:title" content="Guia de Eventos em React Native: De onClick para onPress" />
+        <meta property="og:description" content="Guia completo comparando eventos da web (onClick) com os do React Native (onPress). Domine Pressable, TouchableOpacity e onChangeText." />
         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
 
         {/* Twitter Atualizados */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/configuracao-ambiente-android" />
-        <meta property="twitter:title" content="Guia Completo: Configurando o Ambiente Android Studio para React Native" />
-        <meta property="twitter:description" content="Um guia detalhado sobre como configurar o Android Studio, SDK, AVD e variáveis de ambiente para começar a desenvolver com React Native." />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/app-developer/notas-rapidas" />
+        <meta property="twitter:title" content="Guia de Eventos em React Native: De onClick para onPress" />
+        <meta property="twitter:description" content="Vindo da web para o React Native? Entenda as principais diferenças nos eventos de toque e formulário, de onClick para onPress e muito mais." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
       </Head>
 

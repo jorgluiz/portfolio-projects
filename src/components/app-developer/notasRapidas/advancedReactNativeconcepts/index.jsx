@@ -22,32 +22,32 @@ const AdvancedReactNativeconcepts = () => {
   return (
     <>
       <Head>
-        {/* Primary Meta Tags Atualizados */}
-        <title>Guia Completo: Configurando o Ambiente Android Studio para React Native</title>
+        {/* Primary Meta Tags Atualizados para "Notas Rápidas / Tópicos Avançados" */}
+        <title>Tópicos Avançados em React Native: Guia para Desenvolvedores</title>
         <meta
           name="description"
-          content="Passo a passo detalhado para configurar o Android Studio, SDK, AVD e variáveis de ambiente para desenvolvimento React Native. Solucione problemas comuns e domine o setup."
+          content="Explore tópicos avançados em React Native: gerenciamento de estado (Zustand, Redux), testes (Jest, Maestro), otimização de performance, animações com Reanimated e a nova arquitetura."
         />
         <meta
           name="keywords"
-          content="React Native, Android Studio, Configuração de Ambiente, SDK, AVD, Gradle, adb, Desenvolvimento Mobile"
+          content="React Native, Tópicos Avançados, Gerenciamento de Estado, Zustand, Redux, Testes, Otimização de Performance, Reanimated, JSI, Desenvolvimento Mobile Avançado"
         />
         <meta name="author" content="Jorge Luiz" />
 
         {/* Open Graph / Facebook Atualizados */}
         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:type" content="website" />
-        {/* URL atualizada para refletir o novo conteúdo */}
-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/configuracao-ambiente-android" />
-        <meta property="og:title" content="Guia Completo: Configurando o Ambiente Android Studio para React Native" />
-        <meta property="og:description" content="Aprenda o passo a passo para preparar seu ambiente de desenvolvimento Android para projetos React Native, desde a instalação até a resolução de problemas comuns." />
+        {/* URL atualizada para refletir a nova página */}
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/app-developer/notas-rapidas" />
+        <meta property="og:title" content="Tópicos Avançados em React Native: Guia para Desenvolvedores" />
+        <meta property="og:description" content="Domine conceitos avançados de React Native, incluindo Zustand, Redux, testes, otimização de performance, animações fluidas e muito mais." />
         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
 
         {/* Twitter Atualizados */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/configuracao-ambiente-android" />
-        <meta property="twitter:title" content="Guia Completo: Configurando o Ambiente Android Studio para React Native" />
-        <meta property="twitter:description" content="Um guia detalhado sobre como configurar o Android Studio, SDK, AVD e variáveis de ambiente para começar a desenvolver com React Native." />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/app-developer/notas-rapidas" />
+        <meta property="twitter:title" content="Tópicos Avançados em React Native: Guia para Desenvolvedores" />
+        <meta property="twitter:description" content="Um guia completo sobre gerenciamento de estado, testes, performance e as melhores práticas para desenvolvimento avançado com React Native." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
       </Head>
 
@@ -128,7 +128,7 @@ const AdvancedReactNativeconcepts = () => {
               Este é o futuro do React Native, já disponível e ativado por padrão em novos projetos. Você não precisa escrever código diferente no dia a dia, mas é importante saber que ela existe. A "Ponte" (Bridge) está sendo substituída por uma camada de comunicação mais direta e rápida chamada <strong>JSI</strong>, e o sistema de renderização está sendo atualizado para o <strong>"Fabric"</strong>.
             </Paragraph>
             <Paragraph>
-              <strong>O que isso significa para você?</strong> Aplicativos mais rápidos, melhor performance de animações e uma integração muito mais fluida com código nativo. Saber que seu projeto está usando a "Nova Arqujetetura" é um sinal de que você está trabalhando com a tecnologia mais recente.
+              <strong>O que isso significa para você?</strong> Aplicativos mais rápidos, melhor performance de animações e uma integração muito mais fluida com código nativo. Saber que seu projeto está usando a "Nova Arquitetura" é um sinal de que você está trabalhando com a tecnologia mais recente.
             </Paragraph>
 
             <Paragraph>

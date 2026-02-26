@@ -9,7 +9,7 @@ const ThemeCssUserSelect = () => {
       <SectionTitle>📝 Remoção e Controle do user-select no theme.css</SectionTitle>
 
       <Subtitle>Regras CSS removidas do <code>theme.css</code>:</Subtitle>
-      <CodeBlock language="html">
+      <CodeBlock language="jsx">
         {`html body *, html body.ds * {
   user-select: none !important;
 }
@@ -70,7 +70,7 @@ div[id][style^="position: fixed;bottom: 10px;left: 10px;"] {
         ⚠️ <strong>Dica extra:</strong><br />
         Para permitir seleção de texto apenas em certas partes da página, use:
 
-        <CodeBlock language="html">
+        <CodeBlock language="jsx">
           {`html body * {
   user-select: none !important;
 }

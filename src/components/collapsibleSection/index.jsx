@@ -51,6 +51,10 @@ const CollapsibleContent = styled.div`
         to {left: 0;}
     } */
     `}
+
+& p {
+  text-align: center
+}
 `;
 
 const CollapsibleSection = ({ title, children, isOpen, onToggle }) => {

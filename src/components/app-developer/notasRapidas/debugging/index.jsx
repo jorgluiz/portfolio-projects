@@ -22,32 +22,32 @@ const Debugging = () => {
   return (
     <>
       <Head>
-        {/* Primary Meta Tags Atualizados */}
-        <title>Guia Completo: Configurando o Ambiente Android Studio para React Native</title>
+        {/* Primary Meta Tags Atualizados para "Realidade do Desenvolvimento" */}
+        <title>Debugging e Tópicos Práticos em React Native: Guia Essencial</title>
         <meta
           name="description"
-          content="Passo a passo detalhado para configurar o Android Studio, SDK, AVD e variáveis de ambiente para desenvolvimento React Native. Solucione problemas comuns e domine o setup."
+          content="Aprenda sobre a realidade do desenvolvimento React Native: debugging nativo e JS com Flipper, ciclo de vida do app, upgrades, notificações push e automação com CI/CD."
         />
         <meta
           name="keywords"
-          content="React Native, Android Studio, Configuração de Ambiente, SDK, AVD, Gradle, adb, Desenvolvimento Mobile"
+          content="React Native, Debugging, Flipper, Ciclo de Vida do App, AppState, Upgrade, Notificações Push, CI/CD, Fastlane, EAS, Desenvolvimento Prático"
         />
         <meta name="author" content="Jorge Luiz" />
 
         {/* Open Graph / Facebook Atualizados */}
         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:type" content="website" />
-        {/* URL atualizada para refletir o novo conteúdo */}
-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/configuracao-ambiente-android" />
-        <meta property="og:title" content="Guia Completo: Configurando o Ambiente Android Studio para React Native" />
-        <meta property="og:description" content="Aprenda o passo a passo para preparar seu ambiente de desenvolvimento Android para projetos React Native, desde a instalação até a resolução de problemas comuns." />
+        {/* URL mantida conforme solicitado */}
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/app-developer/notas-rapidas" />
+        <meta property="og:title" content="Debugging e Tópicos Práticos em React Native: Guia Essencial" />
+        <meta property="og:description" content="Guia prático sobre os desafios reais do desenvolvimento React Native, cobrindo debugging, upgrades, ciclo de vida do app, notificações e CI/CD." />
         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
 
         {/* Twitter Atualizados */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/configuracao-ambiente-android" />
-        <meta property="twitter:title" content="Guia Completo: Configurando o Ambiente Android Studio para React Native" />
-        <meta property="twitter:description" content="Um guia detalhado sobre como configurar o Android Studio, SDK, AVD e variáveis de ambiente para começar a desenvolver com React Native." />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/app-developer/notas-rapidas" />
+        <meta property="twitter:title" content="Debugging e Tópicos Práticos em React Native: Guia Essencial" />
+        <meta property="twitter:description" content="Explore a realidade do desenvolvimento React Native: de depurar erros nativos com Flipper a automatizar deploys com Fastlane e EAS." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
       </Head>
 

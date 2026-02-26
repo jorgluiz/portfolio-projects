@@ -1,8 +1,39 @@
+import Head from "next/head";
 import { Container, SectionTitle, Check, SubsectionTitle, List, Paragraph, CodeBlockF0F0F0 } from "@/styles/globalStyles";
 
 const ArquiteturaMicroservices = () => {
   return (
     <>
+      <Head>
+        {/* Primary Meta Tags Atualizados para "Arquitetura de Microsserviços" */}
+        <title>Arquitetura de Microsserviços: Guia Rápido e Conceitos Essenciais</title>
+        <meta
+          name="description"
+          content="Entenda o que são microsserviços, como funcionam, suas vantagens, desvantagens e quando aplicar esta arquitetura. Inclui exemplos de comunicação (API, Mensageria) e orquestração."
+        />
+        <meta
+          name="keywords"
+          content="Microsserviços, Arquitetura de Software, Microservices, API Gateway, Service Discovery, REST, gRPC, RabbitMQ, Kafka, Escalabilidade"
+        />
+        <meta name="author" content="Jorge Luiz" />
+
+        {/* Open Graph / Facebook Atualizados */}
+        <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
+        <meta property="og:type" content="website" />
+        {/* URL mantida conforme solicitado */}
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/artigos-tecnicos/blog" />
+        <meta property="og:title" content="Arquitetura de Microsserviços: Guia Rápido e Conceitos Essenciais" />
+        <meta property="og:description" content="Um resumo completo sobre arquitetura de microsserviços, cobrindo vantagens, desvantagens, padrões de comunicação e quando é a escolha certa para o seu projeto." />
+        <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+
+        {/* Twitter Atualizados */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/artigos-tecnicos/blog" />
+        <meta property="twitter:title" content="Arquitetura de Microsserviços: Guia Rápido e Conceitos Essenciais" />
+        <meta property="twitter:description" content="Explorando a arquitetura de microsserviços? Este guia rápido aborda os conceitos essenciais, desde a comunicação via APIs e mensageria até a orquestração." />
+        <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
+      </Head>
+
       <Container>
         <SectionTitle>
           <Check>🧩</Check> Arquitetura Microservices – Resumo

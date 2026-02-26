@@ -18,7 +18,7 @@ const MetaTagsWhatsappProblema = () => {
         O Next.js renderiza no cliente, então os robôs do WhatsApp não capturavam as informações no momento do acesso.
         <br /><br />
         <strong>Exemplo resumido do problema:</strong>
-        <CodeBlock language="html">
+        <CodeBlock language="jsx">
           {`import { useEffect, useState } from 'react';
 import Head from 'next/head';
 
@@ -62,7 +62,7 @@ export default PageWithMetaUseEffect;`}
         </List>
 
         <strong>Exemplo resumido da solução (sem <code>useEffect</code>):</strong>
-        <CodeBlock language="html">
+        <CodeBlock language="jsx">
           {`import Head from 'next/head';
 
 const PageWithMetaSSR = () => {

@@ -22,32 +22,32 @@ const ReactNativeEssentialConcepts = () => {
   return (
     <>
       <Head>
-        {/* Primary Meta Tags Atualizados */}
-        <title>Guia Completo: Configurando o Ambiente Android Studio para React Native</title>
+        {/* Primary Meta Tags Atualizados para "Conceitos Essenciais do React Native" */}
+        <title>Guia Fundamental de React Native: Conceitos Essenciais para Iniciantes</title>
         <meta
           name="description"
-          content="Passo a passo detalhado para configurar o Android Studio, SDK, AVD e variáveis de ambiente para desenvolvimento React Native. Solucione problemas comuns e domine o setup."
+          content="Aprenda os conceitos essenciais do React Native: componentes nativos (View, Text), estilização com StyleSheet, React Navigation e a diferença entre Expo e Bare."
         />
         <meta
           name="keywords"
-          content="React Native, Android Studio, Configuração de Ambiente, SDK, AVD, Gradle, adb, Desenvolvimento Mobile"
+          content="React Native, Guia para Iniciantes, Conceitos Fundamentais, Expo, React Navigation, StyleSheet, Componentes Nativos, Desenvolvimento Mobile, Flexbox"
         />
         <meta name="author" content="Jorge Luiz" />
 
         {/* Open Graph / Facebook Atualizados */}
         <meta property="og:site_name" content="https://portfolio-projects-production.up.railway.app" />
         <meta property="og:type" content="website" />
-        {/* URL atualizada para refletir o novo conteúdo */}
-        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/configuracao-ambiente-android" />
-        <meta property="og:title" content="Guia Completo: Configurando o Ambiente Android Studio para React Native" />
-        <meta property="og:description" content="Aprenda o passo a passo para preparar seu ambiente de desenvolvimento Android para projetos React Native, desde a instalação até a resolução de problemas comuns." />
+        {/* URL mantida conforme solicitado */}
+        <meta property="og:url" content="https://portfolio-projects-production.up.railway.app/app-developer/notas-rapidas" />
+        <meta property="og:title" content="Guia Fundamental de React Native: Conceitos Essenciais para Iniciantes" />
+        <meta property="og:description" content="Um guia completo para quem está começando no React Native, cobrindo os pilares da tecnologia: componentes, estilização, navegação e o ecossistema Expo." />
         <meta property="og:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
 
         {/* Twitter Atualizados */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/menu-secreto/configuracao-ambiente-android" />
-        <meta property="twitter:title" content="Guia Completo: Configurando o Ambiente Android Studio para React Native" />
-        <meta property="twitter:description" content="Um guia detalhado sobre como configurar o Android Studio, SDK, AVD e variáveis de ambiente para começar a desenvolver com React Native." />
+        <meta property="twitter:url" content="https://portfolio-projects-production.up.railway.app/app-developer/notas-rapidas" />
+        <meta property="twitter:title" content="Guia Fundamental de React Native: Conceitos Essenciais para Iniciantes" />
+        <meta property="twitter:description" content="Vindo da web? Entenda as bases do React Native, de <View> e <Text> à navegação e a escolha entre Expo e Bare workflow." />
         <meta property="twitter:image" content="https://portfolio-projects-production.up.railway.app/perfil.png" />
       </Head>
 
@@ -119,11 +119,21 @@ const ReactNativeEssentialConcepts = () => {
             </Paragraph>
             <Paragraph>
               <strong>Código Específico da Plataforma:</strong> Às vezes, você quer que um componente pareça ou se comporte de maneira diferente no iOS e no Android. O React Native oferece duas maneiras fáceis de fazer isso:
-              <br />
-              1. <strong>API Platform:</strong> <strong>import {'{ Platform }'} from 'react-native';</strong> e use <strong>Platform.OS === 'ios'</strong> ou <strong>Platform.OS === 'android'</strong> para lógicas condicionais.
-              <br />
-              2. <strong>Extensões de Arquivo:</strong> Crie arquivos como <strong>MeuComponente.ios.js</strong> e <strong>MeuComponente.android.js</strong>. O React Native automaticamente importará o arquivo correto para cada plataforma.
             </Paragraph>
+            <List>
+              <li>
+                1. <strong>API Platform:</strong>
+                <Paragraph>
+                  <strong>import {'{ Platform }'} from 'react-native';</strong> e use <strong>Platform.OS === 'ios'</strong> ou <strong>Platform.OS === 'android'</strong> para lógicas condicionais.
+                </Paragraph>
+              </li>
+              <li>
+                2. <strong>Extensões de Arquivo:</strong>
+                <Paragraph>
+                  Crie arquivos como <strong>MeuComponente.ios.js</strong> e <strong>MeuComponente.android.js</strong>. O React Native automaticamente importará o arquivo correto para cada plataforma.
+                </Paragraph>
+              </li>
+            </List>
             <Paragraph>
               <strong>Build e Lojas de Aplicativos:</strong> Diferente da web, onde você sobe o código para um servidor, no mobile você precisa compilar um arquivo binário (<strong>.apk</strong> ou <strong>.aab</strong> para Android, <strong>.ipa</strong> para iOS) e enviá-lo para a Google Play Store e a Apple App Store. Este é um processo com suas próprias regras e etapas (certificados, assinaturas, revisões). O Expo simplifica muito este processo com seu serviço de build na nuvem, o <strong>EAS Build</strong>.
             </Paragraph>

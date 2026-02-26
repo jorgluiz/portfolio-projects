@@ -179,6 +179,17 @@ export const SubTitle = styled.p`
   -ms-user-select: none;     /* IE/Edge */
 `;
 
+export const DataStart = styled.p`
+font-size: 14px;
+margin: 5px 0;
+color: #94a3b8;
+`;
+
+export const DataEnd = styled.p`
+font-size: 14px;
+color: #94a3b8;
+`;
+
 
 // ------------------------------------------------
 

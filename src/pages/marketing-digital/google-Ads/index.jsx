@@ -8,7 +8,8 @@ import {
   Paragraph,
   List,
   Link,
-  CodeContainer
+  CodeContainer,
+  DividerWithText
 } from "@/styles/globalStyles";
 import styled from 'styled-components';
 
@@ -113,7 +114,7 @@ const ProjectPotentialSEO = () => {
                   </Container>
 
                   <Container>
-                    <Subtitle>📌 Projeto: Se o objetivo é ganhar com tráfego e cliques (AdSense, SEO)</Subtitle>
+                    <DividerWithText>📌 Projeto: Se o objetivo é ganhar com tráfego e cliques (AdSense, SEO)</DividerWithText>
                     <SectionTitle>✅ Use HTML + CSS + JS puro</SectionTitle>
                     <Paragraph>
                       <strong>Vantagens</strong>:
@@ -174,7 +175,7 @@ const ProjectPotentialSEO = () => {
                   </Container>
 
                   <Container>
-                    <Subtitle>📌 Agora, se seu objetivo for:</Subtitle>
+                    <DividerWithText>📌 Agora, se seu objetivo for</DividerWithText>
                     <SectionTitle>
                       Criar uma aplicação mais interativa/dinâmica (tipo SPA, dashboard, SaaS) → Aí sim, use framework (React, Vue, etc.)
                     </SectionTitle>
@@ -189,7 +190,7 @@ const ProjectPotentialSEO = () => {
                       <li>Ideal para interfaces ricas, apps com lógica de estado, formulários, etc.</li>
                     </List>
 
-                    <SectionTitle>🧲 Resumo direto:</SectionTitle>
+                    <SectionTitle>Resumo direto:</SectionTitle>
                     <Table>
                       <THead>
                         <tr>
