@@ -97,6 +97,25 @@ const SideBar = () => {
           <SubTitle>Web Developer Frontend</SubTitle>
 
           <ScrollableMenuArea key="front" isVisible={!isFlipped}>
+            <DividerWithText>New Skin 07/10/2025</DividerWithText>
+            <Menu>
+              <ul>
+                <li
+                  onClick={() => handleNavigate('/')}
+                  className={activeLink === '/' ? 'active' : ''}>
+                  <Span>
+                    Game Dev Unity
+                  </Span>
+                </li>
+                <li
+                  onClick={() => handleNavigate('/unityBlenderTutorial')}
+                  className={activeLink === '/unityBlenderTutorial' ? 'active' : ''}>
+                  <Span>
+                    3D Art Blender
+                  </Span>
+                </li>
+              </ul>
+            </Menu>
             <DividerWithText>Navegação</DividerWithText>
             <Menu>
               <ul>

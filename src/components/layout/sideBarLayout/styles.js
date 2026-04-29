@@ -340,7 +340,7 @@ export const MenuItemSpan = styled.span`
 
 export const FlipButtonContainer = styled.div`
             width: 100%;
-            padding: 16px 16px 100px 16px;
+            padding: 16px 16px 5px 16px;
         `;
 
 export const FlipButton = styled.button`
