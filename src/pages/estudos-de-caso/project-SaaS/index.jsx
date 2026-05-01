@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useGlobalState } from "@/context/GlobalStateContext";
 
 import { MainLayout } from "@/components/layout/mainLayout";
@@ -7,9 +6,7 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
 
-import Title from "@/components/common/title";
-
-import { BuildProjectMainContainer, CollapsibleContent, H2 } from "@/components/buildProject";
+import ModuleAccordion from "@/components/ModuleAccordion";
 
 import SaaSProjectGuide from "@/components/buildProject/saaSProjectGuide";
 import SaaSforDoctors from "@/components/buildProject/projectSaaS";
@@ -20,25 +17,22 @@ import ModularCleanArchitecture from "@/components/buildProject/ModularCleanArch
 // lógica aqui
 const BuildProject = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
-  const [visibleSections, setVisibleSections] = useState({});
 
   // Função para fechar sidebar clicando fora
   const handleOverlayClick = () => setIsHamburguerOpen(false);
 
-  const toggleSection = (index) => {
-    setVisibleSections((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
-
-
-  const sections = [
-    { title: "O que é um projeto SaaS?", component: <SaaSProjectGuide /> },
-    { title: "Projeto SaaS para Médicos com Plano de Emagrecimento", component: <SaaSforDoctors /> },
-    { title: "Team", component: <TeamHeader /> },
-    { title: "Guia Completo do Ciclo de Vida do Projeto SaaS Médico: Do Planejamento à Entrega", component: <ModularCleanArchitecture /> },
+  const modules = [
+    {
+      moduleTitle: "Este projeto está em desenvolvimento. Início 22/04/2025",
+      sections: [
+        { title: "O que é um projeto SaaS?", component: <SaaSProjectGuide />, key: "O-que-e-um-projeto-SaaS" },
+        { title: "Projeto SaaS para Médicos com Plano de Emagrecimento", component: <SaaSforDoctors />, key: "Projeto-SaaS-para-Medicos-com-Plano-de-Emagrecimento" },
+        { title: "Team", component: <TeamHeader />, key: "Team" },
+        { title: "Guia Completo do Ciclo de Vida do Projeto SaaS Médico: Do Planejamento à Entrega", component: <ModularCleanArchitecture />, key: "Guia-Completo-do-Ciclo-de-Vida-do-Projeto-SaaS-Medico-Do-Planejamento-a-Entrega" },
+      ]
+    }
   ];
+
 
   return (
     <>
@@ -51,22 +45,10 @@ const BuildProject = () => {
             <SideBarLayout></SideBarLayout>
             <HeaderLayout></HeaderLayout>
             <MainContentLayout>
-              <BuildProjectMainContainer>
-                <H2>Este projeto está em desenvolvimento. Início 22/04/2025</H2>
-                {sections.map((section, index) => (
-                  <>
-                    <div key={index}>
-                      <Title className="h3Center-buildProject"
-                        onClick={() => toggleSection(index)}>
-                        {section.title} {visibleSections[index] ? "▲" : "▼"}
-                      </Title>
-                      <CollapsibleContent isOpen={visibleSections[index]}>
-                        {section.component}
-                      </CollapsibleContent>
-                    </div>
-                  </>
-                ))}
-              </BuildProjectMainContainer>
+
+              {/* 3. Renderização centralizada: apenas passa os módulos como prop */}
+              <ModuleAccordion modules={modules} />
+
             </MainContentLayout>
           </MainLayout>
         </>

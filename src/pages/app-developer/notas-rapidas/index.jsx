@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Head from "next/head";
 import { useGlobalState } from "../../../context/GlobalStateContext";
 
@@ -8,9 +7,7 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
 
-import Title from "@/components/common/title";
-
-import { ResumoTechMainContainer, CollapsibleContent } from "@/components/artigosTecnicos/resumoTechMainContainer";
+import ModuleAccordion from "@/components/ModuleAccordion";
 
 import FunctionNames from "@/components/app-developer/notasRapidas/functionNames";
 import ReactNativeEssentialConcepts from "@/components/app-developer/notasRapidas/reactNativeEssentialConcepts";
@@ -27,17 +24,9 @@ import CustomHeader from "@/components/app-developer/notasRapidas/customHeader";
 // 1. Efeito de redimensionamento da tela
 const Projetos = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
-  const [visibleSections, setVisibleSections] = useState({});
 
   // Função para fechar sidebar clicando fora
   const handleOverlayClick = () => setIsHamburguerOpen(false);
-
-  const toggleSection = (index) => {
-    setVisibleSections((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
 
   const modules = [
     {
@@ -68,40 +57,6 @@ const Projetos = () => {
       ],
     }
   ];
-
-  // 1. Estrutura de dados organizada por módulos
-  // const modules = [
-  //   {
-  //     moduleTitle: "Módulo Fundamentos",
-  //     sections: [
-  //       { title: "Versionamento", component: <Versionamento />, key: "fundamentos-versionamento" },
-  //       { title: "Convenções de Nomenclatura", component: <FunctionNames />, key: "fundamentos-nomenclatura" },
-  //       { title: "JS - Paradigmas JavaScript", component: <ParadigmasJavaScript />, key: "fundamentos-paradigmas" },
-  //     ],
-  //   },
-  //   {
-  //     moduleTitle: "Módulo Frontend",
-  //     sections: [
-  //       { title: "CSS - Flickity e PhotoSwipe", component: <ThemeCssUserSelect />, key: "frontend-css" },
-  //       { title: "Next.js - Meta Tags Whatsapp Problema", component: <MetaTagsWhatsappProblema />, key: "frontend-nextjs" },
-  //     ],
-  //   },
-  //   {
-  //     moduleTitle: "Módulo Backend",
-  //     sections: [
-  //       { title: "Backend - Middlewares", component: <BackendMiddlewares />, key: "backend-middlewares" },
-  //       { title: "Polling vs. WebSockets", component: <PollingVsWebSockets />, key: "backend-polling" },
-  //     ],
-  //   },
-  //   {
-  //     moduleTitle: "Módulo Especialidades",
-  //     sections: [
-  //       { title: "Blockchain e NFTs", component: <BlockchainNfts />, key: "especialidades-blockchain" },
-  //       { title: "IA - Criação de Vídeos e Arte", component: <PlataformasCriacaoVideoArte />, key: "especialidades-ia" },
-  //     ],
-  //   },
-  // ];
-
 
 
   return (
@@ -137,26 +92,10 @@ const Projetos = () => {
             <SideBarLayout></SideBarLayout>
             <HeaderLayout></HeaderLayout>
             <MainContentLayout>
-              <ResumoTechMainContainer>
-                {modules.map((module, moduleIndex) => (
-                  <div key={moduleIndex}>
-                    <h1 style={{ textAlign: "center", marginBottom: "20px" }} className="h2-module-title">{module.moduleTitle}</h1>
-                    {module.sections.map((section) => (
-                      <div key={section.key}>
-                        <Title
-                          className={`h3Center-resumoTech ${section.title} ${visibleSections[section.key] ? "active" : ""}`}
-                          onClick={() => toggleSection(section.key)}
-                        >
-                          {section.title} {visibleSections[section.key] ? "▲" : "▼"}
-                        </Title>
-                        <CollapsibleContent isOpen={visibleSections[section.key]}>
-                          {section.component}
-                        </CollapsibleContent>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </ResumoTechMainContainer>
+
+              {/* 3. Renderização centralizada: apenas passa os módulos como prop */}
+              <ModuleAccordion modules={modules} />
+
             </MainContentLayout>
           </MainLayout>
         </>

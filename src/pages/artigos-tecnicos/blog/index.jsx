@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useGlobalState } from "../../../context/GlobalStateContext";
 
 import { MainLayout } from "@/components/layout/mainLayout";
@@ -7,9 +6,7 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
 
-import Title from "@/components/common/title";
-
-import { DiarioDevMainContainer, CollapsibleContent } from "@/components/blog";
+import ModuleAccordion from "@/components/ModuleAccordion";
 
 import BibliotecasFerramentas from "@/components/blog/bibliotecasFerramentas";
 import ArquiteturaMonolitica from "@/components/blog/arquiteturaMonolitica";
@@ -28,17 +25,9 @@ import RenewGitConnection from "@/components/blog/renewGitConnection";
 // 1. Efeito de redimensionamento da tela
 const Projetos = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
-  const [visibleSections, setVisibleSections] = useState({});
 
   // Função para fechar sidebar clicando fora
   const handleOverlayClick = () => setIsHamburguerOpen(false);
-
-  const toggleSection = (index) => {
-    setVisibleSections((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
 
   const modules = [
     {
@@ -82,30 +71,7 @@ const Projetos = () => {
             <SideBarLayout></SideBarLayout>
             <HeaderLayout></HeaderLayout>
             <MainContentLayout>
-              <DiarioDevMainContainer>
-                {/* Renderização aninhada: primeiro itera nos módulos, depois nas seções */}
-                {modules.map((module, moduleIndex) => (
-                  <div key={moduleIndex} className="module-container">
-                    {/* Título do Módulo */}
-                    <h1 style={{ textAlign: "center", marginBottom: "20px" }} className="h2-module-title">{module.moduleTitle}</h1>
-
-                    {/* Seções dentro do Módulo */}
-                    {module.sections.map((section) => (
-                      <div key={section.key}>
-                        <Title
-                          className={`h3Center-diarioDev ${visibleSections[section.key] ? "active" : ""}`}
-                          onClick={() => toggleSection(section.key)}
-                        >
-                          {section.title} {visibleSections[section.key] ? "▲" : "▼"}
-                        </Title>
-                        <CollapsibleContent isOpen={visibleSections[section.key]}>
-                          {section.component}
-                        </CollapsibleContent>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </DiarioDevMainContainer>
+              <ModuleAccordion modules={modules} />
             </MainContentLayout>
           </MainLayout>
         </>

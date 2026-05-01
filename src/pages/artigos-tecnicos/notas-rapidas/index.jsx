@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Head from "next/head";
 import { useGlobalState } from "@/context/GlobalStateContext";
 
@@ -8,9 +7,8 @@ import HeaderLayout from "@/components/layout/headerLayout";
 import MainContentLayout from "@/components/layout/contentLayout";
 import Overlay from "@/components/overlay";
 
-import Title from "@/components/common/title";
-
-import { ResumoTechMainContainer, CollapsibleContent } from "@/components/artigosTecnicos/resumoTechMainContainer";
+// 1. Importe o seu novo componente genérico (ajuste o caminho conforme você o nomeou)
+import ModuleAccordion from "@/components/ModuleAccordion";
 
 import BackendMiddlewares from "@/components/artigosTecnicos/notasRapidas/middlewares";
 import BlockchainNfts from "@/components/artigosTecnicos/notasRapidas/blockchainNfts";
@@ -26,17 +24,9 @@ import PollingVsWebSockets from "@/components/artigosTecnicos/notasRapidas/polli
 // 1. Efeito de redimensionamento da tela
 const Projetos = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
-  const [visibleSections, setVisibleSections] = useState({});
 
   // Função para fechar sidebar clicando fora
   const handleOverlayClick = () => setIsHamburguerOpen(false);
-
-  const toggleSection = (index) => {
-    setVisibleSections((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
 
   // 1. Estrutura de dados organizada por módulos
   const modules = [
@@ -105,29 +95,10 @@ const Projetos = () => {
             <SideBarLayout></SideBarLayout>
             <HeaderLayout></HeaderLayout>
             <MainContentLayout>
-              <ResumoTechMainContainer>
-                {/* 2. Renderização em dois níveis: Módulos e depois Seções */}
-                {modules.map((module, moduleIndex) => (
-                  <div key={moduleIndex} className="module-container">
-                    <h1 style={{ textAlign: "center", marginBottom: "20px" }} className="h2-module-title">{module.moduleTitle}</h1>
-                    {/* Seções dentro do Módulo */}
-                    {module.sections.map((section) => (
-                      <div key={section.key}>
-                        <Title
-                          className={`h3Center-resumoTech ${section.title} ${visibleSections[section.key] ? "active" : ""}`}
-                          onClick={() => toggleSection(section.key)}
-                        >
-                          {section.title} {visibleSections[section.key] ? "▲" : "▼"}
-                        </Title>
-                        <CollapsibleContent isOpen={visibleSections[section.key]}>
-                          {section.component}
-                        </CollapsibleContent>
-                      </div>
-                    ))}
-                  </div>
-                ))}
 
-              </ResumoTechMainContainer>
+              {/* 3. Renderização centralizada: apenas passa os módulos como prop */}
+              <ModuleAccordion modules={modules} />
+
             </MainContentLayout>
           </MainLayout>
         </>

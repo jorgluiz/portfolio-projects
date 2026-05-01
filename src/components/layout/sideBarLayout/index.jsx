@@ -111,7 +111,7 @@ const SideBar = () => {
                   onClick={() => handleNavigate('/unityBlenderTutorial')}
                   className={activeLink === '/unityBlenderTutorial' ? 'active' : ''}>
                   <Span>
-                    3D Art Blender
+                    3D Tech Art Blender
                   </Span>
                 </li>
               </ul>
