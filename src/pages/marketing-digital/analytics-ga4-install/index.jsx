@@ -268,6 +268,22 @@ export default MyApp;`}
                     Com GA4 integrado corretamente, você transforma o site em uma máquina mensurável de
                     resultados. É essencial para quem deseja crescer de forma inteligente e com embasamento real.
                   </Paragraph>
+
+                  <Subtitle>9. Lembrete Importante: Variáveis de Ambiente no Deploy</Subtitle>
+                  <Paragraph>
+                    Se você estiver condicionando a ativação do GA a uma variável de ambiente (como <code>NEXT_PUBLIC_ENABLE_GA</code>), lembre-se de que o arquivo <code>.env.local</code> não vai para produção.
+                  </Paragraph>
+                  <List>
+                    <li>
+                      <strong>Ambiente Local:</strong> Mantenha no seu <code>.env.local</code> como <code>false</code> para não registrar suas próprias visitas de teste no painel do Google.
+                    </li>
+                    <li>
+                      <strong>Plataformas de Deploy (Vercel, Railway, Netlify):</strong> Você precisa ir na aba de <strong>Environment Variables</strong> (Configurações) do seu projeto na plataforma e adicionar manualmente a KEY <strong>NEXT_PUBLIC_ENABLE_GA</strong> VALUE <strong>true</strong>.
+                    </li>
+                    <li>
+                      <strong>Redeploy:</strong> O Next.js embute essas variáveis no momento da "build". Portanto, após salvar a variável na plataforma, é obrigatório disparar um <strong>Redeploy</strong> para que a tag comece a funcionar em produção.
+                    </li>
+                  </List>
                 </Container>
                 <VoltarParaTopo></VoltarParaTopo>
               </CodeContainer>
