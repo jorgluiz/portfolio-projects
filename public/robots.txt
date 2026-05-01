@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://portfolio-projects-production.up.railway.app
+Host: https://portfolio-projects-one-psi.vercel.app/
 
 # Sitemaps
-Sitemap: https://portfolio-projects-production.up.railway.app/sitemap.xml
+Sitemap: https://portfolio-projects-one-psi.vercel.app/sitemap.xml
