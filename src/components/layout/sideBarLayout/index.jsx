@@ -101,15 +101,15 @@ const SideBar = () => {
             <Menu>
               <ul>
                 <li
-                  onClick={() => handleNavigate('/')}
-                  className={activeLink === '/' ? 'active' : ''}>
+                  onClick={() => handleNavigate('/unityTutorial')}
+                  className={activeLink === '/unityTutorial' ? 'active' : ''}>
                   <Span>
                     Game Dev Unity
                   </Span>
                 </li>
                 <li
-                  onClick={() => handleNavigate('/unityBlenderTutorial')}
-                  className={activeLink === '/unityBlenderTutorial' ? 'active' : ''}>
+                  onClick={() => handleNavigate('/blenderTutorial')}
+                  className={activeLink === '/blenderTutorial' ? 'active' : ''}>
                   <Span>
                     3D Tech Art Blender
                   </Span>

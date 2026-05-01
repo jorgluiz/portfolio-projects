@@ -18,7 +18,7 @@ const Layout = () => {
   return (
     <>
       <Head>
-        <meta name="google-site-verification" content="9PYjQo84GOHGnIhh3vXi1SgJt5qLV2-aXRtvdFD98H4" />
+        <meta name="google-site-verification" content="AuygSqUQmaGjtTLZNz5qRH9aVpf0jUS1RTnQyd0SpsA" />
         {/* <!-- Primary Meta Tags --> */}
         <title>Jorge Luiz - Desenvolvedor Web Full Stack (React, Node.js, Next.js, PostgreSQL)</title>
         <meta name="title" content="Jorge Luiz - Desenvolvedor Web Full Stack (React, Node.js, Next.js, PostgreSQL)" />
