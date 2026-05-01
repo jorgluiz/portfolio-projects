@@ -138,7 +138,7 @@ const Projetos = () => {
 
   const handleOverlayClick = () => setIsHamburguerOpen(false);
 
-  // Array de dados extraído e limpo
+
   const blenderModules = [
     {
       moduleTitle: "Blender",
