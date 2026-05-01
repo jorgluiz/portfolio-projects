@@ -131,6 +131,7 @@ import BlenderAnimationMovementsWithAction from "@/components/blenderAnimationMo
 import BlenderCreatingShapeKeys from "@/components/blenderCreatingShapeKeys";
 import BlenderAnimateShapeKeys from "@/components/blenderAnimateShapeKeys";
 import BlenderIndependentObjects from "@/components/blenderIndependentObjects";
+import BlenderExportFBX from "@/components/blenderExportFBX";
 
 const Projetos = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
@@ -152,6 +153,7 @@ const Projetos = () => {
         { title: "Blender Creating Shape-Keys", component: <BlenderCreatingShapeKeys />, key: "Blender-Creating-Shape-Keys" },
         { title: "Blender Animate Shape-Keys", component: <BlenderAnimateShapeKeys />, key: "Blender-Animate-Shape-Keys" },
         { title: "Blender Independent Objects", component: <BlenderIndependentObjects />, key: "Blender-Independent-Objects" },
+        { title: "Blender Export FBX", component: <BlenderExportFBX />, key: "Blender Export FBX" },
       ],
     },
   ];
