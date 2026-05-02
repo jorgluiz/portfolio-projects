@@ -10,7 +10,7 @@ import Overlay from "@/components/overlay";
 import ModuleAccordion from "@/components/ModuleAccordion";
 
 // Importando os componentes do Blender
-import BlenderRetopology from "@/components/blenderRetopology";
+import UnitySceneFlow from "@/components/unitySceneFlow";
 
 const Projetos = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
@@ -20,9 +20,9 @@ const Projetos = () => {
 
   const blenderModules = [
     {
-      moduleTitle: "Blender",
+      moduleTitle: "Unity 6.0",
       sections: [
-        { title: "Blender Retopology", component: <BlenderRetopology />, key: "Blender-Retopology" },
+        { title: "Unity Scene Flow (Scene List)", component: <UnitySceneFlow />, key: "Blender-Retopology" },
       ],
     },
   ];
