@@ -11,6 +11,17 @@ import ModuleAccordion from "@/components/ModuleAccordion";
 
 // Importando os componentes do Blender
 import UnitySceneFlow from "@/components/unitySceneFlow";
+import UnityLevelManager from "@/components/unityLevelManager";
+import UnityTopBar from "@/components/unityTopBar";
+import UnitySideControls from "@/components/unitySideControls";
+import UnityBottomHUDToools from "@/components/unityBottomHUDToools";
+import UnityAdSpacer from "@/components/unityAdSpacer";
+import UnityEventSystem from "@/components/unityEventSystem";
+import UnityExtraSlots3D from "@/components/unityExtraSlots3D";
+import UnityGameManagers from "@/components/unityGameManagers";
+import UnityMainCanvas from "@/components/unityMainCanvas";
+
+import UnityLevel from "@/components/unityLevel";
 
 const Projetos = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
@@ -20,9 +31,24 @@ const Projetos = () => {
 
   const blenderModules = [
     {
-      moduleTitle: "Unity 6.0",
+      moduleTitle: "Scene Level_Base",
       sections: [
-        { title: "Unity Scene Flow (Scene List)", component: <UnitySceneFlow />, key: "Blender-Retopology" },
+        { title: "Unity Scene Flow (Scene List)", component: <UnitySceneFlow />, key: "Unity-Scene-Flow" },
+        { title: "Unity LevelManager", component: <UnityLevelManager />, key: "Unity-LevelManager" },
+        { title: "Unity Main Canvas", component: <UnityMainCanvas />, key: "Unity-Main-Canvas" },
+        { title: "Unity TopBar", component: <UnityTopBar />, key: "Unity-TopBar" },
+        { title: "Unity Side Controls", component: <UnitySideControls />, key: "Unity-Side-Controls" },
+        { title: "Unity Bottom HUD Tools", component: <UnityBottomHUDToools />, key: "Unity-Bottom-HUD-Tools" },
+        { title: "Unity Ad Spacer", component: <UnityAdSpacer />, key: "Unity-Ad-Spacer" },
+        { title: "Unity Event System", component: <UnityEventSystem />, key: "Unity-Event-System" },
+        { title: "Unity Extra Slots3D", component: <UnityExtraSlots3D />, key: "Unity-Extra-Slots3D" },
+        { title: "Unity Game Managers", component: <UnityGameManagers />, key: "Unity-Game-Managers" },
+      ],
+    },
+    {
+      moduleTitle: "Level",
+      sections: [
+        { title: "Unity Level", component: <UnityLevel />, key: "Unity-Level" },
       ],
     },
   ];
