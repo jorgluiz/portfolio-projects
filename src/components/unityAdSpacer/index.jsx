@@ -76,7 +76,7 @@ const GA4NextJsIntegration = () => {
               <CodeContainer>
                 <Container>
                   <SectionTitle>
-                    6. Interface de Usuário (UI): Área Reservada para Anúncios (Ad Spacer)
+                    7. Interface de Usuário (UI): Área Reservada para Anúncios (Ad Spacer)
                   </SectionTitle>
 
                   <Subtitle>Visão Geral</Subtitle>

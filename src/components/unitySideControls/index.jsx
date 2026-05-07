@@ -76,7 +76,7 @@ const GA4NextJsIntegration = () => {
               <CodeContainer>
                 <Container>
                   <SectionTitle>
-                    4. Interface de Usuário (UI): Controles Laterais (Zoom e Câmera)
+                    5. Interface de Usuário (UI): Controles Laterais (Zoom e Câmera)
                   </SectionTitle>
 
                   <Subtitle>Visão Geral</Subtitle>

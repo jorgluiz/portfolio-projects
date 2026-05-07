@@ -76,7 +76,7 @@ const GA4NextJsIntegration = () => {
               <CodeContainer>
                 <Container>
                   <SectionTitle>
-                    Interface de Usuário (UI): Main Canvas (A Tela Principal)
+                    3. Interface de Usuário (UI): Main Canvas (A Tela Principal)
                   </SectionTitle>
 
                   <Subtitle>Visão Geral</Subtitle>

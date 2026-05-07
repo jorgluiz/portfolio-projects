@@ -76,42 +76,46 @@ const GA4NextJsIntegration = () => {
               <CodeContainer>
                 <Container>
                   <SectionTitle>
-                    9. Mecânica Base: Extra Slots 3D (A Fila de Espera)
+                    1. Arquitetura de Prefabs: Modularidade e Organização
                   </SectionTitle>
 
                   <Subtitle>Visão Geral</Subtitle>
                   <Paragraph>
-                    O objeto <strong>Extra_Slots_3D</strong> gerencia os buracos extras onde o jogador pode "estacionar" temporariamente os parafusos que não têm uma caixa correspondente aberta na mesa. Diferente da UI tradicional, esses slots são objetos 3D reais (cilindros) que se posicionam na tela para receber os parafusos de forma visualmente coesa.
+                    Os Prefabs são blocos de montar pré-configurados. No projeto, eles separam claramente o que é interface (UI 2D), o que é mundo físico (3D) e os sistemas de controle. Essa divisão permite que o jogo escale infinitamente, mantendo a cena <code>level_base</code> leve e organizada.
                   </Paragraph>
 
-                  <Subtitle>1. O Gerenciador: Extra_Slots_3D</Subtitle>
-                  <Paragraph>
-                    Este objeto atua como o pai hierárquico e o controlador lógico da fila de espera.
-                  </Paragraph>
+                  <Subtitle>1. Gerenciadores Globais</Subtitle>
                   <List>
-                    <li><strong>Hierarquia:</strong> Contém sete filhos predefinidos (<code>Slot_3D_01</code> a <code>Slot_3D_07</code>).</li>
-                    <li><strong>Script ExtraSlotsManager:</strong> O cérebro do sistema.
-                      <ul>
-                        <li><em>Slots 3D (Array):</em> Mantém uma lista estrita com as referências (Transforms) de cada um dos 7 slots filhos. É essa lista que o <code>LevelManager</code> consulta quando precisa saber "onde tem um buraco vazio?".</li>
-                        <li><em>Initial Slots Count (5):</em> Uma variável de configuração excelente. Embora existam 7 slots na cena, o jogo começa com apenas 5 disponíveis. Os outros 2 (Slot 06 e 07) estão ali para serem liberados dinamicamente via mecânicas de gameplay (como o botão de Power-Up "Unlockable_Slot_Button" que vimos anteriormente).</li>
-                      </ul>
-                    </li>
+                    <li><strong>P_GameManager (Cena: MainMenu):</strong> O "Deus" do jogo. É o Singleton persistente que carrega os dados salvos do celular, segura a lista de fases (LevelData) e sobrevive à troca de cenas (DontDestroyOnLoad). Ele nasce no menu principal e acompanha o jogador até o fim.</li>
                   </List>
 
-                  <Subtitle>2. O Prefab do Slot (P_Dock_Slot_3D)</Subtitle>
+                  <Subtitle>2. Interface Principal e Telas (Canvas Overlay)</Subtitle>
+                  <List>
+                    <li><strong>P_UI_Container_Gameplay (Cena: base_level):</strong> É a raiz da interface (o Main_Canvas). Contém todos os botões, menus, engrenagens e a HUD do jogador. Transformar isso em prefab garante que, se você adicionar um botão novo, todos os níveis recebem a atualização de uma vez.</li>
+                    <li><strong>P_LevelCleared_Panel (Cena: base_level > Main_Canvas):</strong> A tela de vitória. Fica escondida e só aparece quando o <code>LevelManager</code> dá o grito de <em>onLevelCompletedEvent</em>. Provavelmente hospeda o botão de "Próxima Fase" e as pontuações.</li>
+                    <li><strong>VFX_Canvas (Cena: base_level > LevelCleared_Panel):</strong> Um Canvas dedicado exclusivamente a renderizar efeitos visuais 2D (como o nosso Atlas de Confetes). Ficar isolado garante que as partículas estourem <em>por cima</em> de qualquer outro elemento da UI.</li>
+                    <li><strong>P_UI_Checkpoint_Node (Cena: base_level > BarraProgresso_Container):</strong> O "tijolinho" visual da barra de progresso. Cada vez que uma caixa é completada, um desses nós é ativado ou preenchido para mostrar ao jogador o quão perto ele está de vencer.</li>
+                  </List>
+
+                  <Subtitle>3. As Pontes (Guias de Alinhamento 2D para 3D)</Subtitle>
                   <Paragraph>
-                    Cada <code>Slot_3D_XX</code> é uma instância do prefab <strong>P_Dock_Slot_3D</strong>. Este prefab resolve o desafio de alinhar um objeto 3D perfeitamente com a UI (que está no Canvas 2D).
+                    Estes são os "alvos fantasmas" invisíveis no Canvas que alimentam a mágica do script <code>AlignToUI</code>.
                   </Paragraph>
                   <List>
-                    <li><strong>Visual (Mesh e Material):</strong> Usa o modelo de um cilindro (<code>Cylinder.001</code>). Para otimização de performance no mobile, a opção <em>Cast Shadows</em> está desativada (Off), pois buracos não precisam projetar sombras na cena.</li>
-                    <li><strong>Script AlignToUI:</strong> O segredo do posicionamento.
-                      <ul>
-                        <li><em>UI Target:</em> Referência a um objeto do Canvas (ex: <code>Slot_Guide_01 (Rect Transform)</code>). O slot 3D persegue e se fixa fisicamente onde esse guia 2D estiver na tela do celular.</li>
-                        <li><em>World Camera:</em> Aponta para a <code>Main Camera</code> para fazer os cálculos de projeção da tela para o mundo 3D.</li>
-                        <li><em>Z Distance (0.89):</em> Define o quão perto ou longe da câmera o cilindro ficará estacionado no espaço 3D, garantindo que os parafusos não fiquem cortados ou minúsculos.</li>
-                        <li><em>Continuous Update (Ativado):</em> Garante que, se o layout da tela mudar (giro do celular ou redimensionamento), o slot 3D recalculará sua posição instantaneamente para não descolar da UI.</li>
-                      </ul>
-                    </li>
+                    <li><strong>P_Guide_UI_LevelBoxes (Cena: base_level > Level_Boxes_UI):</strong> Os marcadores 2D que dizem onde as caixas de parafusos devem se estacionar na tela. O Distribuidor de UI pega esses guias e os injeta nas caixas que saem da piscina.</li>
+                    <li><strong>P_Guide_UI_Slot (Cena: base_level > Extra_Slots_UI):</strong> Os marcadores 2D na barra inferior/lateral que ditam onde os "buracos de espera" devem flutuar.</li>
+                  </List>
+
+                  <Subtitle>4. Ferramentas e Power-Ups</Subtitle>
+                  <List>
+                    <li><strong>P_Tool_Hammer (Cena: base_level):</strong> O power-up do Martelo. Como vimos no script <code>LockablePart</code>, quando ativado, permite ao jogador esmagar uma placa de madeira/metal e libertar todos os parafusos dela de uma vez só.</li>
+                    <li><strong>P_Tool_Drill (Cena: base_level):</strong> O power-up da Furadeira. (Geralmente usado neste gênero para furar um buraco extra na placa ou destravar instantaneamente um parafuso problemático).</li>
+                  </List>
+
+                  <Subtitle>5. Objetos 3D de Gameplay</Subtitle>
+                  <List>
+                    <li><strong>Mesh_Box (Cena: base_level > Level_Boxes_3D):</strong> A estrela do Object Pooling. É a caixa física 3D que contém o <code>BoxController</code>. Ela nasce invisível no estoque, é ativada quando o cardápio da fase a chama, alinha-se aos guias da UI, recebe os parafusos, e depois se recicla.</li>
+                    <li><strong>P_Dock_Slot_3D (Cena: base_level > Extra_Slots_3D):</strong> O cilindro sem sombras que serve de "fila de espera" para os parafusos. Ele passa a vida toda perseguindo seu par <code>P_Guide_UI_Slot</code> graças ao script <code>AlignToUI</code>.</li>
                   </List>
 
                 </Container>

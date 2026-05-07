@@ -76,42 +76,40 @@ const GA4NextJsIntegration = () => {
               <CodeContainer>
                 <Container>
                   <SectionTitle>
-                    9. Mecânica Base: Extra Slots 3D (A Fila de Espera)
+                    1. Cena: Loading (A Porta de Entrada)
                   </SectionTitle>
 
                   <Subtitle>Visão Geral</Subtitle>
                   <Paragraph>
-                    O objeto <strong>Extra_Slots_3D</strong> gerencia os buracos extras onde o jogador pode "estacionar" temporariamente os parafusos que não têm uma caixa correspondente aberta na mesa. Diferente da UI tradicional, esses slots são objetos 3D reais (cilindros) que se posicionam na tela para receber os parafusos de forma visualmente coesa.
+                    A cena de <strong>Loading</strong> é a primeira coisa que a engine processa ao abrir o aplicativo. Ela serve como uma "cortina" visual (geralmente mostrando a logo do jogo) enquanto os dados mais pesados da próxima cena são carregados em segundo plano (background). Isso garante que o aplicativo não pareça ter travado durante a inicialização.
                   </Paragraph>
 
-                  <Subtitle>1. O Gerenciador: Extra_Slots_3D</Subtitle>
+                  <Subtitle>1. Configurações Expostas (Inspetor)</Subtitle>
                   <Paragraph>
-                    Este objeto atua como o pai hierárquico e o controlador lógico da fila de espera.
+                    O script <code>SceneLoader</code> centraliza as regras de transição através de duas variáveis simples:
                   </Paragraph>
                   <List>
-                    <li><strong>Hierarquia:</strong> Contém sete filhos predefinidos (<code>Slot_3D_01</code> a <code>Slot_3D_07</code>).</li>
-                    <li><strong>Script ExtraSlotsManager:</strong> O cérebro do sistema.
-                      <ul>
-                        <li><em>Slots 3D (Array):</em> Mantém uma lista estrita com as referências (Transforms) de cada um dos 7 slots filhos. É essa lista que o <code>LevelManager</code> consulta quando precisa saber "onde tem um buraco vazio?".</li>
-                        <li><em>Initial Slots Count (5):</em> Uma variável de configuração excelente. Embora existam 7 slots na cena, o jogo começa com apenas 5 disponíveis. Os outros 2 (Slot 06 e 07) estão ali para serem liberados dinamicamente via mecânicas de gameplay (como o botão de Power-Up "Unlockable_Slot_Button" que vimos anteriormente).</li>
-                      </ul>
-                    </li>
+                    <li><strong>sceneToLoad ("MainMenu"):</strong> Define qual será o próximo destino. Manter isso como uma variável pública permite reaproveitar essa mesma cena de Loading no futuro, caso precise ir para outras partes do jogo.</li>
+                    <li><strong>minLoadingTime (2.0f):</strong> Uma trava de segurança visual. Se o celular carregar a cena em 0.1 segundos, a tela piscaria de forma agressiva. Esse tempo mínimo força a engine a exibir a arte de loading por pelo menos 2 segundos reais, garantindo uma transição suave.</li>
                   </List>
 
-                  <Subtitle>2. O Prefab do Slot (P_Dock_Slot_3D)</Subtitle>
+                  <Subtitle>2. O Carregamento Assíncrono (LoadAsyncOperation)</Subtitle>
                   <Paragraph>
-                    Cada <code>Slot_3D_XX</code> é uma instância do prefab <strong>P_Dock_Slot_3D</strong>. Este prefab resolve o desafio de alinhar um objeto 3D perfeitamente com a UI (que está no Canvas 2D).
+                    Tudo começa no <code>Start()</code>, que dispara a Coroutine responsável por fazer o trabalho pesado sem congelar a tela.
                   </Paragraph>
                   <List>
-                    <li><strong>Visual (Mesh e Material):</strong> Usa o modelo de um cilindro (<code>Cylinder.001</code>). Para otimização de performance no mobile, a opção <em>Cast Shadows</em> está desativada (Off), pois buracos não precisam projetar sombras na cena.</li>
-                    <li><strong>Script AlignToUI:</strong> O segredo do posicionamento.
-                      <ul>
-                        <li><em>UI Target:</em> Referência a um objeto do Canvas (ex: <code>Slot_Guide_01 (Rect Transform)</code>). O slot 3D persegue e se fixa fisicamente onde esse guia 2D estiver na tela do celular.</li>
-                        <li><em>World Camera:</em> Aponta para a <code>Main Camera</code> para fazer os cálculos de projeção da tela para o mundo 3D.</li>
-                        <li><em>Z Distance (0.89):</em> Define o quão perto ou longe da câmera o cilindro ficará estacionado no espaço 3D, garantindo que os parafusos não fiquem cortados ou minúsculos.</li>
-                        <li><em>Continuous Update (Ativado):</em> Garante que, se o layout da tela mudar (giro do celular ou redimensionamento), o slot 3D recalculará sua posição instantaneamente para não descolar da UI.</li>
-                      </ul>
-                    </li>
+                    <li><strong>SceneManager.LoadSceneAsync:</strong> O comando de ouro da Unity. Ele começa a carregar a cena alvo na memória enquanto o jogo continua rodando a cena atual.</li>
+                    <li><strong>allowSceneActivation = false:</strong> Imediatamente após pedir o carregamento, o script bloqueia a ativação automática. Isso diz à engine: "Carregue tudo, mas não mude a tela até eu mandar".</li>
+                  </List>
+
+                  <Subtitle>3. O Loop de Verificação e o "Truque do 0.9f"</Subtitle>
+                  <Paragraph>
+                    Dentro do loop <code>while (!gameLevel.isDone)</code>, o script mede o tempo passado (<code>elapsedTime += Time.deltaTime</code>) e verifica duas condições vitais antes de liberar a entrada no jogo:
+                  </Paragraph>
+                  <List>
+                    <li><strong>Condição 1 (Tempo):</strong> O <code>elapsedTime</code> precisa ser maior ou igual ao <code>minLoadingTime</code> (2 segundos).</li>
+                    <li><strong>Condição 2 (O Progresso da Unity):</strong> A Unity tem uma peculiaridade no carregamento assíncrono: quando o <code>allowSceneActivation</code> é falso, o progresso (<code>gameLevel.progress</code>) para exatamente em <strong>0.9f</strong> (90%). O último 10% é justamente a ativação da cena. Por isso, a verificação <code>gameLevel.progress >= 0.9f</code> é a confirmação de que os dados estão 100% prontos na memória.</li>
+                    <li><strong>A Liberação:</strong> Quando as duas condições são verdadeiras, o script inverte a chave (<code>gameLevel.allowSceneActivation = true</code>), e a engine instantaneamente descarta a cena de Loading e exibe o MainMenu.</li>
                   </List>
 
                 </Container>

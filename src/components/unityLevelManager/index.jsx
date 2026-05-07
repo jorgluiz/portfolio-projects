@@ -81,7 +81,7 @@ const GA4NextJsIntegration = () => {
 
                   <Subtitle>Visão Geral</Subtitle>
                   <Paragraph>
-                    O <strong>LevelManager</strong> é o coração do gameplay. Ele é responsável por instanciar o nível dinâmico, gerenciar as caixas de cores, ditar para onde os parafusos devem voar e verificar as condições de vitória. Sua maior força é usar uma arquitetura orientada a eventos para não se acoplar à UI e atuar como um gerente inteligente de recursos através de Object Pooling.
+                    O <strong>LevelManager</strong> é o coração do gameplay. Ele é responsável por instanciar o nível dinâmico, gerenciar as caixas de cores, ditar para onde os parafusos devem voar e verificar as condições de vitória. Sua maior força é usar uma arquitetura orientada a eventos para não se acoplar à UI e atuar como um gerente inteligente de recursos através de Object Pooling e regras lógicas rigorosas.
                   </Paragraph>
 
                   <Subtitle>1. O Inspetor e Dependências</Subtitle>
@@ -97,34 +97,28 @@ const GA4NextJsIntegration = () => {
                     <li><strong>onLevelLoadedEvent (Int):</strong> Avisa aos outros sistemas que o nível foi instanciado, passando o índice da fase.</li>
                   </List>
 
-                  <Paragraph><strong>Sistemas Desacoplados</strong></Paragraph>
+                  <Paragraph><strong>Sistemas Desacoplados e Controle</strong></Paragraph>
                   <List>
-                    <li><strong>creditsSystem (HammeredCreditsSystem):</strong> Gerencia as lógicas de moedas, recompensas ou pontuação atreladas ao nível.</li>
-                    <li><strong>surpriseSpawner (SurpriseBoxSpawner):</strong> Cuida exclusivamente de invocar e gerenciar as caixas do tipo "surpresa".</li>
-                    <li><strong>uiDistributor (BoxUITargetDistributor):</strong> Responsável por pegar as posições 3D (sockets) das caixas e vinculá-las aos elementos corretos da UI.</li>
-                    <li><strong>screwRegistry (ScrewRegistry):</strong> Um registro independente que mapeia e controla as quantidades e cores dos parafusos disponíveis no tabuleiro.</li>
+                    <li><strong>creditsSystem (HammeredCreditsSystem):</strong> Gerencia as lógicas de moedas, recompensas e o power-up do Martelo.</li>
+                    <li><strong>surpriseSpawner:</strong> Cuida exclusivamente de invocar e gerenciar as caixas do tipo "surpresa". O Manager agora possui uma lista <code>activeSurpriseColors</code> para rastrear quem está na mesa.</li>
+                    <li><strong>uiDistributor (BoxUITargetDistributor):</strong> Vincula as posições 3D (sockets) aos elementos corretos da UI.</li>
+                    <li><strong>screwRegistry (ScrewRegistry):</strong> Um cartório independente. O Manager não precisa mais varrer a cena para saber se acabaram os parafusos; ele simplesmente pergunta ao registro (<code>CheckIfScrewsExist</code>).</li>
                   </List>
 
-                  <Paragraph><strong>Estrutura e Controle de Estado (A "Dieta" dos Níveis e Piscina de Objetos)</strong></Paragraph>
+                  <Paragraph><strong>A Piscina de Objetos (Object Pooling)</strong></Paragraph>
                   <List>
-                    <li><strong>levelParent:</strong> O objeto (Transform) pai onde o prefab do nível atual é instanciado. O nível em si passou por uma "Dieta": agora é super leve, carregando apenas a malha 3D, os buracos e os parafusos, separando totalmente as caixas dos prefabs de fase.</li>
-                    <li><strong>Piscina de Objetos (Object Pooling no level_base):</strong> Em vez de instanciar e destruir caixas a cada fase — o que consome muita bateria e processamento —, o jogo recicla as caixas. Existe um "estoque" fixo no <code>Level_Boxes_3D</code> dentro da cena principal.</li>
-                    <li><strong>extraSlotsManager:</strong> O gerenciador da barra de buracos extras, usado quando não há caixas prontas para receber um parafuso.</li>
-                    <li><strong>activeBoxes / allBoxesInLevel:</strong> Listas de controle interno para saber, respectivamente, quais caixas estão ativas na mesa e a totalidade de caixas que a fase atual requisitou da piscina.</li>
+                    <li><strong>piscinaDeCaixas:</strong> O "estoque" fixo de caixas pré-carregadas no <code>level_base</code>. O jogo recicla essas caixas em vez de usar Instantiate/Destroy, economizando bateria e processamento.</li>
+                    <li><strong>activeBoxes / allBoxesInLevel:</strong> Listas internas de controle para saber quais caixas estão fisicamente na mesa e a totalidade da "fila" requerida pela fase.</li>
                   </List>
 
                   <Subtitle>2. Fluxo de Inicialização (LoadLevel e Configuração Data-Driven)</Subtitle>
                   <Paragraph>
-                    A inicialização foi reescrita para ser 100% orientada a dados. O LevelManager agora é super inteligente. Tudo começa no <code>Start()</code>, que aciona o <code>LoadLevel()</code>.
+                    A inicialização é 100% orientada a dados. Tudo começa no <code>Start()</code>, que aciona o <code>LoadLevel()</code>.
                   </Paragraph>
                   <List>
-                    <li><strong>O Sistema de "Cardápio" (LevelData):</strong> O ScriptableObject (LevelData) virou um garçom. Ele dita as regras através de uma lista pré-configurada no Inspector (ex: "Nesta fase preciso de 3 caixas Amarelas e 1 Rosa"). O LevelManager lê esse cardápio.</li>
-                    <li>Instancia o prefab "emagrecido" do nível dentro do <code>levelParent</code>.</li>
-                    <li><strong>ConfigurarCaixasDaFase():</strong> O LevelManager vai na piscina de caixas escondidas (Object Pool) e busca exatamente as cores que o nível pediu.</li>
-                    <li><strong>Regra de Visibilidade:</strong> Por Game Design, o LevelManager liga fisicamente apenas as 2 primeiras caixas. As demais ficam invisíveis na fila, esperando a vez delas.</li>
-                    <li><strong>Remapeamento de Sockets:</strong> Ele remapeia os buracos (Sockets) para que a UI e os parafusos saibam exatamente para onde voar, mesmo que a caixa comece o jogo invisível.</li>
-                    <li>Manda o <code>screwRegistry</code> se inicializar (mapear os parafusos recém-criados da cena).</li>
-                    <li>Dispara o evento <code>onLevelLoadedEvent</code> avisando que o jogo começou, e manda o <code>uiDistributor</code> distribuir os alvos na tela baseados nas caixas pescadas da piscina.</li>
+                    <li><strong>O Cardápio (LevelData):</strong> O LevelManager lê o <code>LevelData</code> atual. Instancia o prefab 3D super leve (apenas malhas e parafusos) dentro do <code>levelParent</code> e manda o <code>screwRegistry</code> mapear a cena.</li>
+                    <li><strong>ConfigurarCaixasDaFase():</strong> O Manager vai na <code>piscinaDeCaixas</code> escondida e pesca exatamente as cores pedidas no cardápio. Ele ativa as 2 primeiras caixas e deixa o resto na fila. <em>Detalhe vital:</em> Ele repassa a variável <code>surpriseColorToSpawn</code> do cardápio diretamente para a inteligência da caixa selecionada.</li>
+                    <li><strong>A Busca Dupla de Conectores (Sockets):</strong> Antes de avisar a UI, ele faz uma varredura inteligente: coleta os conectores (<code>AlignToUI</code>) das caixas ativadas <strong>E</strong> os conectores fixos que possam ter vindo no chão do prefab 3D. Então, ele envia esse pacote completo para o <code>uiDistributor</code> mapear na tela.</li>
                   </List>
 
                   <Subtitle>3. Core Gameplay: O Roteamento de Parafusos</Subtitle>
@@ -143,20 +137,19 @@ const GA4NextJsIntegration = () => {
                   </Paragraph>
                   <List>
                     <li><strong>OnScrewCollected:</strong> Registra que o parafuso chegou e aciona a verificação de vitória e atualização da barra de progresso.</li>
-                    <li><strong>UpdatePercentageUI:</strong> Calcula a % de caixas completas (<code>completedBoxes / totalBoxes</code>) e grita o novo número pelo <code>onPercentageChangedEvent</code>.</li>
-                    <li><strong>CheckWinCondition:</strong> Varre todas as caixas. Se todas estiverem com <code>IsComplete() == true</code>, ele desativa os Slots Extras, dispara o evento de vitória e inicia a rotina <code>LevelComplete()</code> (com delay) para carregar a tela de sucesso. O Reset das caixas da piscina para o próximo nível também acontece neste fluxo.</li>
+                    <li><strong>UpdatePercentageUI:</strong> Calcula a % de caixas completas e grita o novo número exato (arredondado para baixo via <code>Mathf.FloorToInt</code>) pelo <code>onPercentageChangedEvent</code>.</li>
+                    <li><strong>CheckWinCondition:</strong> Varre todas as caixas de <code>allBoxesInLevel</code>. Se todas retornarem <code>IsComplete() == true</code>, ele desativa os Slots Extras, dispara o evento de vitória e usa um <code>Invoke</code> para esperar 5 segundos (tempo para os confetes caírem) antes de carregar a tela de sucesso via <code>LevelComplete()</code>.</li>
                   </List>
 
-                  <Subtitle>5. Métodos Auxiliares e Mecânicas Específicas</Subtitle>
+                  <Subtitle>5. Métodos Auxiliares e Inteligência Avançada</Subtitle>
                   <List>
-                    <li><strong>ActivateBoxByColor:</strong> Acorda uma caixa inativa quando chega a vez dela aparecer na mesa, a registra nas caixas ativas e gerencia a fila da piscina.</li>
-                    <li><strong>CheckSlotsForWaitingScrews:</strong> Sempre que uma nova caixa aparece, o Manager olha para os <em>Extra Slots</em> para ver se há parafusos aguardando daquela cor e manda eles voarem para a nova caixa.</li>
-                    <li><strong>SpawnFlyingStar:</strong> Dispara o evento de VFX da estrelinha (usado ao completar uma caixa).</li>
-                    <li><strong>GetNextHiddenBoxColor:</strong> Usado pela mecânica de "Surpresa". Olha para o tabuleiro e acha uma cor de caixa que ainda está escondida na fila da piscina, garantindo que não escolha uma cor que já está ativa na mesa.</li>
+                    <li><strong>ActivateBoxByColor:</strong> Acorda uma caixa inativa quando chega a vez dela aparecer na mesa, e a registra nas caixas ativas.</li>
+                    <li><strong>CheckSlotsForWaitingScrews:</strong> Sempre que uma nova caixa aparece, o Manager manda os parafusos da fila de espera que combinam com aquela cor decolarem imediatamente.</li>
+                    <li><strong>A Inteligência da Caixa Surpresa (GetNextHiddenBoxColor):</strong> Quando o sistema precisa invocar uma surpresa, este método varre a fila procurando uma cor escondida. <em>A grande sacada:</em> Ele verifica se a cor sorteada <strong>não está ativa atualmente na mesa</strong>, garantindo que o jogador não fique com duas caixas da mesma cor pedindo parafusos simultaneamente.</li>
                   </List>
 
                 </Container>
-                <VoltarParaTopo />
+                <VoltarParaTopo></VoltarParaTopo>
               </CodeContainer>
             </MainContentLayout>
           </MainLayout>

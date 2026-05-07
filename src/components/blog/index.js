@@ -69,7 +69,8 @@ export const DiarioDevMainContainer = styled.div`
   }
 
   & .h3Center-diarioDev:hover {
-    color: blue;
+    /* color: blue; */
+    background-color: #3333;
   }
 
   & .h3Center-diarioDev.active {

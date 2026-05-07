@@ -76,7 +76,7 @@ const GA4NextJsIntegration = () => {
               <CodeContainer>
                 <Container>
                   <SectionTitle>
-                    3. Interface de Usuário (UI): TopBar e Sistema de Progresso
+                    4. Interface de Usuário (UI): TopBar e Sistema de Progresso
                   </SectionTitle>
 
                   <Subtitle>Visão Geral</Subtitle>

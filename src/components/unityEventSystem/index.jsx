@@ -76,7 +76,7 @@ const GA4NextJsIntegration = () => {
               <CodeContainer>
                 <Container>
                   <SectionTitle>
-                    7. EventSystem: O Motor de Interação da Cena
+                    8. EventSystem: O Motor de Interação da Cena
                   </SectionTitle>
 
                   <Subtitle>Visão Geral</Subtitle>

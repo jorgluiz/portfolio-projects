@@ -76,7 +76,7 @@ const GA4NextJsIntegration = () => {
               <CodeContainer>
                 <Container>
                   <SectionTitle>
-                    9. Game Managers: Os Sistemas Desacoplados (level_base)
+                    11. Game Managers: Os Sistemas Desacoplados (level_base)
                   </SectionTitle>
 
                   <Subtitle>Visão Geral</Subtitle>

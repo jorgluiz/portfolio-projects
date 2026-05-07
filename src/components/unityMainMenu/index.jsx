@@ -76,42 +76,40 @@ const GA4NextJsIntegration = () => {
               <CodeContainer>
                 <Container>
                   <SectionTitle>
-                    9. Mecânica Base: Extra Slots 3D (A Fila de Espera)
+                    1. Cena: MainMenu e Gerenciadores Globais Persistentes
                   </SectionTitle>
 
                   <Subtitle>Visão Geral</Subtitle>
                   <Paragraph>
-                    O objeto <strong>Extra_Slots_3D</strong> gerencia os buracos extras onde o jogador pode "estacionar" temporariamente os parafusos que não têm uma caixa correspondente aberta na mesa. Diferente da UI tradicional, esses slots são objetos 3D reais (cilindros) que se posicionam na tela para receber os parafusos de forma visualmente coesa.
+                    A cena <strong>MainMenu</strong> não é apenas a tela inicial onde o jogador clica em "Jogar". Ela atua como o berço dos sistemas globais do jogo. É aqui que os gerentes persistentes (Singletons) nascem, carregam os dados salvos do dispositivo e se blindam para não serem destruídos quando o jogador muda de fase.
                   </Paragraph>
 
-                  <Subtitle>1. O Gerenciador: Extra_Slots_3D</Subtitle>
+                  <Subtitle>1. MenuManager (A Ponte da Interface)</Subtitle>
                   <Paragraph>
-                    Este objeto atua como o pai hierárquico e o controlador lógico da fila de espera.
+                    Um script enxuto e de responsabilidade única focado apenas na UI do menu.
                   </Paragraph>
                   <List>
-                    <li><strong>Hierarquia:</strong> Contém sete filhos predefinidos (<code>Slot_3D_01</code> a <code>Slot_3D_07</code>).</li>
-                    <li><strong>Script ExtraSlotsManager:</strong> O cérebro do sistema.
-                      <ul>
-                        <li><em>Slots 3D (Array):</em> Mantém uma lista estrita com as referências (Transforms) de cada um dos 7 slots filhos. É essa lista que o <code>LevelManager</code> consulta quando precisa saber "onde tem um buraco vazio?".</li>
-                        <li><em>Initial Slots Count (5):</em> Uma variável de configuração excelente. Embora existam 7 slots na cena, o jogo começa com apenas 5 disponíveis. Os outros 2 (Slot 06 e 07) estão ali para serem liberados dinamicamente via mecânicas de gameplay (como o botão de Power-Up "Unlockable_Slot_Button" que vimos anteriormente).</li>
-                      </ul>
-                    </li>
+                    <li><strong>Função IniciarJogo():</strong> Vinculada ao botão de "Play" da tela. Em vez de ditar regras, ela simplesmente chama o <code>GameManager.Instance.StartGameFromMenu()</code>, passando o índice da cena principal (<code>levelBaseSceneIndex = 3</code>). Se o GameManager não existir, ela emite um erro no console, garantindo a segurança do fluxo.</li>
                   </List>
 
-                  <Subtitle>2. O Prefab do Slot (P_Dock_Slot_3D)</Subtitle>
+                  <Subtitle>2. GameManager (O Cérebro Persistente)</Subtitle>
                   <Paragraph>
-                    Cada <code>Slot_3D_XX</code> é uma instância do prefab <strong>P_Dock_Slot_3D</strong>. Este prefab resolve o desafio de alinhar um objeto 3D perfeitamente com a UI (que está no Canvas 2D).
+                    O maestro global do projeto. Utiliza o padrão Singleton (<code>public static GameManager Instance</code>) e o comando <code>DontDestroyOnLoad</code> para sobreviver a todas as trocas de cenas.
                   </Paragraph>
                   <List>
-                    <li><strong>Visual (Mesh e Material):</strong> Usa o modelo de um cilindro (<code>Cylinder.001</code>). Para otimização de performance no mobile, a opção <em>Cast Shadows</em> está desativada (Off), pois buracos não precisam projetar sombras na cena.</li>
-                    <li><strong>Script AlignToUI:</strong> O segredo do posicionamento.
-                      <ul>
-                        <li><em>UI Target:</em> Referência a um objeto do Canvas (ex: <code>Slot_Guide_01 (Rect Transform)</code>). O slot 3D persegue e se fixa fisicamente onde esse guia 2D estiver na tela do celular.</li>
-                        <li><em>World Camera:</em> Aponta para a <code>Main Camera</code> para fazer os cálculos de projeção da tela para o mundo 3D.</li>
-                        <li><em>Z Distance (0.89):</em> Define o quão perto ou longe da câmera o cilindro ficará estacionado no espaço 3D, garantindo que os parafusos não fiquem cortados ou minúsculos.</li>
-                        <li><em>Continuous Update (Ativado):</em> Garante que, se o layout da tela mudar (giro do celular ou redimensionamento), o slot 3D recalculará sua posição instantaneamente para não descolar da UI.</li>
-                      </ul>
-                    </li>
+                    <li><strong>Lista de Níveis (LevelData[] levels):</strong> O catálogo mestre de todas as fases do jogo. É daqui que o <em>LevelManager</em> (lá na cena do jogo) puxa o "cardápio" de caixas e regras de cada fase.</li>
+                    <li><strong>Carregamento de Progresso (LoadProgress):</strong> Chamado logo no <code>Awake()</code>. Ele acessa o banco de dados local do celular (<code>PlayerPrefs</code>) usando a chave constante <code>PROGRESS_KEY</code> para descobrir em qual fase o jogador parou. Se o índice salvo for maior que a lista de níveis (jogador zerou o jogo), ele reseta para 0 com segurança.</li>
+                    <li><strong>Salvamento Imediato (RegisterNextLevel):</strong> Quando o jogador vence uma fase, o <em>LevelManager</em> avisa o GameManager, que imediatamente salva o novo índice no disco (<code>PlayerPrefs.Save()</code>). Isso garante que, se o aplicativo for fechado abruptamente na tela de vitória, o progresso não será perdido.</li>
+                  </List>
+
+                  <Subtitle>3. VibrationManager (Motor Háptico Otimizado)</Subtitle>
+                  <Paragraph>
+                    Também um Singleton persistente, responsável por dar "peso" tátil aos parafusos e marteladas, mas com uma arquitetura focada em altíssima performance para Android.
+                  </Paragraph>
+                  <List>
+                    <li><strong>Cache Nativo (Otimização Mobile):</strong> Fazer chamadas diretas para a API do Android (Java) durante a gameplay (como na hora de soltar um parafuso) gera "lixo" na memória e trava o jogo. Este script resolve isso executando a busca pesada (<code>getSystemService</code>) <strong>uma única vez</strong> no <code>Awake()</code> e guardando a referência na variável <code>vibrator</code>.</li>
+                    <li><strong>Níveis de Vibração:</strong> Oferece métodos expostos <code>VibrateLight()</code> (30ms) e <code>VibrateHeavy()</code> (150ms) para que os parafusos e ferramentas causem sensações físicas diferentes nas mãos do jogador.</li>
+                    <li><strong>Fallback Seguro:</strong> O método <code>VibrateCustom</code> tenta usar o sistema rápido de cache. Se houver qualquer falha ou se o jogo estiver rodando em iOS/Editor, ele possui rotas alternativas de segurança (<code>Handheld.Vibrate()</code>), garantindo que o código nunca quebre o jogo por falta de hardware compatível.</li>
                   </List>
 
                 </Container>
