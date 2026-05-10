@@ -27,8 +27,8 @@ import ImageSlider from '@/components/imageSlider';
 const retopologyImages = [
   { src: '/assets/unityScriptableObjects/gameEvent.png', alt: '???' },
   { src: '/assets/unityScriptableObjects/gameEventInt.png', alt: '???' },
-  { src: '/assets/unityScriptableObjects/levelData.png', alt: '???' },
   { src: '/assets/unityScriptableObjects/gameEventVector3.png', alt: '???' },
+  { src: '/assets/unityScriptableObjects/levelData.png', alt: '???' },
 ];
 
 const GA4NextJsIntegration = () => {
@@ -82,7 +82,7 @@ const GA4NextJsIntegration = () => {
 
                   <Subtitle>Visão Geral</Subtitle>
                   <Paragraph>
-                    Os <code>ScriptableObjects</code> nesta arquitetura dividem-se em duas grandes famílias: os <strong>Containers de Dados</strong> (que guardam as configurações de cada fase) e os <strong>Canais de Eventos</strong> (que fazem os scripts conversarem entre si sem se conhecerem diretamente). Isso garante que o jogo seja leve, fácil de expandir e imune a bugs de dependência quebrada.
+                    Os <strong style={{ color: "red" }}>ScriptableObjects</strong> nesta arquitetura dividem-se em duas grandes famílias: os <strong>Containers de Dados</strong> (que guardam as configurações de cada fase) e os <strong>Canais de Eventos</strong> (que fazem os scripts conversarem entre si sem se conhecerem diretamente). Isso garante que o jogo seja leve, fácil de expandir e imune a bugs de dependência quebrada.
                   </Paragraph>
 
                   <Subtitle>O que é um ScriptableObject? (O Conceito)</Subtitle>
@@ -130,6 +130,8 @@ const GA4NextJsIntegration = () => {
                     <li><strong>O que ele faz:</strong> Funciona exatamente como os anteriores, mas sua função <code>Raise(Vector3 value)</code> exige a passagem de uma coordenada tridimensional (X, Y, Z).</li>
                     <li><strong>Quando usar:</strong> Sempre que um sistema precisar avisar aos outros não apenas que algo aconteceu, mas <em>onde</em> aconteceu. No projeto, o exemplo clássico é o <em>OnStarFlyRequestedEvent</em>. Quando uma caixa é completada, o <code>LevelManager</code> grita "solte a estrela" e anexa as coordenadas daquela caixa. O <code>UI_Manager</code> escuta o evento, pega esse <code>Vector3</code> e faz a estrelinha nascer voando exatamente do ponto correto na tela.</li>
                   </List>
+
+                  <ImageSlider images={retopologyImages} />
 
                 </Container>
                 <VoltarParaTopo></VoltarParaTopo>

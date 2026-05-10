@@ -27,13 +27,17 @@ import UnityLoading from "@/components/unityLoading";
 
 import UnityMainMenu from "@/components/unityMainMenu";
 
-import UnityDataDriven from "@/components/unityDataDriven";
+import UnityScriptableObjects from "@/components/unityScriptableObjects";
 
 import UnityPipeline from "@/components/unityPipeline";
 
 import UnityLevelBoxes3D from "@/components/unityLevelBoxes3D";
 
 import UnityPrefabsArchitecture from "@/components/unityPrefabsArchitecture";
+
+import UnityChecklistPitfalls from "@/components/unityChecklistPitfalls";
+
+import UnityVictoryManager from "@/components/unityVictoryManager";
 
 const Projetos = () => {
   const { isLoaded, isHamburguerOpen, setIsHamburguerOpen } = useGlobalState();
@@ -77,9 +81,9 @@ const Projetos = () => {
       ],
     },
     {
-      moduleTitle: "Data-Driven scripts",
+      moduleTitle: "Scriptable Objects",
       sections: [
-        { title: "Unity Data-Driven", component: <UnityDataDriven />, key: "Unity-Data-Driven" },
+        { title: "Unity Scriptable Objects", component: <UnityScriptableObjects />, key: "Unity-Scriptable-Objects" },
       ],
     },
     {
@@ -92,6 +96,18 @@ const Projetos = () => {
       moduleTitle: "Prefabs Architecture",
       sections: [
         { title: "Unity Prefabs Architecture", component: <UnityPrefabsArchitecture />, key: "Unity-Prefabs-Architecture" },
+      ],
+    },
+    {
+      moduleTitle: "Checklist de Pitfalls",
+      sections: [
+        { title: "Unity Checklist Pitfalls", component: <UnityChecklistPitfalls />, key: "Unity-Checklist-Pitfalls" },
+      ],
+    },
+    {
+      moduleTitle: "Animator",
+      sections: [
+        { title: "Unity Tela Animator e VictoryManager", component: <UnityVictoryManager />, key: "Unity-Victory-Manager" },
       ],
     },
   ];

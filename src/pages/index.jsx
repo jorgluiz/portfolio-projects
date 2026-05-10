@@ -63,7 +63,7 @@ const Layout = () => {
                   <Paragraph>Esse projeto reflete minha capacidade de construir aplicações web responsivas e otimizadas, sendo uma vitrine para minhas habilidades em frontend e backend.</Paragraph>
 
                   <div>
-                    <span>Pesquiso no <span style={{ fontSize: "20px", color: "blue", fontWeight: "800" }}>G</span><span style={{ fontSize: "20px", color: "red", fontWeight: "800" }}>o</span><span style={{ fontSize: "20px", color: "#fbbc05", fontWeight: "800" }}>o</span><span style={{ fontSize: "20px", color: "blue", fontWeight: "800" }}>g</span><span style={{ fontSize: "20px", color: "green", fontWeight: "800" }}>l</span><span style={{ fontSize: "20px", color: "red", fontWeight: "800" }}>e</span>: <a style={{ color: "blue" }} href="https://www.google.com/search?q=https://portfolio-projects-production.up.railway.app" target="_blank" rel="noopener noreferrer">Buscar pagina no Google</a></span>
+                    <span>Pesquiso no <span style={{ fontSize: "20px", color: "blue", fontWeight: "800" }}>G</span><span style={{ fontSize: "20px", color: "red", fontWeight: "800" }}>o</span><span style={{ fontSize: "20px", color: "#fbbc05", fontWeight: "800" }}>o</span><span style={{ fontSize: "20px", color: "blue", fontWeight: "800" }}>g</span><span style={{ fontSize: "20px", color: "green", fontWeight: "800" }}>l</span><span style={{ fontSize: "20px", color: "red", fontWeight: "800" }}>e</span>: <a style={{ color: "blue" }} href="https://www.google.com/search?q=jorge luiz desenvolvedor web full" target="_blank" rel="noopener noreferrer">Buscar pagina no Google</a></span>
                   </div>
                 </div>
               </MainContent>
