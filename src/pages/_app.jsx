@@ -6,7 +6,7 @@ import { GlobalStyle } from '@/styles/globalStyles';
 import { GlobalStateProvider } from '../context/GlobalStateContext';
 import { FlippedStateProvider } from '../context/FlippedContext';
 
-const GA_ID = 'G-JXELT2K8RB';
+const GA_ID = 'G-NTFCEGCNYT';
 
 const MyApp = ({ Component, pageProps }) => {
   const ENABLE_GA = process.env.NEXT_PUBLIC_ENABLE_GA === 'true';

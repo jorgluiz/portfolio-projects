@@ -221,7 +221,7 @@ const GA4NextJsIntegration = () => {
                     Para fixar o sombreamento e impedir que a animação dos olhos afete a luz do restante do corpo, siga este fluxo no Inspector do arquivo 3D:
                   </Paragraph>
                   <List>
-                    <li><strong>Aba Model:</strong> Localize a seção de importação da malha.</li>
+                    <li><strong>Abra Model:</strong> Localize a seção de importação da malha .FBX</li>
                     <li><strong>Blend Shape Normals:</strong> Altere de <code>Calculate</code> para <code>Import</code> (ou <code>None</code>). Isso força a Unity a respeitar as normais originais exportadas do Blender, impedindo cálculos dinâmicos errôneos.</li>
                     <li><strong>Tangents:</strong> Defina como <code>None</code> ou <code>Import</code> para manter a consistência dos reflexos metálicos e materiais.</li>
                     <li><strong>Resultado:</strong> A animação facial ocorre perfeitamente enquanto o sombreamento do corpo permanece sólido e sem cintilações de luz.</li>

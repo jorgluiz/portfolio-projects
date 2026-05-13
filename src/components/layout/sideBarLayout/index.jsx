@@ -101,17 +101,24 @@ const SideBar = () => {
             <Menu>
               <ul>
                 <li
-                  onClick={() => handleNavigate('/unityTutorial')}
-                  className={activeLink === '/unityTutorial' ? 'active' : ''}>
+                  onClick={() => handleNavigate('/unity-tutorial')}
+                  className={activeLink === '/unity-tutorial' ? 'active' : ''}>
                   <Span>
                     Game Dev Unity
                   </Span>
                 </li>
                 <li
-                  onClick={() => handleNavigate('/blenderTutorial')}
-                  className={activeLink === '/blenderTutorial' ? 'active' : ''}>
+                  onClick={() => handleNavigate('/blender-tutorial')}
+                  className={activeLink === '/blender-tutorial' ? 'active' : ''}>
                   <Span>
                     3D Tech Art Blender
+                  </Span>
+                </li>
+                <li
+                  onClick={() => handleNavigate('/unity-study')}
+                  className={activeLink === '/unity-study' ? 'active' : ''}>
+                  <Span>
+                    Unity Study
                   </Span>
                 </li>
               </ul>
